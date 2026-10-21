@@ -1,0 +1,4 @@
+# Keep the shell script LF everywhere; a CRLF checkout breaks bash on Mac
+# and in Git Bash on Windows.
+*.sh text eol=lf
+*.ps1 text eol=crlf
