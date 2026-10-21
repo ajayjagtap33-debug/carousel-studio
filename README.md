@@ -49,3 +49,24 @@ Three things are deliberately **not** in the repo, because they are large or mac
 - `videos/` — raw screen recordings and renders stay on the machine that made them
 
 On Windows use `python` instead of `python3` in the commands above.
+
+## Keeping machines in sync
+
+One command, from inside the project folder. It pulls whatever the other machine
+pushed, commits what you did here, and pushes it:
+
+```bash
+./sync.sh
+```
+
+```powershell
+.\sync.ps1
+```
+
+Pass your own commit message if you want one: `./sync.sh "aeo checklist v2"`.
+Without it, the message is `sync from <machine> <date>`.
+
+Run it when you sit down and again when you stop. It is safe to run when nothing
+has changed; it just says so. If the same file changed on both machines it stops
+before committing anything and prints the exact commands to sort it out, so it
+never pushes a half-merged file.
