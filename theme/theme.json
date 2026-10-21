@@ -1,0 +1,83 @@
+{
+  "size": {
+    "w": 1080,
+    "h": 1350,
+    "margin": 90,
+    "gap": 200
+  },
+  "handle": "@theajayjagtap",
+  "font": {
+    "family": 1,
+    "charWidth": 0.55,
+    "lineHeight": 1.25
+  },
+  "type": {
+    "headline": 88,
+    "subhead": 56,
+    "body": 40,
+    "qualifier": 40,
+    "small": 30,
+    "min": 36,
+    "labelMin": 28
+  },
+  "colors": {
+    "ink": "#1e1e1e",
+    "grey": "#868e96",
+    "paper": "#ffffff",
+    "red": "#e03131",
+    "blue": "#1971c2",
+    "green": "#2f9e44",
+    "violet": "#6741d9",
+    "orange": "#f08c00",
+    "l_red": "#ffc9c9",
+    "l_blue": "#a5d8ff",
+    "l_green": "#b2f2bb",
+    "l_violet": "#d0bfff",
+    "l_yellow": "#ffec99",
+    "l_orange": "#ffd8a8",
+    "l_grey": "#e9ecef",
+    "body": "#495057"
+  },
+  "accentDefault": "violet",
+  "spacing": {
+    "headlineLH": 1.15,
+    "bodyGap": 44,
+    "bodyLH": 1.4,
+    "visualGap": 70
+  },
+  "density": {
+    "maxHeadlineLinesWithBody": 2,
+    "maxBodyLines": 2,
+    "maxTextLines": 5,
+    "minVisualHeight": 520
+  },
+  "formats": {
+    "landscape": {
+      "size": {
+        "w": 1920,
+        "h": 1080
+      },
+      "layout": "landscape",
+      "textWidth": 900,
+      "visualWidth": 760,
+      "type": {
+        "headline": 84
+      }
+    },
+    "square": {
+      "size": {
+        "w": 1080,
+        "h": 1080
+      },
+      "type": {
+        "headline": 70
+      },
+      "spacing": {
+        "visualGap": 40
+      },
+      "density": {
+        "minVisualHeight": 480
+      }
+    }
+  }
+}

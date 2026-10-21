@@ -1,0 +1,219 @@
+{
+  "title": "We studied 7,497 ChatGPT ads",
+  "theme": "tmv",
+  "accent": "red",
+  "hook": "5",
+  "slides": [
+    {
+      "role": "hook",
+      "headline": [
+        "We studied",
+        {
+          "t": "7,497 ChatGPT ads",
+          "c": "accent"
+        },
+        "so you don't have to"
+      ],
+      "qualifier": "(here are the 6 findings)",
+      "visual": {
+        "type": "chat",
+        "app": "ChatGPT",
+        "q": "Is YourBrand any good?",
+        "lines": 2,
+        "ads": [
+          {
+            "name": "Your competitor",
+            "c": "red"
+          }
+        ]
+      },
+      "source": "study title (cover option 5, 'borrowed effort'; chat is an illustration of finding 1, added)"
+    },
+    {
+      "role": "value",
+      "headline": [
+        "63 brand questions.",
+        {
+          "t": "0 ads from the brand.",
+          "c": "accent"
+        }
+      ],
+      "visual": {
+        "type": "waffle",
+        "cols": 18,
+        "groups": [
+          {
+            "n": 180,
+            "c": "red",
+            "label": "180 ads, all from 94 other companies"
+          },
+          {
+            "n": 0,
+            "c": "accent",
+            "hollow": true,
+            "label": "0 from the brand in the question"
+          }
+        ]
+      },
+      "source": "study: Who is buying ¶1 + What this means",
+      "eyebrow": "Finding 1 of 6"
+    },
+    {
+      "role": "value",
+      "headline": "The room is close to empty",
+      "visual": {
+        "type": "split",
+        "rows": [
+          {
+            "label": "Questions",
+            "pct": 65.1,
+            "hi": "had ads from just 1 advertiser"
+          },
+          {
+            "label": "Advertisers",
+            "pct": 57.7,
+            "hi": "showed up on just 1 question"
+          }
+        ]
+      },
+      "source": "study: Who is buying ¶3–4 + What this means",
+      "eyebrow": "Finding 2 of 6"
+    },
+    {
+      "role": "value",
+      "headline": "Local questions, no local ads",
+      "body": "India, Australia, NZ, UAE",
+      "visual": {
+        "type": "waffle",
+        "cols": 10,
+        "groups": [
+          {
+            "n": 50,
+            "c": "grey",
+            "hollow": true,
+            "label": "50 of 58 (86.2%): no advertiser from that market"
+          },
+          {
+            "n": 8,
+            "c": "accent",
+            "label": "8 had a local one"
+          }
+        ]
+      },
+      "source": "study: How ads match ¶1 (\"8\" = 58 − 50)",
+      "eyebrow": "Finding 3 of 6",
+      "bg": "dark"
+    },
+    {
+      "role": "value",
+      "headline": "How-to questions get ads too",
+      "body": "Ads per question:",
+      "visual": {
+        "type": "bars",
+        "bars": [
+          {
+            "label": "\"how does it work?\"",
+            "value": 3.92,
+            "display": "3.92"
+          },
+          {
+            "label": "\"where do I buy?\"",
+            "value": 3.43,
+            "display": "3.43",
+            "c": "grey"
+          }
+        ]
+      },
+      "source": "study: How ads match ¶3",
+      "eyebrow": "Finding 4 of 6"
+    },
+    {
+      "role": "value",
+      "headline": "Your tracking won't see it",
+      "body": "Check it before you scale.",
+      "visual": {
+        "type": "link",
+        "url": "yourbrand.com/?…",
+        "params": [
+          {
+            "k": "oppref=…",
+            "mark": "✓",
+            "note": "on every link (OpenAI's)",
+            "c": "green"
+          },
+          {
+            "k": "gclid",
+            "mark": "✗",
+            "note": "on none",
+            "c": "red",
+            "strike": true
+          },
+          {
+            "k": "utm_term",
+            "mark": "?",
+            "note": "only 5.3% share a word with the question",
+            "c": "orange"
+          }
+        ]
+      },
+      "source": "study: What advertisers can see ¶1–2 + What this means",
+      "eyebrow": "Finding 5 of 6",
+      "bg": "purple"
+    },
+    {
+      "role": "value",
+      "headline": "Few built a page for ChatGPT",
+      "visual": {
+        "type": "pages",
+        "pages": [
+          {
+            "title": "Homepage",
+            "value": "26.4%",
+            "label": "of advertisers only linked here",
+            "c": "grey"
+          },
+          {
+            "title": "ChatGPT page",
+            "value": "71",
+            "label": "advertisers built one"
+          }
+        ]
+      },
+      "source": "study: What advertisers can see ¶3–4",
+      "eyebrow": "Finding 6 of 6"
+    },
+    {
+      "role": "proof",
+      "headline": "What it means for you",
+      "visual": {
+        "type": "cards",
+        "items": [
+          {
+            "title": "You run ads",
+            "sub": "it's early, fix tracking first"
+          },
+          {
+            "title": "You don't",
+            "sub": "rivals can show up on your name"
+          },
+          {
+            "title": "You track AI visibility",
+            "sub": "treat paid and organic separately"
+          }
+        ]
+      },
+      "source": "study: What this means (card subtitles: paraphrase)",
+      "bg": "dark"
+    },
+    {
+      "role": "cta",
+      "headline": "Want the full study?",
+      "visual": {
+        "type": "comment_dm",
+        "keyword": "ads",
+        "dm": "here's the link ✓"
+      },
+      "source": "added (approved)"
+    }
+  ]
+}

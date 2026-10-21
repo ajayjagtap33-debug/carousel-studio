@@ -1,0 +1,197 @@
+{
+  "title": "Stay human in the AI era",
+  "accent": "orange",
+  "hook": "F",
+  "slides": [
+    {
+      "role": "hook",
+      "headline": [
+        {
+          "t": "How to stay human",
+          "c": "accent"
+        },
+        "when AI does everything"
+      ],
+      "headlineSize": 92,
+      "qualifier": "(the old-school way)",
+      "source": "brief (hook F; qualifier: added)",
+      "art": [
+        {
+          "id": "bot.busy",
+          "x": 150,
+          "y": 720,
+          "size": 400
+        },
+        {
+          "id": "person.coffee",
+          "x": 560,
+          "y": 700,
+          "size": 420
+        },
+        {
+          "id": "sparkles",
+          "x": 120,
+          "y": 640,
+          "size": 90
+        }
+      ]
+    },
+    {
+      "role": "stakes",
+      "headline": "AI is great. I use it every day.",
+      "body": "But I don't want it doing my thinking.",
+      "visual": {
+        "type": "note",
+        "label": "the deal:",
+        "text": "AI does the busywork. I do the thinking.",
+        "art": {
+          "id": "bot.busy"
+        }
+      },
+      "source": "brief (\"I use it every day\": added, confirm)"
+    },
+    {
+      "role": "value",
+      "number": 1,
+      "headline": "Write the first draft yourself",
+      "visual": {
+        "type": "note",
+        "text": "Write it messy. Let AI polish after.",
+        "art": {
+          "id": "person.point"
+        }
+      },
+      "source": "added",
+      "body": "That's where you find out what you think."
+    },
+    {
+      "role": "value",
+      "number": 2,
+      "headline": "Sit with the problem",
+      "visual": {
+        "type": "note",
+        "text": "Ask yourself: what's really wrong here?",
+        "art": {
+          "id": "person.think"
+        }
+      },
+      "source": "Ajay feedback",
+      "body": "Give your own brain the first turn."
+    },
+    {
+      "role": "value",
+      "number": 3,
+      "headline": "Talk to a real person",
+      "visual": {
+        "type": "note",
+        "text": "Ask what they learned the hard way.",
+        "art": {
+          "id": "person.talk"
+        }
+      },
+      "source": "Ajay feedback",
+      "body": "An expert, a peer, someone who's been there."
+    },
+    {
+      "role": "value",
+      "number": 4,
+      "headline": "Take notes by hand",
+      "visual": {
+        "type": "note",
+        "text": "Even if AI is recording, write your own.",
+        "art": {
+          "id": "person.write"
+        }
+      },
+      "source": "Ajay feedback",
+      "body": "In meetings, on calls, while you read."
+    },
+    {
+      "role": "value",
+      "number": 5,
+      "headline": "Read the whole thing",
+      "visual": {
+        "type": "note",
+        "text": "Pick one piece and read it start to finish.",
+        "art": {
+          "id": "person.read"
+        }
+      },
+      "source": "added",
+      "body": "A summary gives you the point, not the thinking."
+    },
+    {
+      "role": "value",
+      "number": 6,
+      "headline": "Let it be imperfect",
+      "visual": {
+        "type": "note",
+        "text": "Keep your words, your quirks, your rough edges.",
+        "art": {
+          "id": "person.cheer"
+        }
+      },
+      "source": "Ajay feedback (replaces \"Keep your own voice\")",
+      "body": "Imperfect is what makes it human."
+    },
+    {
+      "role": "proof",
+      "headline": [
+        "Use AI.",
+        {
+          "t": "Just don't stop thinking.",
+          "c": "accent"
+        }
+      ],
+      "visual": {
+        "type": "stat",
+        "value": "you",
+        "label": "are still the one who decides"
+      },
+      "source": "brief (\"never stop thinking\")",
+      "art": [
+        {
+          "id": "person.cheer",
+          "x": 90,
+          "y": 620,
+          "size": 290
+        },
+        {
+          "id": "bot.wave",
+          "x": 730,
+          "y": 660,
+          "size": 260,
+          "flip": true
+        }
+      ]
+    },
+    {
+      "role": "cta",
+      "headline": "Which one will you try this week?",
+      "visual": {
+        "type": "cards",
+        "items": [
+          {
+            "title": "Write it yourself"
+          },
+          {
+            "title": "Sit with it"
+          },
+          {
+            "title": "Talk to a person"
+          },
+          {
+            "title": "Notes by hand"
+          },
+          {
+            "title": "Read it all"
+          },
+          {
+            "title": "Be imperfect"
+          }
+        ]
+      },
+      "source": "added (recap of 3–8)"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "format": "square",
+  "accent": "green",
+  "slides": [
+    {
+      "role": "quote",
+      "source": "brief",
+      "headline": [
+        "You can't automate",
+        "something you can't",
+        {
+          "t": "do manually.",
+          "c": "accent"
+        }
+      ],
+      "visual": {
+        "type": "versus",
+        "source": "added",
+        "rows": [
+          {
+            "label": "automate first",
+            "c": "red",
+            "steps": [
+              {
+                "art": "bot.shrug"
+              },
+              {
+                "art": "scribble",
+                "c": "red"
+              }
+            ]
+          },
+          {
+            "label": "by hand first",
+            "c": "green",
+            "steps": [
+              {
+                "art": "person.write"
+              },
+              {
+                "art": "bot.laptop"
+              }
+            ]
+          }
+        ],
+        "frame": false,
+        "columns": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "format": "landscape",
+  "handle": false,
+  "slides": [
+    {
+      "role": "title",
+      "source": "brief",
+      "align": "center",
+      "headline": [
+        "How to pick the right prompts",
+        {
+          "t": "to track for AI visibility",
+          "c": "accent"
+        }
+      ],
+      "qualifier": "(my secret tip)",
+      "visual": {
+        "type": "prompt",
+        "source": "added",
+        "app": "chatgpt",
+        "q": "best CRM for a small sales team?",
+        "logos": [
+          "chatgpt",
+          "gemini",
+          "perplexity",
+          "google"
+        ]
+      },
+      "art": [
+        {
+          "id": "person.point",
+          "x": 90,
+          "y": 470,
+          "size": 330
+        },
+        {
+          "id": "magnifier",
+          "x": 1610,
+          "y": 490,
+          "size": 170
+        },
+        {
+          "id": "sparkles",
+          "x": 1180,
+          "y": 270,
+          "size": 80
+        }
+      ]
+    }
+  ]
+}

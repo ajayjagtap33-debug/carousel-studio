@@ -1,0 +1,126 @@
+{
+  "title": "AEO + GEO checklist",
+  "accent": "violet",
+  "hook": "A",
+  "slides": [
+    {
+      "role": "hook",
+      "headline": [
+        {
+          "t": "250+ checks",
+          "c": "accent"
+        },
+        "to show up in",
+        "AI search"
+      ],
+      "headlineSize": 100,
+      "qualifier": "(the AEO + GEO checklist we use on our own site)",
+      "visual": {
+        "type": "checklist",
+        "rows": 5
+      },
+      "source": "script ¶2"
+    },
+    {
+      "role": "stakes",
+      "headline": "It was scattered everywhere",
+      "body": "With no one place to track what we'd done.",
+      "visual": {
+        "type": "scatter",
+        "items": [
+          "AEO",
+          "GEO",
+          "SEO",
+          "Local SEO"
+        ],
+        "target": "ONE place\nto work\nthrough it"
+      },
+      "source": "script ¶3"
+    },
+    {
+      "role": "value",
+      "headline": "So we spent 2 weeks building it",
+      "body": "For our own team first.",
+      "visual": {
+        "type": "calendar",
+        "days": 14,
+        "result": "our internal checklist"
+      },
+      "source": "script ¶4"
+    },
+    {
+      "role": "value",
+      "headline": "Every signal in one place",
+      "visual": {
+        "type": "layers",
+        "layers": [
+          "Local SEO foundation",
+          "SEO",
+          "AEO signals",
+          "GEO signals"
+        ],
+        "top": "how AI understands\n& talks about you"
+      },
+      "source": "script ¶5"
+    },
+    {
+      "role": "value",
+      "headline": "Every check comes with",
+      "visual": {
+        "type": "cards",
+        "items": [
+          {
+            "title": "A clear explanation",
+            "sub": "what it is and why it matters"
+          },
+          {
+            "title": "Effort vs impact",
+            "sub": "so you fix what matters first"
+          },
+          {
+            "title": "Tools & resources",
+            "sub": "for each area"
+          },
+          {
+            "title": "A prompt testing log",
+            "sub": "is your brand showing up in AI?"
+          }
+        ]
+      },
+      "source": "script ¶6 (card subtitles 1-2: added)"
+    },
+    {
+      "role": "value",
+      "headline": "Check if AI mentions you",
+      "body": "Track it in the prompt testing log.",
+      "visual": {
+        "type": "screenshot",
+        "src": "prompt-log.png",
+        "prompt": "Screenshot of the prompt testing log tab, a few rows filled in"
+      },
+      "source": "script ¶6"
+    },
+    {
+      "role": "proof",
+      "headline": "We use it to find gaps in our own AI visibility",
+      "headlineSize": 72,
+      "visual": {
+        "type": "stat",
+        "value": "100+",
+        "label": "marketers already use it",
+        "people": true
+      },
+      "source": "script ¶7"
+    },
+    {
+      "role": "cta",
+      "headline": "Want it for your brand?",
+      "visual": {
+        "type": "comment_dm",
+        "keyword": "checklist",
+        "dm": "here's the link ✓"
+      },
+      "source": "script ¶9"
+    }
+  ]
+}

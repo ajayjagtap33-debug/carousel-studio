@@ -1,0 +1,189 @@
+{
+  "_about": "Track My Visibility brand theme. Merged over theme.json (sizes, type scale, spacing, density stay shared). Source: TMV brand doc (tmv-theme.md).",
+  "size": {
+    "w": 1920,
+    "h": 1080
+  },
+  "layout": "landscape",
+  "textWidth": 780,
+  "visualWidth": 900,
+  "handle": null,
+  "noCast": true,
+  "formats": {
+    "portrait": {
+      "size": {
+        "w": 1080,
+        "h": 1350
+      },
+      "layout": "portrait",
+      "type": {
+        "headline": 80
+      }
+    }
+  },
+  "type": {
+    "headline": 72
+  },
+  "formal": true,
+  "roughness": 0,
+  "flatFill": true,
+  "font": {
+    "family": 2,
+    "charWidth": 0.57
+  },
+  "webFont": {
+    "family": "Helvetica Neue",
+    "fallback": {
+      "family": "TeX Gyre Heros",
+      "key": "texgyreheros"
+    },
+    "weights": {
+      "heavy": 700,
+      "ink": 500,
+      "rest": 400,
+      "kicker": 700
+    },
+    "heavyFrom": 52
+  },
+  "wordmark": "tmv.",
+  "accentDefault": "red",
+  "series": [
+    "red",
+    "violet",
+    "coral",
+    "orange",
+    "green"
+  ],
+  "canvas": "#FBF8F7",
+  "colors": {
+    "ink": "#141414",
+    "body": "#6E6866",
+    "grey": "#9A9492",
+    "paper": "#FFFFFF",
+    "border": "#E6DFDC",
+    "wordmark": "#B80000",
+    "red": "#B80000",
+    "coral": "#F86659",
+    "violet": "#7B3AEC",
+    "blue": "#4E8C8C",
+    "green": "#4E8C5A",
+    "orange": "#C46A2E",
+    "l_red": "#FDF0EE",
+    "l_coral": "#FADDDA",
+    "l_violet": "#E7E0FB",
+    "l_blue": "#E2EEEE",
+    "l_green": "#E4EFE6",
+    "l_orange": "#F8E8DC",
+    "l_yellow": "#FADDDA",
+    "l_grey": "#F4EFED"
+  },
+  "bgDefault": {
+    "first": "hero",
+    "last": "heroLight",
+    "rest": "light"
+  },
+  "backgrounds": {
+    "light": {
+      "base": "#FBF8F7",
+      "blooms": [
+        [
+          1,
+          0,
+          "#FAECEB",
+          0.45
+        ],
+        [
+          0,
+          1,
+          "#F4F1FA",
+          0.45
+        ]
+      ],
+      "colors": {}
+    },
+    "dark": {
+      "base": "#141414",
+      "blooms": [
+        [
+          0,
+          0,
+          "#2A1A48",
+          0.6
+        ],
+        [
+          1,
+          1,
+          "#57201C",
+          0.6
+        ]
+      ],
+      "colors": "onDark"
+    },
+    "purple": {
+      "base": "#1E0859",
+      "blooms": [
+        [
+          1,
+          0,
+          "#4017AD",
+          0.6
+        ],
+        [
+          0,
+          1,
+          "#4C136D",
+          0.6
+        ]
+      ],
+      "colors": "onDark"
+    },
+    "hero": {
+      "linear": [
+        "#A6231A",
+        "#952561",
+        "#7D1E8D",
+        "#24096A"
+      ],
+      "stops": [
+        0,
+        0.4,
+        0.65,
+        1
+      ],
+      "colors": "onDark"
+    },
+    "heroLight": {
+      "linear": [
+        "#D73E2E",
+        "#8C275E",
+        "#942A9A",
+        "#310C87"
+      ],
+      "stops": [
+        0,
+        0.4,
+        0.65,
+        1
+      ],
+      "colors": "onDark"
+    }
+  },
+  "onDark": {
+    "ink": "#FFFFFF",
+    "body": "#AFA9A7",
+    "grey": "#AFA9A7",
+    "paper": "#FFFFFF14",
+    "border": "#FFFFFF33",
+    "wordmark": "#FFFFFF",
+    "red": "#F86659",
+    "coral": "#F86659",
+    "l_red": "#F8665933",
+    "l_coral": "#F8665933",
+    "l_violet": "#7B3AEC59",
+    "l_blue": "#4E8C8C59",
+    "l_green": "#4E8C5A59",
+    "l_orange": "#C46A2E59",
+    "l_yellow": "#F8CFCA2E",
+    "l_grey": "#FFFFFF1F"
+  }
+}

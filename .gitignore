@@ -1,0 +1,17 @@
+# Node deps (broll app) — restore with: cd broll && npm install
+node_modules/
+
+# Bundled ffmpeg build (~314 MB) — install ffmpeg locally instead
+tools/ffmpeg/
+
+# Raw screen recordings and renders — local only
+videos/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# OS cruft
+.DS_Store
+Thumbs.db
+desktop.ini

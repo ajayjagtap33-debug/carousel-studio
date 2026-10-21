@@ -1,0 +1,143 @@
+{
+  "title": "We studied 7,497 ChatGPT ads (TMV study look)",
+  "theme": "tmv-study",
+  "series": "ChatGPT Ads Study · 7,497 ads",
+  "site": "trackmyvisibility.com",
+  "slides": [
+    {
+      "role": "cover",
+      "layout": "cover",
+      "kicker": "NEW RESEARCH",
+      "headline": ["We studied", {"t": "7,497", "c": "accent"}, "ChatGPT ads."],
+      "headlineSize": 104,
+      "sub": "Who’s buying, what they match, and what it means for your brand.",
+      "panel": [
+        {"type": "ask", "card": false, "dots": true, "q": "Best CRM for a small agency?",
+         "lines": [1, 0.92, 0.6], "linesWidth": 0.84,
+         "ads": [{"tag": "SPONSORED", "tone": "red", "bg": "#FFF6F7", "border": "#F2B8BF",
+                  "text": [{"t": "This slot is now for sale.", "b": true}]}]},
+        {"type": "tiles", "mt": 18, "items": [
+          {"value": "7,497", "label": "ads", "bg": "cy"},
+          {"value": "1,957", "label": "questions", "bg": "cp"},
+          {"value": "1,346", "label": "advertisers", "bg": "cb"}]}
+      ],
+      "source": "v3 html cover; numbers from brief; chat question is illustrative (added in v3)"
+    },
+    {
+      "role": "value",
+      "kicker": "FINDING 01",
+      "headline": ["Ask about a brand.", {"t": "Get its rivals.", "c": "accent"}],
+      "blocks": [
+        {"type": "ask", "q": "AppSumo vs other stores for software deals?", "ads": [
+          {"tag": "AD", "tone": "violet", "text": "A competitor"},
+          {"tag": "AD", "tone": "violet", "text": "Another competitor"},
+          {"tag": "AD", "tone": "grey", "text": [{"t": "+ 25 more. ", "c": "grey"}, {"t": "None from AppSumo.", "b": true}]}]},
+        {"type": "statpair", "items": [
+          {"value": "180", "label": "ads on 63 questions\nthat named a brand"},
+          {"value": "0", "tone": "grad", "label": "came from the\nbrand named"}]},
+        {"type": "take", "text": "If you don’t fill the space under your name, a rival will."}
+      ],
+      "source": "brief: 63 questions / 0 of 180 ads; AppSumo example + '25 more' from v3 html (not in brief)"
+    },
+    {
+      "role": "value",
+      "kicker": "FINDING 02",
+      "headline": ["The room is", {"t": "almost empty.", "c": "accent"}],
+      "blocks": [
+        {"type": "dotstat", "value": "65%", "groups": [
+          {"n": 22, "c": "#E5402F"}, {"n": 22, "c": "#C8286A"}, {"n": 21, "c": "#7330E6"}, {"n": 35, "c": "#E4E5EC"}],
+         "label": [{"t": "of questions had ads from "}, {"t": "just one advertiser", "b": true, "c": "ink"}]},
+        {"type": "statband", "value": "58%", "valueColor": "purple", "labelColor": "#3d2a66", "bg": "cv",
+         "label": "of advertisers showed up\non only one question"},
+        {"type": "take", "text": "Not a crowded auction yet. Early movers have room."}
+      ],
+      "source": "brief: 65.1% one advertiser, 57.7% one question (rounded as in v3 html)"
+    },
+    {
+      "role": "value",
+      "kicker": "FINDING 03",
+      "headline": ["How-to questions", {"t": "get ads too.", "c": "accent"}],
+      "blocks": [
+        {"type": "barcard", "title": "Average ads per question", "pill": "+14% on how-to", "bars": [
+          {"value": 3.92, "display": "3.92", "tag": "LEARN", "label": "“How does it work?”", "bold": true},
+          {"value": 3.43, "display": "3.43", "tag": "BUY", "tone": "mute", "label": "“Where do I buy?”"}]},
+        {"type": "take", "text": "Ads aren’t only at the bottom of the funnel here."}
+      ],
+      "source": "brief: 3.92 vs 3.43; +14% is derived (3.92/3.43), from v3 html"
+    },
+    {
+      "role": "value",
+      "kicker": "FINDING 04",
+      "headline": ["Local questions,", {"t": "foreign ads.", "c": "accent"}],
+      "blocks": [
+        {"type": "ask", "q": "Best air cooler in India?", "ads": [
+          {"tag": "AD", "tone": "yellow", "text": [{"t": "MRCOOL", "b": true}, {"t": " · a US air-conditioner brand", "c": "grey"}]}]},
+        {"type": "statband", "value": "86%", "size": 160, "pad": [40, 40], "gap": 34, "labelSize": 28, "bg": "cy",
+         "labelColor": "#5b4a10",
+         "label": [{"t": "of questions naming a non-US market got "}, {"t": "no advertiser from that market", "b": true, "c": "ink"}],
+         "pills": ["India", "Australia", "New Zealand", "UAE"]},
+        {"type": "take", "text": "Selling outside the US? Check who shows up for your market."}
+      ],
+      "source": "brief: 86.2% (50 of 58), markets; MRCOOL example from v3 html (not in brief)"
+    },
+    {
+      "role": "value",
+      "bg": "dark",
+      "kicker": "FINDING 05",
+      "headline": ["Your tracking", {"t": "won’t see it.", "c": "accent"}],
+      "blocks": [
+        {"type": "rows",
+         "url": [{"t": "yourbrand.com/?"}, {"t": "oppref", "b": true, "c": "yellow"}, {"t": "=…&olref=…"}],
+         "items": [
+           {"k": "oppref", "v": "✓ on 100% of ad links", "bg": "cg", "vc": "#1f7a3d"},
+           {"k": "gclid", "v": "✗ on 0 links", "bg": "cp", "vc": "red", "strike": true},
+           {"k": "the question asked", "v": "? not passed back", "bg": "cy", "vc": "#7a5a00"}]},
+        {"type": "take", "tag": "TRY THIS", "text": "Filter server logs for “oppref” to find ChatGPT ad clicks."}
+      ],
+      "source": "brief: oppref on all 7,497 links, no gclid, utm_term rarely matches; olref + 'try this' from v3 html"
+    },
+    {
+      "role": "value",
+      "kicker": "FINDING 06",
+      "headline": ["Few built a page", {"t": "for ChatGPT.", "c": "accent"}],
+      "blocks": [
+        {"type": "browsers", "items": [
+          {"url": "brand.com/", "value": "355", "label": "advertisers only ever\nlinked to a homepage"},
+          {"url": "/paid-ad-chatgpt", "value": "71", "tone": "grad", "hi": true, "label": "advertisers built a page\njust for this channel"}]},
+        {"type": "pills", "label": "REAL EXAMPLES", "items": ["/paid-ad-chatgpt", "/aeo-assessment-chatgpt"]},
+        {"type": "take", "text": "A matching landing page is still an easy edge."}
+      ],
+      "source": "brief: 355 homepage-only, 71 dedicated pages; example URLs from v3 html (not in brief)"
+    },
+    {
+      "role": "proof",
+      "kicker": "WHAT IT MEANS",
+      "headline": ["What to do", {"t": "about it.", "c": "accent"}],
+      "gap": 18,
+      "blocks": [
+        {"type": "step", "n": 1, "bg": "cy", "subColor": "#4a3d10", "title": "If you run ads",
+         "sub": "Fix tracking before you scale. Build a ChatGPT landing page."},
+        {"type": "step", "n": 2, "bg": "cp", "subColor": "#5e2536", "title": "If you don’t",
+         "sub": "Check who shows up when people ask about you."},
+        {"type": "step", "n": 3, "bg": "cb", "subColor": "#1e3c66", "title": "If you track AI visibility",
+         "sub": "Paid and organic are separate systems. Track both."},
+        {"type": "banner", "text": [{"t": "The ad layer is open. "}, {"t": "It won’t stay that way.", "c": "yellow"}]}
+      ],
+      "source": "brief recommendations; banner line from v3 html (added)"
+    },
+    {
+      "role": "cta",
+      "layout": "cta",
+      "kicker": "FULL REPORT",
+      "headline": ["Want all", {"t": "the findings?", "c": "accent"}],
+      "headlineSize": 96,
+      "sub": "Methodology, every chart, and what the data can’t tell us.",
+      "blocks": [
+        {"type": "button", "text": "Link in the comments ↓"},
+        {"type": "promo", "title": "Be the brand AI engines cite",
+         "sub": "Track your visibility across ChatGPT, Gemini,\nPerplexity and AI Overviews.", "cta": "trackmyvisibility.com →"}
+      ],
+      "source": "v3 html CTA (TMV product line, added)"
+    }
+  ]
+}

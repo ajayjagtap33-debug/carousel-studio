@@ -1,0 +1,32 @@
+[
+ {
+  "slide": 1,
+  "name": "01 library",
+  "issues": []
+ },
+ {
+  "slide": 2,
+  "name": "02 library",
+  "issues": []
+ },
+ {
+  "slide": 3,
+  "name": "03 library",
+  "issues": []
+ },
+ {
+  "slide": 4,
+  "name": "04 library",
+  "issues": []
+ },
+ {
+  "slide": 5,
+  "name": "05 library",
+  "issues": [
+   {
+    "issue": "warn: empty space at bottom",
+    "px": 415
+   }
+  ]
+ }
+]

@@ -1,0 +1,36 @@
+{
+  "_about": "TMV study/report look, recreated from tmv-chatgpt-ads-carousel-v3.html: gradient header band, white cards, SO WHAT bars, black footer. Layout code: scripts/band.py.",
+  "extends": "tmv",
+  "size": {"w": 1080, "h": 1350, "margin": 80},
+  "layout": "band",
+  "explicitWeight": true,
+  "type": {"min": 24, "labelMin": 20},
+  "density": {"maxHeadlineLinesWithBody": 3},
+  "webFont": {
+    "metrics": {
+      "regular": "assets/fonts/TeXGyreHeros-Regular.otf",
+      "bold": "assets/fonts/TeXGyreHeros-Bold.otf"
+    }
+  },
+  "canvas": "#F5F5F8",
+  "colors": {
+    "ink": "#111216",
+    "grey": "#686C78",
+    "line": "#E9E9EF",
+    "red": "#D62839",
+    "purple": "#6C2BD9",
+    "yellow": "#F7C948",
+    "bg": "#F5F5F8",
+    "white": "#FFFFFF",
+    "black": "#0B0B0E",
+    "soft": "#EEF0F4",
+    "chip": "#FDE7EA",
+    "track": "#E4E5EC",
+    "mute": "#A2A5B2",
+    "cy": "#FCF2C7",
+    "cp": "#FCE1EA",
+    "cb": "#DCEAFB",
+    "cv": "#ECE3FD",
+    "cg": "#DCF3E3"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "title": "27 ads, none from AppSumo",
+  "accent": "green",
+  "slides": [
+    {
+      "role": "hook",
+      "headline": [
+        "27 ads.",
+        {
+          "t": "0 from AppSumo.",
+          "c": "red"
+        }
+      ],
+      "headlineSize": 96,
+      "qualifier": "(for a question about AppSumo)",
+      "visual": {
+        "type": "chat",
+        "app": "ChatGPT",
+        "q": "Appsumo vs other stores for sales software deals",
+        "lines": 1,
+        "width": 720,
+        "ads": [
+          {
+            "name": "Not AppSumo",
+            "c": "red"
+          },
+          {
+            "name": "+26 more. Also not.",
+            "c": "grey"
+          }
+        ]
+      },
+      "art": [
+        {
+          "id": "person.shrug",
+          "x": 790,
+          "y": 900,
+          "size": 220
+        }
+      ],
+      "source": "study: Who is buying ¶1 example (\"Not AppSumo\" card labels: added)"
+    }
+  ]
+}
