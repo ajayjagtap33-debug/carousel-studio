@@ -10,7 +10,9 @@ silent 1920×1080 clips he drops on his timeline. Dense editorial look modelled 
 (teardown: `videos/reference/2026-10-15-nick-saraev-survive-ai/teardown.md`): something new on screen every 1–3s,
 each element landing on the word that introduces it.
 Style C, "Warm paper × TMV": Mulish only, TMV light paper background, TMV red in small doses, purple only for AI
-things (theme in `broll/src/editorial/themes.ts`, scenes in `broll/src/editorial/scenes.tsx`). One command:
+things (theme in `broll/src/editorial/themes.ts`, scenes in `broll/src/editorial/scenes.tsx`).
+**What goes on screen for each line is settled in `treatment-rules.md` here** (scene library, quotas, script markup,
+the approval gate); the look is the canvas it links to. Read it before writing a beat sheet. One command:
 `python scripts/broll.py`. Example jobs: `videos/2026-10-19-tmv-knowledge-base-test/` (full),
 `videos/2026-10-19-tmv-knowledge-base-spot-test/` (spot).
 Old hand-drawn look (his face boxed inside our render, `broll.json` without `"style"`): see `excalidraw.md` here.
