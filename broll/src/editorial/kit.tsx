@@ -87,7 +87,7 @@ export const Headline: React.FC<{ text: string; at: number; gap?: number; size?:
   const words = text.split(" ");
   let acc = false;
   return (
-    <div data-text style={{ fontFamily: T.head, fontWeight: T.headWeight, letterSpacing: T.headTracking, fontSize: size, lineHeight: 1.04,
+    <div data-text style={{ fontFamily: T.head, fontWeight: T.headWeight, letterSpacing: T.headTracking, fontSize: size, lineHeight: 1.14,
       color: T.ink, textAlign: align, display: "flex", flexWrap: "wrap", justifyContent: align === "center" ? "center" : "flex-start", columnGap: size * 0.26 }}>
       {words.map((w, i) => {
         const start = w.startsWith("*"); if (start) acc = true;
@@ -95,8 +95,12 @@ export const Headline: React.FC<{ text: string; at: number; gap?: number; size?:
         const clean = w.replace(/\*/g, "");
         return (
           <Enter key={i} at={at + i * gap} dy={10}>
+            {/* accent word: red on a pale wash. The side padding is half the column gap and the margin pulls it
+                back, so the wash behind consecutive accent words joins up instead of printing one box per word. */}
             <span style={isAcc ? { color: T.accent, fontStyle: T.accentStyle, fontWeight: T.accentWeight ?? T.headWeight,
-              fontFamily: T.accentFont ?? (T.accentStyle === "italic" ? ITALIC : T.head) } : undefined}>{clean}</span>
+              fontFamily: T.accentFont ?? (T.accentStyle === "italic" ? ITALIC : T.head),
+              background: T.highlight, padding: `0.02em ${size * 0.13}px`, margin: `0 ${-size * 0.13}px`,
+              borderRadius: 3 } : undefined}>{clean}</span>
           </Enter>
         );
       })}

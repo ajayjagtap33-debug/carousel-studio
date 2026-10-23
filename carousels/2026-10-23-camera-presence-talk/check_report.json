@@ -1,0 +1,92 @@
+[
+ {
+  "slide": 1,
+  "name": "01 title",
+  "issues": []
+ },
+ {
+  "slide": 2,
+  "name": "02 frame",
+  "issues": [
+   {
+    "issue": "warn: empty space at bottom",
+    "px": 368
+   }
+  ]
+ },
+ {
+  "slide": 3,
+  "name": "03 hook",
+  "issues": []
+ },
+ {
+  "slide": 4,
+  "name": "04 proof",
+  "issues": []
+ },
+ {
+  "slide": 5,
+  "name": "05 stakes",
+  "issues": []
+ },
+ {
+  "slide": 6,
+  "name": "06 hook",
+  "issues": []
+ },
+ {
+  "slide": 7,
+  "name": "07 value",
+  "issues": []
+ },
+ {
+  "slide": 8,
+  "name": "08 proof",
+  "issues": []
+ },
+ {
+  "slide": 9,
+  "name": "09 bridge",
+  "issues": []
+ },
+ {
+  "slide": 10,
+  "name": "10 hook",
+  "issues": []
+ },
+ {
+  "slide": 11,
+  "name": "11 stakes",
+  "issues": []
+ },
+ {
+  "slide": 12,
+  "name": "12 value",
+  "issues": []
+ },
+ {
+  "slide": 13,
+  "name": "13 objection",
+  "issues": []
+ },
+ {
+  "slide": 14,
+  "name": "14 demo",
+  "issues": []
+ },
+ {
+  "slide": 15,
+  "name": "15 value",
+  "issues": []
+ },
+ {
+  "slide": 16,
+  "name": "16 ask",
+  "issues": []
+ },
+ {
+  "slide": 17,
+  "name": "17 cta",
+  "issues": []
+ }
+]

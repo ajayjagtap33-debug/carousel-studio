@@ -1,0 +1,484 @@
+{
+  "title": "Be faster. Be visible.",
+  "format": "landscape",
+  "handle": false,
+  "slides": [
+    {
+      "role": "title",
+      "source": "brief",
+      "align": "center",
+      "headline": [
+        "Be faster.",
+        {
+          "t": "Be visible.",
+          "c": "accent"
+        }
+      ],
+      "qualifier": "(the two things that compound)",
+      "art": [
+        {
+          "id": "person.point",
+          "x": 700,
+          "y": 640,
+          "size": 330
+        },
+        {
+          "id": "sparkles",
+          "x": 1140,
+          "y": 680,
+          "size": 120
+        }
+      ]
+    },
+    {
+      "role": "frame",
+      "source": "brief",
+      "headline": [
+        "This isn't about",
+        {
+          "t": "the company.",
+          "c": "accent"
+        }
+      ],
+      "visual": {
+        "type": "cards",
+        "source": "brief",
+        "items": [
+          {
+            "title": "Part 1: AI",
+            "sub": "Do more than before."
+          },
+          {
+            "title": "Part 2: Video",
+            "sub": "Let people see you do it."
+          }
+        ]
+      }
+    },
+    {
+      "role": "hook",
+      "source": "added",
+      "align": "center",
+      "headline": [
+        "Parikshit, how long",
+        {
+          "t": "to edit a video like this?",
+          "c": "accent"
+        }
+      ],
+      "qualifier": "(out loud, please)",
+      "art": [
+        {
+          "id": "person.think",
+          "x": 700,
+          "y": 650,
+          "size": 310
+        },
+        {
+          "id": "clock",
+          "x": 1150,
+          "y": 690,
+          "size": 140
+        }
+      ]
+    },
+    {
+      "role": "proof",
+      "source": "brief",
+      "headline": [
+        "A day and a half.",
+        {
+          "t": "Now one hour.",
+          "c": "accent"
+        }
+      ],
+      "body": "Same editor, same output. I spent a week building the thing that does the b-roll.",
+      "visual": {
+        "type": "stat",
+        "source": "brief",
+        "value": "1 hour",
+        "label": "and he still makes every call"
+      }
+    },
+    {
+      "role": "stakes",
+      "source": "brief",
+      "headline": [
+        "Yesterday's pace",
+        {
+          "t": "doesn't cover it.",
+          "c": "accent"
+        }
+      ],
+      "body": "It used to be enough to be good. Now it's good, at volume.",
+      "visual": {
+        "type": "versus",
+        "source": "added",
+        "frame": false,
+        "columns": true,
+        "rows": [
+          {
+            "label": "last year",
+            "c": "red",
+            "steps": [
+              {
+                "art": "person.write"
+              },
+              {
+                "art": "clock",
+                "c": "red"
+              }
+            ]
+          },
+          {
+            "label": "now",
+            "c": "green",
+            "steps": [
+              {
+                "art": "person.write"
+              },
+              {
+                "art": "bot.laptop"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "role": "hook",
+      "source": "added",
+      "align": "center",
+      "headline": [
+        "Raj, who gets",
+        {
+          "t": "promoted?",
+          "c": "accent"
+        }
+      ],
+      "qualifier": "(the one doing last year's job, or the one who changed it?)",
+      "art": [
+        {
+          "id": "person.listen",
+          "x": 760,
+          "y": 660,
+          "size": 300
+        },
+        {
+          "id": "star",
+          "x": 1180,
+          "y": 700,
+          "size": 120
+        }
+      ]
+    },
+    {
+      "role": "value",
+      "source": "brief",
+      "headline": "How to find yours.",
+      "visual": {
+        "type": "cards",
+        "source": "brief",
+        "items": [
+          {
+            "title": "Write the workflow down",
+            "sub": "Every step, in order."
+          },
+          {
+            "title": "Mark the slow steps",
+            "sub": "Where does time go?"
+          },
+          {
+            "title": "Hand it to Claude",
+            "sub": "Ask where the waste is."
+          },
+          {
+            "title": "Build the smallest thing",
+            "sub": "A skill, an MCP, a doc."
+          }
+        ]
+      }
+    },
+    {
+      "role": "proof",
+      "source": "brief",
+      "headline": [
+        "You don't have to automate it.",
+        {
+          "t": "Simplifying counts.",
+          "c": "accent"
+        }
+      ],
+      "visual": {
+        "type": "cards",
+        "source": "brief",
+        "items": [
+          {
+            "title": "Video editing",
+            "sub": "A day and a half to one."
+          },
+          {
+            "title": "TMV knowledge base",
+            "sub": "Overdue for months. Done."
+          },
+          {
+            "title": "Competitor research",
+            "sub": "Now a doc, not a day."
+          }
+        ]
+      }
+    },
+    {
+      "role": "bridge",
+      "source": "added",
+      "align": "center",
+      "headline": [
+        "Which is why the next part",
+        {
+          "t": "just got cheap.",
+          "c": "accent"
+        }
+      ],
+      "art": [
+        {
+          "id": "person.walk",
+          "x": 820,
+          "y": 650,
+          "size": 300
+        },
+        {
+          "id": "arrow",
+          "x": 1200,
+          "y": 720,
+          "size": 150
+        }
+      ]
+    },
+    {
+      "role": "hook",
+      "source": "added",
+      "headline": "Hands up.",
+      "visual": {
+        "type": "cards",
+        "source": "added",
+        "items": [
+          {
+            "title": "Recorded yourself on camera this year?",
+            "sub": "Any platform. Any length."
+          },
+          {
+            "title": "Think you'd be bad at it?",
+            "sub": "Be honest."
+          }
+        ]
+      },
+      "art": [
+        {
+          "id": "people",
+          "x": 170,
+          "y": 640,
+          "size": 230
+        }
+      ]
+    },
+    {
+      "role": "stakes",
+      "source": "brief",
+      "headline": [
+        "Text got cheap.",
+        {
+          "t": "Faces didn't.",
+          "c": "accent"
+        }
+      ],
+      "body": "Everyone's publishing more than ever, and almost nobody can say it to a lens.",
+      "visual": {
+        "type": "versus",
+        "source": "added",
+        "frame": false,
+        "columns": true,
+        "rows": [
+          {
+            "label": "more text",
+            "c": "red",
+            "steps": [
+              {
+                "art": "bot.laptop"
+              },
+              {
+                "art": "scribble",
+                "c": "red"
+              }
+            ]
+          },
+          {
+            "label": "a real person",
+            "c": "green",
+            "steps": [
+              {
+                "art": "person.talk"
+              },
+              {
+                "art": "heart",
+                "c": "green"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "role": "value",
+      "source": "brief",
+      "headline": "Why bother posting it?",
+      "visual": {
+        "type": "cards",
+        "source": "brief",
+        "items": [
+          {
+            "title": "Speaking compounds",
+            "sub": "Meetings and calls get easier."
+          },
+          {
+            "title": "It's a credential",
+            "sub": "It changes a job search."
+          },
+          {
+            "title": "It forces clarity",
+            "sub": "You have to actually get it."
+          }
+        ]
+      }
+    },
+    {
+      "role": "objection",
+      "source": "brief",
+      "headline": [
+        "The four reasons",
+        {
+          "t": "you won't.",
+          "c": "accent"
+        }
+      ],
+      "visual": {
+        "type": "cards",
+        "source": "brief",
+        "items": [
+          {
+            "title": "I'm camera shy",
+            "sub": "Record alone. Shut the door."
+          },
+          {
+            "title": "I'll forget my lines",
+            "sub": "Read it. Don't memorise it."
+          },
+          {
+            "title": "I've nothing to say",
+            "sub": "Whatever you did this week."
+          },
+          {
+            "title": "No time, no gear",
+            "sub": "Phone, window, one take."
+          }
+        ]
+      }
+    },
+    {
+      "role": "demo",
+      "source": "brief",
+      "align": "center",
+      "headline": [
+        "The teleprompter",
+        {
+          "t": "I built",
+          "c": "accent"
+        }
+      ],
+      "qualifier": "(30 seconds, then we move on)",
+      "art": [
+        {
+          "id": "laptop",
+          "x": 760,
+          "y": 660,
+          "size": 280
+        },
+        {
+          "id": "person.point",
+          "x": 1120,
+          "y": 640,
+          "size": 300
+        }
+      ]
+    },
+    {
+      "role": "value",
+      "source": "brief",
+      "headline": "You already have the content.",
+      "qualifier": "(45 seconds, that's it)",
+      "visual": {
+        "type": "note",
+        "source": "brief",
+        "label": "the whole format:",
+        "text": "Here's the experiment I ran. Here's what happened. Here's what I'd do differently.",
+        "art": {
+          "id": "person.talk",
+          "size": 300
+        }
+      }
+    },
+    {
+      "role": "ask",
+      "source": "brief",
+      "headline": "Two doors.",
+      "visual": {
+        "type": "cards",
+        "source": "brief",
+        "items": [
+          {
+            "title": "Do it for yourself",
+            "sub": "Your name, your topic."
+          },
+          {
+            "title": "Do it with us",
+            "sub": "TMV and the other brands."
+          }
+        ]
+      },
+      "art": [
+        {
+          "id": "person.point",
+          "x": 170,
+          "y": 620,
+          "size": 300
+        }
+      ]
+    },
+    {
+      "role": "cta",
+      "source": "brief",
+      "align": "center",
+      "headline": [
+        "One workflow on paper.",
+        {
+          "t": "One 60-second video.",
+          "c": "accent"
+        }
+      ],
+      "qualifier": "(this week)",
+      "art": [
+        {
+          "id": "person.cheer",
+          "x": 700,
+          "y": 640,
+          "size": 330
+        },
+        {
+          "id": "star",
+          "x": 1130,
+          "y": 660,
+          "size": 130
+        }
+      ]
+    }
+  ]
+}

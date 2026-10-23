@@ -58,6 +58,14 @@ def fmt(t: float) -> str:
     return f"{int(t // 60)}:{t % 60:05.2f}"
 
 
+def playable(p: Path) -> bool:
+    """A file ffprobe can read a duration out of — a killed ffmpeg leaves one it can't (no moov atom)."""
+    probe = str(Path(ffmpeg()).with_name("ffprobe" + Path(ffmpeg()).suffix))
+    r = subprocess.run([probe, "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(p)],
+                       capture_output=True, text=True)
+    return r.returncode == 0 and r.stdout.strip() not in ("", "N/A")
+
+
 def ffmpeg() -> str:
     local = sorted(ROOT.glob("tools/ffmpeg*/**/ffmpeg.exe")) + sorted(ROOT.glob("tools/ffmpeg*/**/bin/ffmpeg"))
     ff = os.environ.get("FFMPEG") or shutil.which("ffmpeg") or (str(local[0]) if local else None)
@@ -127,7 +135,9 @@ def icon_names() -> set[str]:
 
 
 # editorial style (broll/src/editorial/scenes.tsx -> ESCENES): b-roll only, Ajay places his face in Google Vids
-ETYPES = {"browser": ["at"], "statement": ["headline"], "flow": ["tiles"], "file": ["name", "rows"], "pipeline": ["doc", "prompts", "result"]}
+ETYPES = {"browser": ["at"], "statement": ["headline"], "flow": ["tiles"], "file": ["name", "rows"], "pipeline": ["doc", "prompts", "result"],
+          # the scene-canvas types (2026-10-22)
+          "line": ["headline"], "chips": ["groups"], "rows": ["items"], "stats": ["cards"]}
 
 
 def editorial(plan: dict) -> bool:
@@ -138,9 +148,13 @@ def coverage(plan: dict) -> str:
     return plan.get("coverage", "full")
 
 
-def face_box(scene: dict, plan: dict) -> bool:
-    """Keep the right edge clear for the face box? (spot default: hidden, the insert fills the frame)"""
-    return scene.get("face", "hidden" if coverage(plan) == "spot" else "box") == "box"
+FACE_SIDES = ("left", "right", "none", "box", "hidden")  # box/hidden = the old names for right/none
+
+
+def face_side(scene: dict, plan: dict) -> str:
+    """Which side stays clear for his face: left, right or none (spot default: none, the insert fills the frame)."""
+    v = scene.get("face", "none" if coverage(plan) == "spot" else "right")
+    return {"box": "right", "hidden": "none"}.get(v, v)
 
 
 def parse_time(v: str) -> float:
@@ -212,7 +226,7 @@ def check_editorial(folder: Path, tr: dict, plan: dict, layout: bool = True) -> 
         if b - a < MIN_SCENE: issues.append(f"{w}: {b - a:.1f}s is too short to read (min {MIN_SCENE}s)")
         if prev and a < prev["end"] - 0.01: issues.append(f"{w}: overlaps the previous scene (ends {prev['end']})")
         if not isinstance(s.get("source"), str): warns.append(f"{w}: no 'source' (what's said here) for the review sheet")
-        if s.get("face", "box") not in ("box", "hidden"): issues.append(f"{w}: face '{s['face']}': use box or hidden")
+        if s.get("face", "right") not in FACE_SIDES: issues.append(f"{w}: face '{s['face']}': use left, right or none")
         if sents:  # spot inserts start and end on a sentence / clause boundary (small lead-in / tail allowed)
             ns = min(sents, key=lambda x: abs(x["s"] - a)); ne = min(sents, key=lambda x: abs(x["e"] - b))
             if not -0.1 <= ns["s"] - a <= 0.4: warns.append(f"{w}: doesn't start on a sentence or clause (nearest start {ns['s']:.2f})")
@@ -251,8 +265,12 @@ def all_strings(node, want: str):
 
 
 def copy_logos(folder: Path, plan: dict):
-    """Logos come only from assets/logos (official press kits); copy the ones a plan uses into the job folder."""
-    for _, v in all_strings(plan, "logo"):
+    """Logos come only from assets/logos (official press kits); copy the ones a plan uses into the job folder.
+    The tmv wordmark is frame chrome on every editorial scene, so it always comes along."""
+    wanted = [v for _, v in all_strings(plan, "logo")]
+    if editorial(plan):
+        wanted.append("logos/tmv-red.png")
+    for v in wanted:
         src, dst = ROOT / "assets" / v, folder / v
         if v.startswith("logos/") and src.exists() and not dst.exists():
             dst.parent.mkdir(parents=True, exist_ok=True)
@@ -411,7 +429,7 @@ def cmd_sheet(folder: Path):
     inputs, chains, layout = [], [], []
     for n, (s, f) in enumerate(zip(scenes, frames)):
         t = f / fps
-        label = f"{n + 1}   {int(t // 60)}m{t % 60:04.1f}s   {s['type']}" + ("" if face_box(s, plan) else "   face hidden")
+        label = f"{n + 1}   {int(t // 60)}m{t % 60:04.1f}s   {s['type']}   face {face_side(s, plan)}"
         inputs += ["-i", str(tmp / f"{n}.png")]
         # drawtext runs with cwd = assets/fonts so the font path needs no Windows drive escaping
         chains.append(f"[{n}:v]pad={W}:{H + LH}:0:0:color=white,drawtext=fontfile=TeXGyreHeros-Regular.otf:"
@@ -469,16 +487,24 @@ def cmd_clips(folder: Path):
         jobs.append({"from": f0, "to": f1 - 1, "out": str(out / f".raw-{name}.mp4"), "name": name, "dur": (f1 - f0) / fps})
     t0 = time.time()
     shoot(folder, props, clips=jobs)
+    bad = []
     for j in jobs:
         raw, dst, d = Path(j["out"]), out / f"{j['name']}.mp4", j["dur"]
-        r = subprocess.run([ffmpeg(), "-v", "error", "-y", "-i", str(raw), "-an",
-                            "-vf", f"fade=t=in:st=0:d=0.25,fade=t=out:st={d - 0.25:.3f}:d=0.25",
-                            "-c:v", "libx264", "-crf", "18", "-pix_fmt", "yuv420p", "-color_primaries", "bt709",
-                            "-color_trc", "bt709", "-colorspace", "bt709", str(dst)], capture_output=True, text=True)
+        for attempt in (1, 2):  # a fade can die on a busy machine and leave a file with no moov atom
+            r = subprocess.run([ffmpeg(), "-v", "error", "-y", "-i", str(raw), "-an",
+                                "-vf", f"fade=t=in:st=0:d=0.25,fade=t=out:st={d - 0.25:.3f}:d=0.25",
+                                "-c:v", "libx264", "-crf", "18", "-pix_fmt", "yuv420p", "-color_primaries", "bt709",
+                                "-color_trc", "bt709", "-colorspace", "bt709", str(dst)], capture_output=True, text=True)
+            if r.returncode == 0 and playable(dst):
+                break
+            print(f"   fade attempt {attempt} failed for {dst.name}: {(r.stderr or '').strip()[-300:] or 'no stderr'}")
+        else:
+            bad.append(dst.name)
+            continue  # keep the raw so the clip can be salvaged without re-rendering
         raw.unlink(missing_ok=True)
-        if r.returncode: sys.exit(f"ffmpeg fade failed for {dst.name}:\n{r.stderr[-800:]}")
         print(f"   {dst.relative_to(ROOT)}  {d:.2f}s")
-    print(f"wrote {len(jobs)} clips in {(time.time() - t0) / 60:.1f} min")
+    print(f"wrote {len(jobs) - len(bad)} clips in {(time.time() - t0) / 60:.1f} min")
+    if bad: sys.exit(f"these clips did not come out: {', '.join(bad)} (their .raw- files were kept)")
 
 
 def cmd_still(folder: Path, ts: list[float]):

@@ -67,7 +67,8 @@ const Browser: React.FC<{ s: EScene }> = ({ s }) => {
   const T = useT();
   const push = useRamp(s.pushAt ?? 1e9, 1.6);
   const title = useIn(s.titleAt ?? s.at);
-  const W = 1240, H = 720;
+  // the card has to live inside its column, push-in included (the column is narrower when his face is beside it)
+  const W = s.face === "none" ? 1560 : 1040, H = Math.round(W * 0.58);
   return (
     <Enter at={s.at} dy={30} style={{ transform: `scale(${1 + 0.06 * push})` }}>
       <div data-box style={{ width: W, height: H, borderRadius: T.radius, overflow: "hidden", boxShadow: T.shadow, border: `1px solid ${T.line}`, background: "#fff" }}>
@@ -76,7 +77,8 @@ const Browser: React.FC<{ s: EScene }> = ({ s }) => {
           <div data-lint="chrome" style={{ marginLeft: 18, flex: 1, height: 30, borderRadius: 8, background: "#fff", fontFamily: T.ui, fontSize: 17, color: T.muted,
             display: "flex", alignItems: "center", paddingLeft: 14 }}>{s.url ?? "…/knowledge-base"}</div>
         </div>
-        {s.src ? <Img src={staticFile(s.src)} style={{ width: "100%", height: H - 50, objectFit: "cover", objectPosition: "top" }} /> : (
+        {/* contain, not cover: a screenshot that gets its edges cropped loses the thing he's pointing at */}
+        {s.src ? <Img src={staticFile(s.src)} style={{ width: "100%", height: H - 50, objectFit: "contain", objectPosition: "top", background: "#fff" }} /> : (
           <div style={{ display: "flex", height: H - 50 }}>
             <div style={{ width: 260, borderRight: `1px solid ${T.line}`, padding: "34px 26px", background: "#FDFBFA" }}>
               {[150, 120, 170, 110, 140, 130, 160].map((w, i) => (
@@ -117,23 +119,24 @@ const Statement: React.FC<{ s: EScene }> = ({ s }) => {
 };
 
 // ---- flow: optional kinetic headline that lifts away, then tiles joined by + or → ---------------------------
-// {headline?, headlineAt?, liftAt?, joiner: "plus" | "arrow", tiles: [TileSpec], joinAt?: [t...]}
+// {headline?, headlineAt?, liftAt?, joiner: "plus" | "arrow" | "none", tiles: [TileSpec], joinAt?: [t...]}
+// joiner "none" = a set rather than a sum or a sequence (Mention / Citation / Inline citation)
 const Flow: React.FC<{ s: EScene }> = ({ s }) => {
   const T = useT();
   const lift = useRamp(s.liftAt ?? 1e9, 0.6);
   const tiles: TileSpec[] = s.tiles ?? [];
   // headline sits in the middle, then shrinks and lifts to the top as the tiles arrive below it
   return (
-    <div style={{ position: "relative", width: 1300, height: 760 }}>
+    <div style={{ position: "relative", width: "100%", height: 760 }}>
       {s.headline && (
-        <div style={{ position: "absolute", left: 0, right: 0, top: "50%", transform: `translateY(${-50 - lift * 165}%) scale(${1 - 0.45 * lift})` }}>
-          <Headline text={s.headline} at={s.headlineAt ?? s.start} size={s.headlineSize ?? 150} gap={s.headlineGap ?? 0.3} />
+        <div style={{ position: "absolute", left: 0, right: 0, top: "50%", transform: `translateY(${-50 - lift * 165}%) scale(${1 - 0.45 * lift})`, transformOrigin: "left center" }}>
+          <Headline text={s.headline} at={s.headlineAt ?? s.start} size={s.headlineSize ?? 150} gap={s.headlineGap ?? 0.3} align="left" />
         </div>
       )}
-      <div style={{ position: "absolute", left: 0, right: 0, top: s.headline ? 170 : 0, bottom: 0, display: "flex", alignItems: "center", justifyContent: "center", gap: 34 }}>
+      <div style={{ position: "absolute", left: 0, right: 0, top: s.headline ? 170 : 0, bottom: 0, display: "flex", alignItems: "center", justifyContent: "flex-start", gap: 34 }}>
         {tiles.map((t, i) => (
           <React.Fragment key={i}>
-            {i > 0 && (s.joiner === "arrow" ? <Arrow at={s.joinAt?.[i - 1] ?? t.at - 0.2} /> :
+            {i > 0 && s.joiner !== "none" && (s.joiner === "arrow" ? <Arrow at={s.joinAt?.[i - 1] ?? t.at - 0.2} /> :
               <Enter at={s.joinAt?.[i - 1] ?? t.at - 0.2}><div style={{ fontFamily: T.ui, fontSize: 64, fontWeight: 300, color: T.muted }}>+</div></Enter>)}
             <Tile s={t} />
           </React.Fragment>
@@ -206,4 +209,143 @@ const Pipeline: React.FC<{ s: EScene }> = ({ s }) => {
   );
 };
 
-export const ESCENES: Record<string, React.FC<{ s: EScene }>> = { browser: Browser, statement: Statement, flow: Flow, file: File, pipeline: Pipeline };
+// ---- the scene canvas types (2026-10-22) ---------------------------------------------------------------------
+// Built from the approved canvas: a red eyebrow pill, a flush-left headline, and groups of pills / steps / stats.
+
+/** Red eyebrow pill — the small all-caps kicker that sits above a headline or labels a group. */
+const Eyebrow: React.FC<{ at: number; children: React.ReactNode }> = ({ at, children }) => {
+  const T = useT();
+  return (
+    <Enter at={at} dy={8}>
+      <div style={{ display: "inline-block", background: T.accent, color: T.accentInk, fontFamily: T.ui, fontWeight: 800,
+        fontSize: 24, letterSpacing: "0.1em", textTransform: "uppercase", padding: "11px 22px", borderRadius: 999 }}>{children}</div>
+    </Enter>
+  );
+};
+
+/** Small all-caps label inside a group box. */
+const GroupLabel: React.FC<{ at: number; color?: string; children: React.ReactNode }> = ({ at, color, children }) => {
+  const T = useT();
+  return (
+    <Enter at={at} dy={6}>
+      {/* 24px, not the canvas's smaller label: the studio floor for text wins over the mock */}
+      <div style={{ fontFamily: T.ui, fontWeight: 800, fontSize: 24, letterSpacing: "0.14em", textTransform: "uppercase",
+        color: color ?? T.muted }}>{children}</div>
+    </Enter>
+  );
+};
+
+// ---- line: eyebrow + flush-left headline + a quiet sub line ---------------------------------------------------
+// {eyebrow?, eyebrowAt?, headline, headlineAt?, headlineSize?, headlineGap?, sub?, subAt?}
+const Line: React.FC<{ s: EScene }> = ({ s }) => {
+  const T = useT();
+  const sub = useIn(s.subAt ?? 1e9);
+  return (
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 30, width: "100%" }}>
+      {s.eyebrow && <Eyebrow at={s.eyebrowAt ?? s.start}>{s.eyebrow}</Eyebrow>}
+      <Headline text={s.headline} at={s.headlineAt ?? s.start} size={s.headlineSize ?? 76} gap={s.headlineGap ?? 0.16} align="left" />
+      {s.sub && (
+        <div style={{ opacity: sub, transform: `translateY(${(1 - sub) * 8}px)` }}>
+          <Txt size={30} color={T.body}>{s.sub}</Txt>
+        </div>
+      )}
+    </div>
+  );
+};
+
+// ---- chips: one or two labelled groups of pills (what it tells you / what it doesn't) --------------------------
+// {groups: [{label, labelAt?, tone?: "ink" | "accent", items: [{text, at}]}]}
+const Chips: React.FC<{ s: EScene }> = ({ s }) => {
+  const T = useT();
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: 24, width: "100%" }}>
+      {s.eyebrow && <div><Eyebrow at={s.eyebrowAt ?? s.start}>{s.eyebrow}</Eyebrow></div>}
+      {(s.groups ?? []).map((g: any, i: number) => {
+        const red = g.tone === "accent";
+        return (
+          <Enter key={i} at={g.labelAt ?? g.items?.[0]?.at ?? s.start} dy={14} style={{ width: "100%" }}>
+            <div data-box style={{ boxSizing: "border-box", width: "100%", background: red ? T.accentSoft : T.card, borderRadius: 22,
+              border: red ? `2px solid ${T.accent}` : `1px solid ${T.line}`, boxShadow: red ? "none" : T.shadow, padding: "26px 30px" }}>
+              <GroupLabel at={g.labelAt ?? s.start} color={red ? T.accent : T.muted}>{g.label}</GroupLabel>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 14, marginTop: 20 }}>
+                {(g.items ?? []).map((it: any, j: number) => (
+                  <Enter key={j} at={it.at} dy={10}>
+                    <div style={{ background: red ? T.accent : T.dark, color: red ? T.accentInk : T.darkInk, fontFamily: T.ui,
+                      fontWeight: 700, fontSize: 30, padding: "12px 26px", borderRadius: 999, whiteSpace: "nowrap" }}>{it.text}</div>
+                  </Enter>
+                ))}
+              </div>
+            </div>
+          </Enter>
+        );
+      })}
+    </div>
+  );
+};
+
+// ---- rows: numbered steps, arrows between them ----------------------------------------------------------------
+// {items: [{text, at, tone?: "accent", icon?}], arrows?: boolean}
+const Rows: React.FC<{ s: EScene }> = ({ s }) => {
+  const T = useT();
+  const items: any[] = s.items ?? [];
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: 10, width: "100%" }}>
+      {s.eyebrow && <div style={{ marginBottom: 18 }}><Eyebrow at={s.eyebrowAt ?? s.start}>{s.eyebrow}</Eyebrow></div>}
+      {items.map((it, i) => {
+        const red = it.tone === "accent";
+        return (
+          <React.Fragment key={i}>
+            {i > 0 && s.arrows !== false && (
+              <Enter at={it.at - 0.15} dy={0}>
+                <div style={{ width: 52, display: "flex", justifyContent: "center", color: T.muted, fontSize: 26, lineHeight: 1 }}>↓</div>
+              </Enter>
+            )}
+            <Enter at={it.at} dy={12}>
+              <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
+                <div style={{ width: 52, height: 52, flexShrink: 0, borderRadius: 14, background: red ? T.accent : T.dark,
+                  color: red ? T.accentInk : T.darkInk, fontFamily: T.ui, fontWeight: 800, fontSize: 26,
+                  display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  {it.icon ? <EIcon name={it.icon} size={26} color={red ? T.accentInk : T.darkInk} /> : i + 1}
+                </div>
+                <div data-box style={{ boxSizing: "border-box", flex: 1, background: red ? T.accentSoft : T.card, borderRadius: 14,
+                  border: red ? `2px solid ${T.accent}` : `1px solid ${T.line}`, padding: "16px 24px" }}>
+                  <Txt size={30} weight={red ? 700 : 500} color={red ? T.accent : T.ink}>{it.text}</Txt>
+                </div>
+              </div>
+            </Enter>
+          </React.Fragment>
+        );
+      })}
+    </div>
+  );
+};
+
+// ---- stats: one to three number cards --------------------------------------------------------------------------
+// {cards: [{label, value, sub?, at, subAt?}]}
+const Stats: React.FC<{ s: EScene }> = ({ s }) => {
+  const T = useT();
+  const cards: any[] = s.cards ?? [];
+  return (
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 22, width: "100%" }}>
+      {s.eyebrow && <Eyebrow at={s.eyebrowAt ?? s.start}>{s.eyebrow}</Eyebrow>}
+      <div style={{ display: "flex", gap: 20, width: "100%" }}>
+      {cards.map((c, i) => (
+        <Enter key={i} at={c.at} dy={16}>
+          <ECard style={{ borderRadius: 20, padding: "26px 30px", minWidth: cards.length === 1 ? 560 : 0, flex: 1 }}>
+            <GroupLabel at={c.at}>{c.label}</GroupLabel>
+            <div style={{ marginTop: 14 }}>
+              <Headline text={c.value} at={c.valueAt ?? c.at + 0.2} size={c.size ?? (cards.length === 1 ? 128 : 72)} gap={0.14} align="left" />
+            </div>
+            {c.sub && <div style={{ marginTop: 12 }}><Txt size={28} color={T.body}>{c.sub}</Txt></div>}
+          </ECard>
+        </Enter>
+      ))}
+      </div>
+    </div>
+  );
+};
+
+export const ESCENES: Record<string, React.FC<{ s: EScene }>> = {
+  browser: Browser, statement: Statement, flow: Flow, file: File, pipeline: Pipeline,
+  line: Line, chips: Chips, rows: Rows, stats: Stats,
+};

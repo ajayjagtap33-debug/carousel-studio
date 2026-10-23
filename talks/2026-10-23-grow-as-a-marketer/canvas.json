@@ -1,0 +1,438 @@
+{
+  "_note": "Three columns, 2700px apart; stations auto-stack with `gap`. Say it with a shape where a shape is shorter than the sentence.",
+  "gap": 380,
+  "columns": {
+    "a": {
+      "x": -2700,
+      "y": 1500
+    },
+    "b": {
+      "x": 0,
+      "y": 1500
+    },
+    "c": {
+      "x": 2700,
+      "y": 1500
+    }
+  },
+  "stations": [
+    {
+      "id": "hub",
+      "at": [
+        -600,
+        0
+      ],
+      "w": 1700,
+      "title": "Grow as an individual marketer",
+      "titleSize": 110,
+      "sub": "Specificity is over. Be a generalist, and have credentials for what you do.",
+      "aside": {
+        "id": "person.point",
+        "size": 300
+      }
+    },
+    {
+      "id": "b1t",
+      "col": "a",
+      "kicker": "BRANCH 1",
+      "title": "Widen what you cover",
+      "sub": "know a bit of the things next to your job",
+      "aside": {
+        "id": "magnifier",
+        "size": 200
+      },
+      "w": 1150
+    },
+    {
+      "id": "b1a",
+      "col": "a",
+      "big": "\"That's not my job.\"",
+      "bigSize": 84,
+      "sub": "The sentence to drop.",
+      "aside": {
+        "id": "cross",
+        "size": 170
+      },
+      "w": 950
+    },
+    {
+      "id": "b1b",
+      "col": "a",
+      "blocks": [
+        {
+          "t": "label",
+          "s": "PICK UP THE NEXT THING OVER"
+        },
+        {
+          "t": "grid",
+          "h": 190,
+          "items": [
+            [
+              "Writer",
+              "on-page SEO, basic design"
+            ],
+            [
+              "Designer",
+              "a bit of copy"
+            ],
+            [
+              "PPC",
+              "landing pages, analytics"
+            ],
+            [
+              "Video editor",
+              "thumbnails, scripting"
+            ]
+          ]
+        }
+      ],
+      "foot": "You don't have to be good at it. Just stop handing it over."
+    },
+    {
+      "id": "b2t",
+      "col": "b",
+      "kicker": "BRANCH 2",
+      "title": "Be faster",
+      "sub": "faster and more efficient",
+      "aside": {
+        "id": "bot.laptop",
+        "size": 240
+      },
+      "w": 1000
+    },
+    {
+      "id": "b2a",
+      "col": "b",
+      "c": "red",
+      "bigSize": 76,
+      "big": "You're not competing with AI. You're competing with the person doing more with AI."
+    },
+    {
+      "id": "b2b",
+      "col": "b",
+      "aside": {
+        "id": "clock",
+        "size": 200
+      },
+      "blocks": [
+        {
+          "t": "ask",
+          "items": [
+            "How long does editing a video like this actually take?"
+          ]
+        },
+        {
+          "t": "bars",
+          "items": [
+            {
+              "frac": 1.0,
+              "blank": true,
+              "in": "write it in",
+              "label": "today"
+            },
+            {
+              "frac": 0.13,
+              "label": "1 hour"
+            }
+          ]
+        }
+      ],
+      "foot": "Same editor, same calls. The grunt work is automated."
+    },
+    {
+      "id": "b2c",
+      "col": "b",
+      "blocks": [
+        {
+          "t": "ask",
+          "items": [
+            "Who gets promoted: the one doing last year's job, or the one who changed how it's done?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b2d",
+      "col": "b",
+      "w": 1900,
+      "title": "The exercise",
+      "blankH": 200,
+      "blank": "run a real workflow through it, live",
+      "blocks": [
+        {
+          "t": "flow",
+          "items": [
+            "List your tasks",
+            "Write down how you do each",
+            "Mark where time goes",
+            "Where can AI take a step?",
+            "Automate, or simplify"
+          ]
+        },
+        {
+          "t": "blank"
+        }
+      ]
+    },
+    {
+      "id": "b2e",
+      "col": "b",
+      "blocks": [
+        {
+          "t": "label",
+          "s": "ALREADY DONE"
+        },
+        {
+          "t": "art",
+          "size": 170,
+          "step": 250,
+          "items": [
+            "laptop",
+            "pencil",
+            "phone",
+            "magnifier"
+          ]
+        },
+        {
+          "t": "text",
+          "size": 46,
+          "s": "Video editing. Content writing. Thumbnails. Social graphics. TMV knowledge base. Competitor research."
+        }
+      ],
+      "foot": "You don't have to automate it. Simplifying counts."
+    },
+    {
+      "id": "b3t",
+      "col": "c",
+      "kicker": "BRANCH 3",
+      "title": "Be visible",
+      "sub": "confident, with credentials",
+      "aside": {
+        "id": "person.talk",
+        "size": 240
+      },
+      "w": 1050
+    },
+    {
+      "id": "b3a",
+      "col": "c",
+      "aside": {
+        "id": "people",
+        "size": 210
+      },
+      "blocks": [
+        {
+          "t": "ask",
+          "items": [
+            "Hands up: recorded yourself on camera this year?",
+            "Hands up: think you'd be bad at it?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b3b",
+      "col": "c",
+      "w": 1800,
+      "blocks": [
+        {
+          "t": "label",
+          "s": "WHAT IT DOES FOR YOU"
+        },
+        {
+          "t": "grid",
+          "h": 200,
+          "items": [
+            [
+              "Camera stops scaring you",
+              "the first one is the worst one"
+            ],
+            [
+              "You learn your role deeper",
+              "you can't explain what you don't understand"
+            ],
+            [
+              "You get good at conveying",
+              "structure, pace, getting to the point"
+            ],
+            [
+              "Communication everywhere",
+              "meetings, client calls, webinars"
+            ],
+            [
+              "Leadership opens up",
+              "in the team, and when you switch"
+            ],
+            [
+              "It's a credential",
+              "public work changes a job search"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b3c",
+      "col": "c",
+      "w": 1800,
+      "blocks": [
+        {
+          "t": "label",
+          "s": "THE FOUR REASONS YOU WON'T"
+        },
+        {
+          "t": "grid",
+          "h": 210,
+          "items": [
+            [
+              "I'm camera shy",
+              "Record alone. Shut the door."
+            ],
+            [
+              "I'll forget my lines",
+              "Teleprompter by the lens."
+            ],
+            [
+              "I've nothing to say",
+              "Whatever you did this week."
+            ],
+            [
+              "No time, no gear",
+              "Phone, window, one take."
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b3d",
+      "col": "c",
+      "kicker": "TELEPROMPTER: LIVE DEMO, 30 SECONDS",
+      "big": "Here's the experiment I ran. Here's what happened. Here's what I'd do differently.",
+      "bigSize": 54,
+      "sub": "45 seconds. That's the whole format.",
+      "aside": {
+        "id": "laptop",
+        "size": 200
+      },
+      "w": 1400
+    },
+    {
+      "id": "b3e",
+      "col": "c",
+      "blocks": [
+        {
+          "t": "label",
+          "s": "TWO DOORS"
+        },
+        {
+          "t": "doors",
+          "items": [
+            {
+              "s": "For yourself",
+              "sub": "your name, your topic"
+            },
+            {
+              "s": "With us",
+              "sub": "TMV and the other brands"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "close",
+      "at": [
+        -400,
+        7000
+      ],
+      "w": 2400,
+      "big": "One workflow on paper. One 60-second video.",
+      "bigSize": 88,
+      "sub": "This week. You don't have to post either one.",
+      "blocks": [
+        {
+          "t": "art",
+          "size": 170,
+          "step": 250,
+          "items": [
+            "notebook",
+            "phone"
+          ]
+        }
+      ]
+    }
+  ],
+  "links": [
+    [
+      "hub",
+      "b1t"
+    ],
+    [
+      "hub",
+      "b2t"
+    ],
+    [
+      "hub",
+      "b3t"
+    ],
+    [
+      "b1t",
+      "b1a"
+    ],
+    [
+      "b1a",
+      "b1b"
+    ],
+    [
+      "b2t",
+      "b2a"
+    ],
+    [
+      "b2a",
+      "b2b"
+    ],
+    [
+      "b2b",
+      "b2c"
+    ],
+    [
+      "b2c",
+      "b2d"
+    ],
+    [
+      "b2d",
+      "b2e"
+    ],
+    [
+      "b3t",
+      "b3a"
+    ],
+    [
+      "b3a",
+      "b3b"
+    ],
+    [
+      "b3b",
+      "b3c"
+    ],
+    [
+      "b3c",
+      "b3d"
+    ],
+    [
+      "b3d",
+      "b3e"
+    ],
+    [
+      "b2e",
+      "close",
+      "dashed"
+    ],
+    [
+      "b3e",
+      "close",
+      "dashed"
+    ]
+  ]
+}
