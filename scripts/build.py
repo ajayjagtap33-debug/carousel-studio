@@ -104,7 +104,8 @@ __FONTLINK__<style>__FONTCSS__@page{size:__W__px __H__px;margin:0}html,body{marg
       const txt = t.textContent.trim(); if (!txt) return;
       const fs = parseFloat(t.getAttribute("font-size"));
       const chrome = y0 > H - M - 20;
-      if (!chrome && (x0 < M - 4 || x1 > W - M + 4))
+      // tolerance absorbs glyph side bearings (Virgil's "T" overhangs its origin by ~5px at 84px)
+      if (!chrome && (x0 < M - 8 || x1 > W - M + 8))
         issues.push({ issue: "text past side margin", text: txt.slice(0, 40), x: [Math.round(x0), Math.round(x1)] });
       if (y1 > H - 20 || y0 < 0) issues.push({ issue: "text off slide", text: txt.slice(0, 40) });
       const words = txt.split(" ").length;
