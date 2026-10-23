@@ -33,7 +33,7 @@ Whisper mishears jargon ("Cloud" = Claude, "MCB" = MCP): fix it on screen, list 
 |---|---|---|
 | Ajay says | "b-roll throughout", "full b-roll", nothing | "inserts at 0:42, 1:15…", "5 b-roll moments", "just a few spots" |
 | b-roll | back-to-back scenes, most of the runtime | a few inserts (e.g. 5 × ~10s), his face full-frame the rest |
-| face | `box` by default: right edge kept clear for his face box | `hidden` by default: the insert fills the frame |
+| face | `right` by default, rotating `left` / `right` by beat; `none` where the visual needs the frame | `none` by default: the insert fills the frame |
 | output | `broll.mp4` (1 clip in Vids) or `--clips` (one per run) | `--clips`: one clip per insert |
 
 Spot insert times: take Ajay's ("0:42, 1:15") or propose the strongest moments yourself (a list, a number, a named
@@ -78,7 +78,8 @@ left face-only.
 ```
 Top level: `style: "editorial"` (required), `theme` (`C`), `coverage` (`full` | `spot`), `duration` (optional: render
 only the first N seconds). Every scene: `type`, `start`, `end` (seconds, ≥ 2s, no overlaps), `source`,
-`face` (`box` | `hidden`, default by coverage), `slug` (optional clip-name override), `pills`.
+`face` (`left` | `right` | `none` — which side stays clear for his face; default `right` in full, `none` in spot.
+`box` and `hidden` are the old names for `right` and `none`), `slug` (optional clip-name override), `pills`.
 All times are absolute seconds in the cut and must fall inside their scene.
 
 Scene types (a new type goes into `ESCENES` in `scenes.tsx` first, never improvised):
@@ -86,9 +87,13 @@ Scene types (a new type goes into `ESCENES` in `scenes.tsx` first, never improvi
 | type | fields | use for |
 |---|---|---|
 | `browser` | `at`, `title?`, `titleAt?`, `url?`, `src?` (screenshot slot), `pushAt?` (slow push-in) | "this page", a site or tool he's showing. Without `src`: a neutral stand-in page |
-| `flow` | `tiles[{label, at, icon?, logo?, sub?, subAt?, tone?: "ai"}]`, `joiner` (`plus` \| `arrow`), `joinAt?[t]`, `headline?`, `headlineAt?`, `headlineGap?`, `liftAt?` | "X + Y", "A → B → C". Headline words enter one by one, then it lifts as tiles arrive. ≤ 4 tiles with the face box |
+| `flow` | `tiles[{label, at, icon?, logo?, sub?, subAt?, tone?: "ai"}]`, `joiner` (`plus` \| `arrow` \| `none`), `joinAt?[t]`, `headline?`, `headlineAt?`, `headlineGap?`, `liftAt?` | "X + Y", "A → B → C", or with `none` a set of named things side by side. Headline words enter one by one, then it lifts as tiles arrive. ≤ 4 tiles with the face box |
 | `file` | `at`, `name` (mono), `rows[{text, at, icon?, sub?[t]}]` | a doc / file and what's in it; `sub` = faint placeholder rows (no invented text) |
 | `pipeline` | `doc{name, at}`, `arrows[t, t]`, `prompts[{label, at}]`, `result{title, at, rows[{at, tick?}]}` | input → chain of AI steps → output; `tick` = when a row's check lands |
+| `line` | `eyebrow?`, `eyebrowAt?`, `headline`, `headlineAt?`, `headlineSize?`, `sub?`, `subAt?` | the default text beat: red eyebrow pill, flush-left headline (`*word*` = red on a pale wash), one quiet line under it |
+| `chips` | `eyebrow?`, `groups[{label, labelAt?, tone?: "accent", items[{text, at}]}]` | a named set, or can / can't: a white box of black pills, a red box for the one that bites |
+| `rows` | `eyebrow?`, `items[{text, at, tone?: "accent", icon?}]`, `arrows?` | 2-4 numbered steps with arrows between; the last one in red when it's the warning |
+| `stats` | `eyebrow?`, `cards[{label, value, valueAt?, sub?, at, size?}]` | 1-3 number cards; `value` takes `*accent*` |
 
 - `*word*` in a headline = the accent word (light italic, TMV red).
 - `pills[{text, at, tone?, icon?, pos?}]`: 1–3 of his exact words that land a point; `tone` `ink` (black, default) |
@@ -105,13 +110,14 @@ python scripts/broll.py render videos/<folder> --clips     # clips/02m14s-<slug>
 python scripts/broll.py render videos/<folder>             # broll.mp4: silent, full length (full coverage)
 ```
 - `check` renders each scene's 75% frame with every element at its end state and measures it: text out of its card
-  or row, off the page, over the face box (scenes with `face: box`), text under 24px (20px for ≤3-word labels).
-  `BLOCK:` stops the render: split the scene, shorten the words, or use `face: hidden`. `slot:` = a file Ajay must
+  or row, off the page, over the face box (on whichever side that scene keeps clear), text under 24px (20px for ≤3-word labels).
+  `BLOCK:` stops the render: split the scene, shorten the words, or use `face: none`. `slot:` = a file Ajay must
   drop in. In spot mode it warns when an insert doesn't start/end on a sentence or clause. List `warn:` lines for Ajay.
 - Look at `sheet.png` (one image) once per round. Check: each scene reads in a second, nothing collides.
 - Clips: spot = one per insert; full = one per continuous run (scenes < 1.2s apart merge). Name = start time + slug
   (`slug`, else headline / title / file name / first tile). Ajay lays each at its start time over his cut in Vids;
-  full-frame inserts cover his face, `face: box` ones need his face box on top.
+  `face: none` clips cover his face; `left` / `right` ones need his face on that side. A stretch with no clip is
+  him alone on camera — that only works with `--clips`, since one long file would cover him with a blank sheet.
 - Rendering speed on this laptop: about 4 min per minute of b-roll (a 34s test took 2.2 min); run long renders in the background.
 
 ## 5. Hand over

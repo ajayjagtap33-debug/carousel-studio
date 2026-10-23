@@ -16,12 +16,12 @@ implementing it until a video actually needs it.
 
 | | State |
 |---|---|
-| Scene library (§2) | **Designed, not implemented.** The canvas is a mockup; none of the Shown types render |
-| Scene types the renderer really has | `browser`, `flow`, `file`, `pipeline` — in `broll/src/editorial/scenes.tsx` → `ESCENES` |
+| Scene library (§2) | **Part built** (2026-10-22, for the mention/citation video). `line`, `chips`, `rows`, `stats` render, with the canvas chrome (tmv wordmark, flush-left column, big face zone). `branch`, `scale`, `compare`, `ranked`, `charts`, `table`, `card`, `section` are still mockups |
+| Scene types the renderer really has | `browser`, `statement`, `flow`, `file`, `pipeline`, `line`, `chips`, `rows`, `stats` — in `broll/src/editorial/scenes.tsx` → `ESCENES` |
 | `broll.py beats` (§0) | **Does not exist.** Beat sheets are written by hand today |
 | Quotas (§3) | **Not in `check`.** Judge them by eye off the `mix:` line |
 | Script markup (§4) | **Not parsed.** Useful to write anyway — it is how the judgement gets paid for once |
-| Frame variants (§5) | Renderer has `face: "box" \| "hidden"` only; `left` / `right` / `none` is the design |
+| Frame variants (§5) | **Built** (2026-10-22). `face: "left" \| "right" \| "none"`; rotation is still set by hand in `broll.json`, not from `##` markup |
 | Design tokens (§7) | Style C in `themes.ts` is close but has purple and the good/bad greens; this style wants one accent |
 
 So: **to make a video today**, follow `SKILL.md` with the existing four scene types, and use §2–3 here as the

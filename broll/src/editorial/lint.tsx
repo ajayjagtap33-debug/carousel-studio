@@ -3,11 +3,10 @@
 // (text must stay inside them and inside fixed-height rows), data-lint="chrome" on decorative small text (URL bar, face-box label).
 import React, { useLayoutEffect, useState } from "react";
 import { continueRender, delayRender } from "remotion";
-import { FACE } from "./frame";
+import { faceRect, type FaceSide } from "./frame";
 
 export const MIN_TEXT = 24, MIN_LABEL = 20; // px at 1080p; ≤3-word labels may go down to MIN_LABEL
 const SHEET = { l: 22, t: 22, r: 1920 - 22, b: 1080 - 22 };
-const FACE_RECT = { l: 1920 - FACE.right - FACE.w, t: (1080 - FACE.h) / 2, r: 1920 - FACE.right, b: (1080 + FACE.h) / 2 };
 
 type R = { l: number; t: number; r: number; b: number };
 // rects relative to the frame root, in 1920x1080 units (Remotion may offset and scale the composition)
@@ -17,7 +16,9 @@ const hits = (a: R, b: R) => a.l < b.r - 1 && a.r > b.l + 1 && a.t < b.b - 1 && 
 const outBy = (inner: R, outer: R) => Math.max(outer.l - inner.l, outer.t - inner.t, inner.r - outer.r, inner.b - outer.b);
 const short = (s: string) => (s.length > 40 ? s.slice(0, 38) + "..." : s);
 
-function measure(root: HTMLElement, face: boolean) {
+function measure(root: HTMLElement, face: FaceSide | false) {
+  const keep = face !== false && face !== "none"; // only then is a side kept clear
+  const FACE_RECT = faceRect(keep ? face : "right");
   const out: string[] = [];
   const o = root.getBoundingClientRect();
   O = { x: o.left, y: o.top, k: o.width / 1920 || 1 };
@@ -48,19 +49,19 @@ function measure(root: HTMLElement, face: boolean) {
     }
     const off = outBy(tr, SHEET);
     if (off > 1.5) out.push(`text "${short(text)}" runs ${Math.round(off)}px off the page`);
-    if (face && hits(tr, FACE_RECT)) out.push(`text "${short(text)}" overlaps the face box`);
+    if (keep && hits(tr, FACE_RECT)) out.push(`text "${short(text)}" overlaps the face box`);
   }
   for (const el of Array.from(root.querySelectorAll<HTMLElement>("[data-box]"))) {
     const r = rect(el.getBoundingClientRect());
-    if (face && hits(r, FACE_RECT)) out.push(`a card/frame overlaps the face box`);
+    if (keep && hits(r, FACE_RECT)) out.push(`a card/frame overlaps the face box`);
     const off = outBy(r, SHEET);
     if (off > 1.5) out.push(`a card/frame runs ${Math.round(off)}px off the page`);
   }
   return Array.from(new Set(out));
 }
 
-/** Wraps the frame; reports once per rendered still. `face` = the active scene keeps the face box. */
-export const Lint: React.FC<{ face: boolean; children: React.ReactNode }> = ({ face, children }) => {
+/** Wraps the frame; reports once per rendered still. `face` = which side the active scene keeps clear. */
+export const Lint: React.FC<{ face: FaceSide | false; children: React.ReactNode }> = ({ face, children }) => {
   const [handle] = useState(() => delayRender("layout lint"));
   const ref = React.useRef<HTMLDivElement>(null);
   useLayoutEffect(() => {
