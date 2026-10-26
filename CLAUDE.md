@@ -26,13 +26,23 @@ Turns a brief into a 4:5 hand-drawn carousel: Excalidraw file + PNGs + LinkedIn 
 
 Ajay records and edits in Google Vids; Claude makes only the b-roll: silent 1920×1080 clips timed to his words,
 which he lays over his cut. Follow the `broll-video` skill (`.claude/skills/broll-video/SKILL.md`), one fresh session per video.
-- Style C "Warm paper × TMV" (`"style": "editorial"` in broll.json): Mulish, TMV paper background, TMV red in small
-  doses, purple only for AI. Theme in `broll/src/editorial/themes.ts`, scene types in `broll/src/editorial/scenes.tsx`.
-- `"coverage": "full"` (b-roll throughout, face box kept clear) or `"spot"` (a few inserts, face full-frame between).
+- Style C "Warm paper × TMV" (`"style": "editorial"` in broll.json): Mulish, flat warm paper with a faint grid,
+  TMV red in small doses, the `tmv.` wordmark on every scene. **The look is the scene canvas that
+  `treatment-rules.md` links to — open it before writing a beat sheet.** Theme in `broll/src/editorial/themes.ts`,
+  scene types in `scenes.tsx`: `line`, `chips`, `rows`, `stats`, `browser`, `flow`, `file`, `pipeline`, `statement`.
+- `"coverage": "full"` (b-roll throughout) or `"spot"` (a few inserts). Per scene `"face"`: `left` | `right` |
+  `none` — which side stays clear for his face, rotating by beat. A stretch with **no** clip is him alone on
+  camera, so even full coverage ships as `--clips`: one long file would cover him with a blank sheet.
 - Commands (`python scripts/broll.py <cmd> videos/<folder>`): `transcribe`, `find "phrase"`, `snap 0:42 1:15`,
-  `check` (+ rendered layout lint), `sheet` (one contact sheet per round), `render --preview | --clips` (or plain = broll.mp4).
-- The beat sheet (`broll-plan.md` + `broll.json`) stops for Ajay's approval before rendering.
-- Examples: `videos/2026-10-19-tmv-knowledge-base-test/` (full), `videos/2026-10-19-tmv-knowledge-base-spot-test/` (spot).
+  `still 1:23`, `check` (+ rendered layout lint), `sheet` (one contact sheet per round),
+  `render --preview | --clips` (or plain = broll.mp4).
+- The beat sheet (`broll-plan.md` + `broll.json`) stops for Ajay's approval before rendering. Hand over a
+  `cut-sheet.md` too: one clip per face position, each with its drop time and which side he sits on.
+- `check` and the contact sheet can't see everything — pull a frame out of the finished mp4 before calling it done.
+- Product videos (TMV / tool features): Ajay's screen recordings, retimed to the spoken words, plus a clip library.
+  Design in the skill's `screen-recordings.md`, **not built yet** (build when a video needs it).
+- Examples: `videos/2026-10-22-mention-vs-citation/` (the current look, 4 min, 12 clips),
+  `videos/2026-10-19-tmv-knowledge-base-test/` (full), `videos/2026-10-19-tmv-knowledge-base-spot-test/` (spot).
   The older hand-drawn look (face boxed inside our render, broll.json without `"style"`): skill's `excalidraw.md`,
   example `videos/2026-10-19-pipeline-test/`.
 

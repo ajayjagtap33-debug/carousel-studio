@@ -16,6 +16,8 @@ the approval gate); the look is the canvas it links to. Read it before writing a
 `python scripts/broll.py`. Example jobs: `videos/2026-10-19-tmv-knowledge-base-test/` (full),
 `videos/2026-10-19-tmv-knowledge-base-spot-test/` (spot).
 Old hand-drawn look (his face boxed inside our render, `broll.json` without `"style"`): see `excalidraw.md` here.
+Product videos (Ajay's screen recordings paced to the spoken words, the clip library): `screen-recordings.md` here —
+agreed design, **not built yet**; until it is, use `browser` with screenshots.
 
 ## 1. Job folder + transcript
 
