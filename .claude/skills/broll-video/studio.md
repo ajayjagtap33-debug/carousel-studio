@@ -21,12 +21,21 @@ from one bundle with a second clip carrying `props: {...plan, theme: "ajay"}`.
 
 1. Job folder `videos/<date>-<slug>/`, his MP4 copied in as `cut.mp4`; `python scripts/broll.py transcribe`.
    Rough cuts repeat themselves: propose the splice list first, approve, cut, re-transcribe (SKILL.md, memory).
+   **If his cut is 4K, transcode it to 1080p first** (`-vf scale=1920:1080 -crf 17`) and point `video` at that:
+   the composition is 1920x1080, so nothing is lost, and decoding 4K makes every frame several times slower
+   (2026-10-29: 1.25 GB -> 216 MB). Keep the bundle's `publicDir` to that 1080p cut plus the shots — `shoot.mjs`
+   copies the whole public dir on every bundle, so the original must not sit in it.
 2. Find his face: pull a few frames (`broll.py still`) and set `face: {x, y}` (centre, 0..1) — tiles, cards and
    the full-frame text positions all key off it.
 3. Write `studio/studio.json` (layouts + scenes, every `at` from `broll.py find`) and `studio/plan.md` (one row
    per beat: time, his position, scene, elements on their words, source; list what you added). **Stop for approval.**
-4. Stills at the key moments and mid-transition (job with `stills`), tiled into one sheet; fix collisions
-   (text over his face, the card over the wordmark, garbled characters — read the json as UTF-8).
+4. Stills at the key moments and mid-transition (job with `stills`), tiled into one sheet
+   (`python scripts/_sheet.py <stills dir> <out.png> [cols]`); fix collisions (text over his face, the card over
+   the wordmark, garbled characters — read the json as UTF-8). The sheet's downscale hides as much as it shows:
+   open the single full-size still before believing a line is clipped or an element missing. Screenshots are the
+   other thing to judge here — a shot whose text matters (a list, a doc) has to be cropped to that text and given
+   a tile-width box, not a split-width one; a shot that is only evidence (a roadmap at 40% zoom) can stay whole
+   with a ring and chips doing the work.
 5. Render both themes from one bundle (`clips` with `muted: false`, the second with `props.theme = "ajay"`) into
    `studio/render/`, then `scripts/studio_sound.py` each into `studio/<name>-tmv.mp4` / `-ajay.mp4`.
 6. Pull frames out of the finished MP4s and check loudness (−14 LUFS). Hand over both files, the cue sheet, what you
