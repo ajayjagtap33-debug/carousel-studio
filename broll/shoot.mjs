@@ -31,8 +31,12 @@ for (const c of job.clips ?? []) {
   const props = c.props ?? inputProps;
   const comp = c.props ? await selectComposition({ serveUrl, id: job.comp, inputProps: props, logLevel: "error",
     timeoutInMilliseconds: TIMEOUT }) : composition;
+  // Concurrency is overridable: every worker seeks the same multi-hundred-MB cut, and at cores-2 the compositor
+  // intermittently throws "No frame found at position N" (2026-10-29, 8 cores, a 216MB 1080p cut). Drop it to 3-4
+  // for a cut that fails, at roughly half the speed.
+  const conc = c.concurrency ?? job.concurrency ?? Math.max(1, os.cpus().length - 2);
   await renderMedia({ serveUrl, composition: comp, inputProps: props, codec: "h264", crf: 18, muted: c.muted ?? true, colorSpace: "bt709",
-    frameRange: [c.from, c.to], outputLocation: c.out, concurrency: Math.max(1, os.cpus().length - 2), logLevel: "error",
+    frameRange: [c.from, c.to], outputLocation: c.out, concurrency: conc, logLevel: "error",
     timeoutInMilliseconds: TIMEOUT });
-  console.log(`CLIP ${c.out}`);
+  console.log(`CLIP ${c.out}  (concurrency ${conc})`);
 }

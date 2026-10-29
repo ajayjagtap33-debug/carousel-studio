@@ -36,14 +36,17 @@ one fresh session per video.
   nothing darkening the frame), split around his head or at chest height, never over eyes/mouth. Logo / stat / ✓✗
   chips beat words. The key line gets a full-screen `type` card instead (2–4s, one huge line, one accent).
   Reference: `videos/reference/2026-10-29-aayusucks-typography/`. The big card never covers the top-left wordmark.
-- **Type**: `tmv` = Mulish + Dancing Script (cursive) for one accent word; `ajay` = DM Sans + Open Sans for plain
-  words + DM Serif Display italic accent (+ JetBrains Mono for prompts/URLs). Sentence case. **No all-caps
-  eyebrows/kickers or "02 / 10" counters** (Ajay, 2026-10-29: they read as AI). Built 2026-10-29 in
-    `broll/src/studio/kit.tsx` + `scenes.tsx`, with the `type` card and the `trio` / `gallery` scenes.
-- Layout and motion from Nick Saraev's CEO-AI video (`videos/reference/2026-10-28-nick-saraev-ceo-ai/`): off-white
-  page, one accent, every element blurs in on its word.
-- **Two versions** from one `studio.json`: `"theme": "tmv"` (TMV red, `tmv.` wordmark) and `"ajay"` (his site's
-  forest green #2C6650, sage #7FBDA8 on dark, no corner handle; colours from ajayjagtap.site, not the reference). Render both unless he says otherwise.
+- **Type**: `tmv` = Mulish + Dancing Script (cursive) for one accent word; `ajay` = **Instrument Serif 400 +
+  Instrument Serif italic accent + Inter** (+ JetBrains Mono for prompts/URLs). Sentence case. **No all-caps
+  eyebrows/kickers or "02 / 10" counters** — Nick leans on small grey all-caps labels, we don't (Ajay, 2026-10-29:
+  they read as AI). Instrument Serif has one weight, so display lines carry at size, not weight.
+  Built 2026-10-29 in `broll/src/studio/kit.tsx` + `scenes.tsx`, with the `type` card and `trio` / `gallery`.
+- The whole `ajay` look is Nick Saraev's CEO-AI video (`videos/reference/2026-10-28-nick-saraev-ceo-ai/`) —
+  layout, motion, type **and** colour, minus the all-caps labels (Ajay's call, 2026-10-29). Every element blurs
+  in on its word. Palette sampled off his frames, not guessed.
+- **Two versions** from one `studio.json`: `"theme": "tmv"` (TMV red, `tmv.` wordmark) and `"ajay"` (Nick's olive
+  #4E6636 on #FAFCFA, #A7BD82 on dark, dark cards #111311, no corner handle). Render both unless he says
+  otherwise. His site's forest green (#2C6650 on #FAF9F5) is kept in a comment in `kit.tsx` to switch back.
 - **Sound**: `python scripts/studio_sound.py <studio.json> <render.mp4> <out.mp4> [--music track.wav]` adds SFX cues
   (from the plan, thinned to 4–8 a minute) and a music bed ducked under his voice, mastered to −14 LUFS / −1 dBTP.
   Rules in the skill's `sound.md`. SFX are synthesized into `assets/sfx/`; the music bed is a synthesized

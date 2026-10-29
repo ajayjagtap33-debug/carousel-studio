@@ -9,9 +9,12 @@ import { loadFont as dmSans } from "@remotion/google-fonts/DMSans";
 import { loadFont as openSans } from "@remotion/google-fonts/OpenSans";
 import { loadFont as dmSerif } from "@remotion/google-fonts/DMSerifDisplay";
 import { loadFont as jetbrains } from "@remotion/google-fonts/JetBrainsMono";
+import { loadFont as instrument } from "@remotion/google-fonts/InstrumentSerif";
+import { loadFont as inter } from "@remotion/google-fonts/Inter";
 import { iconFor } from "../kit";
 
 dmSerif("italic", { weights: ["400"], subsets: ["latin"] });
+instrument("italic", { weights: ["400"], subsets: ["latin"] }); // the accent face for the ajay theme
 const FAM = {
   mulish: mulish("normal", { weights: ["500", "700", "800"], subsets: ["latin"] }).fontFamily,
   dancing: dancing("normal", { weights: ["700"], subsets: ["latin"] }).fontFamily,
@@ -19,6 +22,8 @@ const FAM = {
   openSans: openSans("normal", { weights: ["500", "600"], subsets: ["latin"] }).fontFamily,
   dmSerif: dmSerif("normal", { weights: ["400"], subsets: ["latin"] }).fontFamily,
   mono: jetbrains("normal", { weights: ["400", "500"], subsets: ["latin"] }).fontFamily,
+  instrument: instrument("normal", { weights: ["400"], subsets: ["latin"] }).fontFamily, // 400 is the only weight
+  inter: inter("normal", { weights: ["400", "500", "600"], subsets: ["latin"] }).fontFamily,
 };
 
 export type Fonts = {
@@ -43,11 +48,16 @@ export const THEMES: Record<"tmv" | "ajay", Palette> = {
     fonts: { display: FAM.mulish, displayWeight: 800, plain: FAM.mulish, plainWeight: 500,
       accent: FAM.dancing, accentStyle: "cursive", accentScale: 1.18, mono: FAM.mono },
   },
-  ajay: { // ajayjagtap.site tokens (2026-10-29); dark stays neutral so the wash beside his face doesn't tint his skin
-    border: "#E4DED4", page: "#FAF9F5", ink: "#1A1A18", body: "#3D3D3A", muted: "#6C6A64", line: "#E4DED4", card: "#FFFFFF",
-    dark: "#1B1D19", accent: "#2C6650", accentSoft: "#E6EFEA", accentTint: "#BCD9CB", onDark: "#7FBDA8", // no chrome: Ajay dropped the corner handle (2026-10-29)
-    fonts: { display: FAM.dmSans, displayWeight: 700, plain: FAM.openSans, plainWeight: 600,
-      accent: FAM.dmSerif, accentStyle: "serif-italic", accentScale: 1.04, mono: FAM.mono },
+  ajay: { // Nick Saraev's palette, sampled off videos/reference/2026-10-28-nick-saraev-ceo-ai/frames (Ajay's call,
+          // 2026-10-29, replacing his site's forest green). To go back to ajayjagtap.site: border/line #E4DED4,
+          // page #FAF9F5, dark #1B1D19, accent #2C6650, soft #E6EFEA, tint #BCD9CB, onDark #7FBDA8.
+    border: "#E9E6DF", page: "#FAFCFA", ink: "#1A1A18", body: "#3D3D3A", muted: "#6C6A64", line: "#E9E6DF", card: "#FFFFFF",
+    dark: "#111311", accent: "#4E6636", accentSoft: "#EDF1E3", accentTint: "#C9D6AC", onDark: "#A7BD82", // no chrome: Ajay dropped the corner handle (2026-10-29)
+    // Nick's type as well as his colour (Ajay, 2026-10-29, reversing his 2026-10-29 call against the thin serif).
+    // Instrument Serif has one weight, so display carries at size, not weight. Previously: DM Sans 700 /
+    // Open Sans 600 / DM Serif Display italic @1.04.
+    fonts: { display: FAM.instrument, displayWeight: 400, plain: FAM.inter, plainWeight: 500,
+      accent: FAM.instrument, accentStyle: "serif-italic", accentScale: 1.0, mono: FAM.mono },
   },
 };
 export const ThemeCtx = createContext<Palette>(THEMES.tmv);

@@ -6,15 +6,16 @@ no cut sheet, no placing himself in Vids. Agreed 2026-10-28 after the teardown o
 First test: `videos/2026-10-27-chatgpt-ads-study/studio/` (minute 1).
 
 Code: `broll/src/studio/` — `Studio.tsx` (layout engine), `scenes.tsx` (`SCENES`), `kit.tsx` (look + entrances).
-Layout and motion come from Nick's video; **type and full-frame text don't** (Ajay, 2026-10-29: the thin serif,
-the dark wash and the small all-caps kickers read as AI). Fonts per theme are in "Type" below.
+Layout, motion, type **and** colour all come from Nick's video (Ajay, 2026-10-29) — with two carve-outs that
+stay ours: **no small grey all-caps labels** (kickers, eyebrows, "02 / 10" counters: they read as AI) and
+**no dark wash behind full-frame text**.
 **Built 2026-10-29:** `kit.tsx` loads the per-theme families and exposes `Display` / `Accent` / `Label` (no
-all-caps `Kicker`); `words` draws white straight on the footage with no wash and places itself off `face`;
-the `type` card is in `scenes.tsx`.
+all-caps `Kicker`); `words` places itself off `face` with no wash; the `type` card is in `scenes.tsx`.
 Two themes, same layout (`"theme"` in studio.json, palettes in `kit.tsx` → `THEMES`): **`tmv`** (TMV red, `tmv.`
-wordmark) and **`ajay`** (ajayjagtap.site's forest green #2C6650 on #FAF9F5, sage #7FBDA8 on dark,
-no corner handle; Ajay's call 2026-10-29, replacing the reference's olive). `dark` stays neutral #1B1D19
-(green-tinted darks next to his face cast onto his skin). Render both
+wordmark, Mulish + Dancing Script) and **`ajay`** (Nick's olive #4E6636 on #FAFCFA, #A7BD82 on dark, dark cards
+#111311, Instrument Serif + Inter, no corner handle). The olive, page, border and dark were **sampled off
+`videos/reference/2026-10-28-nick-saraev-ceo-ai/frames`**, not guessed; his site's forest green is kept in a
+comment in `kit.tsx` to switch back. Render both
 from one bundle with a second clip carrying `props: {...plan, theme: "ajay"}`.
 
 ## Workflow for a video
@@ -105,7 +106,7 @@ Use instead of putting a long line over his face; counts as a layout change for 
 - The big card (`split-*`) must never cover the `tmv.` wordmark: it starts at y 116, below the wordmark row.
 - (Superseded 2026-10-29: the dark keyword wash. See "Full-frame text".)
 - Sound design: `sound.md` here (built; music is a synthesized placeholder until he picks a source).
-- Two versions every time: Track My Visibility (`tmv`) and Ajay (`ajay`, his site's forest green).
+- Two versions every time: Track My Visibility (`tmv`) and Ajay (`ajay`, Nick's olive — see above).
 
 ## Render
 
