@@ -37,6 +37,16 @@ from one bundle with a second clip carrying `props: {...plan, theme: "ajay"}`.
    other thing to judge here — a shot whose text matters (a list, a doc) has to be cropped to that text and given
    a tile-width box, not a split-width one; a shot that is only evidence (a roadmap at 40% zoom) can stay whole
    with a ring and chips doing the work.
+   Screenshot discipline, learned the hard way on the Excalidraw video:
+   - **Crop every screenshot to its content.** A whole app window at 40% zoom reads as "some app" and nothing else.
+     Where only the tool's identity matters, the **toolbar alone** is more recognisable than the whole window.
+   - **Don't spend a later beat early.** A screenshot that is the subject of a beat 90s away must not appear now.
+   - **Never label a shot as something it isn't.** The first pass captioned Ajay's own canvas "His whiteboard"
+     under the Nick Saraev beat. Where the evidence doesn't exist, draw the idea (`marks`) rather than borrow.
+   - **Gallery cells want similar, squarish aspects.** Wide crops make a thin band of unreadable strips in a tall
+     frame; crop each to roughly 1.3–1.8 so the row fills the board.
+   - **Aim a `ring` at the file, don't guess it.** Open the cropped image, measure the target as a fraction of it,
+     then write `ring: {x, y, w, h}`.
 5. Render both themes from one bundle (`clips` with `muted: false`, the second with `props.theme = "ajay"`) into
    `studio/render/`, then `scripts/studio_sound.py` each into `studio/<name>-tmv.mp4` / `-ajay.mp4`.
 6. Pull frames out of the finished MP4s and check loudness (−14 LUFS). Hand over both files, the cue sheet, what you
@@ -56,21 +66,39 @@ from one bundle with a second clip carrying `props: {...plan, theme: "ajay"}`.
 
 ## Scenes (`scenes: [{type, start, end, slug, source, ...}]`, all times = seconds in the cut)
 
-`words` (≤ 6 of his words over his full-frame shot, rules below) · `type` (full-screen type card, rules below) ·
-`trio` (2–4 cards side by side, each on its word; `tone` `accent` | `muted`) · `gallery` (several screenshots
-landing one by one, `cols` + optional `cap`) · `count` (number counts up) · `list` (card that builds row by row, newest row dark) · `spine` (the video's outline: known items in words,
-the rest blurred, current one dark) · `shot` (published figure + source line + `ring` + pills) · `points` (serif
-headline + takeaway rows) · `places` (share + 2×2 place cards + tag) · `chat` (ChatGPT question types out,
-sponsored card, mismatch flag). A scene draws in the box of the layout it starts in. Content rules from SKILL.md apply.
+**The rule for his videos (Ajay, 2026-10-29): draw the beat, don't caption it.** Every beat is a real screenshot,
+a drawn visual, one-word cards, a type card or a number. **Do not use `points` or `list`** — a headline over rows
+of sentences is a caption in a box, which is the thing he keeps asking us to stop doing. They stay in `SCENES` for
+the TMV study look; the Excalidraw video (3:20, 30 beats) uses neither.
+
+In rough order of preference:
+
+| type | what's on screen |
+|---|---|
+| `shot` | one of **his real screenshots** + a plain source line, an optional `ring`, and pills. First choice whenever the artefact exists |
+| `gallery` | several screenshots landing one by one; `cols`, optional `title` / `cap` |
+| `marks` | a blank board filling with Excalidraw-style strokes that **draw themselves on**, one per word (`marks: [{kind, x, y, s, at, c}]`; kinds in `STROKES`) |
+| `compare` | two panels: a rigid greyed one against an open accent one (`left` / `right`, each `{at, tone, mock, label}`; mocks in `Mock`) |
+| `loop` | 2–4 panels joined by drawn arrows, each a small mock and one word (`panels`, `arrowAt`) |
+| `trio` | 2–4 cards side by side, **icon + one word each**, `tone` `accent` or `muted`. Takes `w` — without it a three-card row crowds the face tile |
+| `type` | full-screen type card, rules below |
+| `count` | one number counting up |
+| `words` | 2–3 words on the wall beside him, rules below |
+| `spine` / `places` / `chat` | the outline card, place cards, a ChatGPT exchange |
+| `points` / `list` | **not for his videos** — see above |
+
+A scene draws in the box of the layout it starts in. Content rules from SKILL.md apply.
 
 ## Type (Ajay, 2026-10-29)
 
 | theme | main (pops, type cards, board headlines) | plain words | accent (one word per line) |
 |---|---|---|---|
 | `tmv` | **Mulish** 700–800 | Mulish 500 | **Dancing Script** 700 (cursive) |
-| `ajay` | **DM Sans** 600–700 (his site's sans) | **Open Sans** 500–600: chip labels, source lines, small connective words | **DM Serif Display** italic (his site's accent face) |
+| `ajay` | **Instrument Serif** 400 (Nick's display face) | **Inter** 500: chip labels, source lines, small connective words | **Instrument Serif italic** |
 
-- `ajay` only: **JetBrains Mono** (also on his site) for typed prompts, URLs and code, nothing else.
+- `ajay` only: **JetBrains Mono** for typed prompts, URLs and code, nothing else.
+- Instrument Serif ships in **one weight**, so `ajay` headlines carry by size, not boldness. A line that looks
+  thin is almost always too small: a type card wants 200–240px, not 150.
 - Sentence case, headlines tracked slightly tight (−1 to −2%). **No all-caps eyebrows/kickers, no "02 / 10"
   counters, no tracked "SOURCE ·" labels** anywhere in studio mode: a count is a big numeral inside the card, a
   source is a plain small line. (UI mocks may keep what the real UI shows, e.g. ChatGPT's "Sponsored".)
@@ -84,12 +112,16 @@ Reference: aayusucks, "Typography Without Bullsh*t" (`videos/reference/2026-10-2
 Its face shots are almost all clean; the typography lives on cut-away type cards.
 
 - **Default is clean.** Most full-frame stretches get no text. Use `words` for the hook and the punchlines only.
-- **No wash, no panel, nothing that darkens the frame.** White words straight on the footage, with at most a faint
-  shadow on the letters themselves (≤ 0.25 opacity, ≤ 12px blur). The old dark wash put a shadow over his face.
-- **≤ 6 words**, his own, appearing word by word on the spoken word. Not a caption of the full sentence.
-- **Placement from `face`**: split the phrase either side of his head at eye level ("Think like" | "an artist"), or one
-  line at chest height. Never over eyes or mouth (keep a box around the head clear); 2–3 words may cross his hands/body.
-- One accent word per line (theme accent font and/or accent colour). No kicker lines.
+- **`place: "wall"` is the default** (2026-10-29): **dark ink on the clear wall beside him**, with a highlighter
+  swipe (`accentTint`) drawn under the one accent word. **No wash, no panel, no drop shadow, and nothing over his
+  face, hands or body.** Dark ink on a light wall needs no shadow at all — which is what finally settled the
+  shadow he kept seeing. White-on-footage always needs one, so it can only ever be tuned down, never removed.
+- **2–3 words a line, stacked**, one or two words per line in a narrow column. Four words on a line runs into his
+  shoulder. 60–72px. Seven captions in a 3:20 video is the right order of magnitude.
+- **`wall: {x, y, w}` is per scene**, in frame fractions, because the clear area moves with the shot. Measure it:
+  pull three frames from across the cut (`broll.py still`) and find the column that is empty in all of them.
+- The older white-on-footage placements (`split` / `chest` / `left`) still exist for a shot with no clear wall.
+- One accent word per line. No kicker lines.
 - **Show, don't type**: when he names a tool, a logo chip (`assets/logos/`); a number, a stat chip (big numeral +
   ≤ 2-word label in the plain font); a yes/no, a ✓/✗ chip. Small elements from the b-roll kit beat words. Max 2
   overlays on screen at once; they leave together at the sentence end.
@@ -113,3 +145,10 @@ Use instead of putting a long line over his face; counts as a layout change for 
 `node broll/shoot.mjs job.json` with `{comp: "Studio", props: <studio.json>, publicDir: <job folder>,
 stills: [...], clips: [{from, to, out, muted: false}]}`. Not wired into `broll.py` yet. About 4 min to bundle
 (the job folder is copied), then the frames. Read studio.json as UTF-8.
+
+- **`concurrency` (per job, or per clip).** The default is `cores − 2`; at that rate every worker seeks the same
+  multi-hundred-MB cut and the compositor intermittently dies with `No frame found at position N`. That error is
+  **not** a corrupt file — check the asset copy's size before chasing it. Drop to **3** and it renders clean, at
+  roughly half the speed (2026-10-29: 8 cores, a 216 MB 1080p cut, 3:20 in about 20 min).
+- Remotion leaves a full copy of the cut in `%TEMP%/remotion-*assets*/` **per render** and never cleans up. They
+  reached 122 folders / 30 GB in two days. Tell Ajay; don't delete them without asking.

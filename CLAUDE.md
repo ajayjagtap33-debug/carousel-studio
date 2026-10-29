@@ -32,15 +32,23 @@ one fresh session per video.
 - His cut is composited into the render. Per beat he sits `full` frame, as a small `tile-left|right`, or as a big
   `split-left|right` card, moving on the first word of a sentence. **Always open on him speaking**; a full-frame
   breather every 30–60s; never the same layout twice in a row; splices go at a layout change.
-- Full-frame shots are mostly **clean**. Text over him is ≤ 6 of his words, white straight on the footage (no wash,
-  nothing darkening the frame), split around his head or at chest height, never over eyes/mouth. Logo / stat / ✓✗
-  chips beat words. The key line gets a full-screen `type` card instead (2–4s, one huge line, one accent).
-  Reference: `videos/reference/2026-10-29-aayusucks-typography/`. The big card never covers the top-left wordmark.
+- **Draw the beat, don't caption it** (Ajay, 2026-10-29 — the standing rule for his videos). Every beat is one of:
+  a **real screenshot** of his own work (`shot` / `gallery`, first choice whenever the artefact exists), a **drawn
+  visual** (`marks` strokes that draw themselves on · `compare` rigid-vs-open panels · `loop` panels joined by
+  arrows), **icon + one-word cards** (`trio`), a full-screen `type` card, or a `count`. **Never `points` or
+  `list`** — a headline over rows of sentences is a caption in a box. Reference edit:
+  `videos/2026-10-29-studio-edit/studio/plan-v2.md` (3:20, 30 beats, neither type used once).
+- Full-frame shots are mostly **clean**. When text is needed, `words` defaults to `place: "wall"`: **2–3 of his
+  words in dark ink on the clear wall beside him**, highlighter swipe under the one accent word, **no wash, no
+  shadow, nothing over his face, hands or body**. Dark on a light wall needs no shadow, so the shadow is gone
+  rather than reduced. `wall: {x, y, w}` is set per scene off real frames — the clear column moves with the shot.
+  Logo / stat / ✓✗ chips still beat words. The key line gets a `type` card (2–4s, one huge line, one accent);
+  the big card never covers the top-left wordmark.
 - **Type**: `tmv` = Mulish + Dancing Script (cursive) for one accent word; `ajay` = **Instrument Serif 400 +
   Instrument Serif italic accent + Inter** (+ JetBrains Mono for prompts/URLs). Sentence case. **No all-caps
   eyebrows/kickers or "02 / 10" counters** — Nick leans on small grey all-caps labels, we don't (Ajay, 2026-10-29:
-  they read as AI). Instrument Serif has one weight, so display lines carry at size, not weight.
-  Built 2026-10-29 in `broll/src/studio/kit.tsx` + `scenes.tsx`, with the `type` card and `trio` / `gallery`.
+  they read as AI). Instrument Serif has one weight, so display lines carry at size, not weight: a type card
+  wants 200–240px, not 150. Built 2026-10-29 in `broll/src/studio/kit.tsx` + `scenes.tsx`.
 - The whole `ajay` look is Nick Saraev's CEO-AI video (`videos/reference/2026-10-28-nick-saraev-ceo-ai/`) —
   layout, motion, type **and** colour, minus the all-caps labels (Ajay's call, 2026-10-29). Every element blurs
   in on its word. Palette sampled off his frames, not guessed.
@@ -51,10 +59,17 @@ one fresh session per video.
   (from the plan, thinned to 4–8 a minute) and a music bed ducked under his voice, mastered to −14 LUFS / −1 dBTP.
   Rules in the skill's `sound.md`. SFX are synthesized into `assets/sfx/`; the music bed is a synthesized
   placeholder until Ajay picks a source (YouTube Audio Library / Epidemic Commercial / Uppbeat — never Pixabay music).
+  Layout whooshes come from the **layout list**, not the scenes, so `"sfx": false` on a scene can't thin them —
+  to come down a cue, mute a group's pop or change the layout. Measure the finished file's loudness; don't report
+  the script's own number.
 - Render: `node broll/shoot.mjs job.json` (clips with `muted: false`; a second clip with `props` = the other theme).
-  ~4 min to bundle + ~3 min per minute of video per version. Claude can't hear: say so and have Ajay check the mix.
-- Examples: `videos/2026-10-27-chatgpt-ads-study/studio/` (minute 1, both themes),
-  `videos/2026-10-29-studio-edit/` (the Excalidraw video, 3:20, `ajay` theme, end to end).
+  ~4 min to bundle, then ~6 min per minute of video per version at `concurrency: 3`. **Set `concurrency` to 3 in
+  the job**: the default `cores − 2` makes the compositor throw `No frame found at position N` on a big cut, which
+  looks like file corruption and isn't. Claude can't hear: say so and have Ajay check the mix.
+- **The reference edit for his videos: `videos/2026-10-29-studio-edit/`** (Excalidraw, 3:20, `ajay`, end to end).
+  `studio/plan-v2.md` is the worked example of all of the above — the beat table, what changed after the stills
+  pass and why, and the screenshot decisions. Read it before planning a new one.
+  Also `videos/2026-10-27-chatgpt-ads-study/studio/` (minute 1, both themes).
 
 The older modes below (silent clips he lays over his cut in Google Vids) still work when he asks for b-roll only:
 - Style C "Warm paper × TMV" (`"style": "editorial"` in broll.json): Mulish, flat warm paper with a faint grid,
