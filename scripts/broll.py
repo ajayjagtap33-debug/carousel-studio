@@ -458,12 +458,14 @@ def slug(s: dict) -> str:
 
 
 def clip_runs(plan: dict) -> list[list[dict]]:
-    """spot: one clip per scene; full: scenes less than 1.2s apart share a clip."""
+    """spot: one clip per scene; full: scenes less than 1.2s apart share a clip, as long as they keep the
+    same side clear - a clip is one face position, so Ajay places himself once per clip."""
     scenes = sorted(plan["scenes"], key=lambda s: s["start"])
     if coverage(plan) == "spot": return [[s] for s in scenes]
     runs = []
     for s in scenes:
-        if runs and s["start"] - runs[-1][-1]["end"] < 1.2: runs[-1].append(s)
+        if runs and s["start"] - runs[-1][-1]["end"] < 1.2 and face_side(s, plan) == face_side(runs[-1][-1], plan):
+            runs[-1].append(s)
         else: runs.append([s])
     return runs
 

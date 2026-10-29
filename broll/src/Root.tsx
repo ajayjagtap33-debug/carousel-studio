@@ -3,6 +3,7 @@ import { Composition } from "remotion";
 import { Main } from "./Main";
 import { Sample, SAMPLE_SECONDS } from "./editorial/Sample";
 import { EditorialMain } from "./editorial/Main";
+import { Studio } from "./studio/Studio";
 import type { Props } from "./types";
 
 // Real props come from scripts/broll.py (props.json = broll.json + media from transcript.json).
@@ -40,6 +41,20 @@ export const Root: React.FC = () => (
       calculateMetadata={({ props }) => {
         const m = (props as unknown as Props).media;
         return { fps: m.fps, width: m.width, height: m.height, durationInFrames: Math.max(1, Math.round(m.duration * m.fps)) };
+      }}
+    />
+    {/* Studio: the finished video, his cut composited with the board (props from a job's studio.json) */}
+    <Composition
+      id="Studio"
+      component={Studio as unknown as React.FC<Record<string, unknown>>}
+      defaultProps={{ ...demo, layouts: [{ start: 0, mode: "full" }] } as unknown as Record<string, unknown>}
+      fps={30}
+      width={1920}
+      height={1080}
+      durationInFrames={300}
+      calculateMetadata={({ props }) => {
+        const m = (props as unknown as Props).media;
+        return { fps: m.fps, width: 1920, height: 1080, durationInFrames: Math.max(1, Math.round(m.duration * m.fps)) };
       }}
     />
     {/* Editorial style: design samples for direction A and B */}

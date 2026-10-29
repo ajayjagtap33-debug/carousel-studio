@@ -22,10 +22,38 @@ Turns a brief into a 4:5 hand-drawn carousel: Excalidraw file + PNGs + LinkedIn 
    Needs ffmpeg. The LinkedIn PDF stays static. Look at the video before calling it done.
 7. **Caption**: use the `linkedin-post-writer` skill on the approved storyboard.
 
-## Videos (b-roll for talking-head videos)
+## Videos (talking-head edits)
 
-Ajay records and edits in Google Vids; Claude makes only the b-roll: silent 1920×1080 clips timed to his words,
-which he lays over his cut. Follow the `broll-video` skill (`.claude/skills/broll-video/SKILL.md`), one fresh session per video.
+Ajay records and rough-cuts; he hands over the **MP4** and Claude returns the **finished MP4** (his footage, the
+b-roll, transitions, music and sound, his audio). Follow the `broll-video` skill (`.claude/skills/broll-video/SKILL.md`),
+one fresh session per video.
+
+**Studio mode is the default (since 2026-10-28)** — `.claude/skills/broll-video/studio.md`, code in `broll/src/studio/`:
+- His cut is composited into the render. Per beat he sits `full` frame, as a small `tile-left|right`, or as a big
+  `split-left|right` card, moving on the first word of a sentence. **Always open on him speaking**; a full-frame
+  breather every 30–60s; never the same layout twice in a row; splices go at a layout change.
+- Full-frame shots are mostly **clean**. Text over him is ≤ 6 of his words, white straight on the footage (no wash,
+  nothing darkening the frame), split around his head or at chest height, never over eyes/mouth. Logo / stat / ✓✗
+  chips beat words. The key line gets a full-screen `type` card instead (2–4s, one huge line, one accent).
+  Reference: `videos/reference/2026-10-29-aayusucks-typography/`. The big card never covers the top-left wordmark.
+- **Type**: `tmv` = Mulish + Dancing Script (cursive) for one accent word; `ajay` = DM Sans + Open Sans for plain
+  words + DM Serif Display italic accent (+ JetBrains Mono for prompts/URLs). Sentence case. **No all-caps
+  eyebrows/kickers or "02 / 10" counters** (Ajay, 2026-10-29: they read as AI). Built 2026-10-29 in
+    `broll/src/studio/kit.tsx` + `scenes.tsx`, with the `type` card and the `trio` / `gallery` scenes.
+- Layout and motion from Nick Saraev's CEO-AI video (`videos/reference/2026-10-28-nick-saraev-ceo-ai/`): off-white
+  page, one accent, every element blurs in on its word.
+- **Two versions** from one `studio.json`: `"theme": "tmv"` (TMV red, `tmv.` wordmark) and `"ajay"` (his site's
+  forest green #2C6650, sage #7FBDA8 on dark, no corner handle; colours from ajayjagtap.site, not the reference). Render both unless he says otherwise.
+- **Sound**: `python scripts/studio_sound.py <studio.json> <render.mp4> <out.mp4> [--music track.wav]` adds SFX cues
+  (from the plan, thinned to 4–8 a minute) and a music bed ducked under his voice, mastered to −14 LUFS / −1 dBTP.
+  Rules in the skill's `sound.md`. SFX are synthesized into `assets/sfx/`; the music bed is a synthesized
+  placeholder until Ajay picks a source (YouTube Audio Library / Epidemic Commercial / Uppbeat — never Pixabay music).
+- Render: `node broll/shoot.mjs job.json` (clips with `muted: false`; a second clip with `props` = the other theme).
+  ~4 min to bundle + ~3 min per minute of video per version. Claude can't hear: say so and have Ajay check the mix.
+- Examples: `videos/2026-10-27-chatgpt-ads-study/studio/` (minute 1, both themes),
+  `videos/2026-10-29-studio-edit/` (the Excalidraw video, 3:20, `ajay` theme, end to end).
+
+The older modes below (silent clips he lays over his cut in Google Vids) still work when he asks for b-roll only:
 - Style C "Warm paper × TMV" (`"style": "editorial"` in broll.json): Mulish, flat warm paper with a faint grid,
   TMV red in small doses, the `tmv.` wordmark on every scene. **The look is the scene canvas that
   `treatment-rules.md` links to — open it before writing a beat sheet.** Theme in `broll/src/editorial/themes.ts`,
