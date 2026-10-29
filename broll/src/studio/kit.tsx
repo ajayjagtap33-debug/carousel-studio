@@ -31,7 +31,7 @@ export type Fonts = {
 };
 export type Palette = {
   border: string; page: string; ink: string; body: string; muted: string; line: string; card: string; dark: string;
-  accent: string; accentSoft: string; onDark: string; // onDark = the accent against footage / a dark card
+  accent: string; accentSoft: string; accentTint: string; onDark: string; // onDark = the accent against footage / a dark card
   logo?: string; handle?: string; // chrome top-left: a wordmark image, or a text handle
   fonts: Fonts;
 };
@@ -39,13 +39,13 @@ export type Palette = {
 export const THEMES: Record<"tmv" | "ajay", Palette> = {
   tmv: {
     border: "#ECE9E3", page: "#FAFAF8", ink: "#141414", body: "#4A4A47", muted: "#8E8C86", line: "#E6E4DE", card: "#FFFFFF",
-    dark: "#161616", accent: "#B80000", accentSoft: "#FBEDEB", onDark: "#F86659", logo: "logos/tmv-red.png",
+    dark: "#161616", accent: "#B80000", accentSoft: "#FBEDEB", accentTint: "#F7CFC9", onDark: "#F86659", logo: "logos/tmv-red.png",
     fonts: { display: FAM.mulish, displayWeight: 800, plain: FAM.mulish, plainWeight: 500,
       accent: FAM.dancing, accentStyle: "cursive", accentScale: 1.18, mono: FAM.mono },
   },
   ajay: { // ajayjagtap.site tokens (2026-10-29); dark stays neutral so the wash beside his face doesn't tint his skin
     border: "#E4DED4", page: "#FAF9F5", ink: "#1A1A18", body: "#3D3D3A", muted: "#6C6A64", line: "#E4DED4", card: "#FFFFFF",
-    dark: "#1B1D19", accent: "#2C6650", accentSoft: "#E6EFEA", onDark: "#7FBDA8", // no chrome: Ajay dropped the corner handle (2026-10-29)
+    dark: "#1B1D19", accent: "#2C6650", accentSoft: "#E6EFEA", accentTint: "#BCD9CB", onDark: "#7FBDA8", // no chrome: Ajay dropped the corner handle (2026-10-29)
     fonts: { display: FAM.dmSans, displayWeight: 700, plain: FAM.openSans, plainWeight: 600,
       accent: FAM.dmSerif, accentStyle: "serif-italic", accentScale: 1.04, mono: FAM.mono },
   },
@@ -87,7 +87,10 @@ export const Icon: React.FC<{ name: string; size?: number; color?: string }> = (
   const C = useC();
   color = color ?? C.ink;
   const I = iconFor(name);
-  return I ? <I size={size} color={color} strokeWidth={1.5} /> : null;
+  if (I) return <I size={size} color={color} strokeWidth={1.5} />;
+  // an unknown lucide name used to render nothing at all, so the row just lost its icon in silence
+  return <div style={{ width: size, height: size, borderRadius: size, border: "3px dashed #D14343", color: "#D14343",
+    fontFamily: C.fonts.plain, fontSize: size * 0.6, display: "flex", alignItems: "center", justifyContent: "center" }}>?</div>;
 };
 
 /** A quiet line above or under something (a card's label, a source credit). Sentence case, never tracked caps. */

@@ -72,7 +72,7 @@ const TypeCard: View = ({ s }) => {
           if (mode === "font") return <Accent key={i} size={size}>{word}</Accent>;
           if (mode === "highlight") return (
             <span key={i} style={{ position: "relative", padding: "0 0.1em" }}>
-              <span style={{ position: "absolute", left: 0, right: 0, top: "0.16em", bottom: "0.08em", background: C.accentSoft, borderRadius: 8 }} />
+              <span style={{ position: "absolute", left: 0, right: 0, top: "0.16em", bottom: "0.08em", background: C.accentTint, borderRadius: 8 }} />
               <span style={{ position: "relative", color: C.accent }}>{word}</span>
             </span>
           );
@@ -90,7 +90,7 @@ const TypeCard: View = ({ s }) => {
 const Trio: View = ({ s, box }) => {
   const C = useC();
   const cards = s.cards as { word: string; sub?: string; icon?: string; at: number; tone?: "plain" | "accent" | "muted" }[];
-  const w = Math.min(box.w - 60, cards.length * 400);
+  const w = Math.min(box.w - 60, cards.length * 460);
   return (
     <Centre>
       <div style={{ width: w }}>
