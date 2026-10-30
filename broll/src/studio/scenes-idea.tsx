@@ -684,6 +684,28 @@ const Lengths: View = ({ s, box }) => {
   const t = useNow();
   const rows = s.rows as { label: string; at: number; w: number; run?: boolean; tone?: "accent" | "muted" }[];
   const x0 = 80;
+  if (s.vertical) { // reels: bars stand up from a baseline, and the long one runs off the top of the board
+    const base = 900;
+    return (
+      <div style={{ position: "absolute", inset: 0, overflow: "hidden" }}>
+        <div style={{ position: "absolute", left: 60, right: 60, top: base, height: 4, background: C.line }} />
+        <div style={{ position: "absolute", left: 0, right: 0, top: 0, height: base, display: "flex", justifyContent: "center", alignItems: "flex-end", gap: 120 }}>
+          {rows.map((r, i) => {
+            const grow = r.run ? Math.max(0, t - r.at) * 900 : ease(clamp01((t - r.at) / 0.6)) * r.w;
+            const acc = r.tone === "accent";
+            return <div key={i} style={{ width: 230, height: grow, borderRadius: "16px 16px 0 0", background: acc ? C.accent : "#CFCDC6",
+              boxShadow: acc ? "0 10px 24px rgba(78,102,54,0.25)" : undefined }} />;
+          })}
+        </div>
+        <div style={{ position: "absolute", left: 0, right: 0, top: base + 26, display: "flex", justifyContent: "center", gap: 120 }}>
+          {rows.map((r, i) => (
+            <div key={i} style={{ width: 330, marginLeft: -50, marginRight: -50, textAlign: "center", ...inStyle(ramp(t, r.at - 0.1, 0.35)), fontFamily: C.fonts.display, fontSize: 60,
+              lineHeight: 1.05, color: C.ink }}>{r.label}</div>
+          ))}
+        </div>
+      </div>
+    );
+  }
   return (
     <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", justifyContent: "center", gap: 70, overflow: "hidden" }}>
       {rows.map((r, i) => {
@@ -774,6 +796,32 @@ const Search: View = ({ s, box }) => {
   const t = useNow();
   const panels = s.panels as { logo: string; name: string; at: number; kind?: "answer" }[];
   const gap = 30, pw = Math.floor((Math.min(box.w - 80, 1640) - gap * (panels.length - 1)) / panels.length);
+  if (s.stack) { // reels: one row per surface, top to bottom, the result beside its search bar
+    return (
+      <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 28 }}>
+        {panels.map((p, i) => {
+          const typed = s.query.slice(0, Math.floor(clamp01((t - p.at) / 0.7) * s.query.length));
+          const res = ramp(t, p.at + 0.8, 0.35);
+          return (
+            <div key={i} style={{ width: box.w - 40, background: C.card, border: `1px solid ${C.line}`, borderRadius: 26, boxShadow: SHADOW, padding: "24px 28px",
+              boxSizing: "border-box", display: "flex", gap: 26, alignItems: "center", ...inStyle(ramp(t, p.at - 0.1, 0.4), 30) }}>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 18 }}>
+                  <Img src={staticFile(p.logo)} style={{ height: 46 }} />
+                  <span style={{ fontFamily: C.fonts.plain, fontWeight: 500, fontSize: 38, color: C.ink }}>{p.name}</span>
+                </div>
+                <div style={{ border: `2px solid ${C.line}`, borderRadius: 999, padding: "12px 22px", display: "flex", alignItems: "center", gap: 12,
+                  fontFamily: C.fonts.plain, fontSize: 32, color: C.body, minHeight: 40, whiteSpace: "nowrap", overflow: "hidden" }}>
+                  <Icon name="search" size={30} color={C.muted} />{typed}<span style={{ opacity: Math.floor(t * 3) % 2 ? 1 : 0 }}>|</span>
+                </div>
+              </div>
+              <Img src={staticFile(s.thumb)} style={{ width: 300, borderRadius: 14, border: `1px solid ${C.line}`, ...inStyle(res) }} />
+            </div>
+          );
+        })}
+      </div>
+    );
+  }
   return (
     <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", gap }}>
       {panels.map((p, i) => {

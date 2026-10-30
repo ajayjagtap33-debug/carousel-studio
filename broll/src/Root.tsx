@@ -4,6 +4,7 @@ import { Main } from "./Main";
 import { Sample, SAMPLE_SECONDS } from "./editorial/Sample";
 import { EditorialMain } from "./editorial/Main";
 import { Studio } from "./studio/Studio";
+import { ReelBook, starts, type ReelBookProps } from "./reel/Reel";
 import type { Props } from "./types";
 
 // Real props come from scripts/broll.py (props.json = broll.json + media from transcript.json).
@@ -55,6 +56,21 @@ export const Root: React.FC = () => (
       calculateMetadata={({ props }) => {
         const m = (props as unknown as Props).media;
         return { fps: m.fps, width: 1920, height: 1080, durationInFrames: Math.max(1, Math.round(m.duration * m.fps)) };
+      }}
+    />
+    {/* Reel: the 9:16 look, a list of reference frames played back to back (props: reel-creator/design/book.json) */}
+    <Composition
+      id="ReelBook"
+      component={ReelBook as unknown as React.FC<Record<string, unknown>>}
+      defaultProps={{ frames: [] } as unknown as Record<string, unknown>}
+      fps={30}
+      width={1080}
+      height={1920}
+      durationInFrames={30}
+      calculateMetadata={({ props }) => {
+        const f = (props as unknown as ReelBookProps).frames;
+        const end = f.length ? starts(f)[f.length - 1] + f[f.length - 1].dur : 1;
+        return { durationInFrames: Math.max(1, Math.round(end * 30)) };
       }}
     />
     {/* Editorial style: design samples for direction A and B */}

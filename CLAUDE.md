@@ -71,6 +71,12 @@ one fresh session per video.
   pass and why, and the screenshot decisions. Read it before planning a new one.
   Also `videos/2026-10-27-chatgpt-ads-study/studio/` (minute 1, both themes).
 
+**Reels (9:16)**: the look is set, the workflow isn't yet (being planned, 2026-10-30). Design reference:
+`reel-creator/design/README.md` + 29 frames (`frames/`, `sheet.png`): Nick's split panel with Ajay cut out
+(`scripts/matte.py`, RVM model in `tools/rvm/`), our horizontal backdrop/colours/serif, Open Sauce Sans Medium
+captions on a see-through pill. Renderer: `broll/src/reel/Reel.tsx`. Nick's 49-reel teardown: `reel-creator/reference/`.
+The old reel-creator instructions are archived in `reel-creator/_archive/` and are **not** to be followed.
+
 The older modes below (silent clips he lays over his cut in Google Vids) still work when he asks for b-roll only:
 - Style C "Warm paper × TMV" (`"style": "editorial"` in broll.json): Mulish, flat warm paper with a faint grid,
   TMV red in small doses, the `tmv.` wordmark on every scene. **The look is the scene canvas that

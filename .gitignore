@@ -4,6 +4,9 @@ node_modules/
 # Bundled ffmpeg build (~314 MB) — install ffmpeg locally instead
 tools/ffmpeg/
 
+# Person-matting model for reels (~15 MB): rvm_mobilenetv3_fp32.onnx from github.com/PeterL1n/RobustVideoMatting v1.0.0
+tools/rvm/
+
 # Raw screen recordings and renders — local only. The reference teardowns are the exception: the skill and
 # CLAUDE.md point to them, so the .md travels with the repo while the frames and clips stay local.
 videos/*
@@ -26,3 +29,11 @@ desktop.ini
 
 # Remotion local cache
 .remotion/
+
+# Reels: the design reference's docs, builder and sheet travel; its frames, footage, mattes and renders stay local
+reel-creator/design/frames/
+reel-creator/design/public/
+reel-creator/design/*.mp4
+reel-creator/design/book.json
+reel-creator/design/job.json
+reel-creator/design/stills.log
