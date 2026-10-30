@@ -89,6 +89,34 @@ In rough order of preference:
 
 A scene draws in the box of the layout it starts in. Content rules from SKILL.md apply.
 
+### A picture per idea (Ajay, 2026-10-30)
+
+The first plan for Nested Sequence 02 filled 35 beats from the table above (`trio` ×13) and Ajay said it "looks exactly
+like the previous video". **Start from what the line means, then pick or build the type** — Nick's recent videos give
+almost every sentence its own picture (teardown: `videos/reference/2026-10-30-nick-saraev-recent/teardown.md`). Use
+any one type at most ~4 times a video. Built for that video, in `broll/src/studio/scenes-idea.tsx`:
+
+| type | the picture | key fields |
+|---|---|---|
+| `flap` | split-flap departures board; one per video for the section titles and recap (caps OK, Ajay 2026-10-30) | `steps[{at, lines}]`, `cols`, `rows` |
+| `callouts` | white labels with drawn leader lines to things in his own shot (face, mic, the room). Over the footage | `items[{text, at, label{x,y}, target{x,y} or [[t,x,y]…], wave?}]`, `zoom` (the punch-in in force) |
+| `calendar` | a month page: post slots fill (`posts`), crossed out (`strikeAt`), a day circled + note (`mark`), then it shrinks into a decade grid (`zoomAt`) | `year`, `month`, … |
+| `ad` | YouTube ad chrome on his footage (Ad 0:0x, Visit site, Skip, yellow line) | `at` |
+| `journal` | a notebook writing itself in wordless scrawl; `recAt` viewfinder + REC, `old` yellowed, `marks` highlight lines, `warmAt` nostalgia grain | |
+| `odometer` | a number rolling `from` → `to` like drums | `at`, `dur` |
+| `phone` | iPhone: `mode: rec` (camera → Published), `call` (incoming, `name`), `feed` (reels flicking, `srcs`) | |
+| `radar` | skills on axes; the shape grows per word | `axes[{label, at}]` |
+| `receipt` | a till slip printing a line per item | `items`, `total` |
+| `morph` | a lumpy grey form turning into a clean shape (v1 → v14), optional YouTube scrub bar | `morphAt`, `barAt` |
+| `resume` | a paper CV, one real line highlighted, a drawn note toward his card | `line`, `note`, `toward` |
+| `lengths` | bars to scale; `run` grows off the board | `rows[{label, at, w, run?}]` |
+| `shelf` | video spines onto a shelf (real titles), `years` ticking, `bubblesAt` = a conversation fading beside it | |
+| `search` | one query in several places (YouTube / Google / ChatGPT), each turning up his video | `panels`, `query`, `thumb` |
+
+Callouts that point at him need his position **every ~0.2–0.4s** when he moves (read off gridded frames); 0.8s
+keyframes missed by a head-width on Nested Sequence 02. Reference job: `videos/2026-10-30-nested-sequence-02/studio/`
+(`build2.py` writes studio.json from phrases).
+
 ## Type (Ajay, 2026-10-29)
 
 | theme | main (pops, type cards, board headlines) | plain words | accent (one word per line) |

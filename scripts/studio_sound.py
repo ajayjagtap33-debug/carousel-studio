@@ -207,6 +207,44 @@ def cues_for(plan: dict) -> list[tuple[float, str, float, str]]:
             for i in range(0, len(q), 2):
                 if q[i] != " ": c.append((q0 + qd * i / len(q), "key", 22, "typing"))
             c.append((s["flagAt"], "tone2", 13, f"flag: {s.get('flagText')}"))
+        # the picture-per-idea scenes (scenes-idea.tsx, 2026-10-30): one sound for the thing the scene does
+        elif ty == "flap":
+            for st in s["steps"]:  # the board clattering through its letters
+                for k in range(12): c.append((st["at"] + 0.03 * k, "tick", 23 + k * 0.4, "flap board"))
+        elif ty == "odometer":
+            at, d = s["at"], s.get("dur", 1.8); tt, gap = at, 0.06
+            while tt < at + d * 0.85:
+                c.append((tt, "tick", 22, "odometer")); tt += gap; gap *= 1.12
+            c.append((at + d, "hit", 11, f"odometer lands: {s['to']}"))
+        elif ty == "callouts":
+            for it in s["items"]: c.append((it["at"], "swish", 20, f"callout: {it['text']}"))
+        elif ty == "calendar":
+            if s.get("posts"): c.append((s["posts"]["at"], "pop", 18, "posts fill the month"))
+            if s.get("strikeAt") is not None: c.append((s["strikeAt"], "swish", 16, "crossed out"))
+            if s.get("mark"): c.append((s["mark"]["at"], "swish", 18, "day circled"))
+            if s.get("zoomAt") is not None: c.append((s["zoomAt"], "whoosh-down", 18, "month → decade"))
+        elif ty == "ad":
+            c.append((s["at"], "tone2", 14, "ad chrome"))
+        elif ty == "journal":
+            if s.get("recAt") is not None: c.append((s["recAt"], "tone2", 15, "REC"))
+        elif ty == "phone":
+            if s.get("mode") == "rec":
+                c.append((s["recAt"], "key", 14, "record button"))
+                c.append((s["publishAt"] + 1.35, "tone2", 14, "published"))
+            elif s.get("mode") == "call":
+                c.append((s["start"] + 0.4, "tone2", 13, "incoming call"))
+        elif ty == "radar":
+            c.append((s["axes"][0]["at"], "pop", 18, "radar"))
+        elif ty == "receipt":
+            for it in s["items"]: c.append((it["at"], "key", 20, "receipt line"))
+            if s.get("total"): c.append((s["total"]["at"], "hit", 13, "receipt total"))
+        elif ty == "morph":
+            c.append((s["morphAt"], "swish", 15, "morph"))
+        elif ty == "shelf":
+            c.append((s["books"][0]["at"], "pop", 18, "first spine"))
+        elif ty == "search":
+            p0 = s["panels"][0]
+            for i in range(0, len(s["query"]), 2): c.append((p0["at"] + 0.7 * i / len(s["query"]), "key", 22, "typing"))
     # a whoosh that lands on top of a count gets dropped: the count's ticks and hit already carry that moment
     counts = [s["at"] for s in plan["scenes"] if s["type"] in ("count", "places")]
     c = [x for x in c if not (x[1].startswith("whoosh") and any(abs(x[0] + 0.3 - a) < 0.6 for a in counts))]
