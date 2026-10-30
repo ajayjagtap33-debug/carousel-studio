@@ -4,8 +4,13 @@ node_modules/
 # Bundled ffmpeg build (~314 MB) — install ffmpeg locally instead
 tools/ffmpeg/
 
-# Raw screen recordings and renders — local only
-videos/
+# Raw screen recordings and renders — local only. The reference teardowns are the exception: the skill and
+# CLAUDE.md point to them, so the .md travels with the repo while the frames and clips stay local.
+videos/*
+!videos/reference/
+videos/reference/**
+!videos/reference/*/
+!videos/reference/*/teardown.md
 
 # Python
 __pycache__/
