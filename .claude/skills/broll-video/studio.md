@@ -29,7 +29,10 @@ from one bundle with a second clip carrying `props: {...plan, theme: "ajay"}`.
 2. Find his face: pull a few frames (`broll.py still`) and set `face: {x, y}` (centre, 0..1) — tiles, cards and
    the full-frame text positions all key off it.
 3. Write `studio/studio.json` (layouts + scenes, every `at` from `broll.py find`) and `studio/plan.md` (one row
-   per beat: time, his position, scene, elements on their words, source; list what you added). **Stop for approval.**
+   per beat: time, his position, scene, elements on their words, source; list what you added). Pick each beat's
+   picture from `visuals/catalog.md` by what the line means, then run `python scripts/scenes.py check videos/<folder>`
+   and clear its blocking lines (too many of one type, the same type twice in a row) before showing the plan; put its
+   `warn:` lines (types worn out by the last videos) in the plan for Ajay. **Stop for approval.**
 4. Stills at the key moments and mid-transition (job with `stills`), tiled into one sheet
    (`python scripts/_sheet.py <stills dir> <out.png> [cols]`); fix collisions (text over his face, the card over
    the wordmark, garbled characters — read the json as UTF-8). The sheet's downscale hides as much as it shows:
@@ -51,6 +54,8 @@ from one bundle with a second clip carrying `props: {...plan, theme: "ajay"}`.
    `studio/render/`, then `scripts/studio_sound.py` each into `studio/<name>-tmv.mp4` / `-ajay.mp4`.
 6. Pull frames out of the finished MP4s and check loudness (−14 LUFS). Hand over both files, the cue sheet, what you
    added, and say plainly that the mix needs his ears.
+7. `python scripts/scenes.py ledger` (updates `visuals/ledger.md`), and copy any stock-card beat that wanted a real
+   picture into `visuals/catalog.md` → Backlog.
 
 ## Layouts (`layouts: [{start, mode}]`, each holds until the next)
 
@@ -94,7 +99,8 @@ A scene draws in the box of the layout it starts in. Content rules from SKILL.md
 The first plan for Nested Sequence 02 filled 35 beats from the table above (`trio` ×13) and Ajay said it "looks exactly
 like the previous video". **Start from what the line means, then pick or build the type** — Nick's recent videos give
 almost every sentence its own picture (teardown: `videos/reference/2026-10-30-nick-saraev-recent/teardown.md`). Use
-any one type at most ~4 times a video. Built for that video, in `broll/src/studio/scenes-idea.tsx`:
+any one type at most 3 times a video (`scenes.py check` enforces it; `words` scales with length). Meanings → scenes,
+including the ones not built yet: `visuals/catalog.md`. Built for that video, in `broll/src/studio/scenes-idea.tsx`:
 
 | type | the picture | key fields |
 |---|---|---|
@@ -112,6 +118,18 @@ any one type at most ~4 times a video. Built for that video, in `broll/src/studi
 | `lengths` | bars to scale; `run` grows off the board | `rows[{label, at, w, run?}]` |
 | `shelf` | video spines onto a shelf (real titles), `years` ticking, `bubblesAt` = a conversation fading beside it | |
 | `search` | one query in several places (YouTube / Google / ChatGPT), each turning up his video | `panels`, `query`, `thumb` |
+
+Metaphor scenes (2026-10-31, the meanings that had nothing built; previews in `visuals/preview/`). Each draws in a
+fixed viewBox scaled to the box, so it fits tile, split and reel; in a reel, raise `stage.scale` if the chips read small.
+
+| type | the picture | key fields |
+|---|---|---|
+| `fork` | a dot splitting into 2–3 paths, a verb on each, a ✗ or a dot at the end | `from{text,at}`, `paths[{label, end, at, tone: accent\|muted}]` |
+| `funnel` | chips drop in, `filter` written on it, one goes through as `out`, the rest slide off grey. `jam: true` = a bottleneck: dots queue at the neck, one through every `rate` s | `items[{text?, at}]`, `pass`, `filter`, `out` · jam: `dropAt`, `every`, `rate`, `n`, `waiting: "{n} waiting"` |
+| `iceberg` | the tip above the waterline, the mass below; the water clears as the first label lands | `tip{text,at}`, `below[{text,at}]` (last one in the accent italic) |
+| `stairs` | 3–5 blocks rising on their words, a dot hopping up to the newest (filled accent), a drawn note over the top | `steps[{label,at}]`, `note{text,at}` |
+| `bridge` | two cliffs named, the deck building across with the connector's name under it | `from`, `to`, `span` (each `{text, at}`) |
+| `scale` | chips landing on two pans; the beam tips toward the heavier side | `left`/`right[{text, at, w?}]`, `leftLabel`, `rightLabel`, `leftTone`/`rightTone` |
 
 Callouts that point at him need his position **every ~0.2–0.4s** when he moves (read off gridded frames); 0.8s
 keyframes missed by a head-width on Nested Sequence 02. Reference job: `videos/2026-10-30-nested-sequence-02/studio/`

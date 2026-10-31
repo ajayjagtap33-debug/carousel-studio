@@ -38,6 +38,12 @@ one fresh session per video.
   arrows), **icon + one-word cards** (`trio`), a full-screen `type` card, or a `count`. **Never `points` or
   `list`** — a headline over rows of sentences is a caption in a box. Reference edit:
   `videos/2026-10-29-studio-edit/studio/plan-v2.md` (3:20, 30 beats, neither type used once).
+- **Don't repeat the pictures** (videos and reels alike, Ajay 2026-10-31). `visuals/catalog.md` maps what a line
+  means → scenes we have built and pictures seen in references that aren't built yet. Plan from it, then
+  `python scripts/scenes.py check <folder>` before the plan goes to Ajay: max 3 of a type per video (more for long
+  ones), never the same type twice in a row, `warn:` for types the last 3 videos wore out. After each video,
+  `python scripts/scenes.py ledger` → `visuals/ledger.md`. A new reference adds its visuals to the catalog under a
+  meaning; build new scenes 3–5 at a time, meanings with nothing built first.
 - Full-frame shots are mostly **clean**. When text is needed, `words` defaults to `place: "wall"`: **2–3 of his
   words in dark ink on the clear wall beside him**, highlighter swipe under the one accent word, **no wash, no
   shadow, nothing over his face, hands or body**. Dark on a light wall needs no shadow, so the shadow is gone
@@ -76,6 +82,8 @@ one fresh session per video.
 (`scripts/matte.py`, RVM model in `tools/rvm/`), our horizontal backdrop/colours/serif, Open Sauce Sans Medium
 captions on a see-through pill. Renderer: `broll/src/reel/Reel.tsx`. Nick's 49-reel teardown: `reel-creator/reference/`.
 The old reel-creator instructions are archived in `reel-creator/_archive/` and are **not** to be followed.
+Reels pick their pictures from the same `visuals/catalog.md` and pass the same `scripts/scenes.py check`
+(on `reel.json`; the ledger reads `reel-creator/reels/*/` and `reels/*/`).
 
 The older modes below (silent clips he lays over his cut in Google Vids) still work when he asks for b-roll only:
 - Style C "Warm paper × TMV" (`"style": "editorial"` in broll.json): Mulish, flat warm paper with a faint grid,

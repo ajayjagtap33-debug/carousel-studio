@@ -855,8 +855,314 @@ const Search: View = ({ s, box }) => {
   );
 };
 
+// ---------------------------------------------------------------------------------------------------------------
+// Metaphor scenes (2026-10-31): the six meanings visuals/catalog.md had nothing built for. Each draws in a fixed
+// viewBox scaled to the layout's box, so the same scene fits a tile board (~1500), a split (~990) and a reel (960).
+
+/** An SVG stage `vw`×`vh`, as wide as the box allows, centred on the board. */
+const Stage: React.FC<{ box: Box; vw: number; vh: number; enter: number; children: React.ReactNode }> = ({ box, vw, vh, enter, children }) => {
+  const w = Math.min(box.w - 100, vw);
+  return (
+    <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <svg width={w} height={(w * vh) / vw} viewBox={`0 0 ${vw} ${vh}`} style={{ overflow: "visible", opacity: enter }}>{children}</svg>
+    </div>
+  );
+};
+
+/** A word or two in a rounded chip, centred on (x, y). Width from the text, near enough for Inter. */
+const Chip: React.FC<{ x: number; y: number; text: string; p: number; tone?: "accent" | "muted" | "card"; size?: number }> =
+({ x, y, text, p, tone = "card", size = 40 }) => {
+  const C = useC();
+  const w = text.length * size * 0.54 + size * 1.4, h = size * 1.7;
+  const bg = tone === "accent" ? C.accent : tone === "muted" ? "#E6E4DE" : C.card;
+  return (
+    <g opacity={p} transform={`translate(${x} ${y + (1 - p) * 14})`} style={{ filter: p < 1 ? `blur(${(1 - p) * 6}px)` : undefined }}>
+      <rect x={-w / 2} y={-h / 2} width={w} height={h} rx={h / 2} fill={bg} stroke={tone === "card" ? C.line : "none"} strokeWidth={2} />
+      <text x={0} y={size * 0.36} textAnchor="middle" style={{ fontFamily: C.fonts.plain, fontWeight: 500, fontSize: size,
+        fill: tone === "accent" ? "#FFFFFF" : tone === "muted" ? C.muted : C.ink }}>{text}</text>
+    </g>
+  );
+};
+
+/** A display-serif label in the SVG; `italic` = the accent voice. */
+const Label: React.FC<{ x: number; y: number; text: string; p: number; size?: number; anchor?: "start" | "middle" | "end"; italic?: boolean; color?: string }> =
+({ x, y, text, p, size = 64, anchor = "middle", italic, color }) => {
+  const C = useC();
+  return <text x={x} y={y + (1 - p) * 12} textAnchor={anchor} opacity={p} style={{ fontFamily: C.fonts.display, fontStyle: italic ? "italic" : undefined,
+    fontSize: size, fill: color ?? (italic ? C.accent : C.ink), filter: p < 1 ? `blur(${(1 - p) * 6}px)` : undefined }}>{text}</text>;
+};
+
+/* ------------------------------------------------------------------ *
+ * fork: one dot splitting into 2–3 paths, each with a verb on it and  *
+ * where it ends. `from {text, at}`, `paths [{label, end, at, tone}]`; *
+ * tone `accent` = the way to go, `muted` ends in a drawn ✗.           *
+ * ------------------------------------------------------------------ */
+const Fork: View = ({ s, box }) => {
+  const C = useC();
+  const t = useNow();
+  const paths = s.paths as { label: string; end: string; at: number; tone?: "accent" | "muted" }[];
+  const n = paths.length, x0 = 130, xs = 440, xe = 900, y0 = 400;
+  const ys = n === 2 ? [190, 610] : [130, 400, 670];
+  const from = s.from as { text?: string; at?: number } | undefined;
+  return (
+    <Stage box={box} vw={1400} vh={800} enter={ramp(t, s.start, 0.4)}>
+      <circle cx={x0} cy={y0} r={22} fill={C.ink} />
+      <Draw d={`M ${x0} ${y0} L ${xs} ${y0}`} at={s.start + 0.1} dur={0.4} color={C.ink} width={8} len={400} />
+      {from?.text && <Label x={x0} y={y0 + 90} text={from.text} p={ramp(t, from.at ?? s.start, 0.4)} size={56} />}
+      {paths.map((p, i) => {
+        const y = ys[i], acc = (p.tone ?? (i === n - 1 ? "accent" : "muted")) === "accent";
+        const col = acc ? C.accent : "#C9C7C0", show = ramp(t, p.at, 0.4);
+        return (
+          <g key={i}>
+            <Draw d={`M ${xs} ${y0} C ${xs + 200} ${y0} ${xs + 160} ${y} ${xs + 330} ${y} L ${xe} ${y}`} at={p.at} dur={0.6} color={col} width={8} len={900} />
+            <Label x={(xs + 330 + xe) / 2} y={y - 34} text={p.label} p={show} size={58} italic={acc} color={acc ? undefined : C.muted} />
+            {acc
+              ? <circle cx={xe + 6} cy={y} r={20 * ramp(t, p.at + 0.5, 0.25)} fill={C.accent} />
+              : <Draw d={`M ${xe - 14} ${y - 18} L ${xe + 22} ${y + 18} M ${xe + 22} ${y - 18} L ${xe - 14} ${y + 18}`} at={p.at + 0.5} dur={0.3} color={C.muted} width={7} len={120} />}
+            <Label x={xe + 60} y={y + 22} text={p.end} p={ramp(t, p.at + 0.55, 0.4)} size={64} anchor="start" color={acc ? C.ink : C.muted} />
+          </g>
+        );
+      })}
+    </Stage>
+  );
+};
+
+/* ------------------------------------------------------------------ *
+ * funnel: many things go in, one comes out. `items [{text?, at}]`     *
+ * drop into the rim; `pass` (index, default the last) goes through   *
+ * and becomes `out {text, at}`, the rest slide off into a grey pile.  *
+ * `filter {text, at}` is written on the funnel.                       *
+ * `jam: true` is the bottleneck instead: dots arrive every `every` s  *
+ * from `dropAt`, the neck lets one through every `rate` s, the queue  *
+ * piles up. `waiting: "{n} waiting"` counts the queue.               *
+ * ------------------------------------------------------------------ */
+const Funnel: View = ({ s, box }) => {
+  const C = useC();
+  const t = useNow();
+  const rimY = 250, neckY = 560, spoutY = 650, cx = 700;
+  const body = `M 380 ${rimY} L 1020 ${rimY} L ${cx + 60} ${neckY} L ${cx + 60} ${spoutY} L ${cx - 60} ${spoutY} L ${cx - 60} ${neckY} Z`;
+  const filter = s.filter as { text: string; at: number } | undefined;
+  const out = s.out as { text: string; at: number } | undefined;
+  const fall = (k: number) => ease(clamp01(k));
+  let pieces: React.ReactNode[] = [];
+  let waitingN = 0;
+  if (s.jam) {
+    const N = s.n ?? 40, every = s.every ?? 0.18, rate = s.rate ?? 0.7, a0 = s.dropAt ?? s.start + 0.3;
+    const dep: number[] = [];
+    for (let i = 0; i < N; i++) dep.push(Math.max(a0 + i * every + 0.5, (dep[i - 1] ?? -1e9) + rate));
+    for (let i = 0; i < N; i++) {
+      const a = a0 + i * every;
+      if (t < a) continue;
+      const ahead = dep.filter((d, j) => j < i && d > t).length;
+      if (t < dep[i]) {
+        waitingN++;
+        // queue: rows above the neck, each as wide as the funnel is at that height
+        let row = 0, k0 = ahead, cap = 0, qy = 0;
+        for (;; row++) {
+          qy = neckY - 26 - row * 42;
+          cap = Math.max(1, Math.floor((2 * (36 + ((neckY - qy) / (neckY - rimY)) * 262)) / 44));
+          if (k0 < cap) break;
+          k0 -= cap;
+        }
+        const qx = cx + (k0 - (cap - 1) / 2) * 44 + (hash(i) - 0.5) * 6;
+        const k = fall((t - a) / 0.5);
+        pieces.push(<circle key={i} cx={qx} cy={interpolate(k, [0, 1], [-40, qy])} r={18} fill={C.ink} opacity={0.85} />);
+      } else {
+        const k = (t - dep[i]) / 0.6;
+        if (k < 1) pieces.push(<circle key={i} cx={cx} cy={neckY + k * 330} r={18} fill={C.accent} opacity={1 - k * 0.6} />);
+      }
+    }
+  } else {
+    const items = s.items as { text?: string; at: number }[];
+    const pass = s.pass ?? items.length - 1;
+    const rejects = items.map((_, i) => i).filter((i) => i !== pass);
+    items.forEach((it, i) => {
+      const k = (t - it.at) / 0.55;
+      if (k < 0) return;
+      const sx = 560 + ((i * 137) % 280);
+      if (i === pass) {
+        const y = k < 1 ? interpolate(fall(k), [0, 1], [-40, rimY + 60]) : rimY + 60 + fall((t - it.at - 0.55) / 0.6) * (spoutY + 90 - rimY - 60);
+        const x = k < 1 ? sx : interpolate(fall((t - it.at - 0.55) / 0.6), [0, 1], [sx, cx]);
+        const done = out && t >= out.at;
+        if (!done) pieces.push(it.text ? <Chip key={i} x={x} y={y} text={it.text} p={1} tone="accent" size={44} /> : <circle key={i} cx={x} cy={y} r={22} fill={C.accent} />);
+      } else {
+        // rejects slide off the rim into a grey column on the side they fell
+        const side = (rejects.indexOf(i) % 2 ? 1 : -1), slot = Math.floor(rejects.indexOf(i) / 2), k2 = clamp01((t - it.at - 0.6) / 0.6);
+        const pileX = cx + side * 560, pileY = rimY + 40 + slot * 96;
+        const x = k < 1 ? sx : interpolate(ease(k2), [0, 1], [sx, pileX]);
+        const y = k < 1 ? interpolate(fall(k), [0, 1], [-40, rimY - 30]) : interpolate(ease(k2), [0, 1], [rimY - 30, pileY]);
+        const tone = k2 > 0.5 ? "muted" : "card";
+        pieces.push(it.text ? <Chip key={i} x={x} y={y} text={it.text} p={1} tone={tone} size={40} /> : <circle key={i} cx={x} cy={y} r={20} fill={k2 > 0.5 ? "#CFCDC6" : C.ink} />);
+      }
+    });
+  }
+  return (
+    <Stage box={box} vw={1400} vh={900} enter={ramp(t, s.start, 0.4)}>
+      <path d={body} fill={C.card} stroke={C.ink} strokeWidth={5} strokeLinejoin="round" style={{ filter: "drop-shadow(0 18px 30px rgba(0,0,0,0.10))" }} />
+      <ellipse cx={cx} cy={rimY} rx={320} ry={26} fill={C.page} stroke={C.ink} strokeWidth={5} />
+      {filter && (s.jam
+        ? <Label x={cx - 100} y={spoutY - 10} text={filter.text} p={ramp(t, filter.at, 0.4)} size={58} italic anchor="end" />
+        : <Label x={cx} y={430} text={filter.text} p={ramp(t, filter.at, 0.4)} size={58} italic />)}
+      {pieces}
+      {out && <Chip x={cx} y={spoutY + 110} text={out.text} p={ramp(t, out.at, 0.35)} tone="accent" size={52} />}
+      {s.jam && s.waiting && <Label x={1080} y={neckY - 20} text={String(s.waiting).replace("{n}", String(waitingN))} p={ramp(t, (s.dropAt ?? s.start) + 1, 0.4)} size={56} anchor="start" color={C.muted} />}
+    </Stage>
+  );
+};
+
+/* ------------------------------------------------------------------ *
+ * iceberg: the small part people see above the waterline, the big    *
+ * part below. `tip {text, at}`; `below [{text, at}]` light up inside   *
+ * the mass one by one, the water clearing as the first one lands.    *
+ * ------------------------------------------------------------------ */
+const Iceberg: View = ({ s, box }) => {
+  const C = useC();
+  const t = useNow();
+  const below = s.below as { text: string; at: number }[];
+  const wl = 300;
+  const tip = `M 560 ${wl} L 625 205 L 690 140 L 735 175 L 790 230 L 850 ${wl} Z`;
+  const mass = `M 520 ${wl} L 410 470 L 370 650 L 470 860 L 700 940 L 960 860 L 1050 640 L 990 450 L 890 ${wl} Z`;
+  const clear = ramp(t, below[0]?.at ?? s.start, 0.6);
+  const wave = Array.from({ length: 29 }, (_, i) => `${i ? "L" : "M"} ${i * 50} ${wl + Math.sin(i * 1.3 + t * 2) * 5}`).join(" ");
+  const tipD = s.tip as { text: string; at: number } | undefined;
+  return (
+    <Stage box={box} vw={1400} vh={980} enter={ramp(t, s.start, 0.4)}>
+      <rect x={0} y={wl} width={1400} height={680} fill={C.accentSoft} />
+      <path d={mass} fill={C.card} stroke={C.ink} strokeWidth={4} strokeLinejoin="round" opacity={0.3 + 0.7 * clear} />
+      <rect x={0} y={wl} width={1400} height={680} fill={C.accentSoft} opacity={0.55 * (1 - clear)} />
+      <path d={tip} fill={C.card} stroke={C.ink} strokeWidth={4} strokeLinejoin="round" />
+      <path d={wave} fill="none" stroke={C.accent} strokeWidth={4} opacity={0.7} />
+      {tipD && <>
+        <Draw d={`M 870 200 L 1000 160`} at={tipD.at} dur={0.3} color={C.muted} width={3} len={200} />
+        <Label x={1020} y={175} text={tipD.text} p={ramp(t, tipD.at, 0.4)} size={60} anchor="start" />
+      </>}
+      {below.map((b, i) => (
+        <Label key={i} x={710} y={430 + i * (440 / Math.max(1, below.length - 1))} text={b.text} p={ramp(t, b.at, 0.4)} size={54} italic={i === below.length - 1} />
+      ))}
+    </Stage>
+  );
+};
+
+/* ------------------------------------------------------------------ *
+ * stairs: 3–5 blocks rising left to right, each named on its word;   *
+ * a dot hops up to the newest step. `steps [{label, at}]`, `note      *
+ * {text, at}` = a drawn callout over the top step.                    *
+ * ------------------------------------------------------------------ */
+const Stairs: View = ({ s, box }) => {
+  const C = useC();
+  const t = useNow();
+  const steps = s.steps as { label: string; at: number }[];
+  const n = steps.length, base = 840, x0 = 130, gap = 16, sw = (1140 - gap * (n - 1)) / n;
+  const hs = steps.map((_, i) => 150 + (i * 480) / Math.max(1, n - 1));
+  const reached = steps.filter((st) => t >= st.at).length - 1;
+  const cur = Math.max(0, reached);
+  // the dot hops from the previous step top to the current one
+  const hop = reached >= 0 ? ease(clamp01((t - steps[cur].at - 0.15) / 0.45)) : 0;
+  const top = (i: number) => ({ x: x0 + i * (sw + gap) + sw / 2, y: base - hs[i] });
+  const a = top(Math.max(0, cur - 1)), b = top(cur);
+  const dx = interpolate(hop, [0, 1], [a.x, b.x]), dy = interpolate(hop, [0, 1], [a.y, b.y]) - Math.sin(hop * Math.PI) * 90;
+  const note = s.note as { text: string; at: number } | undefined;
+  const last = top(n - 1);
+  return (
+    <Stage box={box} vw={1400} vh={940} enter={ramp(t, s.start, 0.4)}>
+      <line x1={60} y1={base} x2={1340} y2={base} stroke={C.line} strokeWidth={4} />
+      {steps.map((st, i) => {
+        const g = ease(clamp01((t - st.at) / 0.45)), h = hs[i] * g, x = x0 + i * (sw + gap);
+        const on = i === cur && reached >= 0;
+        return (
+          <g key={i}>
+            <rect x={x} y={base - h} width={sw} height={h} rx={14} fill={on ? C.accent : C.card} stroke={on ? "none" : C.line} strokeWidth={3}
+              style={{ filter: "drop-shadow(0 12px 20px rgba(0,0,0,0.08))" }} />
+            <Label x={x + sw / 2} y={base - hs[i] + 80} text={st.label} p={ramp(t, st.at + 0.2, 0.35)} size={Math.min(56, (sw - 30) / Math.max(4, st.label.length) * 1.9)}
+              color={on ? "#FFFFFF" : C.ink} />
+          </g>
+        );
+      })}
+      {reached >= 0 && <circle cx={dx} cy={dy - 30} r={24} fill={C.ink} opacity={ramp(t, steps[0].at + 0.2, 0.3)} />}
+      {note && <>
+        <Label x={last.x - 40} y={last.y - 150} text={note.text} p={ramp(t, note.at, 0.4)} size={64} italic anchor="end" />
+        <Draw d={`M ${last.x - 30} ${last.y - 140} Q ${last.x + 10} ${last.y - 120} ${last.x + 4} ${last.y - 70} M ${last.x - 12} ${last.y - 88} L ${last.x + 4} ${last.y - 68} L ${last.x + 22} ${last.y - 86}`}
+          at={note.at + 0.2} dur={0.4} color={C.accent} width={5} len={300} />
+      </>}
+    </Stage>
+  );
+};
+
+/* ------------------------------------------------------------------ *
+ * bridge: where you are, where you want to be, and the thing that     *
+ * connects them, written on the deck as it builds across the gap.   *
+ * `from {text, at}`, `to {text, at}`, `span {text, at}`.             *
+ * ------------------------------------------------------------------ */
+const Bridge: View = ({ s, box }) => {
+  const C = useC();
+  const t = useNow();
+  const from = s.from as { text: string; at: number }, to = s.to as { text: string; at: number }, span = s.span as { text: string; at: number };
+  const L = 400, R = 1000, top = 470;
+  const build = ease(clamp01((t - span.at) / 0.9));
+  const planks = 12;
+  return (
+    <Stage box={box} vw={1400} vh={800} enter={ramp(t, s.start, 0.4)}>
+      <path d={`M 0 ${top} L ${L} ${top} L ${L - 40} 800 L 0 800 Z`} fill={C.card} stroke={C.ink} strokeWidth={4} strokeLinejoin="round" />
+      <path d={`M 1400 ${top} L ${R} ${top} L ${R + 40} 800 L 1400 800 Z`} fill={C.card} stroke={C.ink} strokeWidth={4} strokeLinejoin="round" />
+      <Label x={L / 2} y={top - 50} text={from.text} p={ramp(t, from.at, 0.4)} size={60} />
+      <Label x={(R + 1400) / 2} y={top - 50} text={to.text} p={ramp(t, to.at, 0.4)} size={60} />
+      {/* towers and the cable sag, drawn with the deck */}
+      {[L + 10, R - 10].map((x, i) => <line key={i} x1={x} y1={top} x2={x} y2={top - 170 * build} stroke={C.ink} strokeWidth={8} strokeLinecap="round" />)}
+      <Draw d={`M ${L + 10} ${top - 170} Q 700 ${top + 40} ${R - 10} ${top - 170}`} at={span.at + 0.5} dur={0.6} color={C.ink} width={4} len={800} />
+      {Array.from({ length: planks }, (_, i) => {
+        const x = L + 20 + (i * (R - L - 40)) / (planks - 1), p = clamp01(build * planks - i);
+        const sag = top + Math.sin((i / (planks - 1)) * Math.PI) * 18;
+        return <rect key={i} x={x - 22} y={sag - 8} width={44} height={16} rx={4} fill={C.accent} opacity={p} />;
+      })}
+      <Label x={700} y={top + 120} text={span.text} p={ramp(t, span.at + 0.6, 0.4)} size={72} italic />
+    </Stage>
+  );
+};
+
+/* ------------------------------------------------------------------ *
+ * scale: a balance. Chips land on each pan on their word (`left`,     *
+ * `right`: [{text, at, w?}]) and the beam tips toward the heavier    *
+ * side. `leftLabel` / `rightLabel` name the sides under the pans.     *
+ * ------------------------------------------------------------------ */
+const Scale: View = ({ s, box }) => {
+  const C = useC();
+  const t = useNow();
+  type It = { text: string; at: number; w?: number };
+  const left = (s.left ?? []) as It[], right = (s.right ?? []) as It[];
+  const weight = (xs: It[]) => xs.reduce((a, it) => a + (it.w ?? 1) * ramp(t, it.at + 0.3, 0.5), 0);
+  const wl = weight(left), wr = weight(right);
+  const ang = ((wr - wl) / Math.max(1, wl + wr)) * 12 * Math.PI / 180;
+  const px = 700, py = 200, arm = 430, hang = 330;
+  const end = (k: -1 | 1) => ({ x: px + k * arm * Math.cos(ang), y: py + k * arm * Math.sin(ang) });
+  const pan = (k: -1 | 1, items: It[], label: string | undefined, tone: "accent" | "muted") => {
+    const e = end(k), y = e.y + hang;
+    return (
+      <g>
+        <line x1={e.x} y1={e.y} x2={e.x - 120} y2={y} stroke={C.muted} strokeWidth={3} />
+        <line x1={e.x} y1={e.y} x2={e.x + 120} y2={y} stroke={C.muted} strokeWidth={3} />
+        <path d={`M ${e.x - 150} ${y} Q ${e.x} ${y + 60} ${e.x + 150} ${y} Z`} fill={C.card} stroke={C.ink} strokeWidth={4} />
+        {items.map((it, i) => {
+          const p = ramp(t, it.at, 0.35);
+          return <Chip key={i} x={e.x} y={y - 42 - i * 70 - (1 - p) * 60} text={it.text} p={p} tone={tone === "accent" && i === items.length - 1 ? "accent" : tone === "accent" ? "card" : "muted"} size={38} />;
+        })}
+        {label && <Label x={e.x} y={y + 110} text={label} p={ramp(t, s.labelsAt ?? s.start + 0.2, 0.4)} size={58} italic={tone === "accent"} color={tone === "muted" ? C.muted : undefined} />}
+      </g>
+    );
+  };
+  return (
+    <Stage box={box} vw={1400} vh={900} enter={ramp(t, s.start, 0.4)}>
+      <path d={`M ${px} ${py} L ${px} 820 M ${px - 140} 830 L ${px + 140} 830`} stroke={C.ink} strokeWidth={8} strokeLinecap="round" fill="none" />
+      <line x1={end(-1).x} y1={end(-1).y} x2={end(1).x} y2={end(1).y} stroke={C.ink} strokeWidth={10} strokeLinecap="round" />
+      <circle cx={px} cy={py} r={18} fill={C.accent} />
+      {pan(-1, left, s.leftLabel, s.leftTone ?? "muted")}
+      {pan(1, right, s.rightLabel, s.rightTone ?? "accent")}
+    </Stage>
+  );
+};
+
 export const IDEA_SCENES: Record<string, View> = {
   flap: Flap, callouts: Callouts, calendar: Calendar, ad: Ad, journal: Journal, odometer: Odometer, phone: Phone,
   radar: Radar, receipt: Receipt, morph: Morph, resume: Resume, lengths: Lengths, shelf: Shelf, search: Search,
+  fork: Fork, funnel: Funnel, iceberg: Iceberg, stairs: Stairs, bridge: Bridge, scale: Scale,
 };
 export const IDEA_OVER = ["callouts", "ad"];
