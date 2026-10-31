@@ -18,6 +18,7 @@ LEDGER = ROOT / "visuals" / "ledger.md"
 REGISTRIES = [  # (file, exported Record) that make up the menu
     (ROOT / "broll/src/studio/scenes.tsx", "SCENES"),
     (ROOT / "broll/src/studio/scenes-idea.tsx", "IDEA_SCENES"),
+    (ROOT / "broll/src/studio/scenes-explain.tsx", "EXPLAIN_SCENES"),
     (ROOT / "broll/src/reel/scenes-reel.tsx", "REEL_SCENES"),
 ]
 LEGACY = (ROOT / "reel-creator/engine/src/scenes.tsx", "SCENES")  # the archived reel engine: known, not on the menu

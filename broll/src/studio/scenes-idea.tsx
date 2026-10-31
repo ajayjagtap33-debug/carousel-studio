@@ -12,10 +12,10 @@ const W = 1920, H = 1080;
 const ease = Easing.inOut(Easing.cubic);
 
 /** Deterministic noise, so a still and the render agree frame for frame. */
-const hash = (n: number) => { const x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
+export const hash = (n: number) => { const x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
 
 /** A path that draws itself on from `at` over `dur`. */
-const Draw: React.FC<{ d: string; at: number; dur?: number; color: string; width?: number; len?: number }> =
+export const Draw: React.FC<{ d: string; at: number; dur?: number; color: string; width?: number; len?: number }> =
 ({ d, at, dur = 0.5, color, width = 4, len = 1400 }) => {
   const p = ramp(useNow(), at, dur);
   return <path d={d} fill="none" stroke={color} strokeWidth={width} strokeLinecap="round" strokeLinejoin="round"
@@ -261,7 +261,7 @@ const Calendar: View = ({ s, box }) => {
 };
 
 /** Fade + blur in on `at` (a plain inline version of kit's Enter, for absolutely placed pieces). */
-const inStyle = (p: number, dy = 14): React.CSSProperties =>
+export const inStyle = (p: number, dy = 14): React.CSSProperties =>
   ({ opacity: p, filter: p < 1 ? `blur(${(1 - p) * 10}px)` : undefined, transform: `translateY(${(1 - p) * dy}px)` });
 
 /** Handwriting with no words in it: a row of loops that writes itself left to right. Never invented text. */

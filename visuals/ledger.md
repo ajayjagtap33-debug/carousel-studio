@@ -56,21 +56,26 @@ Every scene on the menu and anything a plan used that isn't on it. `last` = newe
 | `spine` | section title, a plan / outline | 1 | 1 | 2026-10-27-chatgpt-ads-study |
 | `stack` (old reel engine) | — | 1 | 1 | 2026-10-30-aeo-geo-checklist |
 | `tabsMenu` (old reel engine) | — | 1 | 1 | 2026-10-30-aeo-geo-checklist |
+| `acronym` | a definition | 0 | 0 | never |
 | `answer` | the app it happens in, AI does the work | 0 | 0 | never |
+| `article` | proof of real work | 0 | 0 | never |
 | `bridge` | from here to there | 0 | 0 | never |
 | `fork` | options / a set of three, a choice / fork | 0 | 0 | never |
-| `funnel` | a bottleneck / filter | 0 | 0 | never |
+| `funnel` | a bottleneck / filter, focus / cut the noise | 0 | 0 | never |
 | `iceberg` | hidden work | 0 | 0 | never |
+| `pipeline` | a process / steps, AI does the work | 0 | 0 | never |
+| `recency` | fresh beats old | 0 | 0 | never |
 | `scale` | before → after, a trade-off / balance | 0 | 0 | never |
+| `sources` | many sources into one | 0 | 0 | never |
 | `stairs` | a process / steps, levels / hierarchy | 0 | 0 | never |
 
 ## Never used
 
-`answer` `bridge` `fork` `funnel` `iceberg` `scale` `stairs`
+`acronym` `answer` `article` `bridge` `fork` `funnel` `iceberg` `pipeline` `recency` `scale` `sources` `stairs`
 
 ## Meanings with nothing built
 
-—
+arithmetic, scores / ranking, ≠ / not the same thing, a limit / it fills up, a strong position, what's in the way, wasted effort, start small, it comes back to you, a trap, old rules stop working, which goes where, many → one, it runs on its own
 
 ## Stock-card beats in the last plans
 

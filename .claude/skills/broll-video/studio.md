@@ -131,6 +131,18 @@ fixed viewBox scaled to the box, so it fits tile, split and reel; in a reel, rai
 | `bridge` | two cliffs named, the deck building across with the connector's name under it | `from`, `to`, `span` (each `{text, at}`) |
 | `scale` | chips landing on two pans; the beam tips toward the heavier side | `left`/`right[{text, at, w?}]`, `leftLabel`, `rightLabel`, `leftTone`/`rightTone` |
 
+Explainer scenes (2026-10-31, `broll/src/studio/scenes-explain.tsx`, batch 1 of `visuals/plan.md`). Placeholder text is
+grey bars; every real word comes from the fields. `pipeline` and `acronym` stack vertically in a box under 1100
+wide (split, reel); `vertical` forces either way.
+
+| type | the picture | key fields |
+|---|---|---|
+| `article` | a web page with one line highlighted; on `pullAt` it slides left, dims, and the line becomes a quote card. With `src` (a real screenshot) the highlighter is a box on the image | `site`, `title`, `line`, `at`, `pullAt` · or `src` + `hl{x,y,w,h}` |
+| `sources` | logo / icon tiles landing in a row, then wiring into one hub card that turns dark | `items[{name, logo?, icon?, at}]`, `hub{text, icon?, at}` |
+| `pipeline` | 2–5 icon tiles joined by arrows, a mono label riding each arrow, the newest tile dark; `runAt` sends a dot along | `nodes[{label, icon?, logo?, at, edge?}]`, `runAt`, `note{text, at}` |
+| `acronym` | one card per letter, the initial big in the accent; each opens out to its word on cue | `words[{word, at}]` |
+| `recency` | dated page cards; bars grow over them, tallest for the freshest, which gets lit | `cards[{date, at, w?}]`, `barsAt`, `note{text, at}` |
+
 Callouts that point at him need his position **every ~0.2–0.4s** when he moves (read off gridded frames); 0.8s
 keyframes missed by a head-width on Nested Sequence 02. Reference job: `videos/2026-10-30-nested-sequence-02/studio/`
 (`build2.py` writes studio.json from phrases).

@@ -5,6 +5,7 @@ import React from "react";
 import { Img, interpolateColors, staticFile } from "remotion";
 import { Accent, Card, Chip, Display, Enter, Icon, Label, SHADOW, clamp01, ramp, useC, useIn, useNow } from "./kit";
 import { IDEA_OVER, IDEA_SCENES } from "./scenes-idea";
+import { EXPLAIN_SCENES } from "./scenes-explain";
 
 export type Box = { x: number; w: number };
 export type Face = { x: number; y: number };
@@ -612,7 +613,7 @@ const Loop: View = ({ s, box }) => {
 export const SCENES: Record<string, View> = {
   words: Words, type: TypeCard, trio: Trio, gallery: Gallery, marks: Marks, compare: Compare, loop: Loop,
   count: Count, list: List, spine: Spine, shot: Shot, points: Points, places: Places, chat: Chat,
-  ...IDEA_SCENES,
+  ...IDEA_SCENES, ...EXPLAIN_SCENES,
 };
 /** Scenes that draw over his footage rather than on the board behind him. */
 export const OVER = new Set(["words", "type", ...IDEA_OVER]);
