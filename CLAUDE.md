@@ -44,6 +44,18 @@ one fresh session per video.
   ones), never the same type twice in a row, `warn:` for types the last 3 videos wore out. After each video,
   `python scripts/scenes.py ledger` → `visuals/ledger.md`. A new reference adds its visuals to the catalog under a
   meaning; build new scenes 3–5 at a time, meanings with nothing built first.
+- **`visuals/` is the one place for pictures**: `preview/README.md` shows every built scene by meaning
+  (`python scripts/scenes.py previews <type>` / `gallery`, samples in `samples.json`), `references/README.md`
+  indexes every reference with a sheet each (`python scripts/references.py`; other creators' frames stay in the
+  git-ignored `references/local/`), `catalog.md` + `plan.md` hold what's next. Video scenes use the carousel
+  art library's cast through `broll/src/studio/cast.tsx` (`python scripts/cast_export.py` after library changes).
+- **First screen of a horizontal video** (Ajay, 2026-11-01): `words` with `place: "open"`: white **Open Sauce Sans
+  Medium 120px**, +1px tracking (not tight: letters must not touch), the one accent word in **Instrument Serif
+  italic, no background**, in its own colour (coral `#F86659` on `tmv`, light olive `#A7BD82` on `ajay`), a soft
+  left fade and a slight shadow. Look-test stills: `videos/2026-10-29-studio-edit/studio/first-screen-options/`.
+  **Shadow rule: when the background blends with the text, add a slight shadow in a colour of the right tone**
+  (dark for light text, light for dark text). **Overlays** (logos, UI) are only things the script names, with their
+  real logo from `assets/logos/`; never our own `tmv.` wordmark. Details in the skill's `studio.md`.
 - Full-frame shots are mostly **clean**. When text is needed, `words` defaults to `place: "wall"`: **2–3 of his
   words in dark ink on the clear wall beside him**, highlighter swipe under the one accent word, **no wash, no
   shadow, nothing over his face, hands or body**. Dark on a light wall needs no shadow, so the shadow is gone

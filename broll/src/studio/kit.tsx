@@ -1,8 +1,8 @@
 // Studio kit: the look modelled on videos/reference/2026-10-28-nick-saraev-ceo-ai (off-white page, one accent,
 // every element blurs in on its word). Type is Ajay's, not the reference's (2026-10-29): per-theme display /
 // plain / accent families, sentence case, no all-caps kickers. Palette + fonts come from ThemeCtx: read with useC().
-import React, { createContext, useContext } from "react";
-import { Easing, interpolate, useCurrentFrame, useVideoConfig } from "remotion";
+import React, { createContext, useContext, useEffect, useState } from "react";
+import { Easing, continueRender, delayRender, interpolate, useCurrentFrame, useVideoConfig } from "remotion";
 import { loadFont as mulish } from "@remotion/google-fonts/Mulish";
 import { loadFont as dancing } from "@remotion/google-fonts/DancingScript";
 import { loadFont as dmSans } from "@remotion/google-fonts/DMSans";
@@ -12,6 +12,7 @@ import { loadFont as jetbrains } from "@remotion/google-fonts/JetBrainsMono";
 import { loadFont as instrument } from "@remotion/google-fonts/InstrumentSerif";
 import { loadFont as inter } from "@remotion/google-fonts/Inter";
 import { iconFor } from "../kit";
+import sauce from "../fonts/OpenSauceSans-Medium.ttf";
 
 dmSerif("italic", { weights: ["400"], subsets: ["latin"] });
 instrument("italic", { weights: ["400"], subsets: ["latin"] }); // the accent face for the ajay theme
@@ -24,6 +25,16 @@ const FAM = {
   mono: jetbrains("normal", { weights: ["400", "500"], subsets: ["latin"] }).fontFamily,
   instrument: instrument("normal", { weights: ["400"], subsets: ["latin"] }).fontFamily, // 400 is the only weight
   inter: inter("normal", { weights: ["400", "500", "600"], subsets: ["latin"] }).fontFamily,
+};
+
+/** Open Sauce Sans Medium: the opening screen's main words (Ajay, 2026-11-01). Local file, so it loads like the reel's. */
+export const SAUCE = "Open Sauce Sans";
+export const useSauce = () => {
+  const [h] = useState(() => delayRender("Open Sauce Sans"));
+  useEffect(() => {
+    const face = new FontFace(SAUCE, `url(${sauce}) format("truetype")`, { weight: "500" });
+    face.load().then((f) => { document.fonts.add(f); continueRender(h); }).catch(() => continueRender(h));
+  }, [h]);
 };
 
 export type Fonts = {

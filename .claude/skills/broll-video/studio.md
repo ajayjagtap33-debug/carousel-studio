@@ -197,6 +197,25 @@ Use instead of putting a long line over his face; counts as a layout change for 
 - (Superseded 2026-10-29: the dark keyword wash. See "Full-frame text".)
 - Sound design: `sound.md` here (built; music is a synthesized placeholder until he picks a source).
 - Two versions every time: Track My Visibility (`tmv`) and Ajay (`ajay`, Nick's olive — see above).
+- **The first screen of a horizontal video is `place: "open"`** (Ajay, 2026-11-01; look-tested on
+  `videos/2026-10-29-studio-edit/studio/first-screen-options/`). White **Open Sauce Sans Medium** at **120px**,
+  **+1px tracking** (tighter and the letters touch), line-height 1.12; the one accent word `*word*` in the theme's
+  **Instrument Serif italic at 1.25×, no background or pill**, in a colour of its own: `onDark`, which is **coral
+  `#F86659` on `tmv` and light olive `#A7BD82` on `ajay`**. Sits in the clear wall column (`wall` default
+  `{x: .0625, y: .2, w: .3}`), 2–3 words stacked, each blurring in on its word. White needs help on a bright wall,
+  so it gets a **soft left-to-right fade** (rgba(20,20,20) .7 → 0 over the left 41%; `scrim: false` drops it) and a
+  slight shadow. Fade only on white opens: dark-ink `wall` captions still get none. Still: no text over his face,
+  hands or body: if the lines reach his shoulder, shrink or move `wall`.
+- **Shadow rule: when the background blends with the text, add a slight shadow in a colour of the right tone.**
+  Light text gets a soft dark one (`0 2px 24px rgba(0,0,0,.35)`), dark text a soft light one. Slight means you can't
+  see it as a shadow, only that the letters hold their edge. Override per scene with `shadow`. If a shadow can't
+  fix it, change the colour or add the fade, don't enlarge the shadow.
+- **Overlays are the script's own things, never ours** (Ajay, 2026-11-01). A logo or UI element appears only when the
+  line names a real tool, product, app or site (Excalidraw, ChatGPT, a URL he reads out), and it is that thing's
+  real logo from `assets/logos/` (a missing one shows the flagged `?` chip) or a mock of its UI. **Never the `tmv.`
+  wordmark, never a pill or chip we invented.** It lands on the word that names it, leaves within ~3s, max one
+  or two at a time, sits in the clear wall or a corner, never over his face, hands or body. Style: white rounded
+  tile, logo + name in Open Sauce, soft shadow.
 
 ## Render
 

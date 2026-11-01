@@ -37,3 +37,9 @@ reel-creator/design/*.mp4
 reel-creator/design/book.json
 reel-creator/design/job.json
 reel-creator/design/stills.log
+
+# Other creators' frames, gathered for reference: local only, like videos/reference/*/frames
+visuals/references/local/
+
+# prompt-motion.com archive: creators' videos and prompts stay local; the index is tracked
+visuals/motion/local/

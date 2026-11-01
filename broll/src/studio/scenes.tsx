@@ -3,7 +3,7 @@
 // Every element lands on its word (`at`, seconds in the cut).
 import React from "react";
 import { Img, interpolateColors, staticFile } from "remotion";
-import { Accent, Card, Chip, Display, Enter, Icon, Label, SHADOW, clamp01, ramp, useC, useIn, useNow } from "./kit";
+import { Accent, Card, Chip, Display, Enter, Icon, Label, SAUCE, SHADOW, clamp01, ramp, useC, useIn, useNow, useSauce } from "./kit";
 import { IDEA_OVER, IDEA_SCENES } from "./scenes-idea";
 import { EXPLAIN_SCENES } from "./scenes-explain";
 
@@ -27,7 +27,8 @@ const Words: View = ({ s, face }) => {
   const C = useC();
   const t = useNow();
   const lines = s.lines as { text: string; at: number; size?: number }[];
-  const place = (s.place ?? "wall") as "wall" | "split" | "chest" | "left";
+  const place = (s.place ?? "wall") as "open" | "wall" | "split" | "chest" | "left";
+  useSauce();
   const shadow = "0 1px 10px rgba(0,0,0,0.22)";
   const left = face.x * W - HEAD_HALF * W - 60;   // right edge of the clear column left of his head
   const right = face.x * W + HEAD_HALF * W + 60;  // left edge of the clear column right of his head
@@ -40,6 +41,43 @@ const Words: View = ({ s, face }) => {
     </div>
   );
 
+  if (place === "open") {
+    // The first screen (Ajay, 2026-11-01): white Open Sauce, the accent word in the theme's italic serif in its
+    // on-dark colour (coral on tmv, light olive on ajay), a soft fade behind the column so white reads on a bright
+    // wall, and a slight shadow. 120px, +1px tracking (tighter and the letters touch). Accent word = *word*.
+    const box = (s.wall ?? { x: 0.0625, y: 0.2, w: 0.3 }) as { x: number; y: number; w: number };
+    const size = s.size ?? 120;
+    const fade = ramp(t, (lines[0]?.at ?? 0) - 0.2, 0.5);
+    return (
+      <>
+        {s.scrim !== false && <div style={{ position: "absolute", inset: 0, opacity: fade,
+          background: "linear-gradient(90deg, rgba(20,20,20,0.7) 0, rgba(20,20,20,0.5) 22%, rgba(20,20,20,0) 41%)" }} />}
+        <div style={{ position: "absolute", left: box.x * W, top: box.y * H, width: box.w * W }}>
+          {lines.map((l, i) => {
+            const sz = l.size ?? size;
+            let acc = false;
+            return (
+              <div key={i} style={{ fontFamily: SAUCE, fontWeight: 500, fontSize: sz, lineHeight: 1.12, letterSpacing: "0.008em",
+                color: "#FFFFFF", textShadow: s.shadow ?? "0 2px 24px rgba(0,0,0,0.35)", display: "flex", flexWrap: "wrap",
+                alignItems: "baseline", columnGap: sz * 0.22 }}>
+                {l.text.split(" ").map((raw, k) => {
+                  if (raw.startsWith("*")) acc = true;
+                  const isAcc = acc;
+                  if (raw.endsWith("*")) acc = false;
+                  const word = raw.replace(/\*/g, "");
+                  const p = ramp(t, l.at + k * 0.11 - 0.1, 0.3);
+                  const st = { opacity: p, filter: p < 1 ? `blur(${(1 - p) * 12}px)` : undefined } as React.CSSProperties;
+                  if (!isAcc) return <span key={k} style={st}>{word}</span>;
+                  return <span key={k} style={{ ...st, fontFamily: C.fonts.accent, fontStyle: "italic", fontWeight: 400,
+                    fontSize: sz * 1.25, lineHeight: 0.95, letterSpacing: 0, color: C.onDark }}>{word}</span>;
+                })}
+              </div>
+            );
+          })}
+        </div>
+      </>
+    );
+  }
   if (place === "wall") {
     // Dark ink on the clear wall beside him. Each word blurs in on its own beat; an *accent* word then gets a
     // highlighter swipe drawn left-to-right under it, like a marker.
