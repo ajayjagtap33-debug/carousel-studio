@@ -62,8 +62,8 @@ one fresh session per video.
   rather than reduced. `wall: {x, y, w}` is set per scene off real frames — the clear column moves with the shot.
   Logo / stat / ✓✗ chips still beat words. The key line gets a `type` card (2–4s, one huge line, one accent);
   the big card never covers the top-left wordmark.
-- **Type**: `tmv` = Mulish + Dancing Script (cursive) for one accent word; `ajay` = **Instrument Serif 400 +
-  Instrument Serif italic accent + Inter** (+ JetBrains Mono for prompts/URLs). Sentence case. **No all-caps
+- **Type**: both themes = **Instrument Serif 400 +
+  Instrument Serif italic accent + Inter** (`tmv` too since 2026-10-31; it was Mulish + Dancing Script) (+ JetBrains Mono for prompts/URLs). Sentence case. **No all-caps
   eyebrows/kickers or "02 / 10" counters** — Nick leans on small grey all-caps labels, we don't (Ajay, 2026-10-29:
   they read as AI). Instrument Serif has one weight, so display lines carry at size, not weight: a type card
   wants 200–240px, not 150. Built 2026-10-29 in `broll/src/studio/kit.tsx` + `scenes.tsx`.

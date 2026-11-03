@@ -12,7 +12,7 @@ stay ours: **no small grey all-caps labels** (kickers, eyebrows, "02 / 10" count
 **Built 2026-10-29:** `kit.tsx` loads the per-theme families and exposes `Display` / `Accent` / `Label` (no
 all-caps `Kicker`); `words` places itself off `face` with no wash; the `type` card is in `scenes.tsx`.
 Two themes, same layout (`"theme"` in studio.json, palettes in `kit.tsx` → `THEMES`): **`tmv`** (TMV red, `tmv.`
-wordmark, Mulish + Dancing Script) and **`ajay`** (Nick's olive #4E6636 on #FAFCFA, #A7BD82 on dark, dark cards
+wordmark, Instrument Serif + Inter since 2026-10-31) and **`ajay`** (Nick's olive #4E6636 on #FAFCFA, #A7BD82 on dark, dark cards
 #111311, Instrument Serif + Inter, no corner handle). The olive, page, border and dark were **sampled off
 `videos/reference/2026-10-28-nick-saraev-ceo-ai/frames`**, not guessed; his site's forest green is kept in a
 comment in `kit.tsx` to switch back. Render both
@@ -151,7 +151,7 @@ keyframes missed by a head-width on Nested Sequence 02. Reference job: `videos/2
 
 | theme | main (pops, type cards, board headlines) | plain words | accent (one word per line) |
 |---|---|---|---|
-| `tmv` | **Mulish** 700–800 | Mulish 500 | **Dancing Script** 700 (cursive) |
+| `tmv` | **Instrument Serif** 400 (Ajay, 2026-10-31: the ajay type on TMV red; was Mulish 800 + Dancing Script) | **Inter** 500 | **Instrument Serif italic** |
 | `ajay` | **Instrument Serif** 400 (Nick's display face) | **Inter** 500: chip labels, source lines, small connective words | **Instrument Serif italic** |
 
 - `ajay` only: **JetBrains Mono** for typed prompts, URLs and code, nothing else.

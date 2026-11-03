@@ -6,9 +6,10 @@
 // Design notes: reel-creator/design/README.md. `ReelBook` plays a list of frames back to back (the reference
 // book); the real reel renderer will reuse these pieces.
 import React, { useEffect, useState } from "react";
-import { AbsoluteFill, Img, Sequence, continueRender, delayRender, staticFile, useVideoConfig } from "remotion";
+import { AbsoluteFill, Audio, Img, OffthreadVideo, Sequence, continueRender, delayRender, staticFile, useVideoConfig } from "remotion";
 import { Enter, SHADOW, THEMES, ThemeCtx, clamp01, ramp, useC, useIn, useNow } from "../studio/kit";
 import { SCENES, type SScene } from "../studio/scenes";
+import { REEL_SCENES } from "./scenes-reel";
 import sauce from "../fonts/OpenSauceSans-Medium.ttf";
 
 export const W = 1080, H = 1920;
@@ -18,10 +19,14 @@ export const SAFE = { top: 220, bottom: 440, right: 120 };
 export const PANEL = { x: 78, w: 924, top: 1330, r: 60 };
 const SAUCE = "Open Sauce Sans";
 
-type Him = { f: string; m: string; cx: number; top: number; k?: number }; // source frame, cut-out, head centre x / top (source px)
-type Caption = { text: string; at: number; gap?: number; y?: number };
+// His shot: a still (`f` frame + `m` cut-out) or the cut itself (`video` + `matte`, a VP9 webm with alpha from
+// scripts/matte.py). `sw`x`sh` = source size (default 1920x1080); `cx` / `top` = head centre x / top of hair in source px;
+// `k` / `kFull` = scale in `split` / `full`.
+type Him = { f?: string; m?: string; video?: string; matte?: string; sw?: number; sh?: number; cx: number; top: number; k?: number; kFull?: number };
+type Caption = { text: string; at: number; gap?: number; times?: number[]; end?: number; y?: number };
 export type ReelFrame = {
   name: string; dur: number; still: number;
+  start?: number;                         // in a real reel: the beat's start in cut time (the frame runs on cut time)
   layout: "split" | "full" | "board" | "type" | "card";
   him?: Him;
   scene?: SScene; from?: number;          // a studio scene, played from scene time `from` (default start − 0.3)
@@ -48,42 +53,51 @@ const useSauce = () => {
 
 /** His source frame (1920×1080) placed so the head lands where the layout wants it. */
 const place = (h: Him, mode: "split" | "full") => {
+  const sw = h.sw ?? 1920, sh = h.sh ?? 1080;
   if (mode === "split") {
     const k = h.k ?? 0.95;
-    return { k, left: W / 2 - h.cx * k, top: 1075 - h.top * k };
+    return { k, sw, sh, left: W / 2 - h.cx * k, top: 1075 - h.top * k };
   }
-  const k = Math.max(H / 1080, h.k ?? 0) * 1.0; // a horizontal cut has no headroom: the head sits high in `full`
-  const top = Math.max(H - 1080 * k, Math.min(0, 110 - h.top * k));
-  return { k, left: W / 2 - h.cx * k, top };
+  // full: cover the frame; a horizontal cut has no headroom, so the head sits high
+  const k = Math.max(H / sh, W / sw, h.kFull ?? 0);
+  const top = Math.max(H - sh * k, Math.min(0, 160 - h.top * k));
+  const left = Math.max(W - sw * k, Math.min(0, W / 2 - h.cx * k));
+  return { k, sw, sh, left, top };
+};
+
+/** The shot itself: his still, or the cut / its cut-out on the composition's clock (muted: one Audio carries his voice). */
+const Shot: React.FC<{ h: Him; cut: boolean; style: React.CSSProperties }> = ({ h, cut, style }) => {
+  if (h.video) return <OffthreadVideo src={staticFile(cut ? h.matte! : h.video)} muted transparent={cut} style={style} />;
+  return <Img src={staticFile(cut ? h.m! : h.f!)} style={style} />;
 };
 
 const HimSplit: React.FC<{ h: Him }> = ({ h }) => {
-  const { k, left, top } = place(h, "split");
-  const size = { width: 1920 * k, height: 1080 * k };
+  const { k, sw, sh, left, top } = place(h, "split");
+  const size = { width: sw * k, height: sh * k };
   return (
     <>
       <div style={{ position: "absolute", left: PANEL.x, top: PANEL.top, width: PANEL.w, height: H - PANEL.top + 40,
         borderRadius: `${PANEL.r}px ${PANEL.r}px 0 0`, overflow: "hidden", boxShadow: "0 -10px 40px rgba(20,20,20,0.10)" }}>
-        <Img src={staticFile(h.f)} style={{ position: "absolute", left: left - PANEL.x, top: top - PANEL.top, ...size }} />
+        <Shot h={h} cut={false} style={{ position: "absolute", left: left - PANEL.x, top: top - PANEL.top, ...size }} />
       </div>
-      <Img src={staticFile(h.m)} style={{ position: "absolute", left, top, ...size }} />
+      <Shot h={h} cut style={{ position: "absolute", left, top, ...size }} />
     </>
   );
 };
 
-const HimFull: React.FC<{ h: Him }> = ({ h }) => {
+const HimFull: React.FC<{ h: Him; from: number }> = ({ h, from }) => {
   const t = useNow();
-  const { k, left, top } = place(h, "full");
-  const zoom = 1 + 0.04 * clamp01(t / 4); // slow punch-in while he holds the frame
+  const { k, sw, sh, left, top } = place(h, "full");
+  const zoom = 1 + 0.04 * clamp01((t - from) / 4); // slow punch-in while he holds the frame
   return (
-    <Img src={staticFile(h.f)} style={{ position: "absolute", left, top, width: 1920 * k, height: 1080 * k,
-      transform: `scale(${zoom})`, transformOrigin: `${W / 2 - left}px 420px` }} />
+    <Shot h={h} cut={false} style={{ position: "absolute", left, top, width: sw * k, height: sh * k,
+      transform: `scale(${zoom})`, transformOrigin: `${W / 2 - left}px ${(h.top + 260) * k}px` }} />
   );
 };
 
 /** A studio scene, drawn in a 960×1080 box and scaled into the reel. */
 const Stage: React.FC<{ s: SScene; cy: number; scale: number }> = ({ s, cy, scale }) => {
-  const View = SCENES[s.type];
+  const View = REEL_SCENES[s.type] ?? SCENES[s.type];
   return (
     <div style={{ position: "absolute", left: 60, width: 960, top: cy - 540, height: 1080, transform: `scale(${scale})` }}>
       {View ? <View s={s} box={{ x: 60, w: 960 }} face={{ x: 0.5, y: 0.35 }} /> : <div style={{ color: "red", fontSize: 40 }}>unknown scene: {s.type}</div>}
@@ -91,19 +105,21 @@ const Stage: React.FC<{ s: SScene; cy: number; scale: number }> = ({ s, cy, scal
   );
 };
 
-/** 1–3 words, each blurring in on its word; the pill grows with them. *word* = the accent face. */
+/** 1–3 words, each blurring in on its word; the pill grows with them. *word* = the accent: same face, white on a
+ *  solid accent box (Ajay, 2026-11-03: the italic serif accent got lost on the see-through pill, so the pill went
+ *  from 58% to 82% dark and the accent became a box, like the hook title's). */
 const CaptionPill: React.FC<{ c: Caption; y: number }> = ({ c, y }) => {
   const C = useC();
   const t = useNow();
   const words = c.text.split(" ");
   const gap = c.gap ?? 0.2;
-  const shown = words.map((w, i) => ({ w, at: c.at + i * gap })).filter((w) => t >= w.at - 0.1);
-  if (!shown.length) return null;
+  const shown = words.map((w, i) => ({ w, at: c.times?.[i] ?? c.at + i * gap })).filter((w) => t >= w.at - 0.1);
+  if (!shown.length || (c.end != null && t >= c.end)) return null;
   let acc = false;
   return (
     <div style={{ position: "absolute", left: 0, right: 0, top: y, display: "flex", justifyContent: "center", transform: "translateY(-50%)" }}>
       <div style={{ display: "flex", alignItems: "baseline", gap: 18, padding: "12px 34px 16px", borderRadius: 999,
-        background: "rgba(17,19,17,0.58)", backdropFilter: "blur(14px)", fontFamily: SAUCE, fontWeight: 500, fontSize: 64,
+        background: "rgba(17,19,17,0.82)", backdropFilter: "blur(14px)", fontFamily: SAUCE, fontWeight: 500, fontSize: 64,
         letterSpacing: "-0.035em", lineHeight: 1.1, color: "#FFFFFF", whiteSpace: "nowrap" }}>
         {shown.map(({ w, at }, i) => {
           if (w.startsWith("*")) acc = true;
@@ -112,7 +128,7 @@ const CaptionPill: React.FC<{ c: Caption; y: number }> = ({ c, y }) => {
           const word = w.replace(/\*/g, "");
           return (
             <Enter key={i} at={at} dy={10}>
-              {isAcc ? <span style={{ fontFamily: C.fonts.accent, fontStyle: "italic", fontSize: 74, letterSpacing: "-0.01em", color: C.onDark }}>{word}</span>
+              {isAcc ? <span style={{ background: C.accent, color: "#FFFFFF", padding: "0 14px 3px", margin: "0 -4px", borderRadius: 12 }}>{word}</span>
                 : <span>{word}</span>}
             </Enter>
           );
@@ -298,7 +314,7 @@ const Frame: React.FC<{ f: ReelFrame }> = ({ f }) => {
         </Sequence>
       )}
       {f.him && f.layout === "split" && <HimSplit h={f.him} />}
-      {f.him && f.layout === "full" && <HimFull h={f.him} />}
+      {f.him && f.layout === "full" && <HimFull h={f.him} from={f.start ?? 0} />}
       {f.callouts && <Callouts items={f.callouts} />}
       {f.ad && <AdChrome at={f.ad.at} />}
       {f.title && <Title t={f.title} />}
@@ -327,6 +343,48 @@ export const ReelBook: React.FC<ReelBookProps> = ({ theme = "ajay", frames }) =>
             <Frame f={f} />
           </Sequence>
         ))}
+      </AbsoluteFill>
+    </ThemeCtx.Provider>
+  );
+};
+
+/* ------------------------------------------------------------------ *
+ * Reel: a finished reel on his cut. Beats are ReelFrames on cut time *
+ * (`start`, `dur`); the layout hard-cuts between them. Captions are  *
+ * one layer over everything, phrase by phrase off the word times.    *
+ * ------------------------------------------------------------------ */
+export type ReelProps = { theme?: keyof typeof THEMES; video: string; duration: number; beats: ReelFrame[]; captions: Caption[] };
+
+export const Reel: React.FC<ReelProps> = ({ theme = "ajay", video, beats, captions }) => {
+  useSauce();
+  const { fps } = useVideoConfig();
+  const t = useNow();
+  const beatAt = (x: number) => beats.reduce((k, b, i) => ((b.start ?? 0) - 0.001 <= x ? i : k), 0);
+  return (
+    <ThemeCtx.Provider value={THEMES[theme]}>
+      <AbsoluteFill style={{ background: THEMES[theme].page }}>
+        {beats.map((b, i) => {
+          const from = Math.round((b.start ?? 0) * fps);
+          const to = Math.round((beats[i + 1]?.start ?? (b.start ?? 0) + b.dur) * fps);
+          return (
+            <Sequence key={i} from={from} durationInFrames={Math.max(1, to - from)}>
+              <Sequence from={-from} layout="none">
+                <Frame f={{ ...b, caption: undefined, from: 0 }} />
+              </Sequence>
+            </Sequence>
+          );
+        })}
+        {(() => {
+          // one phrase on screen at a time: the newest one that has started replaces the last (no 0.15s overlap),
+          // and it sits where the layout in force *now* puts captions, so a phrase that runs across a cut moves with it
+          let k = -1;
+          captions.forEach((c, i) => { if (t >= c.at - 0.1) k = i; });
+          const c = captions[k];
+          if (!c || t >= (c.end ?? 1e9)) return null;
+          const b = beats[beatAt(t)];
+          return <CaptionPill key={k} c={c} y={c.y ?? b.caption?.y ?? CAPTION_Y[b.layout]} />;
+        })()}
+        <Audio src={staticFile(video)} />
       </AbsoluteFill>
     </ThemeCtx.Provider>
   );

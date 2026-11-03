@@ -56,8 +56,9 @@ export const THEMES: Record<"tmv" | "ajay", Palette> = {
   tmv: {
     border: "#ECE9E3", page: "#FAFAF8", ink: "#141414", body: "#4A4A47", muted: "#8E8C86", line: "#E6E4DE", card: "#FFFFFF",
     dark: "#161616", accent: "#B80000", accentSoft: "#FBEDEB", accentTint: "#F7CFC9", onDark: "#F86659", logo: "logos/tmv-red.png",
-    fonts: { display: FAM.mulish, displayWeight: 800, plain: FAM.mulish, plainWeight: 500,
-      accent: FAM.dancing, accentStyle: "cursive", accentScale: 1.18, mono: FAM.mono },
+    // the ajay type on TMV red (Ajay, 2026-10-31). Was Mulish 800 / Mulish 500 + Dancing Script 700 @1.18.
+    fonts: { display: FAM.instrument, displayWeight: 400, plain: FAM.inter, plainWeight: 500,
+      accent: FAM.instrument, accentStyle: "serif-italic", accentScale: 1.0, mono: FAM.mono },
   },
   ajay: { // Nick Saraev's palette, sampled off videos/reference/2026-10-28-nick-saraev-ceo-ai/frames (Ajay's call,
           // 2026-10-29, replacing his site's forest green). To go back to ajayjagtap.site: border/line #E4DED4,

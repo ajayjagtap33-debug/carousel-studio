@@ -167,14 +167,17 @@ def cues_for(plan: dict) -> list[tuple[float, str, float, str]]:
     """(time, sound, dB below the voice peak, why). Budget: structure only — see sound.md."""
     c: list[tuple[float, str, float, str]] = []
     lay = sorted(plan["layouts"], key=lambda l: l["start"])
-    for a, b in zip(lay, lay[1:]):
+    # a reel hard-cuts its layouts and places its whooshes itself (`cue` scenes): "layoutWhoosh": false
+    for a, b in (zip(lay, lay[1:]) if plan.get("layoutWhoosh", True) else []):
         if (a["mode"] == "full") != (b["mode"] == "full"):  # full ↔ tile/card only; tile ↔ tile stays silent
             land = b["start"] - LEAD + MOVE
             c.append((land - 0.3, "whoosh-up" if b["mode"] == "full" else "whoosh-down", 17, f"{a['mode']} → {b['mode']}"))
     for s in plan["scenes"]:
         if s.get("sfx") is False: continue
         ty = s["type"]
-        if ty == "words":
+        if ty == "cue":  # an explicit sound: {at, sound, db?, why?}
+            c.append((s["at"], s["sound"], s.get("db", 17), s.get("why", "cue")))
+        elif ty == "words":
             lines = s["lines"]
             if any(l.get("kicker") and re.match(r"^\d+\s*/\s*\d+$", l["text"]) for l in lines):
                 first = next(l for l in lines if not l.get("kicker"))
@@ -271,6 +274,8 @@ def music_env(plan: dict, dur: float) -> np.ndarray:
     lay = sorted(plan["layouts"], key=lambda l: l["start"])
     first = lay[1]["start"] if len(lay) > 1 else 3.0
     g = np.clip((t - (first - 0.4)) / 1.2, 0, 1)
+    if plan.get("coldOpen") is False:  # reels: the bed runs from 0.0 (Nick's reels, 49/49)
+        g = np.clip(t / 0.3, 0, 1)
     db = np.zeros_like(t)
     for a, b in zip(lay, lay[1:] + [{"start": dur}]):
         if a["mode"] == "full" and a["start"] > 0:

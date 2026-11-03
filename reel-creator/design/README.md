@@ -95,7 +95,7 @@ thing in caps, because real flap boards are.
 
 The `ajay` theme as is: page `#FAFCFA`, ink `#1A1A18`, olive `#4E6636` (accent on light), `#A7BD82` (accent on
 dark / footage), tint `#C9D6AC`, dark cards `#111311`. Like Nick: monochrome, one accent, accent on ~2% of pixels.
-`"theme": "tmv"` swaps in TMV red (Mulish + Dancing Script) with no layout change.
+`"theme": "tmv"` swaps in TMV red with no layout or type change (same fonts since 2026-10-31).
 
 ## 5. What b-roll works on a phone
 

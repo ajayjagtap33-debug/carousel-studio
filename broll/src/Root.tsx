@@ -4,7 +4,7 @@ import { Main } from "./Main";
 import { Sample, SAMPLE_SECONDS } from "./editorial/Sample";
 import { EditorialMain } from "./editorial/Main";
 import { Studio } from "./studio/Studio";
-import { ReelBook, starts, type ReelBookProps } from "./reel/Reel";
+import { Reel, ReelBook, starts, type ReelBookProps, type ReelProps } from "./reel/Reel";
 import type { Props } from "./types";
 
 // Real props come from scripts/broll.py (props.json = broll.json + media from transcript.json).
@@ -72,6 +72,17 @@ export const Root: React.FC = () => (
         const end = f.length ? starts(f)[f.length - 1] + f[f.length - 1].dur : 1;
         return { durationInFrames: Math.max(1, Math.round(end * 30)) };
       }}
+    />
+    {/* Reel: a finished 9:16 reel on his cut (props: a job's reel.json, built by its mkreel.py) */}
+    <Composition
+      id="Reel"
+      component={Reel as unknown as React.FC<Record<string, unknown>>}
+      defaultProps={{ video: "cut.mp4", duration: 1, beats: [], captions: [] } as unknown as Record<string, unknown>}
+      fps={30}
+      width={1080}
+      height={1920}
+      durationInFrames={30}
+      calculateMetadata={({ props }) => ({ durationInFrames: Math.max(1, Math.round((props as unknown as ReelProps).duration * 30)) })}
     />
     {/* Editorial style: design samples for direction A and B */}
     <Composition id="EditorialSampleA" component={Sample} defaultProps={{ theme: "A" as const }}
