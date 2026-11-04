@@ -1,0 +1,39 @@
+Comment "SOUND" to get these 3 Free AI tools ro Add pro sound effects to your Claude edits.
+
+Claude has gotten really good at motion graphics and video editing.
+
+But the sound effects it adds are still terrible.
+
+It's like a great movie with the audio turned off.
+
+You can fix that with three free tools.
+
+They add professional sounds to your timeline at the right place and the right level.
+
+Just like a pro editor would.
+
+First is Openverse API.
+
+It gives your AI agent access to over 5 million sound effects.
+
+It can search and download them on its own.
+
+No more digging through sound sites by hand.
+
+Second is Real SFX.
+
+It studies your timeline and finds every moment that needs a sound.
+
+Then it adds one at the exact frame.
+
+And third is earshot.
+
+If your agent still can't find the right sound, earshot generates a brand new one in code.
+
+It can even build a whole sound kit that fits your project.
+
+So the agent never runs out of options.
+
+Three tools, and your edits finally sound as good as they look.
+
+#aiediting #videoeditng #claudecode #sfx #soundeffects

@@ -1,0 +1,31 @@
+1
+00:00:00,000 --> 00:00:04,919
+Someone just leaked the full system prompt from Claude Fable 5.1, and this isn't just some basic
+
+2
+00:00:04,919 --> 00:00:10,980
+prompt. It's over 275,000 characters long, around 8,000 lines, and it covers the exact
+
+3
+00:00:10,980 --> 00:00:15,220
+instructions that Anthropic uses to control how one of the world's most powerful AI models
+
+4
+00:00:15,220 --> 00:00:20,420
+thinks, plans, and gets work done. The leak includes the entire prompt with its tools,
+
+5
+00:00:20,699 --> 00:00:25,339
+instructions, and behavior rules, and it's all sitting in a public GitHub. So you can use it
+
+6
+00:00:25,339 --> 00:00:29,280
+to improve your own prompting skills by setting exactly how Anthropic defines its tools,
+
+7
+00:00:29,280 --> 00:00:33,299
+sets their restrictions, and even tells the models what to use, when, and how.
+
+8
+00:00:33,799 --> 00:00:37,079
+If you guys want that link, just comment Fable down below, and I'll send it to you directly.

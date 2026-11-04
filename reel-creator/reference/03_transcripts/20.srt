@@ -1,0 +1,91 @@
+1
+00:00:00,000 --> 00:00:01,720
+Anthropic just dropped 11 free plugins
+
+2
+00:00:01,720 --> 00:00:03,640
+that turned Claude into an expert at your job.
+
+3
+00:00:03,759 --> 00:00:05,620
+Every plugin is built for a specific job role
+
+4
+00:00:05,620 --> 00:00:07,240
+like sales, marketing, finance,
+
+5
+00:00:07,419 --> 00:00:08,939
+legal, product management, and more,
+
+6
+00:00:09,080 --> 00:00:10,839
+and all of them come with their own sets of skills.
+
+7
+00:00:11,039 --> 00:00:12,279
+And the best part is that they're built
+
+8
+00:00:12,279 --> 00:00:14,779
+on how Anthropic's own team actually does these tasks.
+
+9
+00:00:15,060 --> 00:00:16,379
+So Claude will follow the same workflows
+
+10
+00:00:16,379 --> 00:00:17,260
+that they use internally.
+
+11
+00:00:17,440 --> 00:00:19,199
+So if you're in sales, it'll research your prospects,
+
+12
+00:00:19,379 --> 00:00:21,120
+prep you for calls, and even draft your own outreach.
+
+13
+00:00:21,320 --> 00:00:23,039
+And if you're in marketing, it'll plan your campaigns,
+
+14
+00:00:23,300 --> 00:00:25,800
+write your email sequences, and even run a full SEO audit.
+
+15
+00:00:25,940 --> 00:00:27,160
+If you're in finance, it'll keep track
+
+16
+00:00:27,160 --> 00:00:29,039
+of every transaction helping to build
+
+17
+00:00:29,039 --> 00:00:30,679
+your financial statements really easily.
+
+18
+00:00:30,899 --> 00:00:32,240
+Plus it'll connect directly to the tools
+
+19
+00:00:32,240 --> 00:00:34,899
+you already use for your job like HubSpot, Notion, and Slack.
+
+20
+00:00:35,200 --> 00:00:37,020
+So it gets all the real-time information that it needs.
+
+21
+00:00:37,240 --> 00:00:37,979
+So if you want the full list,
+
+22
+00:00:38,060 --> 00:00:39,299
+just comment plugin down below
+
+23
+00:00:39,299 --> 00:00:40,439
+and I'll send you the link directly.

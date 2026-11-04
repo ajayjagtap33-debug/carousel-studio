@@ -1,0 +1,91 @@
+1
+00:00:00,000 --> 00:00:02,560
+I just built this full multiplayer Attack on Titan game
+
+2
+00:00:02,560 --> 00:00:03,480
+inside of Claude Code,
+
+3
+00:00:03,640 --> 00:00:05,740
+and it only took me about an hour and $31.
+
+4
+00:00:06,179 --> 00:00:07,719
+All I did was ask Claude to build me
+
+5
+00:00:07,719 --> 00:00:09,460
+an Attack on Titan in Minecraft.
+
+6
+00:00:09,679 --> 00:00:11,000
+And it came back with a full game
+
+7
+00:00:11,000 --> 00:00:12,859
+where you either play as a Survey Corps soldier
+
+8
+00:00:12,859 --> 00:00:13,720
+cutting down Titans,
+
+9
+00:00:13,919 --> 00:00:15,179
+or it was one of the Titans themselves
+
+10
+00:00:15,179 --> 00:00:16,199
+smashing through the wall.
+
+11
+00:00:16,300 --> 00:00:17,500
+It's built fully in JavaScript,
+
+12
+00:00:17,699 --> 00:00:18,679
+run straight from the browser,
+
+13
+00:00:18,899 --> 00:00:20,660
+and I didn't have to write a single line of code.
+
+14
+00:00:20,820 --> 00:00:23,199
+Then I asked it to add multiplayer through a Twilio relay
+
+15
+00:00:23,199 --> 00:00:24,579
+so people from around the world
+
+16
+00:00:24,579 --> 00:00:25,760
+can jump in and play together.
+
+17
+00:00:25,920 --> 00:00:26,800
+And there are already hundreds,
+
+18
+00:00:26,960 --> 00:00:28,760
+if not thousands of players in there right now.
+
+19
+00:00:28,820 --> 00:00:29,719
+So if you want the full guide
+
+20
+00:00:29,719 --> 00:00:30,899
+on how to build a game like this,
+
+21
+00:00:31,079 --> 00:00:32,020
+or you want to try it yourselves,
+
+22
+00:00:32,219 --> 00:00:33,520
+just comment Titan down below,
+
+23
+00:00:33,659 --> 00:00:34,579
+and I'll send you the link directly.

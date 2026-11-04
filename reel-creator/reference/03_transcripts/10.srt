@@ -1,0 +1,67 @@
+1
+00:00:00,000 --> 00:00:02,160
+Claude can now build full professional motion graphics
+
+2
+00:00:02,160 --> 00:00:03,839
+from scratch, and somebody just put together
+
+3
+00:00:03,839 --> 00:00:06,360
+a whole library showing exactly how to create the best ones.
+
+4
+00:00:06,559 --> 00:00:07,419
+It's called Prompt Motion,
+
+5
+00:00:07,719 --> 00:00:10,660
+and it is over 230 animated videos made with Claude,
+
+6
+00:00:10,759 --> 00:00:12,560
+each with the exact prompt used to create it.
+
+7
+00:00:12,640 --> 00:00:14,359
+Inside, you'll get prompts for all launch videos,
+
+8
+00:00:14,539 --> 00:00:17,039
+product videos, demos, mobile app walkthroughs,
+
+9
+00:00:17,140 --> 00:00:18,339
+all charts, and much more.
+
+10
+00:00:18,460 --> 00:00:19,359
+Just copy the one you like,
+
+11
+00:00:19,480 --> 00:00:20,899
+tweak it for your own brand or product,
+
+12
+00:00:21,019 --> 00:00:22,719
+and Claude will actually recreate what you want
+
+13
+00:00:22,719 --> 00:00:24,660
+in that exact style with the same animations
+
+14
+00:00:24,660 --> 00:00:25,719
+and the same sound effects.
+
+15
+00:00:26,039 --> 00:00:27,140
+So go try it yourselves.
+
+16
+00:00:27,420 --> 00:00:28,640
+Just comment motion down below,
+
+17
+00:00:28,640 --> 00:00:29,679
+and I'll DM you the link directly.

@@ -1,0 +1,27 @@
+Comment "JEV" to get the setup guide for Laya, the Free and Opensource Jev alternative.
+
+Someone just released a free and open source version of Jev, and it's actually way faster and cheaper.
+
+It's called Laya.
+
+It's a classifier model that you can run locally on your own computer.
+
+It does the exact same job as Jev.
+
+But it only takes around 30 milliseconds to answer, while Jev takes around 200.
+
+The only problem is that the base model isn't good at everything out of the box.
+
+So it needs to be fine tuned and trained for your specific use case.
+
+And you can do that with the help of Claude Code.
+
+Once done, it can even match Jev on accuracy.
+
+Think of it like getting a raw engine instead of a finished car, it's faster once you tune it, but you have to do that tuning yourself first.
+
+Most people skip this step and end up disappointed with the base model's accuracy.
+
+Fine tuning is really where the real performance gap closes.
+
+#jevai #typesafeai #layaai #opensourceai #githubrepo

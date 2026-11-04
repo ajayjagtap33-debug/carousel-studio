@@ -1,0 +1,25 @@
+Comment "CLAUDE" to get this Free AI Scraper. 
+
+This free AI tool lets you scrape anything off the internet, without paying for anything.
+
+It's called ScrapeGraphAI.
+
+It's an open source Python library with over 30,000 stars on GitHub.
+
+You give it a website link and describe what you want in plain English.
+
+Then a minute later, it comes back with a clean list of everything you asked for.
+
+So with this, you can find leads from LinkedIn.
+
+You can track your competitors and their ads.
+
+Or just do simple research whenever you need it.
+
+Think of it like sending an assistant to read a website for you and hand back exactly the notes you wanted.
+
+No scrolling, no copy pasting, no manually digging through pages yourself.
+
+Plus it's free, open source, and works with Claude Code and all the leading AI coding agents.
+
+#scrapegraph #Claudecode #githubrepo #webscraping #aiscrap

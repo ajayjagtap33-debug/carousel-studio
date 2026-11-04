@@ -1,0 +1,31 @@
+1
+00:00:00,000 --> 00:00:03,000
+You don't need a subscription to use the top AI video models anymore.
+
+2
+00:00:03,200 --> 00:00:06,080
+Higgs Field just opened their whole catalog through a single API key,
+
+3
+00:00:06,219 --> 00:00:09,720
+so you've got Seed Dance, Cling, Nano Banana, and more all in one place.
+
+4
+00:00:09,939 --> 00:00:11,880
+There's no plan sitting underneath any of that either.
+
+5
+00:00:12,099 --> 00:00:14,820
+All you do is load up a wallet, pay for what you actually generate,
+
+6
+00:00:14,900 --> 00:00:17,120
+and then you can just check what something costs before you run it.
+
+7
+00:00:17,199 --> 00:00:19,839
+So if you want to build with this, just comment models down below,
+
+8
+00:00:19,920 --> 00:00:21,039
+and I'll send you the link directly.

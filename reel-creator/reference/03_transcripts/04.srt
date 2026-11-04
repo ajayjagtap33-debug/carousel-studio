@@ -1,0 +1,107 @@
+1
+00:00:00,000 --> 00:00:02,160
+You can now run a whole agency inside Cloud Code
+
+2
+00:00:02,160 --> 00:00:03,600
+for exactly zero dollars.
+
+3
+00:00:03,759 --> 00:00:05,459
+And it is everything a real agency does
+
+4
+00:00:05,459 --> 00:00:07,559
+from finding clients to building the final product
+
+5
+00:00:07,559 --> 00:00:09,220
+with Cloud Code handling all of it.
+
+6
+00:00:09,339 --> 00:00:10,480
+It's called Agency Agents,
+
+7
+00:00:10,779 --> 00:00:12,380
+and it's a free and open source library
+
+8
+00:00:12,380 --> 00:00:14,019
+of over 200 AI specialists,
+
+9
+00:00:14,339 --> 00:00:15,900
+each with their own job and personality.
+
+10
+00:00:16,140 --> 00:00:18,559
+And it's already crossed 160K stars on GitHub.
+
+11
+00:00:18,800 --> 00:00:20,280
+So inside you get an outbound agent
+
+12
+00:00:20,280 --> 00:00:21,480
+that writes your cold emails,
+
+13
+00:00:21,719 --> 00:00:23,039
+a sales team that preps your calls
+
+14
+00:00:23,039 --> 00:00:23,800
+and writes your proposal,
+
+15
+00:00:24,000 --> 00:00:25,039
+and even a team of engineers
+
+16
+00:00:25,039 --> 00:00:26,820
+that builds the product for your client.
+
+17
+00:00:26,899 --> 00:00:27,859
+Plus it also has agents
+
+18
+00:00:27,859 --> 00:00:29,219
+that help you grow your social media,
+
+19
+00:00:29,219 --> 00:00:30,219
+design your products,
+
+20
+00:00:30,460 --> 00:00:32,060
+handle all of your customer support for you,
+
+21
+00:00:32,140 --> 00:00:33,240
+and even manage your finances.
+
+22
+00:00:33,539 --> 00:00:34,679
+All with an orchestrator agent
+
+23
+00:00:34,679 --> 00:00:35,659
+running the whole project
+
+24
+00:00:35,659 --> 00:00:37,799
+and verifying every step before it moves on.
+
+25
+00:00:37,960 --> 00:00:39,039
+So if you wanna try it for yourself,
+
+26
+00:00:39,200 --> 00:00:40,560
+just comment agency down below,
+
+27
+00:00:40,679 --> 00:00:41,719
+and I'll send you the link directly.

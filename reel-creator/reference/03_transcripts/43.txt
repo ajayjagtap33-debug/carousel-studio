@@ -1,0 +1,15 @@
+If you use cloud code with multiple skills and plugins installed, your PC might have
+gotten hacked.
+A recent study found that 26% of AI skills contain security vulnerabilities, and a whopping
+5% actually already have malicious code stuffed inside it.
+So to fix this, Nvidia built a free tool called Skill Spectre, which basically acts
+like an antivirus sitting between your cloud cone and the agent's skills you're about
+to install.
+You just point it at any skill, repo, or zip file, and it'll scan for security risks
+like prompt injection, data leaks, and tool misuse.
+Then it'll hand you a risk score out of 100, so you know in seconds whether it's fully
+safe or not.
+And the best part is, it's 100% free, open source, and works perfectly with both cloud
+code and codecs.
+Want it for yourselves?
+Just comment Skill down below and I'll share the link.

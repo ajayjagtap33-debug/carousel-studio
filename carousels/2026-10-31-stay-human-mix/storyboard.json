@@ -1,0 +1,1284 @@
+{
+  "title": "How to stay human in the age of AI",
+  "accent": "orange",
+  "hook": "A",
+  "note": "Mixed look (storyboard.md): Excalidraw sketch + real cutouts (cutouts/, SOURCES.md) + clean video scenes (scene cards). Approved by Ajay 2026-10-31.",
+  "slides": [
+    {
+      "role": "hook",
+      "headline": [
+        "How to stay human",
+        {
+          "t": "in the age of AI",
+          "c": "accent"
+        }
+      ],
+      "headlineSize": 92,
+      "qualifier": "(7 slow habits, on purpose)",
+      "source": "cover line: Ajay · qualifier added",
+      "art": [
+        {
+          "mark": "poly",
+          "pts": [
+            [
+              150,
+              1000
+            ],
+            [
+              860,
+              930
+            ],
+            [
+              990,
+              1080
+            ],
+            [
+              250,
+              1175
+            ]
+          ],
+          "c": "ink",
+          "bg": "l_grey",
+          "sw": 5
+        },
+        {
+          "mark": "poly",
+          "pts": [
+            [
+              170,
+              1003
+            ],
+            [
+              848,
+              938
+            ],
+            [
+              962,
+              1072
+            ],
+            [
+              262,
+              1158
+            ]
+          ],
+          "c": "ink",
+          "bg": "paper",
+          "sw": 2
+        },
+        {
+          "mark": "circle",
+          "x": 870,
+          "y": 990,
+          "w": 34,
+          "h": 26,
+          "c": "ink"
+        },
+        {
+          "mark": "circle",
+          "x": 905,
+          "y": 1020,
+          "w": 34,
+          "h": 26,
+          "c": "ink"
+        },
+        {
+          "id": "person.coffee",
+          "x": 110,
+          "y": 620,
+          "size": 330
+        },
+        {
+          "id": "bot.laptop",
+          "x": 650,
+          "y": 610,
+          "size": 330,
+          "flip": true
+        },
+        {
+          "cutout": "cutouts/map-folded.jpg",
+          "key": "grab",
+          "crop": [
+            0,
+            0.24,
+            1,
+            1
+          ],
+          "x": 390,
+          "y": 870,
+          "size": 250,
+          "tilt": -8
+        },
+        {
+          "cutout": "cutouts/coffee-cup.jpg",
+          "key": "white",
+          "x": 690,
+          "y": 960,
+          "size": 170,
+          "tilt": 4
+        },
+        {
+          "mark": "line",
+          "pts": [
+            [
+              420,
+              960
+            ],
+            [
+              480,
+              1000
+            ],
+            [
+              540,
+              970
+            ],
+            [
+              600,
+              1030
+            ]
+          ],
+          "c": "orange",
+          "sw": 5
+        },
+        {
+          "id": "sparkles",
+          "x": 80,
+          "y": 520,
+          "size": 90
+        },
+        {
+          "id": "sparkles",
+          "x": 910,
+          "y": 500,
+          "size": 80
+        }
+      ]
+    },
+    {
+      "role": "stakes",
+      "headline": "AI is great. I use it every day.",
+      "headlineSize": 80,
+      "body": "I just don't want it doing my thinking.",
+      "source": "brief · \"I use it every day\" added, confirm",
+      "art": [
+        {
+          "mark": "poly",
+          "pts": [
+            [
+              110,
+              1120
+            ],
+            [
+              500,
+              1120
+            ],
+            [
+              480,
+              1180
+            ],
+            [
+              130,
+              1180
+            ]
+          ],
+          "c": "ink",
+          "bg": "l_grey",
+          "sw": 4
+        },
+        {
+          "mark": "poly",
+          "pts": [
+            [
+              580,
+              1120
+            ],
+            [
+              970,
+              1120
+            ],
+            [
+              950,
+              1180
+            ],
+            [
+              600,
+              1180
+            ]
+          ],
+          "c": "ink",
+          "bg": "l_orange",
+          "sw": 4
+        },
+        {
+          "id": "bot.busy",
+          "x": 130,
+          "y": 700,
+          "size": 400
+        },
+        {
+          "id": "person.think",
+          "x": 600,
+          "y": 700,
+          "size": 400
+        },
+        {
+          "id": "bulb",
+          "x": 840,
+          "y": 600,
+          "size": 130
+        },
+        {
+          "mark": "label",
+          "x": 305,
+          "y": 1195,
+          "text": "AI: the busywork",
+          "size": 40,
+          "c": "grey",
+          "align": "center"
+        },
+        {
+          "mark": "label",
+          "x": 775,
+          "y": 1195,
+          "text": "me: the thinking",
+          "size": 40,
+          "c": "orange",
+          "align": "center"
+        }
+      ]
+    },
+    {
+      "role": "value",
+      "number": 1,
+      "headline": "Read something long",
+      "body": "The summary gives you the point. Not the thinking.",
+      "source": "Ajay's list",
+      "art": [
+        {
+          "scene": {
+            "type": "ask",
+            "logo": "logos/chatgpt.png",
+            "q": "Summarise this book",
+            "at": 0.2,
+            "typeDur": 1.0
+          },
+          "x": 90,
+          "y": 580,
+          "w": 900,
+          "h": 190
+        },
+        {
+          "mark": "strike",
+          "pts": [
+            [
+              200,
+              680
+            ],
+            [
+              760,
+              665
+            ]
+          ],
+          "sw": 6
+        },
+        {
+          "cutout": "cutouts/books-stack.jpg",
+          "key": "grab",
+          "inset": 0.02,
+          "x": 480,
+          "y": 800,
+          "size": 400,
+          "tilt": -3
+        },
+        {
+          "id": "person.read",
+          "x": 100,
+          "y": 860,
+          "size": 330
+        },
+        {
+          "mark": "label",
+          "x": 120,
+          "y": 810,
+          "text": "the whole thing",
+          "size": 40,
+          "c": "orange"
+        },
+        {
+          "mark": "arrow",
+          "pts": [
+            [
+              400,
+              830
+            ],
+            [
+              470,
+              870
+            ],
+            [
+              520,
+              900
+            ]
+          ],
+          "c": "orange",
+          "sw": 4
+        }
+      ]
+    },
+    {
+      "role": "value",
+      "number": 2,
+      "headline": "Write something badly",
+      "body": "That's where you find out what you think.",
+      "source": "Ajay's list",
+      "art": [
+        {
+          "mark": "poly",
+          "pts": [
+            [
+              110,
+              600
+            ],
+            [
+              540,
+              580
+            ],
+            [
+              560,
+              1180
+            ],
+            [
+              130,
+              1195
+            ]
+          ],
+          "c": "ink",
+          "bg": "paper",
+          "sw": 3
+        },
+        {
+          "mark": "line",
+          "pts": [
+            [
+              160,
+              680
+            ],
+            [
+              480,
+              672
+            ]
+          ],
+          "c": "grey",
+          "sw": 3
+        },
+        {
+          "mark": "line",
+          "pts": [
+            [
+              160,
+              760
+            ],
+            [
+              500,
+              750
+            ]
+          ],
+          "c": "grey",
+          "sw": 3
+        },
+        {
+          "mark": "strike",
+          "pts": [
+            [
+              160,
+              755
+            ],
+            [
+              420,
+              760
+            ]
+          ],
+          "sw": 5
+        },
+        {
+          "mark": "line",
+          "pts": [
+            [
+              160,
+              840
+            ],
+            [
+              470,
+              835
+            ]
+          ],
+          "c": "grey",
+          "sw": 3
+        },
+        {
+          "mark": "scribble",
+          "x": 170,
+          "y": 900,
+          "w": 300,
+          "h": 110,
+          "c": "ink",
+          "sw": 3,
+          "n": 11
+        },
+        {
+          "mark": "line",
+          "pts": [
+            [
+              160,
+              1060
+            ],
+            [
+              380,
+              1056
+            ]
+          ],
+          "c": "grey",
+          "sw": 3
+        },
+        {
+          "mark": "arrow",
+          "pts": [
+            [
+              420,
+              680
+            ],
+            [
+              500,
+              800
+            ],
+            [
+              430,
+              880
+            ]
+          ],
+          "c": "orange",
+          "sw": 3
+        },
+        {
+          "mark": "circle",
+          "x": 330,
+          "y": 1090,
+          "w": 120,
+          "h": 70,
+          "c": "l_orange",
+          "bg": null,
+          "sw": 6
+        },
+        {
+          "id": "person.write",
+          "x": 40,
+          "y": 1020,
+          "size": 230
+        },
+        {
+          "scene": {
+            "type": "article",
+            "title": "Final draft",
+            "line": "the tidy version",
+            "at": 0.3
+          },
+          "x": 590,
+          "y": 600,
+          "w": 460,
+          "h": 560
+        },
+        {
+          "mark": "arrow",
+          "pts": [
+            [
+              560,
+              900
+            ],
+            [
+              620,
+              880
+            ]
+          ],
+          "c": "ink",
+          "sw": 4
+        },
+        {
+          "mark": "label",
+          "x": 810,
+          "y": 1110,
+          "text": "AI tidies it after",
+          "size": 38,
+          "c": "grey",
+          "align": "center"
+        }
+      ]
+    },
+    {
+      "role": "value",
+      "number": 3,
+      "headline": "Send a voice note, not a text",
+      "body": "They hear you. Not just your words.",
+      "source": "Ajay's list",
+      "art": [
+        {
+          "scene": {
+            "type": "thread",
+            "title": "Sam",
+            "messages": [
+              {
+                "from": "them",
+                "text": "running late, talk later?",
+                "at": 0.2
+              },
+              {
+                "from": "me",
+                "text": "ok sounds good 👍",
+                "at": 0.7
+              },
+              {
+                "from": "me",
+                "voice": "0:42",
+                "at": 1.3
+              }
+            ]
+          },
+          "x": 140,
+          "y": 560,
+          "w": 640,
+          "h": 620
+        },
+        {
+          "mark": "strike",
+          "pts": [
+            [
+              430,
+              880
+            ],
+            [
+              740,
+              850
+            ]
+          ],
+          "sw": 7
+        },
+        {
+          "id": "person.talk",
+          "x": 760,
+          "y": 900,
+          "size": 280
+        },
+        {
+          "mark": "label",
+          "x": 700,
+          "y": 600,
+          "text": "they hear you",
+          "size": 40,
+          "c": "orange"
+        },
+        {
+          "mark": "arrow",
+          "pts": [
+            [
+              820,
+              660
+            ],
+            [
+              860,
+              800
+            ],
+            [
+              790,
+              980
+            ]
+          ],
+          "c": "orange",
+          "sw": 4
+        }
+      ]
+    },
+    {
+      "role": "value",
+      "number": 4,
+      "headline": "Send a Loom, not a cold email",
+      "body": "A face beats a template.",
+      "source": "Ajay's list · Loom as a word, no logo · thumbnail = Ajay's own frame (Nested Sequence 02, 0:02.8)",
+      "art": [
+        {
+          "scene": {
+            "type": "inbox",
+            "dimAt": 1.2,
+            "rows": [
+              {
+                "from": "Growth agency",
+                "subject": "Quick question",
+                "at": 0.2
+              },
+              {
+                "from": "Sales team",
+                "subject": "Quick question",
+                "at": 0.35
+              },
+              {
+                "from": "Ajay",
+                "subject": "60 sec, made just for you",
+                "video": "cutouts/ajay-cam.jpg",
+                "lit": true,
+                "at": 0.5
+              },
+              {
+                "from": "Founder",
+                "subject": "Following up",
+                "at": 0.65
+              }
+            ]
+          },
+          "x": 90,
+          "y": 540,
+          "w": 900,
+          "h": 680
+        },
+        {
+          "mark": "circle",
+          "x": 70,
+          "y": 790,
+          "w": 940,
+          "h": 300,
+          "c": "orange",
+          "sw": 5
+        }
+      ]
+    },
+    {
+      "role": "value",
+      "number": 5,
+      "headline": "Call someone who's done it",
+      "body": "Ask what they learned the hard way.",
+      "source": "earlier list (talk to a real person) · wording added",
+      "art": [
+        {
+          "id": "person.talk",
+          "x": 50,
+          "y": 640,
+          "size": 320
+        },
+        {
+          "id": "person.listen",
+          "x": 710,
+          "y": 640,
+          "size": 320,
+          "flip": true
+        },
+        {
+          "cutout": "cutouts/phone-rotary.jpg",
+          "key": "grab",
+          "x": 330,
+          "y": 760,
+          "size": 400,
+          "tilt": -3
+        },
+        {
+          "mark": "line",
+          "pts": [
+            [
+              340,
+              960
+            ],
+            [
+              280,
+              900
+            ],
+            [
+              250,
+              960
+            ],
+            [
+              200,
+              890
+            ]
+          ],
+          "c": "ink",
+          "sw": 3
+        },
+        {
+          "mark": "line",
+          "pts": [
+            [
+              720,
+              930
+            ],
+            [
+              790,
+              880
+            ],
+            [
+              810,
+              940
+            ],
+            [
+              860,
+              880
+            ]
+          ],
+          "c": "ink",
+          "sw": 3
+        },
+        {
+          "id": "bubble",
+          "x": 90,
+          "y": 520,
+          "size": 150
+        },
+        {
+          "scene": {
+            "type": "ask",
+            "placeholder": "Ask anything",
+            "at": 0.2
+          },
+          "x": 300,
+          "y": 1090,
+          "w": 480,
+          "h": 110
+        },
+        {
+          "mark": "strike",
+          "pts": [
+            [
+              310,
+              1150
+            ],
+            [
+              770,
+              1130
+            ]
+          ],
+          "sw": 6
+        }
+      ]
+    },
+    {
+      "role": "value",
+      "number": 6,
+      "headline": "Sit with the problem first",
+      "body": "Give your own brain the first turn.",
+      "source": "earlier list · \"10 min\" is a suggestion, not a claim",
+      "art": [
+        {
+          "cutout": "cutouts/kitchen-timer.jpg",
+          "key": "grab",
+          "x": 110,
+          "y": 590,
+          "size": 360,
+          "tilt": 5
+        },
+        {
+          "mark": "label",
+          "x": 160,
+          "y": 1010,
+          "text": "10 min, just you",
+          "size": 40,
+          "c": "orange"
+        },
+        {
+          "id": "person.think",
+          "x": 600,
+          "y": 590,
+          "size": 380
+        },
+        {
+          "scene": {
+            "type": "ask",
+            "logo": "logos/chatgpt.png",
+            "placeholder": "Ask anything",
+            "at": 0.2
+          },
+          "x": 90,
+          "y": 1060,
+          "w": 900,
+          "h": 150
+        },
+        {
+          "mark": "tape",
+          "x": 620,
+          "y": 1040,
+          "w": 330,
+          "angle": -6
+        },
+        {
+          "mark": "label",
+          "x": 690,
+          "y": 1035,
+          "text": "not yet",
+          "size": 46,
+          "c": "ink",
+          "angle": -6
+        }
+      ]
+    },
+    {
+      "role": "value",
+      "number": 7,
+      "headline": "Take notes by hand",
+      "body": "Even if AI is recording.",
+      "source": "earlier list",
+      "art": [
+        {
+          "scene": {
+            "type": "recorder",
+            "label": "Recording",
+            "time": "00:41:12",
+            "lines": 5
+          },
+          "x": 90,
+          "y": 540,
+          "w": 620,
+          "h": 400
+        },
+        {
+          "mark": "strike",
+          "pts": [
+            [
+              120,
+              760
+            ],
+            [
+              690,
+              720
+            ]
+          ],
+          "c": "grey",
+          "sw": 4
+        },
+        {
+          "id": "notebook",
+          "x": 160,
+          "y": 900,
+          "size": 330
+        },
+        {
+          "id": "pencil",
+          "x": 410,
+          "y": 960,
+          "size": 200
+        },
+        {
+          "id": "person.write",
+          "x": 640,
+          "y": 820,
+          "size": 380
+        },
+        {
+          "mark": "label",
+          "x": 200,
+          "y": 1180,
+          "text": "your own words stick",
+          "size": 40,
+          "c": "orange"
+        }
+      ]
+    },
+    {
+      "role": "closer",
+      "headline": [
+        "Use AI.",
+        {
+          "t": "Just don't stop thinking.",
+          "c": "accent"
+        }
+      ],
+      "headlineSize": 90,
+      "source": "brief",
+      "art": [
+        {
+          "mark": "poly",
+          "pts": [
+            [
+              150,
+              1000
+            ],
+            [
+              860,
+              930
+            ],
+            [
+              990,
+              1080
+            ],
+            [
+              250,
+              1175
+            ]
+          ],
+          "c": "ink",
+          "bg": "l_grey",
+          "sw": 5
+        },
+        {
+          "mark": "poly",
+          "pts": [
+            [
+              170,
+              1003
+            ],
+            [
+              848,
+              938
+            ],
+            [
+              962,
+              1072
+            ],
+            [
+              262,
+              1158
+            ]
+          ],
+          "c": "ink",
+          "bg": "paper",
+          "sw": 2
+        },
+        {
+          "id": "person.point",
+          "x": 110,
+          "y": 620,
+          "size": 330
+        },
+        {
+          "id": "bot.stand",
+          "x": 690,
+          "y": 620,
+          "size": 300,
+          "flip": true
+        },
+        {
+          "cutout": "cutouts/map-folded.jpg",
+          "key": "grab",
+          "crop": [
+            0,
+            0.24,
+            1,
+            1
+          ],
+          "x": 400,
+          "y": 850,
+          "size": 250,
+          "tilt": 6
+        },
+        {
+          "mark": "line",
+          "pts": [
+            [
+              430,
+              950
+            ],
+            [
+              500,
+              925
+            ],
+            [
+              560,
+              990
+            ],
+            [
+              630,
+              960
+            ]
+          ],
+          "c": "orange",
+          "sw": 6
+        },
+        {
+          "mark": "circle",
+          "x": 615,
+          "y": 945,
+          "w": 30,
+          "h": 30,
+          "c": "orange",
+          "bg": "orange"
+        },
+        {
+          "mark": "label",
+          "x": 540,
+          "y": 1200,
+          "text": "you still pick the route",
+          "size": 42,
+          "c": "orange",
+          "align": "center"
+        }
+      ]
+    },
+    {
+      "role": "cta",
+      "headline": "Which one will you try this week?",
+      "headlineSize": 80,
+      "source": "brief CTA",
+      "art": [
+        {
+          "cutout": "cutouts/books-stack.jpg",
+          "key": "grab",
+          "inset": 0.02,
+          "x": 90,
+          "y": 480,
+          "size": 230,
+          "tilt": -4
+        },
+        {
+          "mark": "label",
+          "x": 145,
+          "y": 720,
+          "text": "read long",
+          "size": 34,
+          "align": "left"
+        },
+        {
+          "id": "notebook",
+          "x": 420,
+          "y": 470,
+          "size": 220
+        },
+        {
+          "mark": "label",
+          "x": 470,
+          "y": 720,
+          "text": "write badly",
+          "size": 34,
+          "align": "left"
+        },
+        {
+          "id": "phone",
+          "x": 760,
+          "y": 470,
+          "size": 220
+        },
+        {
+          "mark": "label",
+          "x": 810,
+          "y": 720,
+          "text": "voice note",
+          "size": 34,
+          "align": "left"
+        },
+        {
+          "cutout": "cutouts/ajay-cutout.png",
+          "x": 90,
+          "y": 790,
+          "size": 230,
+          "tilt": 3
+        },
+        {
+          "mark": "label",
+          "x": 145,
+          "y": 1010,
+          "text": "send a Loom",
+          "size": 34,
+          "align": "left"
+        },
+        {
+          "cutout": "cutouts/phone-rotary.jpg",
+          "key": "grab",
+          "x": 420,
+          "y": 820,
+          "size": 230,
+          "tilt": -4
+        },
+        {
+          "mark": "label",
+          "x": 475,
+          "y": 1010,
+          "text": "call someone",
+          "size": 34,
+          "align": "left"
+        },
+        {
+          "cutout": "cutouts/kitchen-timer.jpg",
+          "key": "grab",
+          "x": 770,
+          "y": 800,
+          "size": 200,
+          "tilt": 5
+        },
+        {
+          "mark": "label",
+          "x": 810,
+          "y": 1010,
+          "text": "sit with it",
+          "size": 34,
+          "align": "left"
+        },
+        {
+          "id": "pencil",
+          "x": 440,
+          "y": 1060,
+          "size": 150
+        },
+        {
+          "mark": "label",
+          "x": 480,
+          "y": 1210,
+          "text": "notes by hand",
+          "size": 34,
+          "align": "left"
+        },
+        {
+          "mark": "poly",
+          "pts": [
+            [
+              100,
+              700
+            ],
+            [
+              130,
+              700
+            ],
+            [
+              130,
+              730
+            ],
+            [
+              100,
+              730
+            ]
+          ],
+          "c": "ink",
+          "sw": 3
+        },
+        {
+          "mark": "poly",
+          "pts": [
+            [
+              425,
+              700
+            ],
+            [
+              455,
+              700
+            ],
+            [
+              455,
+              730
+            ],
+            [
+              425,
+              730
+            ]
+          ],
+          "c": "ink",
+          "sw": 3
+        },
+        {
+          "mark": "poly",
+          "pts": [
+            [
+              765,
+              700
+            ],
+            [
+              795,
+              700
+            ],
+            [
+              795,
+              730
+            ],
+            [
+              765,
+              730
+            ]
+          ],
+          "c": "ink",
+          "sw": 3
+        },
+        {
+          "mark": "poly",
+          "pts": [
+            [
+              100,
+              990
+            ],
+            [
+              130,
+              990
+            ],
+            [
+              130,
+              1020
+            ],
+            [
+              100,
+              1020
+            ]
+          ],
+          "c": "ink",
+          "sw": 3
+        },
+        {
+          "mark": "poly",
+          "pts": [
+            [
+              425,
+              990
+            ],
+            [
+              455,
+              990
+            ],
+            [
+              455,
+              1020
+            ],
+            [
+              425,
+              1020
+            ]
+          ],
+          "c": "ink",
+          "sw": 3
+        },
+        {
+          "mark": "poly",
+          "pts": [
+            [
+              765,
+              990
+            ],
+            [
+              795,
+              990
+            ],
+            [
+              795,
+              1020
+            ],
+            [
+              765,
+              1020
+            ]
+          ],
+          "c": "ink",
+          "sw": 3
+        },
+        {
+          "mark": "poly",
+          "pts": [
+            [
+              425,
+              1190
+            ],
+            [
+              455,
+              1190
+            ],
+            [
+              455,
+              1220
+            ],
+            [
+              425,
+              1220
+            ]
+          ],
+          "c": "ink",
+          "sw": 3
+        }
+      ]
+    }
+  ]
+}

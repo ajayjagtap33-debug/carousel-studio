@@ -1,0 +1,37 @@
+Comment "TV" to get Clean your TV of Ads and Bloatware with Claude Code.
+
+People are now hacking their TVs with Claude Code to remove all the bloatware and ads.
+
+And it's blowing up on the internet right now.
+
+It started when someone on Twitter gave Claude Code their TV's model number.
+
+Then Claude Code found the TV on Wi-Fi.
+
+It removed all 25 bloatware apps, sponsored ads, and all the tracking codes.
+
+And it built a new home screen from scratch.
+
+Think of it like a deep clean for your TV.
+
+That turned into a free GitHub repo that lets anyone do the same.
+
+It already has over 16k stars.
+
+You paste one prompt into Claude Code with your TV model.
+
+It removes everything you don't want.
+
+Then it installs a clean home screen that looks like Apple TV.
+
+Or you can even code your own.
+
+It already works with over 170 TV models.
+
+And if you don't like it, you can restore everything.
+
+With just one command.
+
+So you can always go back.
+
+#claudecode #cleanyourtv #vibecoding #githubrepo #aihacking

@@ -1,0 +1,99 @@
+1
+00:00:00,000 --> 00:00:01,320
+Don't use Claude code until you've installed
+
+2
+00:00:01,320 --> 00:00:02,359
+these five plugins.
+
+3
+00:00:02,680 --> 00:00:05,259
+First is Free LLM API, which gives your Claude code
+
+4
+00:00:05,259 --> 00:00:08,820
+over seven billion free AI tokens from over 600 AI models.
+
+5
+00:00:09,019 --> 00:00:11,019
+So it automatically switches you to the next best model
+
+6
+00:00:11,019 --> 00:00:12,519
+anytime your usage limit runs out,
+
+7
+00:00:12,539 --> 00:00:14,380
+letting your sessions last significantly longer.
+
+8
+00:00:14,500 --> 00:00:16,760
+The second is Strix, which attacks your vibe-coded app
+
+9
+00:00:16,760 --> 00:00:18,640
+just like a real hacker to find and then fix
+
+10
+00:00:18,640 --> 00:00:20,519
+any security vulnerabilities you left behind.
+
+11
+00:00:20,760 --> 00:00:22,519
+Third is Claude Mem, which gives your Claude memory
+
+12
+00:00:22,519 --> 00:00:23,920
+across literally every session
+
+13
+00:00:23,920 --> 00:00:25,699
+so it can remember your projects and your files
+
+14
+00:00:25,699 --> 00:00:27,539
+without you ever having to re-explain a single thing.
+
+15
+00:00:27,640 --> 00:00:28,620
+And the fourth is Agent Reach,
+
+16
+00:00:28,620 --> 00:00:30,399
+which lets you scrape anything off the internet,
+
+17
+00:00:30,600 --> 00:00:33,420
+even gated platforms like LinkedIn, Instagram X, and Reddit,
+
+18
+00:00:33,560 --> 00:00:34,899
+all without paying an additional cent.
+
+19
+00:00:35,020 --> 00:00:36,520
+And finally, there's Claude Code Setup.
+
+20
+00:00:36,700 --> 00:00:39,039
+It's an official anthropic plugin that scans your code base
+
+21
+00:00:39,039 --> 00:00:41,159
+and recommends the best skills, hooks, sub-agents,
+
+22
+00:00:41,420 --> 00:00:42,899
+and MCP servers for your project.
+
+23
+00:00:43,020 --> 00:00:43,960
+So if you want them all for yourselves,
+
+24
+00:00:44,140 --> 00:00:45,280
+just comment Claude down below
+
+25
+00:00:45,280 --> 00:00:46,359
+and I'll send you the link directly.

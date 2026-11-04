@@ -1,0 +1,59 @@
+1
+00:00:00,000 --> 00:00:03,319
+Don't start vibe coding with Cloud Code unless you've installed these four plugins.
+
+2
+00:00:03,580 --> 00:00:07,620
+The first is Ponytail, which optimizes Cloud Code's output and cuts your token usage by
+
+3
+00:00:07,620 --> 00:00:10,179
+over 50% without losing you any accuracy at all.
+
+4
+00:00:10,240 --> 00:00:13,980
+The second is Omniroute, which gives Cloud Code almost unlimited usage by connecting
+
+5
+00:00:13,980 --> 00:00:16,440
+it to over 300 other free AI providers.
+
+6
+00:00:16,660 --> 00:00:20,000
+So the moment that your usage limit runs out, it'll automatically switch you to the next
+
+7
+00:00:20,000 --> 00:00:23,559
+best model and give you up to 1.6 billion free tokens every single month.
+
+8
+00:00:23,679 --> 00:00:27,780
+The third is Graphify, which turns your entire codebase into a knowledge graph, so your
+
+9
+00:00:27,780 --> 00:00:30,719
+agent doesn't have to waste tokens by rereading files again and again.
+
+10
+00:00:30,899 --> 00:00:34,520
+And finally, there's Agent Skills, which is a pack of 24 skills that let you vibe code
+
+11
+00:00:34,520 --> 00:00:38,240
+like a real senior engineer built by the former AI engineering director at Google.
+
+12
+00:00:38,420 --> 00:00:42,179
+It has dedicated skills for planning, coding, testing, and publishing, and it activates
+
+13
+00:00:42,179 --> 00:00:45,939
+the right one at the specific stages of coding it needs, all on its own.
+
+14
+00:00:46,000 --> 00:00:48,979
+So if you want to try them all out for yourselves, just comment coding and I'll send the link
+
+15
+00:00:48,979 --> 00:00:49,399
+to you directly.

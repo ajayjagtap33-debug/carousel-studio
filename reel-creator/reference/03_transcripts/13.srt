@@ -1,0 +1,71 @@
+1
+00:00:00,000 --> 00:00:01,379
+You know those aura farming edits
+
+2
+00:00:01,379 --> 00:00:02,740
+that are all over your feed right now?
+
+3
+00:00:02,899 --> 00:00:05,139
+The slow-mo, the dramatic lighting, this guy?
+
+4
+00:00:05,320 --> 00:00:06,860
+You can now make a clip just like this
+
+5
+00:00:06,860 --> 00:00:08,539
+from a single photo of yourself with Claude.
+
+6
+00:00:08,699 --> 00:00:10,439
+Most people do this through a new Higgs Field tool
+
+7
+00:00:10,439 --> 00:00:11,119
+called Katana.
+
+8
+00:00:11,320 --> 00:00:13,820
+Just connect Higgs Field to Claude, type slash Katana,
+
+9
+00:00:14,000 --> 00:00:16,079
+drop in your photo and then pick one of the edit styles.
+
+10
+00:00:16,339 --> 00:00:17,579
+And then it'll just build it for you.
+
+11
+00:00:17,679 --> 00:00:19,359
+If you want more than one character in there too,
+
+12
+00:00:19,440 --> 00:00:21,219
+you can also add up to five reference images
+
+13
+00:00:21,219 --> 00:00:22,100
+and if a shot's missing,
+
+14
+00:00:22,120 --> 00:00:23,820
+it'll literally just generate it for you.
+
+15
+00:00:23,899 --> 00:00:24,920
+So you don't even need all the footage
+
+16
+00:00:24,920 --> 00:00:25,780
+to get a finished edit.
+
+17
+00:00:25,879 --> 00:00:27,379
+Comment Katana and I'll send you the link
+
+18
+00:00:27,379 --> 00:00:28,140
+to try it yourselves.

@@ -1,0 +1,59 @@
+1
+00:00:00,000 --> 00:00:03,720
+If you use cloud code with multiple skills and plugins installed, your PC might have
+
+2
+00:00:03,720 --> 00:00:04,219
+gotten hacked.
+
+3
+00:00:04,480 --> 00:00:08,919
+A recent study found that 26% of AI skills contain security vulnerabilities, and a whopping
+
+4
+00:00:08,919 --> 00:00:12,080
+5% actually already have malicious code stuffed inside it.
+
+5
+00:00:12,119 --> 00:00:16,039
+So to fix this, Nvidia built a free tool called Skill Spectre, which basically acts
+
+6
+00:00:16,039 --> 00:00:19,379
+like an antivirus sitting between your cloud cone and the agent's skills you're about
+
+7
+00:00:19,379 --> 00:00:19,879
+to install.
+
+8
+00:00:20,019 --> 00:00:23,879
+You just point it at any skill, repo, or zip file, and it'll scan for security risks
+
+9
+00:00:23,879 --> 00:00:26,339
+like prompt injection, data leaks, and tool misuse.
+
+10
+00:00:26,339 --> 00:00:30,420
+Then it'll hand you a risk score out of 100, so you know in seconds whether it's fully
+
+11
+00:00:30,420 --> 00:00:31,140
+safe or not.
+
+12
+00:00:31,300 --> 00:00:35,299
+And the best part is, it's 100% free, open source, and works perfectly with both cloud
+
+13
+00:00:35,299 --> 00:00:36,359
+code and codecs.
+
+14
+00:00:36,439 --> 00:00:36,979
+Want it for yourselves?
+
+15
+00:00:37,340 --> 00:00:39,299
+Just comment Skill down below and I'll share the link.

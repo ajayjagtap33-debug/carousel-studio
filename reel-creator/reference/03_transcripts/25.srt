@@ -1,0 +1,71 @@
+1
+00:00:00,000 --> 00:00:02,600
+Someone just released a free, open-source version of Jev,
+
+2
+00:00:02,879 --> 00:00:04,440
+and it's actually way faster and cheaper.
+
+3
+00:00:04,620 --> 00:00:06,480
+It's called Leia, and it's a classifier model
+
+4
+00:00:06,480 --> 00:00:08,199
+that you can run locally on your own computer.
+
+5
+00:00:08,359 --> 00:00:10,080
+And it does the exact same job as Jev,
+
+6
+00:00:10,279 --> 00:00:12,640
+but takes only around 30 milliseconds to answer,
+
+7
+00:00:12,759 --> 00:00:14,160
+while Jev takes closer to 200.
+
+8
+00:00:14,320 --> 00:00:15,619
+The only problem is that the base model
+
+9
+00:00:15,619 --> 00:00:17,199
+isn't good at everything out of the box,
+
+10
+00:00:17,339 --> 00:00:19,079
+so it needs to be fine-tuned and trained
+
+11
+00:00:19,079 --> 00:00:20,100
+for your specific use case.
+
+12
+00:00:20,239 --> 00:00:21,679
+And you can do that with the help of Claude Code
+
+13
+00:00:21,679 --> 00:00:22,420
+really easily.
+
+14
+00:00:22,519 --> 00:00:24,359
+Once you're done, it can even match Jev on accuracy,
+
+15
+00:00:24,620 --> 00:00:25,820
+except do it in a tenth of the time.
+
+16
+00:00:25,920 --> 00:00:27,280
+So if you want a guide to set it up yourselves,
+
+17
+00:00:27,519 --> 00:00:28,500
+just comment Jev below,
+
+18
+00:00:28,500 --> 00:00:29,539
+and I'll send you the link directly.

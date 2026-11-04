@@ -1,0 +1,27 @@
+You can now run a whole agency inside Cloud Code
+for exactly zero dollars.
+And it is everything a real agency does
+from finding clients to building the final product
+with Cloud Code handling all of it.
+It's called Agency Agents,
+and it's a free and open source library
+of over 200 AI specialists,
+each with their own job and personality.
+And it's already crossed 160K stars on GitHub.
+So inside you get an outbound agent
+that writes your cold emails,
+a sales team that preps your calls
+and writes your proposal,
+and even a team of engineers
+that builds the product for your client.
+Plus it also has agents
+that help you grow your social media,
+design your products,
+handle all of your customer support for you,
+and even manage your finances.
+All with an orchestrator agent
+running the whole project
+and verifying every step before it moves on.
+So if you wanna try it for yourself,
+just comment agency down below,
+and I'll send you the link directly.

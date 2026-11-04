@@ -1,0 +1,79 @@
+1
+00:00:00,000 --> 00:00:04,339
+If you're using Claude Code, then you need to install these five AI plugins and skills right now.
+
+2
+00:00:04,379 --> 00:00:05,559
+The first is Claude Code Setup.
+
+3
+00:00:05,839 --> 00:00:08,539
+It's an official plugin from Nuntropic that scans your entire code base
+
+4
+00:00:08,539 --> 00:00:11,880
+and recommends the best hooks, skills, and sub-agents that fit your project,
+
+5
+00:00:12,019 --> 00:00:13,960
+as well as removes all of the unnecessary stuff.
+
+6
+00:00:14,080 --> 00:00:15,300
+The second is called Omnirot.
+
+7
+00:00:15,359 --> 00:00:20,019
+This gives Claude Code almost unlimited usage by connecting it to over 300 free AI providers.
+
+8
+00:00:20,219 --> 00:00:23,960
+So the moment your usage limit runs out, it'll automatically switch you to the next best model,
+
+9
+00:00:24,059 --> 00:00:27,100
+giving up to 1.6 billion free tokens every single month.
+
+10
+00:00:27,260 --> 00:00:28,460
+The third is Find Skills.
+
+11
+00:00:28,460 --> 00:00:32,880
+You just tell it what you're building, and it'll go and search its whole library of 100,000 skills
+
+12
+00:00:32,880 --> 00:00:34,840
+to find the ones most applicable for you.
+
+13
+00:00:34,939 --> 00:00:36,520
+It'll then go install them and set them up.
+
+14
+00:00:36,640 --> 00:00:39,079
+The fourth is Strix, which attacks your vibe-coded app,
+
+15
+00:00:39,200 --> 00:00:42,719
+just like a real hacker, to find any security vulnerabilities left behind by you.
+
+16
+00:00:42,899 --> 00:00:45,659
+And finally, Agent Reach, which lets you scrape anything off the internet,
+
+17
+00:00:45,859 --> 00:00:49,020
+even gated platforms like LinkedIn, Instagram X, and Reddit,
+
+18
+00:00:49,140 --> 00:00:50,719
+without paying for a single API key.
+
+19
+00:00:50,859 --> 00:00:53,259
+So if you want all of these for yourselves, just comment Claude,
+
+20
+00:00:53,399 --> 00:00:54,539
+and I'll send the links to you directly.

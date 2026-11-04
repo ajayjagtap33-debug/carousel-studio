@@ -1,0 +1,43 @@
+1
+00:00:00,000 --> 00:00:03,779
+Google just open sourced a free AI tool that lets your cloud code use a real phone, just
+
+2
+00:00:03,779 --> 00:00:04,339
+like a human.
+
+3
+00:00:04,519 --> 00:00:08,460
+Where it can open apps, tap through screens, create accounts, change settings, and even
+
+4
+00:00:08,460 --> 00:00:12,580
+send you all back the results with a 99% success rate on all major benchmarks.
+
+5
+00:00:12,800 --> 00:00:16,160
+It's called Artemis, and it's already crossed 13,000 stars on Google's GitHub.
+
+6
+00:00:16,379 --> 00:00:20,519
+With it, you can run full end-to-end automations, test your own apps on real devices, or just
+
+7
+00:00:20,519 --> 00:00:22,879
+hand off all the boring stuff that you have to do in your phone every day.
+
+8
+00:00:23,019 --> 00:00:26,660
+Plus, it comes with its own MCP server, so it plugs straight into cloud code, codecs
+
+9
+00:00:26,660 --> 00:00:29,539
+and all other coding agents, and it's completely free and open source.
+
+10
+00:00:29,539 --> 00:00:32,600
+So if you want to try this for yourselves, just comment Google down below and I'll send
+
+11
+00:00:32,600 --> 00:00:33,200
+you the link directly.

@@ -1,0 +1,29 @@
+Comment "APPLE" to get this Claude skill to design like Apple.
+
+You can now create Apple level websites with Claude using this one skill.
+
+Someone on GitHub just compressed years of Apple's design thinking into a single skill.
+
+The exact colors, fonts, motion, and rules they use across their every product.
+
+With it, you can create premium animated websites like these.
+
+Or use it to fix your existing projects instead.
+
+Now to install it, just copy these commands into your Claude Code terminal.
+
+Then ask it to review your site.
+
+In a couple of minutes, it comes back with every minor thing that's off.
+
+Based on Apple's own design guidelines.
+
+Plus the exact fixes for each one.
+
+Think of it like having Apple's design team quietly reviewing your work in the background.
+
+No more guessing whether your spacing, motion, or typography actually feels premium.
+
+The skill just tells you, and shows you exactly how to fix it.
+
+#claudeai #claudecode #appledesign #claudeskills #animatedwebsites

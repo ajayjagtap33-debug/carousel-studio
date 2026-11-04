@@ -1,0 +1,33 @@
+Comment "CLONE" to get this Free AI Tool that rebuilds any app you pay for with Claude Code.
+
+You can now clone any app with Claude Code.
+
+So you never have to pay for a subscription again.
+
+It's called Replica, and it's not another reverse engineering repo.
+
+It's a collection of 11 skills that build a better version of any app.
+
+And it's completely free.
+
+You install it in Claude Code and point it at any app.
+
+First, it maps out every screen and feature.
+
+Then it reads the reviews on the App Store, G2 and Reddit.
+
+That's how it finds what users hate, so it knows what to fix.
+
+Next, it rebuilds the app one screen at a time.
+
+It solves those problems as it goes.
+
+Plus it adds the backend and tests every flow and screen for bugs.
+
+It's like a contractor who reads every complaint before building.
+
+And finally, it gives the app its own branding and packages it up.
+
+So you end up with a better app that's completely yours.
+
+#claudecode #reverseengineeranything #replicaai #REA #githubrepo

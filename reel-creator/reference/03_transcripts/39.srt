@@ -1,0 +1,71 @@
+1
+00:00:00,000 --> 00:00:02,060
+This free AI tool lets you clone any website
+
+2
+00:00:02,060 --> 00:00:03,399
+with just a single screenshot.
+
+3
+00:00:03,740 --> 00:00:05,160
+It's called Screenshot to Code,
+
+4
+00:00:05,379 --> 00:00:06,940
+and it's a fully open source project
+
+5
+00:00:06,940 --> 00:00:09,019
+with over 72,000 stars on GitHub.
+
+6
+00:00:09,240 --> 00:00:11,380
+You just drop in a screenshot and it'll read the layout,
+
+7
+00:00:11,580 --> 00:00:13,119
+the spacing, the fonts, the colors,
+
+8
+00:00:13,320 --> 00:00:15,500
+and even build the entire website for you live.
+
+9
+00:00:15,699 --> 00:00:17,079
+And it works on more than just screenshots.
+
+10
+00:00:17,320 --> 00:00:19,120
+You can give it a Figma design, reference images,
+
+11
+00:00:19,260 --> 00:00:21,019
+or even a screen recording of a site,
+
+12
+00:00:21,100 --> 00:00:22,300
+and it'll turn that thing
+
+13
+00:00:22,300 --> 00:00:24,440
+into a fully working prototype in minutes.
+
+14
+00:00:24,579 --> 00:00:26,039
+Plus, you'll also get a live canvas,
+
+15
+00:00:26,120 --> 00:00:28,019
+so you can tweak anything however you want.
+
+16
+00:00:28,100 --> 00:00:28,940
+Wanna try this for yourselves?
+
+17
+00:00:28,940 --> 00:00:30,440
+Just comment a website down below,
+
+18
+00:00:30,559 --> 00:00:31,760
+and I'll send you guys the links directly.

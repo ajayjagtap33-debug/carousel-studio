@@ -1,0 +1,35 @@
+Comment "GOOGLE" to get Google Artemis and let your Claude Code automate your phone.
+
+Google just open sourced a free AI tool that lets your Claude Code use a real phone, just like a human.
+
+It can open apps, tap through screens, create accounts, and change settings.
+
+Everything you'd normally do with your thumbs.
+
+Your agent just does it for you.
+
+And then it sends you back the results.
+
+It even has a 99% success rate on a major benchmark.
+
+That's a pretty high bar for a free tool.
+
+The tool is called Artemis.
+
+And it's already crossed 13,000 stars on Google's GitHub.
+
+Think of it like handing your phone to a very patient assistant.
+
+With it, you can run full end to end automations.
+
+You can test your own apps on a real device.
+
+Or hand off the boring stuff you do on your phone every day.
+
+Plus it comes with its own MCP server.
+
+So it plugs straight into Claude Code, Codex, and other coding agents.
+
+And it's completely free and open source.
+
+#googleai #googleartemis #claudecode #aiagent #phoenautomation

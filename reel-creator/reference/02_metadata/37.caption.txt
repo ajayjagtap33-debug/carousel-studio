@@ -1,0 +1,29 @@
+Comment "PROMPT" to get the World’s Biggest AI Prompt Library.
+
+Someone just built the world's biggest prompt library.
+
+They made it completely free and open source.
+
+It's called prompts.chat.
+
+It has over ten thousand prompts for writing, coding, images, video, and research.
+
+Plus ready made skills and workflows for pretty much any task you can think of.
+
+That covers writers, developers, designers, and researchers all in one single place.
+
+And the best part is you can plug the whole library straight into your Claude Code as an MCP server.
+
+So your agent automatically picks the best prompt for whatever task you're working on.
+
+You never have to copy paste anything again.
+
+Think of it like giving your agent its own personal library card, it grabs exactly what it needs, right when it needs it.
+
+No more digging through old notes or bookmarked tweets trying to remember which prompt actually worked last time.
+
+Everything just lives in one place, ready whenever your agent needs it.
+
+Whether you're writing a blog post, debugging code, or generating an image, there's already a tested prompt waiting for you.
+
+#promptlibrary #aiprompting #githubrepo #promptschat #opensourceai

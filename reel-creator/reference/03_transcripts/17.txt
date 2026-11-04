@@ -1,0 +1,23 @@
+I just built this full multiplayer Attack on Titan game
+inside of Claude Code,
+and it only took me about an hour and $31.
+All I did was ask Claude to build me
+an Attack on Titan in Minecraft.
+And it came back with a full game
+where you either play as a Survey Corps soldier
+cutting down Titans,
+or it was one of the Titans themselves
+smashing through the wall.
+It's built fully in JavaScript,
+run straight from the browser,
+and I didn't have to write a single line of code.
+Then I asked it to add multiplayer through a Twilio relay
+so people from around the world
+can jump in and play together.
+And there are already hundreds,
+if not thousands of players in there right now.
+So if you want the full guide
+on how to build a game like this,
+or you want to try it yourselves,
+just comment Titan down below,
+and I'll send you the link directly.

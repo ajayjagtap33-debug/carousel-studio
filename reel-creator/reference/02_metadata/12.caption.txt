@@ -1,0 +1,49 @@
+Comment "DESIGN" to get this skill to create smooth animations with Claude Code.
+
+Claude Code can now create these clean line animations that react to your cursor.
+
+The lines move as your cursor moves.
+
+And it all comes from a simple prompt.
+
+It's a free skill called Hairline.
+
+It teaches your Claude the exact 10 design rules behind this style.
+
+The 10 rules are what keep everything looking clean.
+
+Think of it like handing Claude a style guide.
+
+You just describe your idea to Claude.
+
+Something like a hero or pricing section for your website.
+
+Even a short description is enough to start.
+
+And it gives you a bunch of concepts.
+
+Each concept gives you a different direction.
+
+So you're not stuck with just one idea.
+
+Then you just pick the one you like.
+
+And it builds an animated component.
+
+You can drop it straight into your websites, decks, mobile apps, or wherever you want.
+
+You don't have to design every detail by hand.
+
+That's three steps from idea to finished animation.
+
+Describe it, pick one, and drop it in.
+
+So the whole page feels alive.
+
+Think of it like a design studio inside Claude Code.
+
+Hairline is free, so there's nothing to lose.
+
+It's a small skill with a big visual payoff.
+
+#claudecode #hairlineskill #claudedesign #aianimations #animatedcomponents

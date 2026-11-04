@@ -1,0 +1,33 @@
+Comment "DESIGN" to get this free Design.MD library with over 2000+Website Design Systems.
+
+If you want better front end designs, don't start prompting from scratch.
+
+You can use the design language of top brands like Tesla, Apple, Ferrari, and even Anthropic.
+
+Directly inside your own designs.
+
+Someone reverse engineered over 2,000 websites from the world's top brands.
+
+They turned them into design files that your Claude Code can read and use directly.
+
+Each file contains their entire visual system.
+
+The exact colors, fonts, spacing, and layouts they use.
+
+Plus clear rules on what to use and what to avoid.
+
+So you just pick the one that fits your project.
+
+You drop it into your coding agent.
+
+It builds your entire UI in that exact style in minutes.
+
+Think of it like handing your AI a style guide straight from a real design team, instead of guessing what looks good.
+
+No more staring at a blank screen wondering where to even start.
+
+You already know the exact brand aesthetic you're going for, now your AI does too.
+
+Plus the whole library is completely free right now.
+
+#designmd #claudecode #3dwebsite #websitedesigning #aicoding

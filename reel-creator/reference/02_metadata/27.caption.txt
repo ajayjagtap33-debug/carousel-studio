@@ -1,0 +1,39 @@
+Comment "CLAUDE" to get these plugins and 10x your Claude Code setup.
+
+If you're new to Claude Code, you need to install these 5 free plugins to instantly 10x your setup.
+
+First is Claude Mem.
+
+It gives your Claude memory across every session.
+
+It remembers your project and files without you ever having to re-explain a thing.
+
+Second is find-skills.
+
+You just tell it what you're building.
+
+It searches its whole library of 100k skills, finds the best ones, and installs them for you.
+
+Third is anydoc.
+
+It turns your PowerPoint, Word, and Excel sheets into clean markdown files.
+
+So your AI can read them instantly while consuming way fewer tokens.
+
+The fourth is Claude Code Setup.
+
+It's an official Anthropic plugin that scans your entire codebase.
+
+It recommends the best hooks, skills, sub agents, and even MCP servers that fit your project.
+
+And it removes all the unnecessary fluff.
+
+And finally there's Agent Skills.
+
+It's a pack of 24 skills that let you vibe code like a real senior engineer.
+
+Built by the former AI engineering director at Google.
+
+It covers your entire dev cycle and activates the right skill at each specific stage of coding, all on its own.
+
+#claudecode #claudeplugins #claudemem #agentskills #anydoc

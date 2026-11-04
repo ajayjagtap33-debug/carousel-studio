@@ -1,0 +1,10 @@
+You don't need to pay for Vio or Cling to make AI videos anymore, just use this open-source
+world model instead called LTX 2.5.
+Their previous version pulled in over 18 million downloads.
+How to do it?
+Just download the weights, run it on whatever machine you've already got, even if you're
+on a Mac, and it'll stay completely 100% free.
+Plus it is native multi-shot gens now, so one generation can give you a ton of connected
+shots that maintain the same character and lighting throughout.
+So if you guys want to try this for yourselves, just comment LTX down below and I'll send
+you the link directly.

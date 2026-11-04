@@ -1,0 +1,91 @@
+1
+00:00:00,000 --> 00:00:01,700
+Cloudflare just opensource an AI skill
+
+2
+00:00:01,700 --> 00:00:03,700
+that finds security holes in your vibe-coded app
+
+3
+00:00:03,700 --> 00:00:04,839
+and it's completely free.
+
+4
+00:00:04,980 --> 00:00:06,200
+They originally built it for themselves
+
+5
+00:00:06,200 --> 00:00:08,419
+when it found over 7,000 security issues
+
+6
+00:00:08,419 --> 00:00:09,240
+in their own code base
+
+7
+00:00:09,240 --> 00:00:11,439
+and has already crossed 20,000 stars on GitHub.
+
+8
+00:00:11,660 --> 00:00:12,980
+Just install it into your cloud code
+
+9
+00:00:12,980 --> 00:00:14,560
+and it'll map out your entire app.
+
+10
+00:00:14,679 --> 00:00:16,879
+Then it'll send a team of AI agents to hunt through it
+
+11
+00:00:16,879 --> 00:00:18,679
+from your logins, database, and APIs,
+
+12
+00:00:18,839 --> 00:00:21,260
+even prompt injection if your app uses AI under the hood.
+
+13
+00:00:21,379 --> 00:00:22,460
+And then every bug they find
+
+14
+00:00:22,460 --> 00:00:23,920
+is handed over to a separate agent
+
+15
+00:00:23,920 --> 00:00:26,399
+whose only job is to disprove that bug exists.
+
+16
+00:00:26,620 --> 00:00:28,079
+So only the real issues will make it
+
+17
+00:00:28,079 --> 00:00:28,960
+all the way to the finish line.
+
+18
+00:00:28,960 --> 00:00:30,559
+And finally, it'll give you a detailed report
+
+19
+00:00:30,559 --> 00:00:31,899
+with every verified issue,
+
+20
+00:00:32,079 --> 00:00:33,259
+along with exactly how to fix it.
+
+21
+00:00:33,320 --> 00:00:34,240
+So if you want this for yourselves,
+
+22
+00:00:34,439 --> 00:00:35,799
+just comment audit down below
+
+23
+00:00:35,799 --> 00:00:36,899
+and it'll DM you the link directly.

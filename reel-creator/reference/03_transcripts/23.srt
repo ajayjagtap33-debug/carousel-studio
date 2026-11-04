@@ -1,0 +1,39 @@
+1
+00:00:00,000 --> 00:00:03,879
+This free AI tool turns your cloud code into literally a full production studio,
+
+2
+00:00:04,160 --> 00:00:08,140
+and it's completely free. It's called Open Montage, and it's a fully open-source project
+
+3
+00:00:08,140 --> 00:00:12,240
+with over 60,000 stars on GitHub. It basically works just like a real production team, with
+
+4
+00:00:12,240 --> 00:00:16,579
+a researcher, a scriptwriter, a voice artist, and even an editor, all run by AI. So you just
+
+5
+00:00:16,579 --> 00:00:20,160
+give it a prompt, and a team of AI agents will search the entire internet, write the script,
+
+6
+00:00:20,359 --> 00:00:23,679
+generate the visuals, even pull B-roll, music, voiceovers, and sound effects,
+
+7
+00:00:23,899 --> 00:00:26,399
+and then put everything together into a finished video all on its own.
+
+8
+00:00:26,399 --> 00:00:30,019
+And it works for pretty much any format, from animated explainers, all the way up to product
+
+9
+00:00:30,019 --> 00:00:33,539
+ads and UGCs, to even cinematic trailers. So if you want to try this for yourselves,
+
+10
+00:00:33,740 --> 00:00:35,939
+just comment video down below, and I'll DM you the link directly.

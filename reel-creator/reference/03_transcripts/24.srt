@@ -1,0 +1,43 @@
+1
+00:00:00,000 --> 00:00:05,400
+You can have Vibe Code with GPD 6, GLM 5.3, and DeepSeek V4.1 completely free.
+
+2
+00:00:05,480 --> 00:00:08,939
+It's called Free Buff, and it's a free, open-source coding agent just like Cloud Code.
+
+3
+00:00:09,080 --> 00:00:11,580
+But instead of paying $20 or $100 for a subscription,
+
+4
+00:00:11,820 --> 00:00:15,240
+you pay by watching a small ad in your terminal while it generates the answer for you.
+
+5
+00:00:15,300 --> 00:00:17,780
+And every single day, you get around 5 hours of GPD 6 Luna,
+
+6
+00:00:17,960 --> 00:00:21,500
+or up to 20 hours of GLM 5.3 with 8 other models to choose from.
+
+7
+00:00:21,539 --> 00:00:22,960
+While these aren't the best models for coding,
+
+8
+00:00:23,079 --> 00:00:25,500
+they're still great for automating those long, repetitive tasks
+
+9
+00:00:25,500 --> 00:00:27,219
+that burn through tokens every single day.
+
+10
+00:00:27,280 --> 00:00:29,699
+So if you want to try this for yourselves, just comment coding down below,
+
+11
+00:00:29,699 --> 00:00:30,679
+and I'll send you the link directly.

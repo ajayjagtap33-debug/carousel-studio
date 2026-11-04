@@ -1,0 +1,47 @@
+1
+00:00:00,000 --> 00:00:03,899
+Your Clod code can now reverse engineer any app on your own computer down to its every
+
+2
+00:00:03,899 --> 00:00:05,299
+feature completely free.
+
+3
+00:00:05,379 --> 00:00:08,980
+This is called reverse engineer anything, and it's a free and open source tool that
+
+4
+00:00:08,980 --> 00:00:10,980
+just crossed 40,000 stars on GitHub.
+
+5
+00:00:11,119 --> 00:00:14,839
+You just install it and point it at any desktop app, mobile app, or website.
+
+6
+00:00:15,119 --> 00:00:17,679
+And it'll decompile the whole thing and pull out all of its code.
+
+7
+00:00:17,820 --> 00:00:20,859
+Then it'll trace back to how each feature works all the way from your click to the
+
+8
+00:00:20,859 --> 00:00:23,440
+final output, and it'll explain it to you all step by step.
+
+9
+00:00:23,519 --> 00:00:26,879
+Plus, it also helps you rebuild that same feature for your own product based on your
+
+10
+00:00:26,879 --> 00:00:27,579
+own coding stack.
+
+11
+00:00:27,719 --> 00:00:28,559
+Want to try this for yourselves?
+
+12
+00:00:28,559 --> 00:00:30,960
+Just comment coding down below and I'll send you the link directly.

@@ -1,0 +1,75 @@
+1
+00:00:00,000 --> 00:00:02,220
+You can now create Apple level websites with Claude
+
+2
+00:00:02,220 --> 00:00:03,580
+using this one skill.
+
+3
+00:00:03,740 --> 00:00:05,540
+So somebody on GitHub just compressed years
+
+4
+00:00:05,540 --> 00:00:07,900
+of Apple's design thinking into a single skill
+
+5
+00:00:07,900 --> 00:00:10,080
+with the exact colors, fonts, motion,
+
+6
+00:00:10,199 --> 00:00:11,980
+and rules that they use across every product.
+
+7
+00:00:12,179 --> 00:00:14,480
+With it, you guys can create premium animated websites
+
+8
+00:00:14,480 --> 00:00:16,100
+like this or use it to fix
+
+9
+00:00:16,100 --> 00:00:17,739
+and upgrade your existing projects.
+
+10
+00:00:18,019 --> 00:00:19,760
+To install it, just copy these commands
+
+11
+00:00:19,760 --> 00:00:21,000
+into your Claude code terminal
+
+12
+00:00:21,000 --> 00:00:22,280
+and ask it to review your site.
+
+13
+00:00:22,379 --> 00:00:23,079
+And in a couple of minutes,
+
+14
+00:00:23,079 --> 00:00:24,760
+it'll come back with every minor thing
+
+15
+00:00:24,760 --> 00:00:26,399
+that's off based on Apple's guidelines
+
+16
+00:00:26,399 --> 00:00:29,260
+plus all of the exact fixes you need for each one.
+
+17
+00:00:29,260 --> 00:00:30,559
+So if you want the skill for yourselves,
+
+18
+00:00:30,760 --> 00:00:32,000
+just comment Apple down below,
+
+19
+00:00:32,159 --> 00:00:33,079
+it'll damn it to you directly.

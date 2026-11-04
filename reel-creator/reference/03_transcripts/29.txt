@@ -1,0 +1,18 @@
+You can now run Cloud Code completely free
+with almost unlimited usage.
+So somebody on GitHub just built an AI tool
+that gives you over seven billion free AI tokens
+every single month.
+And that includes models from ChachiBT, Gemini,
+GLM, Kimi, Grok, Mistral, Quinn, and even more.
+It's called Free LLM API,
+and it links your Cloud Code to over 600 free AI models
+all through one really easy setup.
+So the moment your Cloud Limit runs out,
+it'll automatically switch you over to the next best model
+to keep your session going.
+Plus it'll leave a note behind as it switches,
+so the new model will already have all your contacts.
+Wanna try it for yourselves?
+Just comment Claude down below
+and I'll send you the link directly.

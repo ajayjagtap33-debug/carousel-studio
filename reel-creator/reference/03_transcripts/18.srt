@@ -1,0 +1,59 @@
+1
+00:00:00,000 --> 00:00:01,740
+You don't need to pay for a booking tool anymore.
+
+2
+00:00:01,960 --> 00:00:03,439
+I just built my very own on Replet,
+
+3
+00:00:03,640 --> 00:00:04,540
+and it even takes payments.
+
+4
+00:00:04,780 --> 00:00:06,219
+All I did was describe what I wanted,
+
+5
+00:00:06,299 --> 00:00:07,339
+and it built the entire thing,
+
+6
+00:00:07,440 --> 00:00:09,400
+from calendar structure, availability rules,
+
+7
+00:00:09,519 --> 00:00:10,519
+and even confirmation emails.
+
+8
+00:00:10,839 --> 00:00:12,419
+Then I asked it to add a way to receive payment.
+
+9
+00:00:12,500 --> 00:00:13,640
+And since Stripe was already built in,
+
+10
+00:00:13,740 --> 00:00:16,579
+it was complete one-shot prompt from a single message.
+
+11
+00:00:16,780 --> 00:00:18,699
+Plus, you can also add it live on your own domain,
+
+12
+00:00:18,780 --> 00:00:19,300
+like I did.
+
+13
+00:00:19,379 --> 00:00:20,339
+So if you wanna try it for yourselves,
+
+14
+00:00:20,460 --> 00:00:21,579
+just comment book down below,
+
+15
+00:00:21,660 --> 00:00:22,719
+and I'll send you guys the link directly.

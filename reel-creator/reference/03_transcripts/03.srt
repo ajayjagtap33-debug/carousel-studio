@@ -1,0 +1,91 @@
+1
+00:00:00,000 --> 00:00:01,480
+So you can now test your startup idea
+
+2
+00:00:01,480 --> 00:00:02,960
+on thousands of fake customers
+
+3
+00:00:02,960 --> 00:00:04,360
+before you build a single thing.
+
+4
+00:00:04,419 --> 00:00:05,320
+It's called Mirofish,
+
+5
+00:00:05,559 --> 00:00:07,179
+and it's an open source simulation engine
+
+6
+00:00:07,179 --> 00:00:09,160
+that's already crossed 80,000 stars on GitHub.
+
+7
+00:00:09,419 --> 00:00:10,980
+So you first upload your product idea,
+
+8
+00:00:11,140 --> 00:00:12,359
+pitch, or maybe a rough MVP,
+
+9
+00:00:12,740 --> 00:00:14,500
+and it'll actually build an entire digital world
+
+10
+00:00:14,500 --> 00:00:16,480
+packed with simulated AI people,
+
+11
+00:00:16,600 --> 00:00:18,000
+each with their own unique personality,
+
+12
+00:00:18,420 --> 00:00:19,519
+background, and even opinions.
+
+13
+00:00:19,760 --> 00:00:21,719
+Then it'll drop them onto social media platforms
+
+14
+00:00:21,719 --> 00:00:23,160
+and let them react, argue,
+
+15
+00:00:23,339 --> 00:00:24,460
+even talk it out with each other.
+
+16
+00:00:24,579 --> 00:00:26,359
+And when it's done, it'll write you a full report
+
+17
+00:00:26,359 --> 00:00:28,280
+on why they loved it, why they hated it,
+
+18
+00:00:28,280 --> 00:00:29,640
+and even what they might want changed.
+
+19
+00:00:29,640 --> 00:00:31,760
+Plus, you can chat with any one of them individually
+
+20
+00:00:31,760 --> 00:00:33,159
+and ask exactly why.
+
+21
+00:00:33,439 --> 00:00:34,420
+So, wanna try it for yourselves?
+
+22
+00:00:34,679 --> 00:00:35,859
+Just comment startup down below,
+
+23
+00:00:36,020 --> 00:00:36,979
+and I'll send you the link directly.

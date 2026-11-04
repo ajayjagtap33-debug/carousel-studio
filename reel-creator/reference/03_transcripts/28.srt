@@ -1,0 +1,39 @@
+1
+00:00:00,000 --> 00:00:04,219
+You don't need to pay for Vio or Cling to make AI videos anymore, just use this open-source
+
+2
+00:00:04,219 --> 00:00:07,080
+world model instead called LTX 2.5.
+
+3
+00:00:07,259 --> 00:00:10,140
+Their previous version pulled in over 18 million downloads.
+
+4
+00:00:10,419 --> 00:00:10,900
+How to do it?
+
+5
+00:00:11,000 --> 00:00:14,339
+Just download the weights, run it on whatever machine you've already got, even if you're
+
+6
+00:00:14,339 --> 00:00:16,839
+on a Mac, and it'll stay completely 100% free.
+
+7
+00:00:16,980 --> 00:00:21,140
+Plus it is native multi-shot gens now, so one generation can give you a ton of connected
+
+8
+00:00:21,140 --> 00:00:23,600
+shots that maintain the same character and lighting throughout.
+
+9
+00:00:23,820 --> 00:00:26,940
+So if you guys want to try this for yourselves, just comment LTX down below and I'll send
+
+10
+00:00:26,940 --> 00:00:27,559
+you the link directly.

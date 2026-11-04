@@ -1,0 +1,31 @@
+1
+00:00:00,000 --> 00:00:04,500
+Forget 11Labs. Instead, use this free and open source alternative that lets you clone your voice
+
+2
+00:00:04,500 --> 00:00:08,259
+with just three seconds of audio. The tool is called Voice Studio, and you just give it a few
+
+3
+00:00:08,259 --> 00:00:12,880
+seconds of your voice, and it'll copy it perfectly with the exact tone, rhythm, and natural emotions.
+
+4
+00:00:13,179 --> 00:00:17,539
+Then you can use it to generate speech, stories, even full audiobooks, and in that exact voice,
+
+5
+00:00:17,679 --> 00:00:22,579
+across over 600 languages. Plus, you also get controls to fine tune the gender, age, accent,
+
+6
+00:00:22,719 --> 00:00:26,920
+pitch, and even emotions. It also has a built-in MCP server, so your quad code can use it
+
+7
+00:00:26,920 --> 00:00:30,260
+directly. Want to try this for yourselves? Just comment Voice down below, and I'll send you the
+
+8
+00:00:30,260 --> 00:00:30,660
+link directly.

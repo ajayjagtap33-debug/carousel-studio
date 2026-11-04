@@ -1,0 +1,27 @@
+1
+00:00:00,000 --> 00:00:04,960
+GPT-6 Astra can now design full end-to-end 3D ad campaigns, and they're actually good.
+
+2
+00:00:05,099 --> 00:00:09,640
+How? You just feed in an input, a product image, a 2D sketch, a Zillow photo, whatever you want,
+
+3
+00:00:09,759 --> 00:00:14,179
+right into Astra, and ask it to reproduce it for you in Blender. Then, connect it to Higgsfield,
+
+4
+00:00:14,419 --> 00:00:18,960
+feed in a render, and give it access to Genjutsu. It'll generate thousands of different styles and
+
+5
+00:00:18,960 --> 00:00:22,699
+split tests to find the perfect creative for your campaign. Now, it'll design the shots,
+
+6
+00:00:22,839 --> 00:00:26,359
+and then generate them too. All you do is put one product photo in, and you'll get a whole
+
+7
+00:00:26,359 --> 00:00:30,519
+campaign out. Wanna try it for yourself? Just comment Astra down below, and I'll send you the link directly.

@@ -1,0 +1,7 @@
+DeepSeek just launched their own free version of Cloud Code, and it's already crossed 180,000 stars in GitHub in under a week.
+It's called DeepSeek Harness, and unlike Cloud Code, it's fully customizable.
+It's basically built in the idea that everything inside it is a plugin, including the model, the tools, the memory, and even the agent loop itself.
+So you just swap out whatever modular piece you want to build your own custom AI agent entirely from scratch.
+Which means you can run it with any AI model locally, and even call Cloud Code and codecs as sub-agents from inside of it.
+Plus, it comes with 53 tools right out of the box, and it's completely free, as mentioned, and open source.
+So if you want to try it for yourselves, just comment DeepSeek down below, and I'll send you guys the links directly.

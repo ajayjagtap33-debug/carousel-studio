@@ -1,0 +1,67 @@
+1
+00:00:00,000 --> 00:00:04,160
+If you're tired of your AI constantly producing the same generic AI slop as everybody else,
+
+2
+00:00:04,320 --> 00:00:06,459
+here are four free plugins that fix it.
+
+3
+00:00:06,540 --> 00:00:10,400
+First, use Impeccable for design, which gives Claude real design taste pulled from premium
+
+4
+00:00:10,400 --> 00:00:12,900
+references so your guys' UI stops looking vibe-coded.
+
+5
+00:00:13,060 --> 00:00:18,120
+Then combine it with 21stDevMCP to get access to over 10,000 professional UI components
+
+6
+00:00:18,120 --> 00:00:20,280
+and templates for apps and websites both.
+
+7
+00:00:20,460 --> 00:00:25,160
+After that, use Humanizer for writing, which removes all 33 telltale signs of AI writing
+
+8
+00:00:25,160 --> 00:00:25,940
+in your work.
+
+9
+00:00:26,039 --> 00:00:29,379
+And it also studies your own writing style, so everything that it outputs sounds just
+
+10
+00:00:29,379 --> 00:00:29,839
+like you.
+
+11
+00:00:30,039 --> 00:00:31,800
+And finally, Claude Code Setup for coding.
+
+12
+00:00:32,000 --> 00:00:35,340
+This is an official anthropic plugin that scans your entire codebase and sets up the
+
+13
+00:00:35,340 --> 00:00:38,780
+best hooks, skills, MCPs, and subagents that your project needs.
+
+14
+00:00:39,060 --> 00:00:42,179
+So you start with a perfect setup built for your project, instead of one with useless
+
+15
+00:00:42,179 --> 00:00:44,020
+skills and a bunch of MCPs that bloat you.
+
+16
+00:00:44,179 --> 00:00:45,240
+Wanna try them all for yourselves?
+
+17
+00:00:45,539 --> 00:00:48,079
+Just comment plugins down below and I'll send you guys the links directly.

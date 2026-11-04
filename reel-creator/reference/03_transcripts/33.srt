@@ -1,0 +1,67 @@
+1
+00:00:00,000 --> 00:00:02,740
+This free AI tool lets you scrape unlimited local leads
+
+2
+00:00:02,740 --> 00:00:04,099
+without having to pay for anything.
+
+3
+00:00:04,580 --> 00:00:06,059
+It's called Google Map Scraper Kit,
+
+4
+00:00:06,280 --> 00:00:07,879
+and it's a free and open source scraper
+
+5
+00:00:07,879 --> 00:00:09,119
+that just runs on your own computer,
+
+6
+00:00:09,419 --> 00:00:11,980
+with Claude automating the entire scraping process for you.
+
+7
+00:00:12,439 --> 00:00:13,980
+You just tell the city and the type of business
+
+8
+00:00:13,980 --> 00:00:14,560
+you want to target,
+
+9
+00:00:14,880 --> 00:00:17,100
+and it'll come back with a clean list of everyone,
+
+10
+00:00:17,320 --> 00:00:19,859
+including their name, phone number, email, website,
+
+11
+00:00:20,199 --> 00:00:20,859
+and even address.
+
+12
+00:00:21,539 --> 00:00:23,300
+Plus it even pulls their social media accounts
+
+13
+00:00:23,300 --> 00:00:24,320
+straight from their website,
+
+14
+00:00:24,460 --> 00:00:25,719
+so you guys can reach them there too.
+
+15
+00:00:26,260 --> 00:00:27,420
+If you want to try this for yourself,
+
+16
+00:00:27,600 --> 00:00:28,739
+just comment Google down below
+
+17
+00:00:28,739 --> 00:00:29,760
+and I'll send you guys the repo.

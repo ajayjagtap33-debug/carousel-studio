@@ -1,0 +1,18 @@
+This free AI tool lets you scrape anything off the internet
+without paying for anything.
+It's called Scrape Graph AI,
+and it's an open source Python library
+with over 30,000 stars on GitHub.
+You just give it a website link
+and describe what you want in plain English,
+and then a minute later, it'll come back with a clean list
+of everything that you asked for.
+So with this, you can find leads from LinkedIn,
+track your competitors or their ads,
+or do simple research.
+Plus it's free, open source,
+and works with Claude Code
+and all the other leading AI coding agents.
+So if you guys wanna try this for yourselves,
+just comment Claude down below
+and it'll DM you the link directly.

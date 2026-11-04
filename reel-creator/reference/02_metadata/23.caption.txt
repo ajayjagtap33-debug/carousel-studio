@@ -1,0 +1,37 @@
+Comment "VIDEO" to get this AI production studio.
+
+This free AI tool turns your Claude Code into a full production studio.
+
+And it's completely free.
+
+It's called Open Montage.
+
+It's a fully open source project with over 61k stars on GitHub.
+
+It basically works like a real production team.
+
+With a researcher, a scriptwriter, a voice artist, and an editor, all run by AI.
+
+You just give it a prompt.
+
+And a team of AI agents searches the web.
+
+It writes the script and generates the visuals.
+
+It pulls real B roll and adds music, voiceovers, and sound effects.
+
+Then it puts everything together into a finished video, all on its own.
+
+And it works for pretty much any format.
+
+From animated explainers and product ads to UGCs and even cinematic trailers.
+
+Think of it like hiring a whole video agency that lives inside your terminal.
+
+No hiring editors, no juggling five different tools, no waiting days for a first draft.
+
+One prompt kicks off the whole pipeline from research to final cut.
+
+You stay in the director's chair while the team handles everything else.
+
+#openmontage #githubrepo #claudecode #aivideos #opensourceai

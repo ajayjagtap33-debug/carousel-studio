@@ -1,0 +1,18 @@
+Someone just released a free, open-source version of Jev,
+and it's actually way faster and cheaper.
+It's called Leia, and it's a classifier model
+that you can run locally on your own computer.
+And it does the exact same job as Jev,
+but takes only around 30 milliseconds to answer,
+while Jev takes closer to 200.
+The only problem is that the base model
+isn't good at everything out of the box,
+so it needs to be fine-tuned and trained
+for your specific use case.
+And you can do that with the help of Claude Code
+really easily.
+Once you're done, it can even match Jev on accuracy,
+except do it in a tenth of the time.
+So if you want a guide to set it up yourselves,
+just comment Jev below,
+and I'll send you the link directly.

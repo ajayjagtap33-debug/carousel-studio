@@ -1,0 +1,12 @@
+Google just dropped over a hundred AI skills that make your cloud code an expert on Google's
+entire stack.
+It's called Google's Agent Skills, and it's a free open source library that's already
+crossed 18,000 stars on GitHub.
+So instead of guessing, your coding agent now follows Google's own official playbooks
+for handling Google Analytics, Google Gemini, Ads, Cloud, and even Firebase.
+And with it, you can build your own AI Google ecosystem inside your terminal, where one
+skill can pull your analytics data, the next one can find exactly what's underperforming,
+and maybe another can go and fix your ad campaigns based off its copy and creative
+suggestions.
+And this entire setup takes just one command to install.
+So if you want to try it for yourselves, just comment Google and I'll DM it to you directly.
