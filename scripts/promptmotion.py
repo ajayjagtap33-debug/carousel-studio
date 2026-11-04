@@ -9,6 +9,7 @@ Git-ignored (visuals/motion/local/): videos/, posters/, prompts.json, sheets/. T
 their creators (the site says so on every entry): they stay private reference on this machine, like
 videos/reference/*/frames. Borrow the pattern, never the piece. Fetching is sequential and throttled.
 """
+from __future__ import annotations
 import argparse, html, json, re, subprocess, sys, time, urllib.request
 from collections import Counter, defaultdict
 from pathlib import Path

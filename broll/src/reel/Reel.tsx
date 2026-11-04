@@ -12,6 +12,7 @@ import { SCENES, type SScene } from "../studio/scenes";
 import { REEL_SCENES } from "./scenes-reel";
 import { REEL_UI_SCENES } from "./scenes-reel-ui";
 import { REEL_3D_SCENES } from "./scenes-reel-3d";
+import { REEL_ANTHROPIC_SCENES } from "./scenes-reel-anthropic";
 import sauce from "../fonts/OpenSauceSans-Medium.ttf";
 
 export const W = 1080, H = 1920;
@@ -41,7 +42,7 @@ export type ReelFrame = {
   counter?: { value: number; label: string; at: number; dur?: number; x: number; y: number };
   callouts?: { text: string; at: number; label: [number, number]; target: [number, number] }[];
   ad?: { at: number };
-  cta?: { word: string; at: number };
+  cta?: { word: string; at: number; kicker?: string; quotes?: boolean };
   guides?: boolean;
 };
 export type ReelBookProps = { theme?: keyof typeof THEMES; frames: ReelFrame[] };
@@ -100,7 +101,7 @@ const HimFull: React.FC<{ h: Him; from: number }> = ({ h, from }) => {
 
 /** A studio scene, drawn in a 960×1080 box and scaled into the reel. */
 const Stage: React.FC<{ s: SScene; cy: number; scale: number }> = ({ s, cy, scale }) => {
-  const View = REEL_UI_SCENES[s.type] ?? REEL_3D_SCENES[s.type] ?? REEL_SCENES[s.type] ?? SCENES[s.type];
+  const View = REEL_UI_SCENES[s.type] ?? REEL_ANTHROPIC_SCENES[s.type] ?? REEL_3D_SCENES[s.type] ?? REEL_SCENES[s.type] ?? SCENES[s.type];
   return (
     <div style={{ position: "absolute", left: 60, width: 960, top: cy - 540, height: 1080, transform: `scale(${scale})` }}>
       {View ? <View s={s} box={{ x: 60, w: 960 }} face={{ x: 0.5, y: 0.35 }} /> : <div style={{ color: "red", fontSize: 40 }}>unknown scene: {s.type}</div>}
@@ -281,9 +282,9 @@ const Cta: React.FC<{ c: NonNullable<ReelFrame["cta"]> }> = ({ c }) => {
   return (
     <div style={{ position: "absolute", left: 0, right: 0, top: 1110, display: "flex", flexDirection: "column", alignItems: "center" }}>
       <Enter at={c.at}><div style={{ fontFamily: C.fonts.accent, fontStyle: "italic", fontSize: 92, color: "#FFF",
-        textShadow: "0 2px 18px rgba(0,0,0,0.45)", marginBottom: -24 }}>comment</div></Enter>
+        textShadow: "0 2px 18px rgba(0,0,0,0.45)", marginBottom: -24 }}>{c.kicker ?? "comment"}</div></Enter>
       <Enter at={c.at + 0.25} dy={30}><div style={{ fontFamily: SAUCE, fontWeight: 500, fontSize: 168, letterSpacing: "-0.04em", color: C.onDark,
-        textShadow: `0 0 24px ${C.onDark}, 0 0 70px ${C.onDark}88, 0 4px 30px rgba(0,0,0,0.5)` }}>“{c.word}”</div></Enter>
+        textShadow: `0 0 24px ${C.onDark}, 0 0 70px ${C.onDark}88, 0 4px 30px rgba(0,0,0,0.5)` }}>{c.quotes === false ? c.word : `“${c.word}”`}</div></Enter>
     </div>
   );
 };

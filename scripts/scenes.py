@@ -3,29 +3,36 @@
   python scripts/scenes.py ledger                 every plan's scenes -> visuals/ledger.md (+ catalog health)
   python scripts/scenes.py check <folder>         lint one plan: repeats, stock-card share, worn-out types
                                                   (a studio video folder or a reel folder; exit 1 on blocking issues)
+  python scripts/scenes.py previews [type ...]    render visuals/preview/<type>.png from visuals/samples.json
+  python scripts/scenes.py gallery                visuals/preview/README.md: every scene by meaning, with its preview
 
 Plans are read where they live: the newest videos/*/studio/studio*.json (horizontal, studio mode) and
-reel-creator/reels/*/reel.json, reels/*/reel.json (vertical). Scene names are checked against the renderer
+reel-creator/reels/*/reel.json, reels/*/reel.json, videos/*/reel/reel.json (vertical). Scene names are checked against the renderer
 (SCENES, IDEA_SCENES, REEL_SCENES) and against visuals/catalog.md, which maps each meaning to its scenes.
 """
-import argparse, json, re, sys
+from __future__ import annotations
+import argparse, json, re, subprocess, sys
 from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 CATALOG = ROOT / "visuals" / "catalog.md"
 LEDGER = ROOT / "visuals" / "ledger.md"
+PREVIEW = ROOT / "visuals" / "preview"
+SAMPLES = ROOT / "visuals" / "samples.json"
 REGISTRIES = [  # (file, exported Record) that make up the menu
     (ROOT / "broll/src/studio/scenes.tsx", "SCENES"),
     (ROOT / "broll/src/studio/scenes-idea.tsx", "IDEA_SCENES"),
     (ROOT / "broll/src/studio/scenes-explain.tsx", "EXPLAIN_SCENES"),
+    (ROOT / "broll/src/studio/scenes-swipe.tsx", "SWIPE_SCENES"),
+    (ROOT / "broll/src/studio/scenes-ui.tsx", "UI_SCENES"),
     (ROOT / "broll/src/reel/scenes-reel.tsx", "REEL_SCENES"),
     (ROOT / "broll/src/reel/scenes-reel-ui.tsx", "REEL_UI_SCENES"),
     (ROOT / "broll/src/reel/scenes-reel-3d.tsx", "REEL_3D_SCENES"),
 ]
 LEGACY = (ROOT / "reel-creator/engine/src/scenes.tsx", "SCENES")  # the archived reel engine: known, not on the menu
 STUDIO_GLOB = "videos/*/studio"
-REEL_GLOBS = ["reel-creator/reels/*/reel.json", "reels/*/reel.json"]
+REEL_GLOBS = ["reel-creator/reels/*/reel.json", "reels/*/reel.json", "videos/*/reel/reel.json"]
 
 STOCK = {"trio", "words", "type", "count", "list", "points"}  # cards that caption rather than draw
 STAPLES = {"words", "type", "shot", "gallery"}                 # the house layout: never "worn out"
@@ -77,13 +84,15 @@ def plan_in(folder: Path) -> tuple[str, Path] | None:
     studio = folder / "studio" if (folder / "studio").is_dir() else folder
     files = [f for f in studio.glob("studio*.json")]
     if files: return "video", max(files, key=lambda f: f.stat().st_mtime)
-    if (folder / "reel.json").exists(): return "reel", folder / "reel.json"
+    for f in (folder / "reel.json", folder / "reel" / "reel.json"):
+        if f.exists(): return "reel", f
     return None
 
 
 def plans() -> list[dict]:
     """Every plan on disk, oldest first (folders are date-prefixed)."""
-    folders = [d.parent for d in ROOT.glob(STUDIO_GLOB)] + [f.parent for g in REEL_GLOBS for f in ROOT.glob(g)]
+    folders = [d.parent for d in ROOT.glob(STUDIO_GLOB)]
+    folders += [f.parent.parent if f.parent.name == "reel" else f.parent for g in REEL_GLOBS for f in ROOT.glob(g)]
     out = []
     for folder in folders:
         hit = plan_in(folder)
@@ -212,14 +221,82 @@ def cmd_ledger() -> None:
     for x in problems: print("warn:", x)
 
 
+# ---------------------------------------------------------------------------------------------------------- previews
+def shift(v, dt: float):
+    """Move every time in a sample (`at`, `start`, `end`, `*At`, `ats`) by dt."""
+    if isinstance(v, dict):
+        return {k: (x + dt if isinstance(x, (int, float)) and (k in ("at", "start", "end") or k.endswith("At"))
+                    else [y + dt for y in x] if k == "ats" else shift(x, dt)) for k, x in v.items()}
+    if isinstance(v, list): return [shift(x, dt) for x in v]
+    return v
+
+
+def cmd_previews(types: list[str], base: Path | None) -> None:
+    """Render one still per scene from visuals/samples.json over a real cut, into visuals/preview/<type>.png."""
+    samples = {k: v for k, v in json.loads(SAMPLES.read_text(encoding="utf-8")).items() if not k.startswith("_")}
+    types = types or sorted(samples)
+    missing = [t for t in types if t not in samples]
+    if missing: sys.exit(f"no sample for {', '.join(missing)}: add one to {rel(SAMPLES)}")
+    studio = [p for p in plans() if p["kind"] == "video"]
+    if not studio: sys.exit("need a studio video on disk to draw the samples over")
+    src = next((p for p in studio if base and p["folder"] == base.resolve()), studio[-1])
+    props = json.loads(src["path"].read_text(encoding="utf-8"))
+    pub = src["path"].parent / "public" if (src["path"].parent / "public").is_dir() else src["folder"]
+    fps, scenes, layouts, stills = props["media"]["fps"], [], [{"start": 0, "mode": "full"}], []
+    for i, ty in enumerate(types):
+        t0 = 2 + i * 10
+        scenes.append({"type": ty, "slug": ty, "source": "sample", **shift(samples[ty], t0), "start": t0, "end": t0 + 8})
+        layouts.append({"start": t0 - 0.5, "mode": "tile-left" if i % 2 else "tile-right"})
+        stills.append({"frame": int((t0 + 6.5) * fps), "out": str(PREVIEW / f"{ty}.png"), "scale": 0.5})
+    props.update(scenes=scenes, layouts=layouts, media={**props["media"], "duration": max(props["media"]["duration"], 4 + len(types) * 10)})
+    job = PREVIEW / ".job.json"
+    job.write_text(json.dumps({"comp": "Studio", "props": props, "publicDir": str(pub), "stills": stills, "concurrency": 3}), encoding="utf-8")
+    print(f"rendering {len(types)} previews over {src['name']} (a few minutes)")
+    subprocess.run(["node", str(ROOT / "broll" / "shoot.mjs"), str(job)], cwd=ROOT / "broll", check=True)
+    job.unlink()
+    cmd_gallery()
+
+
+def cmd_gallery() -> None:
+    """visuals/preview/README.md: every scene on the menu, by meaning, with its preview."""
+    known, (built, _) = menu(), catalog()
+    have = {p.stem for p in PREVIEW.glob("*.png")}
+    placed, L = set(), ["# Scene gallery", "",
+                        "Every scene on the renderer's menu, grouped by what it means (`visuals/catalog.md`). Generated by",
+                        "`python scripts/scenes.py gallery`; a missing preview renders with `python scripts/scenes.py previews <type>`.",
+                        "Older scenes are stills from their first real use; newer ones from `visuals/samples.json` (test text).", ""]
+    def cell(n):
+        if not n: return " "
+        img = f"![{n}]({n}.png)" if n in have else "*(no preview yet)*"
+        tag = " · banned in his videos" if n in BANNED else ""
+        return f"**`{n}`**{tag}<br>{img}"
+    for meaning, names in built.items():
+        names = [n for n in names if n in known and n not in placed]
+        if not names: continue
+        placed.update(names)
+        L += [f"## {meaning}", ""]
+        rows = [names[i:i + 3] for i in range(0, len(names), 3)]
+        L += ["| | | |", "|---|---|---|"] + ["| " + " | ".join(cell(n) for n in r + [""] * (3 - len(r))) + " |" for r in rows] + [""]
+    rest = sorted(known - placed)
+    if rest:
+        L += ["## Not in a meaning", "", "| | | |", "|---|---|---|"]
+        L += ["| " + " | ".join(cell(n) for n in (rest[i:i + 3] + ["", ""])[:3]) + " |" for i in range(0, len(rest), 3)] + [""]
+    (PREVIEW / "README.md").write_text("\n".join(L), encoding="utf-8")
+    print(f"{rel(PREVIEW / 'README.md')}: {len(known)} scenes, {len(known & have)} with a preview")
+    for n in sorted(known - have): print("warn: no preview for", n)
+
+
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
-    sub.add_parser("ledger")
+    sub.add_parser("ledger"); sub.add_parser("gallery")
     c = sub.add_parser("check"); c.add_argument("folder", type=Path)
+    pv = sub.add_parser("previews"); pv.add_argument("types", nargs="*"); pv.add_argument("--base", type=Path)
     a = ap.parse_args()
     if a.cmd == "ledger": cmd_ledger()
+    elif a.cmd == "gallery": cmd_gallery()
+    elif a.cmd == "previews": cmd_previews(a.types, a.base)
     else: sys.exit(0 if cmd_check(a.folder) else 1)
 
 

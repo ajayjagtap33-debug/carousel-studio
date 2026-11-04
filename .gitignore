@@ -15,6 +15,9 @@ videos/reference/**
 !videos/reference/*/
 !videos/reference/*/teardown.md
 
+# Raw camera files (a single DJI clip is 1.6 GB) — local only
+raw/
+
 # Python
 __pycache__/
 *.py[cod]
@@ -26,6 +29,15 @@ desktop.ini
 
 # Local virtualenv
 .venv/
+
+# Local Node toolchain (~90 MB) — install Node yourself instead
+tools/node/
+tools/bin/
+# The old reel engine's Windows ffmpeg.exe (84 MB)
+reel-creator/tools/bin/
+
+# Old zip snapshots of the project
+*.zip
 
 # Remotion local cache
 .remotion/
@@ -43,3 +55,6 @@ visuals/references/local/
 
 # prompt-motion.com archive: creators' videos and prompts stay local; the index is tracked
 visuals/motion/local/
+
+# Helvetica Neue is licensed (TMV site web fonts): local renders only, never committed
+assets/fonts/HelveticaNeue*

@@ -1,5 +1,7 @@
 # Brief
 
+**Format (required):** carousel / video slides / stickers / talk canvas / b-roll video
+
 **Takeaway (required):** what should someone believe after the last slide?
 
 **Source material (required):** paste the script / notes / post draft, or name the file.
@@ -11,7 +13,8 @@
 
 **Audience:** (default: marketers who know SEO basics)
 
-**Slides:** (default: 8–10)
+**Slides:** (default: carousel 8–10; video slides: one per script section; stickers: one per line that
+needs a picture; talk canvas: one station per beat; b-roll video: one scene per 1–3s of talking)
 
 **Structure:** (optional) listicle / levels / types / before-after / framework / story / myth vs fact
 

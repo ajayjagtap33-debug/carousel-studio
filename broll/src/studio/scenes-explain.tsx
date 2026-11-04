@@ -14,7 +14,7 @@ const ease = Easing.inOut(Easing.cubic);
 
 /** A fixed `w`×`h` design canvas, scaled down to the box and centred: HTML and SVG share one coordinate space. */
 const Fit: React.FC<{ box: Box; w: number; h: number; children: React.ReactNode }> = ({ box, w, h, children }) => {
-  const k = Math.min(1, (box.w - 80) / w, 1000 / h);
+  const k = Math.min(box.h ? 1.3 : 1, (box.w - 80) / w, ((box.h ?? 1080) - 80) / h);
   return (
     <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
       <div style={{ width: w * k, height: h * k, position: "relative" }}>
@@ -45,7 +45,7 @@ const Article: View = ({ s, box }) => {
   const t = useNow();
   const enter = ramp(t, s.start, 0.45), hl = ramp(t, s.at, 0.5);
   const pull = s.pullAt != null ? ease(clamp01((t - s.pullAt) / 0.6)) : 0;
-  const W = 1500, H = 900, pw = 700;
+  const W = s.pullAt != null ? 1500 : 800, H = 900, pw = 700; // no pull-out: just the page, so it fills its box
   const pageX = (W - pw) / 2 - (s.pullAt != null ? 330 * pull : 0);
   const hlBox = s.hl as { x: number; y: number; w: number; h: number } | undefined;
   return (
@@ -305,6 +305,160 @@ const Recency: View = ({ s, box }) => {
   );
 };
 
+/** Tone → dot colour (data colours: red = the bad side, accent = ours, muted = the rest). */
+const toneCol = (C: ReturnType<typeof useC>, tone?: string) => (tone === "red" ? "#C0392B" : tone === "muted" ? "#CFCDC6" : C.accent);
+
+/* ------------------------------------------------------------------ *
+ * waffle: a count as dots. One grid (`cols`, `groups`) or several     *
+ * side by side (`grids [{title?, cols, groups, at?}]`). A group is    *
+ * `{n, tone: accent|red|muted, hollow?, label, at}`; its dots fill    *
+ * row by row from `at` over `fill` s, and its label joins the legend. *
+ * A group with n = 0 is legend only (the zero is the point).          *
+ * ------------------------------------------------------------------ */
+const Waffle: View = ({ s, box }) => {
+  const C = useC();
+  const t = useNow();
+  type G = { n: number; tone?: string; hollow?: boolean; label?: string; at?: number };
+  const grids = (s.grids ?? [{ cols: s.cols, groups: s.groups, at: s.at }]) as { title?: string; cols: number; groups: G[]; at?: number }[];
+  const multi = grids.length > 1;
+  const d = s.dot ?? (multi ? 30 : 40), gap = s.gap ?? (multi ? 10 : 14), step = d + gap, fill = s.fill ?? 0.9;
+  const sizes = grids.map((g) => { const total = g.groups.reduce((a, x) => a + x.n, 0); return { w: g.cols * step, rows: Math.ceil(total / g.cols) }; });
+  const legW = (gi: number) => Math.max(sizes[gi].w, multi ? 0 : 760);
+  const legendH = Math.max(...grids.map((g, gi) => g.groups.filter((x) => x.label).reduce((a, x) => a + 20 + 48 * Math.ceil((x.label!.length * 21) / (legW(gi) - 50)), 0)));
+  const titleH = grids.some((g) => g.title) ? 90 : 0;
+  const W = grids.reduce((a, _, gi) => a + legW(gi), 0) + (grids.length - 1) * 110 + 60;
+  const H = titleH + Math.max(...sizes.map((z) => z.rows)) * step + 40 + legendH;
+  let x0 = 30;
+  return (
+    <Fit box={box} w={Math.max(W, 900)} h={H}>
+      {grids.map((g, gi) => {
+        const left = x0 + (Math.max(W, 900) - W) / 2 + (legW(gi) - sizes[gi].w) / 2; x0 += legW(gi) + 110;
+        let k = 0;
+        const dots: React.ReactNode[] = [];
+        g.groups.forEach((grp, j) => {
+          const at = grp.at ?? g.at ?? s.start + 0.3 + j * 0.6;
+          for (let i = 0; i < grp.n; i++, k++) {
+            const p = ramp(t, at + (i / Math.max(1, grp.n)) * fill, 0.2);
+            const col = toneCol(C, grp.tone);
+            dots.push(<div key={`${j}-${i}`} style={{ position: "absolute", left: (k % g.cols) * step, top: Math.floor(k / g.cols) * step, width: d, height: d, borderRadius: d,
+              boxSizing: "border-box", background: grp.hollow ? "transparent" : col, border: grp.hollow ? `3px solid ${col}` : undefined,
+              opacity: p, transform: `scale(${0.4 + 0.6 * p})` }} />);
+          }
+        });
+        return (
+          <div key={gi} style={{ position: "absolute", left: left - (legW(gi) - sizes[gi].w) / 2, top: 0, width: legW(gi), display: "flex", flexDirection: "column", alignItems: "center" }}>
+            {g.title && <div style={{ height: titleH, alignSelf: "flex-start", fontFamily: C.fonts.display, fontSize: 60, color: C.ink, ...inStyle(ramp(t, (g.at ?? s.start) - 0.1, 0.35)) }}>{g.title}</div>}
+            <div style={{ position: "relative", width: sizes[gi].w, height: sizes[gi].rows * step }}>{dots}</div>
+            <div style={{ marginTop: 34, width: legW(gi) }}>
+              {g.groups.filter((x) => x.label).map((grp, j) => (
+                <div key={j} style={{ display: "flex", alignItems: "flex-start", gap: 18, minHeight: 48, marginBottom: 20, ...inStyle(ramp(t, (grp.at ?? g.at ?? s.start + 0.3 + j * 0.6) + fill * 0.6, 0.35)) }}>
+                  <div style={{ width: 30, height: 30, borderRadius: 30, flex: "none", marginTop: 8, boxSizing: "border-box", background: grp.hollow ? "transparent" : toneCol(C, grp.tone),
+                    border: grp.hollow ? `3px solid ${toneCol(C, grp.tone)}` : undefined }} />
+                  <div style={{ fontFamily: C.fonts.plain, fontWeight: 500, fontSize: 38, color: C.ink, lineHeight: 1.1 }}>{grp.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </Fit>
+  );
+};
+
+/** "26.4%" → 26.4 counting up, keeping the decimals and whatever wraps the number. */
+const countUp = (v: string, p: number) => {
+  const m = v.match(/^(\D*)([\d,]*\.?\d+)(.*)$/);
+  if (!m) return v;
+  const num = parseFloat(m[2].replace(/,/g, "")), dec = (m[2].split(".")[1] ?? "").length;
+  const cur = (num * p).toFixed(dec);
+  return m[1] + (m[2].includes(",") ? Number(cur).toLocaleString("en-US", { minimumFractionDigits: dec }) : cur) + m[3];
+};
+
+/* ------------------------------------------------------------------ *
+ * scores: 2–4 tiles, each a value counting up on its word and a line  *
+ * under it. `tiles [{value, label, at, title?, tone?}]`; tone accent  *
+ * = the one that matters, filled. `mock: "page"` tops each tile with  *
+ * a little browser page named by its `title`.                         *
+ * ------------------------------------------------------------------ */
+const Scores: View = ({ s, box }) => {
+  const C = useC();
+  const t = useNow();
+  const tiles = s.tiles as { value: string; label?: string; at: number; title?: string; tone?: "accent" | "muted" }[];
+  const n = tiles.length, tw = 400, gapX = 50, W = n * tw + (n - 1) * gapX + 80, page = s.mock === "page", H = page ? 720 : 520;
+  return (
+    <Fit box={box} w={W} h={H}>
+      <div style={{ position: "absolute", inset: 0, display: "flex", justifyContent: "center", alignItems: "flex-start", gap: gapX, paddingTop: 20 }}>
+        {tiles.map((tl, i) => {
+          const p = ramp(t, tl.at, 0.4), acc = tl.tone === "accent";
+          const num = ease(clamp01((t - tl.at - 0.1) / 0.9));
+          return (
+            <div key={i} style={{ width: tw, display: "flex", flexDirection: "column", alignItems: "center", ...inStyle(p, 24) }}>
+              {page && (
+                <div style={{ width: tw, height: 210, borderRadius: 16, background: C.card, border: `${acc ? 3 : 1}px solid ${acc ? C.accent : C.line}`, boxShadow: SHADOW, overflow: "hidden", marginBottom: 26 }}>
+                  <div style={{ height: 44, background: "#F1F0EC", display: "flex", alignItems: "center", gap: 8, padding: "0 16px", borderBottom: `1px solid ${C.line}` }}>
+                    {[0, 1, 2].map((k) => <div key={k} style={{ width: 11, height: 11, borderRadius: 6, background: "#D6D4CE" }} />)}
+                  </div>
+                  <div style={{ padding: "18px 24px" }}>
+                    {tl.title && <div style={{ fontFamily: C.fonts.plain, fontWeight: 500, fontSize: 34, color: C.ink }}>{tl.title}</div>}
+                    <div style={{ height: 34, borderRadius: 8, background: acc ? C.accentTint : "#E6E4DE", marginTop: 14 }} />
+                    <Bars widths={[300, 240]} h={10} gap={12} />
+                  </div>
+                </div>
+              )}
+              <div style={{ width: tw, borderRadius: 26, padding: "30px 26px 34px", boxSizing: "border-box", textAlign: "center",
+                background: acc ? C.accent : C.card, border: acc ? "none" : `1px solid ${C.line}`, boxShadow: SHADOW }}>
+                <div style={{ fontFamily: C.fonts.display, fontSize: 130, lineHeight: 1, color: acc ? "#FFFFFF" : C.muted }}>{countUp(tl.value, num)}</div>
+                {tl.label && <div style={{ marginTop: 16, fontFamily: C.fonts.plain, fontWeight: 500, fontSize: 36, lineHeight: 1.2, color: acc ? "rgba(255,255,255,0.92)" : C.body }}>{tl.label}</div>}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </Fit>
+  );
+};
+
+/* ------------------------------------------------------------------ *
+ * link: what a tracker sees. A URL bar types `url` from `at`; then    *
+ * each of `params [{k, mark: ✓|✗|?, note, at}]` branches off it as a  *
+ * chip (green / struck red / amber) with its note.                   *
+ * ------------------------------------------------------------------ */
+const Link: View = ({ s, box }) => {
+  const C = useC();
+  const t = useNow();
+  const params = s.params as { k: string; mark: string; note: string; at: number }[];
+  const url = s.url as string, typed = url.slice(0, Math.round(url.length * clamp01((t - s.at) / (s.typeDur ?? 0.9))));
+  const W = 1000, rowH = 130, H = 140 + params.length * rowH + 20;
+  const look = (m: string) => (m === "✓" ? { bg: C.accentSoft, bd: C.accent, fg: C.accent } : m === "✗" ? { bg: "#F7DEDA", bd: "#C0392B", fg: "#C0392B" } : { bg: "#F8E9C8", bd: "#C98A12", fg: "#A06A00" });
+  return (
+    <Fit box={box} w={W} h={H}>
+      <div style={{ position: "absolute", left: 0, right: 0, top: 0, height: 96, borderRadius: 48, background: C.card, border: `2px solid ${C.line}`, boxShadow: SHADOW,
+        display: "flex", alignItems: "center", gap: 18, padding: "0 34px", ...inStyle(ramp(t, s.start, 0.35)) }}>
+        <Icon name="lock" size={36} color={C.muted} />
+        <div style={{ fontFamily: C.fonts.mono, fontSize: 40, color: C.ink }}>{typed}<span style={{ opacity: Math.floor(t * 2) % 2 ? 1 : 0, color: C.accent }}>|</span></div>
+      </div>
+      <svg width={W} height={H} style={{ position: "absolute", inset: 0, overflow: "visible" }}>
+        {params.map((pr, i) => {
+          const y = 140 + i * rowH + 48;
+          return <Draw key={i} d={`M 60 100 L 60 ${y} L 100 ${y}`} at={pr.at - 0.25} dur={0.3} color={C.muted} width={3} len={600} />;
+        })}
+      </svg>
+      {params.map((pr, i) => {
+        const y = 140 + i * rowH, lk = look(pr.mark), p = ramp(t, pr.at, 0.35);
+        return (
+          <div key={i} style={{ position: "absolute", left: 110, top: y, height: 96, display: "flex", alignItems: "center", gap: 26, ...inStyle(p, 16) }}>
+            <div style={{ minWidth: 270, height: 80, borderRadius: 18, background: lk.bg, border: `2px solid ${lk.bd}`, display: "flex", alignItems: "center", padding: "0 24px",
+              boxSizing: "border-box", fontFamily: C.fonts.mono, fontSize: 36, color: C.ink, textDecoration: pr.mark === "✗" ? "line-through" : undefined }}>{pr.k}</div>
+            <div style={{ fontFamily: C.fonts.display, fontSize: 70, color: lk.fg, width: 50, textAlign: "center" }}>{pr.mark}</div>
+            <div style={{ fontFamily: C.fonts.plain, fontWeight: 500, fontSize: 36, lineHeight: 1.15, color: C.body, maxWidth: 480 }}>{pr.note}</div>
+          </div>
+        );
+      })}
+    </Fit>
+  );
+};
+
 export const EXPLAIN_SCENES: Record<string, View> = {
   article: Article, sources: Sources, pipeline: Pipeline, acronym: Acronym, recency: Recency,
+  waffle: Waffle, scores: Scores, link: Link,
 };

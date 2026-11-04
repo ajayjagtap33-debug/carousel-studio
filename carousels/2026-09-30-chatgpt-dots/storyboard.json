@@ -1,0 +1,636 @@
+{
+  "format": "carousel",
+  "title": "ChatGPT dots: 8 jobs to hand off",
+  "hook": "A",
+  "slides": [
+    {
+      "role": "hook",
+      "headline": [
+        {
+          "t": "8 jobs",
+          "size": 120
+        },
+        {
+          "t": "I'd hand to",
+          "size": 76
+        },
+        {
+          "t": "dots",
+          "c": "accent",
+          "size": 170
+        }
+      ],
+      "qualifier": "(ChatGPT's new always-on agents)",
+      "visual": {
+        "type": "scene",
+        "h": 480,
+        "items": [
+          {
+            "id": "img.openai-dots/group",
+            "x": 0.03,
+            "y": 0.25,
+            "size": 270
+          },
+          {
+            "id": "sparkles",
+            "x": 0.0,
+            "y": 0.0,
+            "size": 90
+          },
+          {
+            "id": "sparkles",
+            "x": 0.9,
+            "y": 0.05,
+            "size": 70
+          }
+        ]
+      },
+      "source": "notes (hook) · number from Ajay · 'dots' styled like OpenAI's keynote wordmark · qualifier added · mascots: OpenAI (supplied by Ajay)"
+    },
+    {
+      "role": "concept",
+      "headline": [
+        "ChatGPT waits for you.",
+        {
+          "t": "Your dot keeps working when you're gone.",
+          "c": "accent"
+        }
+      ],
+      "visual": {
+        "type": "scene",
+        "h": 560,
+        "items": [
+          {
+            "id": "person.coffee",
+            "x": 0.02,
+            "y": 0.22,
+            "size": 360
+          },
+          {
+            "id": "clock",
+            "x": 0.39,
+            "y": 0.3,
+            "size": 130
+          },
+          {
+            "id": "img.openai-dots/blue-laptop",
+            "x": 0.6,
+            "y": 0.34,
+            "size": 280
+          }
+        ],
+        "labels": [
+          {
+            "t": "you: offline",
+            "x": 0.22,
+            "y": 0.1,
+            "chip": true,
+            "c": "grey"
+          },
+          {
+            "t": "your dot: still working",
+            "x": 0.78,
+            "y": 0.1,
+            "chip": true,
+            "c": "accent"
+          }
+        ]
+      },
+      "source": "notes (core concept; 'your dot' = OpenAI's wording) · chips added",
+      "headlineSize": 72
+    },
+    {
+      "role": "value",
+      "number": 1,
+      "headline": "Watch a price for you",
+      "body": "It keeps checking, and only pings you when the iPhone drops below ₹60,000.",
+      "visual": {
+        "type": "scene",
+        "h": 560,
+        "items": [
+          {
+            "id": "img.openai-dots/frog-search",
+            "x": 0.0,
+            "y": 0.42,
+            "size": 200
+          },
+          {
+            "id": "tag",
+            "x": 0.29,
+            "y": 0.2,
+            "size": 380
+          },
+          {
+            "id": "bell",
+            "x": 0.76,
+            "y": 0.02,
+            "size": 170
+          },
+          {
+            "id": "person.coffee",
+            "x": 0.72,
+            "y": 0.4,
+            "size": 300,
+            "flip": true
+          }
+        ],
+        "labels": [
+          {
+            "t": "₹60,000",
+            "x": 0.54,
+            "y": 0.53,
+            "size": 40,
+            "c": "accent"
+          },
+          {
+            "t": "ping!",
+            "x": 0.68,
+            "y": 0.06,
+            "c": "orange"
+          }
+        ],
+        "arrows": [
+          {
+            "from": [
+              0.66,
+              0.3
+            ],
+            "to": [
+              0.76,
+              0.16
+            ],
+            "dashed": true
+          }
+        ]
+      },
+      "source": "notes #7"
+    },
+    {
+      "role": "value",
+      "number": 2,
+      "headline": "Turn your inbox into a to-do list",
+      "body": "A fresh list every evening.",
+      "visual": {
+        "type": "fan",
+        "from": {
+          "logo": "gmail"
+        },
+        "items": [
+          {
+            "t": "Replies I owe",
+            "c": "green"
+          },
+          {
+            "t": "Deadlines in threads",
+            "c": "orange"
+          },
+          {
+            "t": "Newsletters: skipped",
+            "c": "red"
+          }
+        ]
+      },
+      "source": "notes #5 + #8"
+    },
+    {
+      "role": "value",
+      "number": 3,
+      "headline": "Brief you before every meeting",
+      "body": "Built from your calendar, emails and docs.",
+      "visual": {
+        "type": "scene",
+        "h": 560,
+        "items": [
+          {
+            "logo": "google-calendar",
+            "x": 0.02,
+            "y": 0.1,
+            "size": 150
+          },
+          {
+            "logo": "gmail",
+            "x": 0.02,
+            "y": 0.5,
+            "size": 150
+          },
+          {
+            "id": "notebook",
+            "x": 0.33,
+            "y": 0.18,
+            "size": 260
+          },
+          {
+            "id": "person.read",
+            "x": 0.64,
+            "y": 0.1,
+            "size": 360
+          }
+        ],
+        "labels": [
+          {
+            "t": "5-min brief",
+            "x": 0.47,
+            "y": 0.1,
+            "chip": true,
+            "c": "accent"
+          }
+        ],
+        "arrows": [
+          {
+            "from": [
+              0.2,
+              0.25
+            ],
+            "to": [
+              0.33,
+              0.4
+            ]
+          },
+          {
+            "from": [
+              0.2,
+              0.65
+            ],
+            "to": [
+              0.33,
+              0.5
+            ]
+          }
+        ]
+      },
+      "source": "notes #6"
+    },
+    {
+      "role": "value",
+      "number": 4,
+      "headline": "Hunt jobs and vet the companies",
+      "body": "Only the ones worth applying to reach you.",
+      "visual": {
+        "type": "scene",
+        "h": 560,
+        "items": [
+          {
+            "id": "img.openai-dots/blue-laptop",
+            "x": 0.0,
+            "y": 0.22,
+            "size": 260
+          },
+          {
+            "id": "briefcase",
+            "x": 0.38,
+            "y": 0.2,
+            "size": 160
+          },
+          {
+            "id": "briefcase",
+            "x": 0.58,
+            "y": 0.2,
+            "size": 160
+          },
+          {
+            "id": "briefcase",
+            "x": 0.78,
+            "y": 0.2,
+            "size": 160
+          },
+          {
+            "id": "cross",
+            "x": 0.43,
+            "y": 0.5,
+            "size": 80
+          },
+          {
+            "id": "cross",
+            "x": 0.63,
+            "y": 0.5,
+            "size": 80
+          },
+          {
+            "id": "check",
+            "x": 0.83,
+            "y": 0.5,
+            "size": 90
+          }
+        ],
+        "labels": [
+          {
+            "t": "worth it",
+            "x": 0.84,
+            "y": 0.82,
+            "chip": true,
+            "c": "accent"
+          }
+        ]
+      },
+      "source": "notes #3"
+    },
+    {
+      "role": "value",
+      "number": 5,
+      "headline": "Research a big question",
+      "body": "It keeps digging and comes back with evidence.",
+      "visual": {
+        "type": "scene",
+        "h": 560,
+        "items": [
+          {
+            "id": "person.think",
+            "x": 0.02,
+            "y": 0.3,
+            "size": 330
+          },
+          {
+            "id": "img.openai-dots/yellow-read",
+            "x": 0.66,
+            "y": 0.38,
+            "size": 210
+          },
+          {
+            "id": "book",
+            "x": 0.4,
+            "y": 0.55,
+            "size": 160
+          }
+        ],
+        "labels": [
+          {
+            "t": "\"Is AI search cutting website traffic?\"",
+            "x": 0.5,
+            "y": 0.1,
+            "size": 38,
+            "chip": true
+          },
+          {
+            "t": "evidence",
+            "x": 0.5,
+            "y": 0.5,
+            "c": "accent"
+          }
+        ],
+        "arrows": [
+          {
+            "from": [
+              0.7,
+              0.5
+            ],
+            "to": [
+              0.57,
+              0.65
+            ],
+            "dashed": true
+          }
+        ]
+      },
+      "source": "notes #4 (question paraphrased)"
+    },
+    {
+      "role": "value",
+      "number": 6,
+      "headline": "Coach you, one lesson a day",
+      "body": "It picks what's next and remembers what you've done.",
+      "visual": {
+        "type": "scene",
+        "h": 560,
+        "items": [
+          {
+            "id": "cap",
+            "x": 0.0,
+            "y": 0.0,
+            "size": 150
+          },
+          {
+            "id": "check",
+            "x": 0.26,
+            "y": 0.2,
+            "size": 60
+          },
+          {
+            "id": "check",
+            "x": 0.43,
+            "y": 0.2,
+            "size": 60
+          },
+          {
+            "id": "check",
+            "x": 0.6,
+            "y": 0.2,
+            "size": 60
+          },
+          {
+            "id": "person.write",
+            "x": 0.12,
+            "y": 0.36,
+            "size": 330
+          },
+          {
+            "id": "img.openai-dots/yellow-idea",
+            "x": 0.58,
+            "y": 0.38,
+            "size": 260
+          }
+        ],
+        "labels": [
+          {
+            "t": "Mon",
+            "x": 0.3,
+            "y": 0.1,
+            "chip": true
+          },
+          {
+            "t": "Tue",
+            "x": 0.47,
+            "y": 0.1,
+            "chip": true
+          },
+          {
+            "t": "Wed",
+            "x": 0.64,
+            "y": 0.1,
+            "chip": true
+          },
+          {
+            "t": "Thu",
+            "x": 0.81,
+            "y": 0.1,
+            "chip": true,
+            "c": "accent"
+          },
+          {
+            "t": "Python",
+            "x": 0.08,
+            "y": 0.34,
+            "size": 32,
+            "c": "grey"
+          }
+        ]
+      },
+      "source": "notes #9"
+    },
+    {
+      "role": "value",
+      "number": 7,
+      "headline": "Catch repeat customer requests",
+      "body": "It watches reviews, tickets and Slack.",
+      "visual": {
+        "type": "scene",
+        "h": 560,
+        "items": [
+          {
+            "id": "bubble",
+            "x": 0.0,
+            "y": 0.02,
+            "size": 150
+          },
+          {
+            "id": "bubble",
+            "x": 0.14,
+            "y": 0.34,
+            "size": 150
+          },
+          {
+            "id": "bubble",
+            "x": 0.0,
+            "y": 0.66,
+            "size": 150
+          },
+          {
+            "logo": "slack",
+            "x": 0.28,
+            "y": 0.06,
+            "size": 80
+          },
+          {
+            "id": "radar",
+            "x": 0.38,
+            "y": 0.2,
+            "size": 230
+          },
+          {
+            "id": "img.openai-dots/pink-music",
+            "x": 0.64,
+            "y": 0.3,
+            "size": 230
+          }
+        ],
+        "labels": [
+          {
+            "t": "+1",
+            "x": 0.2,
+            "y": 0.05,
+            "c": "accent",
+            "chip": true
+          },
+          {
+            "t": "+1",
+            "x": 0.34,
+            "y": 0.37,
+            "c": "accent",
+            "chip": true
+          },
+          {
+            "t": "+1",
+            "x": 0.2,
+            "y": 0.69,
+            "c": "accent",
+            "chip": true
+          },
+          {
+            "t": "flagged!",
+            "x": 0.84,
+            "y": 0.12,
+            "chip": true,
+            "c": "accent"
+          }
+        ]
+      },
+      "source": "added (OpenAI launch example: customer feedback)"
+    },
+    {
+      "role": "value",
+      "number": 8,
+      "headline": "Find opportunities you'd miss",
+      "body": "Gigs, talks, grants: pick the area.",
+      "visual": {
+        "type": "scene",
+        "h": 560,
+        "items": [
+          {
+            "id": "img.openai-dots/frog-excited",
+            "x": 0.28,
+            "y": 0.45,
+            "size": 220
+          },
+          {
+            "id": "net",
+            "x": 0.5,
+            "y": 0.1,
+            "size": 280
+          },
+          {
+            "id": "person.cheer",
+            "x": 0.74,
+            "y": 0.4,
+            "size": 290
+          }
+        ],
+        "labels": [
+          {
+            "t": "grant",
+            "x": 0.12,
+            "y": 0.2,
+            "chip": true,
+            "c": "violet"
+          },
+          {
+            "t": "speaking slot",
+            "x": 0.83,
+            "y": 0.02,
+            "chip": true,
+            "c": "blue"
+          },
+          {
+            "t": "freelance gig",
+            "x": 0.13,
+            "y": 0.37,
+            "chip": true,
+            "c": "orange"
+          },
+          {
+            "t": "call for contributors",
+            "x": 0.3,
+            "y": 0.02,
+            "chip": true,
+            "c": "accent"
+          }
+        ]
+      },
+      "source": "notes #10"
+    },
+    {
+      "role": "close",
+      "headline": [
+        "You don't have to know what to ask AI anymore.",
+        {
+          "t": "You can give it a responsibility.",
+          "c": "accent"
+        }
+      ],
+      "art": [
+        {
+          "id": "person.coffee",
+          "x": 120,
+          "y": 790,
+          "size": 330
+        },
+        {
+          "id": "img.openai-dots/group",
+          "x": 430,
+          "y": 900,
+          "size": 180
+        }
+      ],
+      "footer": "Which one would you hand off first?",
+      "source": "notes (closer) · footer added"
+    }
+  ]
+}

@@ -19,7 +19,7 @@ def use(g):
 
 class P:
     """Pen that maps 0..100 design units into the target box (optionally mirrored)."""
-    def __init__(s, x, y, size, flip=False, c="orange"):
+    def __init__(s, x, y, size, flip=False, c="green"):
         s.x, s.y, s.k, s.flip, s.c = x, y, size / 100, flip, c
         s.sw = max(2, round(1.1 * s.k))
 
@@ -97,14 +97,19 @@ POSES = {  # name: (left arm (elbow, hand), right arm (elbow, hand), default fac
     "shrug": (((28, 44), (22, 33)), ((72, 44), (78, 33)), "flat"),
     "coffee": (DOWN_L, ((76, 54), (70, 48)), "calm"),
     "listen": (((33, 52), (47, 56)), ((67, 52), (53, 56)), "smile"),
+    "carry": (((30, 48), (34, 56)), ((70, 48), (66, 56)), "smile"),     # a box held at the chest (video: ramp)
+    "run": (((30, 44), (22, 54)), ((70, 42), (80, 30)), "happy"),       # mid-stride, leaning in (video: path, trap)
 }
 
 
 def person(p, pose="stand", face=None):
     la, ra, f0 = POSES[pose]
-    walk = pose == "walk"
+    walk = pose in ("walk", "carry")
     # legs + feet
-    if walk:
+    if pose == "run":
+        p.line([(45, 67), (30, 86)]); p.line([(30, 86), (24, 84)])
+        p.line([(55, 67), (68, 80), (62, 94)]); p.line([(62, 94), (69, 95)])
+    elif walk:
         p.line([(45, 67), (37, 94)]); p.line([(55, 67), (64, 92)])
         p.line([(37, 94), (31, 94)]); p.line([(64, 92), (70, 93)])
     else:
@@ -125,6 +130,10 @@ def person(p, pose="stand", face=None):
         p.rect(66, 36, 16, 16, "ink", "paper")
         p.line([(70, 32), (72, 27), (70, 22)], "grey", curve=True); p.line([(77, 32), (79, 27), (77, 22)], "grey", curve=True)
     _arm(p, L_SH, *la); _arm(p, R_SH, *ra)
+    if pose == "carry":  # the box sits over the hands
+        p.rect(26, 46, 48, 26, "ink", "l_yellow")
+    if pose == "run":
+        p.line([(10, 40), (2, 40)]); p.line([(12, 50), (4, 50)])
     if pose == "wave":
         p.line([(87, 8), (92, 4)]); p.line([(88, 15), (94, 14)])
     if pose == "cheer":
@@ -294,6 +303,76 @@ def envelope(p):
     p.rect(8, 22, 84, 58, "ink", "paper"); p.line([(12, 26), (50, 56), (88, 26)])
 
 
+def scissors(p):
+    p.poly([(34, 58), (94, 22), (90, 34), (42, 66)], "ink", "l_grey")                      # blades
+    p.poly([(34, 70), (94, 52), (88, 62), (42, 64)], "ink", "l_grey")
+    p.ell(4, 44, 30, 24, p.c, "paper", sw=p.sw + 3); p.ell(8, 70, 30, 24, p.c, "paper", sw=p.sw + 3)  # handle rings
+    p.dot(40, 64, 3)
+    for a, b in (((72, 8), (76, 16)), ((86, 6), (84, 14)), ((98, 12), (92, 16))): p.line([a, b], "grey")  # snip
+
+
+def toolbox(p):
+    p.poly([(10, 50), (18, 20), (82, 20), (90, 50)], "ink", "l_grey")                  # open lid
+    p.line([(20, 24), (80, 24)], "ink")
+    p.line([(28, 50), (26, 30), (34, 28), (36, 50)], "ink")                            # screwdriver
+    p.rect(22, 22, 16, 9, "ink", "orange")
+    p.line([(56, 50), (58, 18)], "ink", sw=p.sw + 2); p.ell(52, 8, 13, 13, "ink", "paper")   # wrench
+    p.line([(70, 50), (76, 26)], "ink", sw=p.sw + 1); p.rect(70, 18, 14, 8, "ink", "red", angle=0.3)  # hammer
+    p.rect(8, 48, 84, 44, "ink", p.c, fill="hachure", sw=p.sw + 1)                     # box
+    p.rect(40, 62, 20, 10, "ink", "paper")                                             # latch
+
+
+def tag(p):
+    """Price tag."""
+    p.poly([(8, 50), (34, 18), (92, 18), (92, 82), (34, 82)], "ink", "l_yellow")
+    p.ell(24, 44, 12, 12, "ink", "paper")
+    p.line([(62, 72), (84, 72)], "grey")
+
+
+def bell(p):
+    """Alert bell with a ring."""
+    p.poly([(22, 72), (28, 34), (40, 18), (60, 18), (72, 34), (78, 72)], "ink", "l_yellow", curve=True)
+    p.rect(14, 70, 72, 10, "ink", "l_yellow"); p.ell(43, 80, 14, 12, "ink", "ink")
+    p.ell(45, 6, 10, 10, "ink", "paper")
+    for a, b in (((8, 30), (2, 22)), ((6, 46), (-2, 46)), ((92, 30), (98, 22)), ((94, 46), (102, 46))): p.line([a, b], "orange")
+
+
+def calendar(p):
+    p.rect(8, 16, 84, 76, "ink", "paper"); p.rect(8, 16, 84, 20, "ink", p.c)
+    p.line([(28, 8), (28, 24)], sw=p.sw + 2); p.line([(72, 8), (72, 24)], sw=p.sw + 2)
+    for r in range(3):
+        for c in range(4): p.rect(16 + c * 19, 44 + r * 15, 11, 9, "grey", "l_grey" if (r, c) != (1, 2) else "l_red", sw=1)
+
+
+def briefcase(p):
+    p.rect(36, 14, 28, 18, "ink", None, sw=p.sw + 1)
+    p.rect(6, 28, 88, 60, "ink", "l_orange"); p.line([(6, 52), (94, 52)])
+    p.rect(42, 46, 16, 12, "ink", "paper")
+
+
+def cap(p):
+    """Graduation cap: learning."""
+    p.poly([(50, 18), (96, 38), (50, 58), (4, 38)], "ink", "ink")
+    p.poly([(24, 48), (24, 72), (50, 84), (76, 72), (76, 48), (50, 58)], "ink", "l_grey")
+    p.line([(84, 42), (84, 74)], "orange", sw=p.sw + 1); p.ell(79, 72, 10, 12, "orange", "orange")
+
+
+def radar(p):
+    """Satellite dish listening for signals."""
+    p.poly([(10, 22), (16, 52), (38, 70), (66, 66), (10, 22)], "ink", "l_blue", curve=True)
+    p.line([(10, 22), (66, 66)])
+    p.line([(38, 44), (62, 26)]); p.dot(64, 24, 4)
+    p.line([(72, 18), (78, 24), (80, 32)], "orange", curve=True); p.line([(74, 6), (88, 14), (92, 30)], "orange", curve=True)
+    p.line([(40, 66), (40, 84)], sw=p.sw + 1); p.poly([(26, 84), (54, 84), (60, 94), (20, 94)], "ink", "l_grey")
+
+
+def net(p):
+    """Butterfly net: catching things you'd miss."""
+    p.poly([(52, 30), (58, 62), (72, 76), (86, 62), (90, 30)], "grey", "l_grey", curve=True, fill="hachure")
+    p.ell(48, 14, 46, 24, "ink", None, sw=p.sw + 1)
+    p.line([(10, 94), (50, 28)], "ink", sw=p.sw + 2)
+
+
 def people(p):
     """Two people talking: a quick conversation scene."""
     a = P(p.x - 12 * p.k, p.y + 8 * p.k, 70 * p.k, False, p.c); person(a, "talk")
@@ -303,18 +382,24 @@ def people(p):
 
 DOODLES = {f.__name__: f for f in (pencil, notebook, book, bulb, bubble, thought, laptop, phone,
                                   coffee, heart, star, sparkles, clock, check, cross, magnifier,
-                                  sun, plant, arrow, scribble, headphones, envelope, people)}
+                                  sun, plant, arrow, scribble, headphones, envelope, people,
+                                  scissors, toolbox, tag, bell, calendar, briefcase, cap, radar, net)}
 
 
 def ids():
     return ([f"person.{k}" for k in POSES] + [f"bot.{k}" for k in BOT_POSES] + list(DOODLES))
 
 
-def draw(spec, acc="orange"):
+def draw(spec, acc="green"):
     """spec = {"id", "x", "y", "size", "flip"?, "c"?, "face"?} in slide-local coords (caller adds frame offset)."""
     p = P(spec["x"], spec["y"], spec.get("size", 240), spec.get("flip", False), spec.get("c", acc))
     kind, _, pose = spec["id"].partition(".")
-    if kind == "person": person(p, pose or "stand", spec.get("face"))
+    if kind == "img":  # brand art supplied by Ajay (assets/brand/<pose>.png), size = height
+        path = G.ROOT / "assets" / "brand" / f"{pose}.png"
+        if not path.exists(): raise KeyError(f"missing brand art {path}")
+        iw, ih = G.img_size(path.read_bytes(), "image/png"); h = spec.get("size", 240)
+        G.image(path, spec["x"], spec["y"], h * iw / ih, h)
+    elif kind == "person": person(p, pose or "stand", spec.get("face"))
     elif kind == "bot": bot(p, pose or "stand")
     elif spec["id"] in DOODLES: DOODLES[spec["id"]](p)
     else: raise KeyError(f"unknown art id {spec['id']!r}; see scripts/library.py ids()")
@@ -347,7 +432,7 @@ if __name__ == "__main__":
     doc = {"type": "excalidraw", "version": 2, "source": "https://excalidraw.com", "elements": R.E,
            "appState": {"viewBackgroundColor": "#ffffff", "gridSize": None}, "files": {}}
     (out / "preview" / "carousel.excalidraw").write_text(json.dumps(doc), encoding="utf-8")
-    (out / "creative-studio.excalidrawlib").write_text(json.dumps(
-        {"type": "excalidrawlib", "version": 2, "source": "creative-studio", "libraryItems": lib_items}), encoding="utf-8")
+    (out / "carousel-studio.excalidrawlib").write_text(json.dumps(
+        {"type": "excalidrawlib", "version": 2, "source": "carousel-studio", "libraryItems": lib_items}), encoding="utf-8")
     print(f"{len(all_ids)} items on {len(pages)} sheets -> {out}")
     print("render PNGs: python scripts/build.py assets/library/preview --export")

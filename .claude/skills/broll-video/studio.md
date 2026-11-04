@@ -88,7 +88,7 @@ In rough order of preference:
 | `trio` | 2–4 cards side by side, **icon + one word each**, `tone` `accent` or `muted`. Takes `w` — without it a three-card row crowds the face tile |
 | `type` | full-screen type card, rules below |
 | `count` | one number counting up |
-| `words` | 2–3 words on the wall beside him, rules below |
+| `words` | 2–3 words on the wall beside him (`place: "wall"`), or the opening screen (`place: "open"`), rules below |
 | `spine` / `places` / `chat` | the outline card, place cards, a ChatGPT exchange |
 | `points` / `list` | **not for his videos** — see above |
 
@@ -143,6 +143,34 @@ wide (split, reel); `vertical` forces either way.
 | `acronym` | one card per letter, the initial big in the accent; each opens out to its word on cue | `words[{word, at}]` |
 | `recency` | dated page cards; bars grow over them, tallest for the freshest, which gets lit | `cards[{date, at, w?}]`, `barsAt`, `note{text, at}` |
 
+Swipe-folder metaphors (2026-10-31, `broll/src/studio/scenes-swipe.tsx`, `swipe/visual-metaphors.md` V1–V28 rebuilt in our
+look). The figure is always our cast: `<Cast id="person.run" …/>` from `cast.tsx`, exported from the carousel art
+library by `python scripts/cast_export.py` (re-run after changing `scripts/library.py`). Every scene's fields with a
+working example: `visuals/samples.json`; every preview: `visuals/preview/README.md`.
+
+| type | the picture | key fields |
+|---|---|---|
+| `swap` | the old way struck through in red → a big arrow → the new way, underlined; or competitor logos slashed | `old`, `strikeAt`, `new` · or `logos[{src, at}]` |
+| `equation` | tiles joined by operators; the term after `=` lit; `≠` in red | `terms[{text, sub?, art?, at}]`, `ops` |
+| `curve` | one drawn line + callouts: `hockey` / `bell` / `dip` / `mountain` / `spike` / `slope`; or a pair side by side | `mode`, `at`, `callouts[{text, u, at}]`, `xLabel`, `yLabel` · or `pair`, `labels`, `ats` |
+| `stack` | foundation blocks dropping in, widest at the bottom, the outcome arrow on top | `blocks[{text, at}]`, `top` |
+| `stopwatch` | the number inside a stopwatch whose ring sweeps, then branches | `value`, `unit`, `at`, `label`, `branches[{text, at, tone}]` |
+| `spotlight` | a dim crowd, a light on a few named people | `at`, `few[{text?, at}]`, `note` |
+| `keylock` | old key → new key → the lock | `old`, `new`, `lock` |
+| `path` | start → flag twice: blocked by doodles, then clear with our person running | `blocked`, `things` (library ids), `clear` |
+| `bucket` | a leaking bucket vs a pipe aiming it | `leak`, `pipe`, `note` |
+| `tree` | the same tree overgrown and pruned | `left`, `right` |
+| `sprout` | loud launch crossed out → working quietly → a sprout | `loud`, `quiet`, `grow` |
+| `table` | our person wobbling on a stool vs standing on a table, options fanning out | `weak`, `strong` |
+| `mirror` | our person at a mirror; the effort above, the reflection below | `top`, `bottom` |
+| `pick` | tinted boxes (or `art` people), one ticked, the answer named | `options[{text, at, art?}]`, `pick`, `pickAt`, `name`, `question` |
+| `trap` | our person running at a lure on a stick toward a hole | `lure`, `hole` |
+| `ramp` | a flat line turning up; our person carries a box up it, words trailing | `to`, `carry`, `left[{text, at}]` |
+| `bubbles` | two of our people: said, answered, and a thought bubble that disagrees | `say`, `reply`, `think` |
+| `event` | what happened \| a dashed line \| the reaction escalating; "you control this" under the gap | `event`, `eventLabel`, `reaction[{text, at}]`, `control` |
+| `steps` | a scribble of chaos, then the few steps as circles on an arrow | `chaos`, `steps[{text, at}]` |
+| `tightrope` | our person balancing between two cliffs, ✗ list and ✓ list | `from{text, at, items}`, `to{text, at, items}` |
+
 Callouts that point at him need his position **every ~0.2–0.4s** when he moves (read off gridded frames); 0.8s
 keyframes missed by a head-width on Nested Sequence 02. Reference job: `videos/2026-10-30-nested-sequence-02/studio/`
 (`build2.py` writes studio.json from phrases).
@@ -169,6 +197,25 @@ keyframes missed by a head-width on Nested Sequence 02. Reference job: `videos/2
 Reference: aayusucks, "Typography Without Bullsh*t" (`videos/reference/2026-10-29-aayusucks-typography/teardown.md`).
 Its face shots are almost all clean; the typography lives on cut-away type cards.
 
+- **The first screen of a horizontal video is `place: "open"`** (Ajay, 2026-11-01; look-tested on
+  `videos/2026-10-29-studio-edit/studio/first-screen-options/`). White **Open Sauce Sans Medium** at **120px**,
+  **+1px tracking** (tighter and the letters touch), line-height 1.12; the one accent word `*word*` in the theme's
+  **Instrument Serif italic at 1.25×, no background or pill**, in a colour of its own: `onDark`, which is **coral
+  `#F86659` on `tmv` and light olive `#A7BD82` on `ajay`**. Sits in the clear wall column (`wall` default
+  `{x: .0625, y: .2, w: .3}`), 2–3 words stacked, each blurring in on its word. White needs help on a bright wall,
+  so it gets a **soft left-to-right fade** (rgba(20,20,20) .7 → 0 over the left 41%; `scrim: false` drops it) and a
+  slight shadow. Fade only on white opens: dark-ink `wall` captions still get none. Still: no text over his face,
+  hands or body: if the lines reach his shoulder, shrink or move `wall`.
+- **Shadow rule: when the background blends with the text, add a slight shadow in a colour of the right tone.**
+  Light text gets a soft dark one (`0 2px 24px rgba(0,0,0,.35)`), dark text a soft light one. Slight means you can't
+  see it as a shadow, only that the letters hold their edge. Override per scene with `shadow`. If a shadow can't
+  fix it, change the colour or add the fade, don't enlarge the shadow.
+- **Overlays are the script's own things, never ours** (Ajay, 2026-11-01). A logo or UI element appears only when the
+  line names a real tool, product, app or site (Excalidraw, ChatGPT, a URL he reads out), and it is that thing's
+  real logo from `assets/logos/` (a missing one shows the flagged `?` chip) or a mock of its UI. **Never the `tmv.`
+  wordmark, never a pill or chip we invented.** It lands on the word that names it, leaves within ~3s, max one
+  or two at a time, sits in the clear wall or a corner, never over his face, hands or body. Style: white rounded
+  tile, logo + name in Open Sauce, soft shadow.
 - **Default is clean.** Most full-frame stretches get no text. Use `words` for the hook and the punchlines only.
 - **`place: "wall"` is the default** (2026-10-29): **dark ink on the clear wall beside him**, with a highlighter
   swipe (`accentTint`) drawn under the one accent word. **No wash, no panel, no drop shadow, and nothing over his
@@ -197,25 +244,6 @@ Use instead of putting a long line over his face; counts as a layout change for 
 - (Superseded 2026-10-29: the dark keyword wash. See "Full-frame text".)
 - Sound design: `sound.md` here (built; music is a synthesized placeholder until he picks a source).
 - Two versions every time: Track My Visibility (`tmv`) and Ajay (`ajay`, Nick's olive — see above).
-- **The first screen of a horizontal video is `place: "open"`** (Ajay, 2026-11-01; look-tested on
-  `videos/2026-10-29-studio-edit/studio/first-screen-options/`). White **Open Sauce Sans Medium** at **120px**,
-  **+1px tracking** (tighter and the letters touch), line-height 1.12; the one accent word `*word*` in the theme's
-  **Instrument Serif italic at 1.25×, no background or pill**, in a colour of its own: `onDark`, which is **coral
-  `#F86659` on `tmv` and light olive `#A7BD82` on `ajay`**. Sits in the clear wall column (`wall` default
-  `{x: .0625, y: .2, w: .3}`), 2–3 words stacked, each blurring in on its word. White needs help on a bright wall,
-  so it gets a **soft left-to-right fade** (rgba(20,20,20) .7 → 0 over the left 41%; `scrim: false` drops it) and a
-  slight shadow. Fade only on white opens: dark-ink `wall` captions still get none. Still: no text over his face,
-  hands or body: if the lines reach his shoulder, shrink or move `wall`.
-- **Shadow rule: when the background blends with the text, add a slight shadow in a colour of the right tone.**
-  Light text gets a soft dark one (`0 2px 24px rgba(0,0,0,.35)`), dark text a soft light one. Slight means you can't
-  see it as a shadow, only that the letters hold their edge. Override per scene with `shadow`. If a shadow can't
-  fix it, change the colour or add the fade, don't enlarge the shadow.
-- **Overlays are the script's own things, never ours** (Ajay, 2026-11-01). A logo or UI element appears only when the
-  line names a real tool, product, app or site (Excalidraw, ChatGPT, a URL he reads out), and it is that thing's
-  real logo from `assets/logos/` (a missing one shows the flagged `?` chip) or a mock of its UI. **Never the `tmv.`
-  wordmark, never a pill or chip we invented.** It lands on the word that names it, leaves within ~3s, max one
-  or two at a time, sits in the clear wall or a corner, never over his face, hands or body. Style: white rounded
-  tile, logo + name in Open Sauce, soft shadow.
 
 ## Render
 

@@ -1,16 +1,36 @@
-"""storyboard.json -> carousel.excalidraw (one 1080x1350 frame per slide).
+"""storyboard.json -> <format>.excalidraw (one frame per slide).
 
-Usage: python scripts/render.py carousels/<folder>
+storyboard.json "format" picks the output and the theme's format block:
+  carousel (default)  1080x1350 4:5 LinkedIn carousel       -> carousel.excalidraw
+  slides              1600x900 16:9 video slides (1920 out)  -> slides.excalidraw
+  broll               overlay stickers, each cropped to its own content (any shape),
+                      transparent PNGs to lay over any video -> broll.excalidraw
+  landscape           1920x1080 single image (carousel output)
+  square              1080x1080 social creative (carousel output)
+  portrait            the tmv theme's vertical 1080x1350 (carousel output)
+
+"theme" picks the look: default (hand-drawn, brand green), "tmv", "tmv-study" (band layout).
+
+Usage: python3 scripts/render.py <folder>
 """
 import base64, json, random, re, struct, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 
+# output formats: what gets written and how a slide is laid out.
+# Every other "format" value is a theme format block only and renders like a carousel.
+FORMATS = ("carousel", "slides", "broll")
+
+
+def out_format(fmt=None):
+    """The output format for a storyboard "format" value (theme-only formats render as carousels)."""
+    return fmt if fmt in FORMATS else "carousel"
+
 
 def load_theme(name=None, fmt=None):
     """theme.json, with theme/<name>.json merged over it (e.g. "tmv"), then that theme's
-    "formats"[fmt] block (e.g. "portrait") if the storyboard asks for one."""
+    "formats"[fmt] block (e.g. "slides", "portrait") if the storyboard asks for one."""
     t = json.loads((ROOT / "theme" / "theme.json").read_text(encoding="utf-8"))
     def merge(a, b):
         for k, v in b.items():
@@ -21,15 +41,16 @@ def load_theme(name=None, fmt=None):
         if th.get("extends"): layer(th["extends"])
         merge(t, th)
     if name and name != "default": layer(name)
-    if fmt:
+    if fmt and fmt != "carousel":  # carousel = the top-level values, no block of its own
         if fmt not in t.get("formats", {}): sys.exit(f"theme {name or 'default'} has no format {fmt!r}")
         merge(t, t["formats"][fmt])
     return t
 
 
 def set_theme(name=None, fmt=None):
-    global T, C, S, TY, F, SP, D, W, H, M, CW, BOTTOM
+    global T, C, S, TY, F, SP, D, W, H, M, CW, BOTTOM, FMT
     T = load_theme(name, fmt)
+    FMT = out_format(fmt)
     METRICS.clear()
     wf = T.get("webFont", {})
     for k, p in wf.get("metrics", {}).items():  # exact text widths from a font file
@@ -42,7 +63,8 @@ def set_theme(name=None, fmt=None):
     C = T["colors"]; S = T["size"]; TY = T["type"]; F = T["font"]; SP = T["spacing"]; D = T["density"]
     W, H, M = S["w"], S["h"], S["margin"]
     CW = W - 2 * M            # content width
-    BOTTOM = H - M - 60       # visuals must end above the chrome row
+    # carousel: visuals must end above the chrome row. slides/broll carry their own chrome.
+    BOTTOM = H - M - 60 if FMT == "carousel" else H - M
 
 
 def palette(bg):
@@ -55,6 +77,7 @@ def palette(bg):
 METRICS = {}
 set_theme()
 E, FILES, FLAGS = [], {}, []
+SB = {}                   # the storyboard being rendered (chrome switches read it)
 _n = 0
 cur_frame = None
 ART = False               # True while drawing library art (keeps its ink outlines)
@@ -232,17 +255,40 @@ def logo(name, x, y, size):
     return False
 
 
-def slot(x, y, w, h, spec, slide_dir):
-    """Screenshot / illustration slot: real file if present, else a labelled placeholder."""
+def slot(x, y, w, h, spec, slide_dir, acc="green"):
+    """Screenshot / illustration slot: real file if present, else a labelled placeholder.
+    `marks` are drawn on top either way, in 0..1 coords of the image box."""
     src = spec.get("src")
-    if src and image(slide_dir / src, x, y, w, h):
+    el = image(slide_dir / src, x, y, w, h) if src else None
+    if el:
+        x, y, w, h = el["x"], el["y"], el["width"], el["height"]
         rect(x - 8, y - 8, w + 16, h + 16, "ink", None, sw=3)  # hand-drawn frame
-        return
-    kind = spec.get("type", "image")
-    rect(x, y, w, h, "grey", "l_grey", style="dashed",
-         data={"flag": f"missing-{kind}", "src": src, "prompt": spec.get("prompt")})
-    ctext(x + w / 2, y + h / 2, f"[{kind.upper()} NEEDED]\n{src or ''}", 36, "grey")
-    FLAGS.append({"flag": f"missing-{kind}", "src": src})
+    else:
+        kind = spec.get("type", "image")
+        rect(x, y, w, h, "grey", "l_grey", style="dashed",
+             data={"flag": f"missing-{kind}", "src": src, "prompt": spec.get("prompt")})
+        ctext(x + w / 2, y + h / 2, f"[{kind.upper()} NEEDED]\n{src or ''}", 36, "grey")
+        FLAGS.append({"flag": f"missing-{kind}", "src": src})
+    for mk in spec.get("marks", []):
+        mark(mk, x, y, w, h, spec.get("markColor", acc))
+
+
+def mark(mk, x, y, w, h, c):
+    """Hand-drawn markup on a screenshot: circle | underline | arrow (+ label at its tail)."""
+    P = lambda px, py: (x + px * w, y + py * h)
+    c = mk.get("c", c)
+    if mk["type"] == "circle":
+        (x0, y0), (x1, y1) = P(mk["x"], mk["y"]), P(mk["x"] + mk["w"], mk["y"] + mk["h"])
+        ellipse(x0 - 20, y0 - 16, x1 - x0 + 40, y1 - y0 + 32, c, None, sw=5, angle=-0.03)
+    elif mk["type"] == "underline":
+        (x0, y0), (x1, _) = P(mk["x"], mk["y"]), P(mk["x"] + mk["w"], mk["y"])
+        line([(x0, y0), ((x0 + x1) / 2, y0 + 6), (x1, y0 - 2)], c, sw=6, curve=True)
+    elif mk["type"] == "arrow":
+        (fx, fy), (tx, ty) = P(*mk["from"]), P(*mk["to"])
+        arrow([(fx, fy), ((fx + tx) / 2 + 30, (fy + ty) / 2 - 30), (tx, ty)], c, sw=5, curve=True)
+        if mk.get("label"):
+            size = mk.get("size", 40)
+            ctext(fx, fy - size * 0.9 if ty > fy else fy + size * 0.9, mk["label"], size, c)
 
 
 # ---------- visuals (drawn inside a box) ----------
@@ -307,39 +353,150 @@ def v_layers(x, y, w, h, s, acc):
         ctext(x + w / 2, y + 62, s["top"], 38)
 
 
+def cards_need(s, w):
+    """Height of one card (the tallest), so every card in the grid matches."""
+    items = s["items"]; cols = s.get("cols", 2)
+    cw = (w - 30 * (cols - 1)) / cols
+    ts = s.get("size", 40); ss = round(ts * 0.9); u = lambda v: round(v * ts / 40)
+    return max(260, max(u(95) + len(wrap(it["title"], ts, cw - 60)) * u(50) + 10 +
+                        (len(wrap(it["sub"], ss, cw - 60)) * u(45) if it.get("sub") else 0) + 30 for it in items))
+
+
 def v_cards(x, y, w, h, s, acc):
-    items = s["items"]; cols = 2; rows = (len(items) + 1) // 2
+    items = s["items"]; cols = s.get("cols", 2); rows = (len(items) + cols - 1) // cols
     pal = T.get("series") or ["blue", "orange", "green", "violet"]
-    cw = (w - 30) / cols
-    need = max(95 + len(wrap(it["title"], 40, cw - 60)) * 50 + 10 +
-               (len(wrap(it["sub"], 36, cw - 60)) * 45 if it.get("sub") else 0) + 30 for it in items)
-    ch = min(max(need, 260), (h - 30 * (rows - 1)) / rows)
+    cw = (w - 30 * (cols - 1)) / cols
+    ts = s.get("size", 40); ss = round(ts * 0.9); u = lambda v: round(v * ts / 40)  # "size" scales the whole card
+    ch = min(cards_need(s, w), (h - 30 * (rows - 1)) / rows)
     for k, it in enumerate(items):
         r, c = divmod(k, cols); cx = x + c * (cw + 30); cy = y + r * (ch + 30)
         if k: step()
         p = pal[k % len(pal)]
-        # formal look: an odd last card spans the row instead of leaving a hole
-        span = T.get("formal") and k == len(items) - 1 and len(items) % 2
-        rect(cx, cy, w if span else cw, ch, p, "paper", sw=3)
-        ellipse(cx + 20, cy + 20, 56, 56, p, f"l_{p}")
-        ctext(cx + 48, cy + 48, str(k + 1), 30, p)
-        yy = text(cx + 30, cy + 95, it["title"], 40, width=cw - 60)
-        if it.get("sub"): text(cx + 30, yy + 10, it["sub"], 36, "grey", width=cw - 60)
+        # formal look: an odd last card spans the rest of the row instead of leaving a hole
+        span = cols - c if T.get("formal") and k == len(items) - 1 and len(items) % cols else 1
+        rect(cx, cy, cw * span + 30 * (span - 1), ch, p, "paper", sw=3)
+        if it.get("logo"):  # logo in place of the number badge
+            if not logo(it["logo"], cx + 20, cy + 14, u(68)): ctext(cx + u(54), cy + u(48), "?", ts, "grey")
+        else:
+            ellipse(cx + 20, cy + 20, u(56), u(56), p, f"l_{p}")
+            ctext(cx + 20 + u(28), cy + 20 + u(28), str(k + 1), u(30), p)
+        yy = text(cx + 30, cy + u(95), it["title"], ts, width=cw - 60)
+        if it.get("sub"): text(cx + 30, yy + 10, it["sub"], ss, "grey", width=cw - 60)
+
+
+def v_fan(x, y, w, h, s, acc):
+    """One thing -> several outcomes: arrows fan out from the left edge to stacked coloured boxes.
+    items: list of str or {t, c}; optional `above` (grey) and `below` (accent) lines."""
+    items = s["items"]; n = len(items)
+    pal = [("blue", "l_blue"), ("orange", "l_yellow"), ("green", "l_green"), ("violet", "l_violet"), ("red", "l_red")]
+    top = y + (70 if s.get("above") else 0)
+    bot = y + h - (70 if s.get("below") else 0)
+    bw = min(w * 0.62, 520); bx = x + w - bw
+    bh = min(130, (bot - top - 30 * (n - 1)) / n)
+    total = n * bh + (n - 1) * 30; by0 = top + (bot - top - total) / 2
+    if s.get("above"): ctext(bx + bw / 2, y + 30, s["above"], 36, "grey")
+    ox = x + 10
+    if s.get("from"):  # a doodle/logo the arrows fan out of: {"id"} (library) or {"logo"}
+        A = min(bx - x - 90, 220); ay = y + h / 2 - A / 2
+        if s["from"].get("logo"): logo(s["from"]["logo"], x, ay, A)
+        else: draw_art({**s["from"], "x": x, "y": ay, "size": A}, acc)
+        ox = x + A + 10
+    for k, it in enumerate(items):
+        t, c = (it, None) if isinstance(it, str) else (it["t"], it.get("c"))
+        st, bg = (c, f"l_{c}") if c else pal[k % len(pal)]
+        by = by0 + k * (bh + 30)
+        rect(bx, by, bw, bh, st, bg, sw=3)
+        ctext(bx + bw / 2, by + bh / 2, t, s.get("size", 44))
+        arrow([(ox, y + h / 2), (bx - 20, by + bh / 2)], "grey", sw=2)
+    if s.get("below"): ctext(bx + bw / 2, bot + 40, s["below"], 40, acc)
+
+
+def v_art(x, y, w, h, s, acc):
+    """A library character or doodle as the whole visual (sticker character beats)."""
+    A = s.get("size", min(w, h, 700))
+    draw_art({**s, "x": x + (w - A) / 2, "y": y + (h - A) / 2, "size": A}, acc)
+
+
+def v_scene(x, y, w, h, s, acc):
+    """Characters acting out the idea with props (the okaash inner-slide beat).
+    items: [{id | logo, x, y, size, flip?, c?}] with x/y as 0..1 of the box (top-left of the art) and size in px;
+    labels: [{t, x, y, size?, c?, chip?}] centred at 0..1 (chip draws a rounded box behind it);
+    arrows: [{from: [x, y], to: [x, y], dashed?}] in 0..1. Everything scales down if the box is short."""
+    k = min(1, h / s.get("h", 560))
+    P = lambda px, py: (x + px * w, y + py * h)
+    for a in s.get("arrows", []):
+        arrow([P(*a["from"]), P(*a["to"])], "grey", sw=3, curve=True, style="dashed" if a.get("dashed") else "solid")
+    for it in s.get("items", []):
+        ax, ay = P(it["x"], it["y"]); A = it.get("size", 240) * k
+        if it.get("logo"):
+            if not logo(it["logo"], ax, ay, A): ctext(ax + A / 2, ay + A / 2, "?", 64, "grey")
+        else: draw_art({**it, "x": ax, "y": ay, "size": A}, acc)
+    for lb in s.get("labels", []):
+        cx, cy = P(lb["x"], lb["y"]); sz = lb.get("size", 36); c = acc if lb.get("c") == "accent" else lb.get("c", "ink")
+        if lb.get("chip"):
+            bw = tw(lb["t"], sz) + 50
+            rect(cx - bw / 2, cy - sz * 0.9, bw, sz * 1.8, c if c != "ink" else "ink", "paper", sw=3)
+        ctext(cx, cy, lb["t"], sz, c)
+
+
+def v_icons(x, y, w, h, s, acc):
+    """Cover teaser: a grid of library doodles, one per list item, each on a hand-drawn tile.
+    Optional "art": [ids] stand side by side under the grid (e.g. person + bot looking at it)."""
+    ids_ = s["items"]; cols = s.get("cols", 4); rows = -(-len(ids_) // cols)
+    g = 30; tile = min((w - g * (cols - 1)) / cols, (h - g * (rows - 1)) / rows, s.get("tile", 200))
+    x0 = x + (w - (cols * tile + (cols - 1) * g)) / 2
+    for k, i in enumerate(ids_):
+        r, c = divmod(k, cols); tx = x0 + c * (tile + g); ty = y + r * (tile + g)
+        rect(tx, ty, tile, tile, "grey", "paper", sw=2)
+        draw_art({"id": i, "x": tx + tile * 0.18, "y": ty + tile * 0.18, "size": tile * 0.64}, acc)
+    if s.get("art"):
+        A = s.get("artSize", 200); n = len(s["art"]); ay = y + rows * (tile + g) + 10
+        for k, i in enumerate(s["art"]):
+            draw_art({"id": i, "x": x + w / 2 - n * A * 0.9 / 2 + k * A * 0.9 - A * 0.05, "y": ay, "size": A}, acc)
 
 
 def v_logos(x, y, w, h, s, acc):
-    names = s["logos"]; n = len(names); per = min(n, 4)
+    """logos: list of names, or {logo, name} to show a nicer label than the file name."""
+    items = s["logos"]; n = len(items); per = s.get("cols", min(n, 4))
     cw = (w - 20 * (per - 1)) / per; ch = 170
-    for k, nm in enumerate(names):
-        r, c = divmod(k, per); cx = x + c * (cw + 20); cy = y + r * (ch + 20)
+    x0 = lambda r: x + (w - (min(per, n - r * per) * (cw + 20) - 20)) / 2  # centre a short last row
+    for k, it in enumerate(items):
+        nm, lab = (it, it) if isinstance(it, str) else (it["logo"], it.get("name", it["logo"]))
+        r, c = divmod(k, per); cx = x0(r) + c * (cw + 20); cy = y + r * (ch + 20)
         rect(cx, cy, cw, ch, "ink", "paper")
         if not logo(nm, cx + cw / 2 - 40, cy + 18, 80):
             ctext(cx + cw / 2, cy + 58, "?", 48, "grey")
-        ctext(cx + cw / 2, cy + 130, nm, 30)
+        ctext(cx + cw / 2, cy + 130, lab, 30)
+
+
+def v_swap(x, y, w, h, s, acc):
+    """Paid tool -> open-source swap: left card crossed out, arrow (with scissors), right card in accent.
+    from/to: {logo, name, tag?}; optional "art": {id} stands under the arrow."""
+    gap = 170; cw = (w - gap) / 2; ch = 360; L = 150
+    for k, (side, stroke, bg) in enumerate(((s["from"], "grey", "l_grey"), (s["to"], acc, f"l_{acc}"))):
+        cx = x + k * (cw + gap)
+        rect(cx, y, cw, ch, stroke, bg, sw=3)
+        if not (side.get("logo") and logo(side["logo"], cx + (cw - L) / 2, y + 30, L)):
+            if not side.get("logo"): FLAGS.append({"flag": "missing-logo", "name": side.get("name", "?")})
+            ctext(cx + cw / 2, y + 30 + L / 2, "?", 90, "grey")
+        ctext(cx + cw / 2, y + 30 + L + 55, side.get("name", "?"), 44, "ink")
+        if side.get("tag"):
+            tw_ = tw(side["tag"], 32) + 44
+            rect(cx + (cw - tw_) / 2, y + ch - 80, tw_, 54, stroke, "paper", sw=2)
+            ctext(cx + cw / 2, y + ch - 53, side["tag"], 32, "red" if k == 0 else acc)
+        if k == 0:  # logo crossed out
+            lx, ly = cx + (cw - L) / 2 - 15, y + 15
+            line([(lx, ly), (lx + L + 30, ly + L + 30)], "red", sw=6); line([(lx + L + 30, ly), (lx, ly + L + 30)], "red", sw=6)
+    mx = x + cw + gap / 2
+    arrow([(x + cw + 20, y + ch / 2 + 20), (x + cw + gap - 20, y + ch / 2 + 20)], "ink", sw=4)
+    draw_art({"id": "scissors", "x": mx - 55, "y": y + ch / 2 - 110, "size": 110}, acc)
+    if s.get("art"):
+        A = min(420, h - ch - 40)
+        draw_art({**s["art"], "x": x + (w - A) / 2, "y": y + ch + 40, "size": A}, acc)
 
 
 def v_stat(x, y, w, h, s, acc):
-    ctext(x + w / 2, y + 140, s["value"], 220, acc)
+    ctext(x + w / 2, y + 140, s["value"], s.get("size", 220), acc)
     text(x + w / 2, y + 300, s["label"], 48, align="center", width=w)
     if s.get("people"):
         for k in range(9):
@@ -355,13 +512,33 @@ def v_note(x, y, w, h, s, acc):
     nx = x + (w - nw) / 2 if not art else x
     lines = wrap(s["text"], 48, nw - 120)
     nh = 140 + len(lines) * 60 + 60
-    rect(nx, y, nw, nh, "orange", "l_yellow", sw=3)
-    ellipse(nx + nw / 2 - 20, y - 20, 40, 40, acc, acc)  # pin
+    rect(nx, y, nw, nh, acc, f"l_{acc}", sw=3)
+    pin = f"d_{acc}" if f"d_{acc}" in C else acc
+    ellipse(nx + nw / 2 - 20, y - 20, 40, 40, pin, pin)  # pin
     text(nx + 60, y + 60, s.get("label", "try this:"), 36, "grey")
     text(nx + 60, y + 130, "\n".join(lines), 48)
     if art:
         step()
         draw_art({"flip": True, **art, "x": x + w - A * 0.86, "y": y + nh - A * 0.95, "size": A}, acc)
+
+
+def v_cut(x, y, w, h, s, acc):
+    """Cover beat for "stopped paying": logos in an arc, each on a string that runs down to one knot,
+    snipped by scissors, loose ends dangling below. logos: names; knot: [0..1, px from top] (default centre, 300)."""
+    names = s["logos"]; n = len(names); L = s.get("size", 96)
+    kx, ky = x + w * s.get("knot", [0.5, 300])[0], y + s.get("knot", [0.5, 300])[1]
+    dx_step = (w - L) / max(1, n - 1)
+    for k, nm in enumerate(names):
+        lx = x + k * dx_step; ly = y + 40 * abs((k - (n - 1) / 2) / ((n - 1) / 2 or 1)) ** 2  # outer logos sit lower
+        if not logo(nm, lx, ly, L): ctext(lx + L / 2, ly + L / 2, "?", 48, "grey")
+        bx, by = lx + L / 2, ly + L + 8
+        line([(bx, by), (bx + (kx - bx) * 0.6, by + (ky - by) * 0.35), (kx + (bx - kx) * 0.08, ky - 34)], acc, sw=3, curve=True)
+    draw_art({"id": "scissors", "x": kx - 70, "y": ky - 70, "size": 140}, acc)
+    for k, dx in enumerate((-40, -14, 14, 40)):  # cut ends, dangling
+        line([(kx + dx * 0.5, ky + 40), (kx + dx, ky + 100), (kx + dx * 1.3, ky + 150 + (k % 2) * 30)], acc, sw=3, curve=True)
+    for k in range(6):  # snipped bits
+        bx = kx - 110 + k * 44; by = ky + 190 + (k % 3) * 22
+        line([(bx, by), (bx + 18, by + 6 - (k % 2) * 12)], acc, sw=3)
 
 
 def v_comment_dm(x, y, w, h, s, acc):
@@ -438,8 +615,9 @@ def v_split(x, y, w, h, s, acc):
         ry += 110
 
 
-def v_bars(x, y, w, h, s, acc):
-    """Vertical hand-drawn bar chart from a zero baseline."""
+def v_bars_v(x, y, w, h, s, acc):
+    """Vertical hand-drawn bar chart from a zero baseline.
+    bars: [{label, value, display, c?}]."""
     bars = s["bars"]; n = len(bars)
     bw = min(220, w / n - 120)
     base_y = y + h - 120; top = y + 90
@@ -451,6 +629,35 @@ def v_bars(x, y, w, h, s, acc):
         rect(cx - bw / 2, base_y - bh, bw, bh, c, c, fill="hachure", sw=3, round_=False)
         ctext(cx, base_y - bh - 45, b["display"], 64, c)
         text(cx, base_y + 20, b["label"], 36, "ink", "center", width=w / n - 20)
+
+
+def v_bars_h(x, y, w, h, s, acc):
+    """Paired horizontal bars, one row per item: series[0] in the accent, series[1] in grey.
+    items: [{label, logo?, v: [a, b]}]; series: two names for the legend; unit: suffix on the values."""
+    items = s["items"]; ser = s.get("series", ["", ""]); unit = s.get("unit", "")
+    cols = [(acc, f"l_{acc}"), ("grey", "l_grey")]
+    lw = 300; L = 64; vx = x + lw; vw = w - lw - 170
+    top = y + 70; rh = (h - 70) / len(items); bh = min(44, (rh - 40) / 2)
+    vmax = max(max(it["v"]) for it in items) or 1
+    lx = x + w / 2 - (tw(ser[0], 30) + tw(ser[1], 30) + 160) / 2
+    for k, (nm, (st, bg)) in enumerate(zip(ser, cols)):  # legend
+        rect(lx, y + 8, 34, 34, st, bg, sw=3)
+        text(lx + 48, y + 6, nm, 30, "ink"); lx += tw(nm, 30) + 110
+    for r, it in enumerate(items):
+        ry = top + r * rh; cy = ry + rh / 2
+        if it.get("logo"):
+            if not logo(it["logo"], x, cy - L / 2, L): ctext(x + L / 2, cy, "?", 40, "grey")
+        text(x + L + 20, cy - 22, it["label"], 36)
+        for j, (val, (st, bg)) in enumerate(zip(it["v"], cols)):
+            by = cy - bh - 4 + j * (bh + 8); bw = max(6, vw * val / vmax)
+            rect(vx, by, bw, bh, st, bg, sw=3, round_=False)
+            text(vx + bw + 16, by + bh / 2 - 18, f"{val:g}{unit}", 30, acc if j == 0 else "grey")
+
+
+def v_bars(x, y, w, h, s, acc):
+    """Two bar charts share this type, told apart by their fields:
+    "bars" -> vertical columns (one value each); "items" + "series" -> paired horizontal bars."""
+    (v_bars_v if "bars" in s else v_bars_h)(x, y, w, h, s, acc)
 
 
 def v_link(x, y, w, h, s, acc):
@@ -561,6 +768,8 @@ def v_prompt(x, y, w, h, s, acc):
 
 import library  # noqa: E402  (reusable cast + doodles)
 library.use(sys.modules[__name__])
+import collage  # noqa: E402  (real cutouts + clean video scenes + hand-drawn marks: the mixed look)
+collage.use(sys.modules[__name__])
 
 
 def draw_art(spec, acc):
@@ -575,8 +784,9 @@ def draw_art(spec, acc):
 
 VIS = {"checklist": v_checklist, "scatter": v_scatter, "calendar": v_calendar,
        "layers": v_layers, "cards": v_cards, "logos": v_logos, "stat": v_stat,
-       "comment_dm": v_comment_dm, "note": v_note, "chat": v_chat, "waffle": v_waffle,
-       "split": v_split, "bars": v_bars, "link": v_link, "pages": v_pages,
+       "comment_dm": v_comment_dm, "note": v_note, "bars": v_bars,
+       "fan": v_fan, "art": v_art, "swap": v_swap, "cut": v_cut, "scene": v_scene, "icons": v_icons,
+       "chat": v_chat, "waffle": v_waffle, "split": v_split, "link": v_link, "pages": v_pages,
        "versus": v_versus, "prompt": v_prompt}
 
 
@@ -585,8 +795,14 @@ VIS_H = {"calendar": lambda s, w, h: ((s.get("days", 14) + 6) // 7) * (min((w - 
          "stat": lambda s, w, h: 580 if s.get("people") else 420,
          "comment_dm": lambda s, w, h: 640,
          "note": lambda s, w, h: 200 + len(wrap(s["text"], 48, min(w, 780) - 120)) * 60,
-         "cards": lambda s, w, h: min(h, 2 * 380 + 30),
-         "logos": lambda s, w, h: ((len(s["logos"]) + 3) // 4) * 190,
+         "cards": lambda s, w, h: min(h, (r := -(-len(s["items"]) // s.get("cols", 2))) * cards_need(s, w) + 30 * (r - 1)),
+         "fan": lambda s, w, h: min(h, len(s["items"]) * 160 + (70 if s.get("above") else 0) + (70 if s.get("below") else 0)),
+         "art": lambda s, w, h: s.get("size", min(w, h, 700)),
+         "cut": lambda s, w, h: h,
+         "scene": lambda s, w, h: min(h, s.get("h", 560)),
+         "icons": lambda s, w, h: -(-len(s["items"]) // s.get("cols", 4)) * (s.get("tile", 200) + 30) - 30 + (s.get("artSize", 200) + 40 if s.get("art") else 0),
+         "swap": lambda s, w, h: min(h, 360 + (460 if s.get("art") else 0)),
+         "logos": lambda s, w, h: -(-len(s["logos"]) // s.get("cols", 4)) * 190,
          "checklist": lambda s, w, h: min(h, 560),
          "scatter": lambda s, w, h: max(340, ((len(s["items"]) + 1) // 2) * 170 + 60),
          "layers": lambda s, w, h: min(h, len(s["layers"]) * 126 + 330),
@@ -596,7 +812,7 @@ VIS_H = {"calendar": lambda s, w, h: ((s.get("days", 14) + 6) // 7) * (min((w - 
                                        * min(56, w / (s.get("cols", 20) * 1.35)) * 1.35 + 40
                                        + sum(len(wrap(g["label"], 40, w - 90)) * 52 + 24 for g in s["groups"])),
          "split": lambda s, w, h: len(s["rows"]) * 320,
-         "bars": lambda s, w, h: min(h, 620),
+         "bars": lambda s, w, h: min(h, 620) if "bars" in s else min(h, 70 + len(s["items"]) * 120),
          "link": lambda s, w, h: 160 + len(s["params"]) * 130,
          "pages": lambda s, w, h: 280 + 145 + 100,
          "prompt": lambda s, w, h: 130 + (220 if s.get("logos") else 0)}
@@ -607,6 +823,8 @@ def density(i, sd, hl, q, b, visual_h, e=0):
     why = []
     if b and hl > D["maxHeadlineLinesWithBody"]:
         why.append(f"headline {hl} lines + body: cut headline to {D['maxHeadlineLinesWithBody']} lines")
+    if not b and "maxHeadlineLines" in D and hl > D["maxHeadlineLines"]:
+        why.append(f"headline {hl} lines (max {D['maxHeadlineLines']})")
     if b > D["maxBodyLines"]:
         why.append(f"body {b} lines (max {D['maxBodyLines']}): shorten or drop it")
     if e + hl + q + b > D["maxTextLines"]:
@@ -622,22 +840,88 @@ def density(i, sd, hl, q, b, visual_h, e=0):
 
 
 # ---------- slide ----------
-def headline(lines, y, acc, size):
-    """Returns (bottom y, number of rendered lines)."""
+def headline(lines, y, acc, size, tx, ta, tcw):
+    """Returns (bottom y, number of rendered lines). A line may carry its own "size" and colour."""
     n = 0
     for ln in lines:
-        t, c = (ln, "ink") if isinstance(ln, str) else (ln["t"], acc if ln.get("c") == "accent" else ln["c"])
-        for wl in wrap(t, size, TCW):
-            y = text(TX, y, wl, size, c, TA, lh=SP["headlineLH"]); n += 1
+        t, c = (ln, "ink") if isinstance(ln, str) else (ln["t"], acc if ln.get("c") == "accent" else ln.get("c", "ink"))
+        sz = size if isinstance(ln, str) else ln.get("size", size)
+        for wl in wrap(t, sz, tcw):
+            y = text(tx, y, wl, sz, c, ta, lh=SP["headlineLH"]); n += 1
     return y, n
 
 
+def text_block(sd, y, acc, tx, ta, tcw):
+    """logo(s), eyebrow, number badge, headline, qualifier, body stacked on tx.
+    ta "left" = landscape column, "center" = stacked. Returns (y, eyebrow, headline, qualifier, body lines)."""
+    land = ta == "left"
+    e_lines = hl_lines = q_lines = b_lines = 0
+    if sd.get("logo"):  # one logo, or several side by side ("vs")
+        names = sd["logo"] if isinstance(sd["logo"], list) else [sd["logo"]]
+        L = sd.get("logoSize", 220 if FMT == "broll" else 160); g = 60
+        x0 = tx if land else tx - (len(names) * L + (len(names) - 1) * g) / 2
+        for k, nm in enumerate(names):
+            if not logo(nm, x0 + k * (L + g), y, L):
+                ctext(x0 + k * (L + g) + L / 2, y + L / 2, "?", 64, "grey")
+        y += L + 40
+    step(1)
+    if sd.get("eyebrow"):  # small all-caps kicker above the headline
+        e_lines = 1
+        y = text(tx, y, sd["eyebrow"].upper(), TY.get("eyebrow", 36), acc, ta) + 24
+    if sd.get("number") is not None:
+        bx = tx if land else tx - 50
+        ellipse(bx, y, 100, 100, acc, f"l_{acc}", sw=3)
+        ctext(bx + 50, y + 50, str(sd["number"]), 52, acc)
+        y += 130
+    if sd.get("headline"):
+        size = sd.get("headlineSize", TY["headline"])
+        hl = sd["headline"] if isinstance(sd["headline"], list) else [sd["headline"]]
+        y, hl_lines = headline(hl, y, acc, size, tx, ta, tcw)
+        y += 10
+    if sd.get("qualifier"):
+        step()
+        q_lines = len(wrap(sd["qualifier"], TY["qualifier"], tcw))
+        y = text(tx, y + 10, sd["qualifier"], TY["qualifier"], "ink", ta, width=tcw)
+        qw = 120 if T.get("formal") else min(tcw, tw(sd["qualifier"], TY["qualifier"]))  # formal: short accent bar
+        tilt = 0 if T.get("formal") else 4
+        qx = tx if land else tx - qw / 2
+        line([(qx, y + 8), (qx + qw, y + 8 + tilt)], acc, sw=4, curve=bool(tilt))
+        y += 20
+    if sd.get("body"):
+        step()
+        b_lines = len(wrap(sd["body"], TY["body"], tcw))
+        y = text(tx, y + SP["bodyGap"], sd["body"], TY["body"], "body", ta, width=tcw, lh=SP["bodyLH"])
+    return y, e_lines, hl_lines, q_lines, b_lines
+
+
+def visual(v, x, y, w, h, slide_dir, acc):
+    """Draw a visual in a box, centred on its natural height. Returns the height used."""
+    if v["type"] in ("screenshot", "illustration"):
+        sh = min(h, v.get("h", h)); slot(x, y + (h - sh) / 2, w, sh, v, slide_dir, acc); return sh
+    used = VIS_H.get(v["type"], lambda s, w, h: h)(v, w, h)
+    VIS[v["type"]](x, y + max(0, (h - used) / 2), w, min(h, used), v, acc)
+    return min(h, used)
+
+
+def bbox(els):
+    ys = [e["y"] for e in els] + [e["y"] + e["height"] for e in els]
+    xs = [e["x"] for e in els] + [e["x"] + e["width"] for e in els]
+    return min(xs), min(ys), max(xs), max(ys)
+
+
+def shift(els, dy):
+    for e in els: e["y"] += dy
+
+
 def slide(i, n, sd, slide_dir, acc):
-    """Portrait: text centred on top, visual below. Landscape theme: text left, visual right."""
-    global cur_frame, OX, TX, TA, TCW
+    """carousel / landscape / square / portrait: text on top (or left), visual below (or right).
+    slides: same, plus the "split" layout and a slide-number badge.
+    broll: a sticker laid out on a big canvas, then cropped to its own content."""
+    global cur_frame, OX
     OX = i * (W + S["gap"])
     cur_frame = None
-    fr = base("frame", OX, 0, W, H, "#bbbbbb", None, name=f"{i+1:02d} {sd.get('role','')}".strip(), roughness=0)
+    fr = base("frame", OX, 0, W, H, "#bbbbbb", None, name=f"{i+1:02d} {sd.get('role','')}".strip(),
+              roughness=0, data={"overlay": True} if FMT == "broll" else None)
     cur_frame = fr["id"]
     step(0)
     if T.get("backgrounds"):
@@ -648,83 +932,105 @@ def slide(i, n, sd, slide_dir, acc):
         palette(bg); background(bg)
     land = T.get("layout") == "landscape" and sd.get("align") != "center"  # center: stacked, like portrait
     TX, TA, TCW = (OX + M, "left", T["textWidth"]) if land else (OX + W / 2, "center", CW)
-    start = len(E)
-    y = M
-    e_lines = 0
-    step(1)
-    if sd.get("eyebrow"):  # small all-caps kicker above the headline
-        e_lines = 1
-        y = text(TX, y, sd["eyebrow"].upper(), TY.get("eyebrow", 36), acc, TA) + 24
-    if sd.get("number") is not None:
-        bx = TX if land else TX - 50
-        ellipse(bx, y, 100, 100, acc, f"l_{acc}", sw=3)
-        ctext(bx + 50, y + 50, str(sd["number"]), 52, acc)
-        y += 130
-    size = sd.get("headlineSize", TY["headline"])
-    hl = sd["headline"] if isinstance(sd["headline"], list) else [sd["headline"]]
-    y, hl_lines = headline(hl, y, acc, size)
-    y += 10
-    q_lines = b_lines = 0
-    if sd.get("qualifier"):
-        step()
-        q_lines = len(wrap(sd["qualifier"], TY["qualifier"], TCW))
-        qy = y + 10
-        y = text(TX, qy, sd["qualifier"], TY["qualifier"], "ink", TA, width=TCW)
-        qw = 120 if T.get("formal") else min(TCW, tw(sd["qualifier"], TY["qualifier"]))  # formal: short accent bar
-        tilt = 0 if T.get("formal") else 4
-        qx = TX if land else TX - qw / 2
-        line([(qx, y + 8), (qx + qw, y + 8 + tilt)], acc, sw=4, curve=bool(tilt))
-        y += 20
-    if sd.get("body"):
-        step()
-        b_lines = len(wrap(sd["body"], TY["body"], TCW))
-        y = text(TX, y + SP["bodyGap"], sd["body"], TY["body"], "body", TA, width=TCW, lh=SP["bodyLH"])
-    if land:  # centre the text block vertically in its column
-        avail = BOTTOM - M
+    v = sd.get("visual")
+
+    if FMT == "broll":
+        # an overlay sticker: laid out on a big canvas, then the frame is cropped to the content,
+        # so each PNG is exactly as big as what's on it (wide, tall or square) with a transparent edge
+        start = len(E)
+        y, e_lines, hl_lines, q_lines, b_lines = text_block(sd, M, acc, OX + W / 2, "center", sd.get("textW", CW))
+        if v:
+            step()
+            y += SP["visualGap"] if (hl_lines or q_lines or b_lines) else 0
+            density(i, sd, hl_lines, q_lines, b_lines, H - M - y, e_lines)
+            vw = min(CW, v.get("w", CW)); vh = H - M - y
+            if v["type"] not in ("screenshot", "illustration"):  # sit right under the text
+                vh = min(vh, VIS_H.get(v["type"], lambda s, w, h: h)(v, vw, vh))
+            visual(v, OX + (W - vw) / 2, y, vw, vh, slide_dir, acc)
+        else:
+            density(i, sd, hl_lines, q_lines, b_lines, 0, e_lines)
+        for a in sd.get("art", []):
+            step()
+            draw_art(dict(a, x=OX + a["x"]), acc)
+        if sd.get("backdrop", True):  # white sticker so it reads over any footage
+            x0, y0, x1, y1 = bbox(E[start:]); pad = S.get("stickerPad", 60)  # text renders a bit wider than estimated
+            rect(x0 - pad, y0 - pad, x1 - x0 + 2 * pad, y1 - y0 + 2 * pad, "ink", "paper", sw=3)
+            E.insert(start, E.pop())  # sticker goes behind the content
+        x0, y0, x1, y1 = bbox(E[start:]); e = S.get("edge", 24)  # transparent edge for the rough strokes
+        fr.update(x=x0 - e, y=y0 - e, width=round(x1 - x0 + 2 * e), height=round(y1 - y0 + 2 * e))
+        step(None)
+        return
+
+    if FMT == "slides" and sd.get("layout") == "split":
+        # text on the left, visual on the right, both centred vertically
+        lw = CW * sd.get("split", 0.45); gap = 60
+        start = len(E)
+        y, e_lines, hl_lines, q_lines, b_lines = text_block(sd, M, acc, OX + M + lw / 2, "center", lw)
+        _, y0, _, y1 = bbox(E[start:]); shift(E[start:], (M + (H - 2 * M) / 2) - (y0 + y1) / 2)
+        density(i, sd, hl_lines, q_lines, b_lines, H - 2 * M, e_lines)
+        vx, vy, vw, vh = OX + M + lw + gap, M, CW - lw - gap, H - 2 * M
+    elif land:
+        start = len(E)
+        y, e_lines, hl_lines, q_lines, b_lines = text_block(sd, M, acc, TX, TA, TCW)
+        avail = BOTTOM - M  # centre the text block vertically in its column
         if y - M > avail:
             FLAGS.append({"flag": "crowded", "slide": i + 1, "why": "text column taller than the slide"})
-        for e in E[start:]: e["y"] += max(0, (avail - (y - M)) / 2)
+        shift(E[start:], max(0, (avail - (y - M)) / 2))
         density(i, sd, hl_lines, q_lines, b_lines, avail, e_lines)
         vx, vy, vw, vh = OX + W - M - T["visualWidth"], M, T["visualWidth"], avail
     else:
+        # stacked: headline on top, visual fills the rest (carousel, square, video slide)
+        y, e_lines, hl_lines, q_lines, b_lines = text_block(sd, M, acc, TX, TA, TCW)
         y += SP["visualGap"]
         density(i, sd, hl_lines, q_lines, b_lines, BOTTOM - y, e_lines)
-        vx, vy, vw, vh = OX + M, y, CW, BOTTOM - y
-    v = sd.get("visual")
+        vw = min(CW, v.get("w", CW)) if v else CW
+        vx, vy, vh = OX + (W - vw) / 2, y, BOTTOM - y
+
     if v:
         step()
-        if v["type"] in ("screenshot", "illustration"):
-            slot(vx, vy, vw, vh, v, slide_dir)
-        else:
-            used = VIS_H.get(v["type"], lambda s, w, h: h)(v, vw, vh)
-            VIS[v["type"]](vx, vy + max(0, (vh - used) / 2), vw, min(vh, used), v, acc)
-    for a in sd.get("art", []):  # free-placed library art, slide coords
+        visual(v, vx, vy, vw, vh, slide_dir, acc)
+    for a in sd.get("art", []):  # free-placed art, slide coords: library art, real cutouts, clean scenes, marks
         step()
-        draw_art(dict(a, x=OX + a["x"]), acc)
-    if sd.get("footer"):
-        step()
-        if land: text(TX, BOTTOM - 50, sd["footer"], TY["qualifier"], acc)
-        else: ctext(OX + W / 2, BOTTOM - 10, sd["footer"], TY["qualifier"], acc)
-    # chrome: (wordmark +) handle + counter (+ swipe cue)
-    step(0)
-    hx = OX + M
-    if T.get("wordmark"):
-        text(hx, H - M - 8, T["wordmark"], 40, "wordmark"); hx += tw(T["wordmark"], 40) + 28
-    if T.get("handle"):
-        text(hx, H - M, T["handle"], 30, "grey")
-    if n > 1:  # a single image has no counter
-        cue = f"{i+1}/{n}" + ("  →" if i < n - 1 else "")
-        text(OX + W - M - tw(cue, 30), H - M, cue, 30, "grey")
+        if "cutout" in a: collage.cutout(a, slide_dir, OX)
+        elif "scene" in a: collage.scene(a, slide_dir, OX, acc)
+        elif "mark" in a: collage.mark(a, OX, acc)
+        else: draw_art(dict(a, x=OX + a["x"]), acc)
+
+    if FMT == "slides":
+        if sd.get("footer"):
+            step()
+            ctext(OX + W / 2, H - M + 10, sd["footer"], TY["small"], "grey")
+        step(0)
+        if SB.get("badge", True):  # small grey slide number, top-left corner
+            ellipse(OX + 40, 35, 64, 64, "grey", "l_grey", sw=2)
+            ctext(OX + 72, 67, f"{i+1:02d}", 28, "grey")
+    else:
+        if sd.get("footer"):
+            step()
+            if land: text(TX, BOTTOM - 50, sd["footer"], TY["qualifier"], acc)
+            else: ctext(OX + W / 2, BOTTOM - 10, sd["footer"], TY["qualifier"], acc)
+        # chrome: (wordmark +) handle + counter (+ swipe cue)
+        step(0)
+        hx = OX + M
+        if T.get("wordmark"):
+            text(hx, H - M - 8, T["wordmark"], 40, "wordmark"); hx += tw(T["wordmark"], 40) + 28
+        if T.get("handle"):
+            text(hx, H - M, T["handle"], 30, "grey")
+        if n > 1:  # a single image has no counter
+            cue = f"{i+1}/{n}" + ("  →" if i < n - 1 else "")
+            text(OX + W - M - tw(cue, 30), H - M, cue, 30, "grey")
     step(None)
 
 
 def main(folder):
+    global SB
     d = ROOT / folder if not Path(folder).is_absolute() else Path(folder)
-    sb = json.loads((d / "storyboard.json").read_text(encoding="utf-8"))
+    SB = sb = json.loads((d / "storyboard.json").read_text(encoding="utf-8"))
     set_theme(sb.get("theme"), sb.get("format"))
-    if sb.get("handle") is False: T["handle"] = None  # e.g. a video title card with no chrome
-    acc =sb.get("accent", T["accentDefault"])
+    if "handle" in sb: T["handle"] = sb["handle"] or None  # e.g. a video title card with no chrome
+    acc = sb.get("accent", T["accentDefault"])
     slides = sb["slides"]
+    collage.prepare_scenes(sb, d, acc)
     draw = slide
     if T.get("layout") == "band":
         import band; band.use(sys.modules[__name__], sb); draw = band.slide
@@ -732,9 +1038,18 @@ def main(folder):
         draw(i, len(slides), sd, d, acc)
     doc = {"type": "excalidraw", "version": 2, "source": "https://excalidraw.com", "elements": E,
            "appState": {"viewBackgroundColor": T.get("canvas", "#ffffff"), "gridSize": None}, "files": FILES}
-    (d / "carousel.excalidraw").write_text(json.dumps(doc, ensure_ascii=False), encoding="utf-8")
+    out = d / f"{FMT}.excalidraw"
+    out.write_text(json.dumps(doc, ensure_ascii=False), encoding="utf-8")
     (d / "render_flags.json").write_text(json.dumps(FLAGS, indent=1), encoding="utf-8")
-    print(f"rendered {len(slides)} slides, {len(E)} elements, {len(FLAGS)} flags -> {d/'carousel.excalidraw'}")
+    if FMT == "broll":  # editor's cue sheet: which still goes with which line
+        frs = [e for e in E if e["type"] == "frame"]
+        sc = S.get("exportScale", 1)
+        rows = [f"| {k+1:02d}.png | {sd.get('at', '')} | {round(f['width'] * sc)}×{round(f['height'] * sc)} | {sd.get('line', '')} |"
+                for k, (sd, f) in enumerate(zip(slides, frs))]
+        (d / "shotlist.md").write_text(f"# {sb.get('title', '')} B-roll\n\nTransparent overlay PNGs, sized to their content. Scale and place freely.\n\n"
+                                       f"| file | at | size (px) | dialogue line |\n|---|---|---|---|\n"
+                                       + "\n".join(rows) + "\n", encoding="utf-8")
+    print(f"rendered {len(slides)} {FMT} frames, {len(E)} elements, {len(FLAGS)} flags -> {out}")
 
 
 if __name__ == "__main__":

@@ -5,6 +5,7 @@
   python scripts/broll.py snap       videos/<folder> 0:42 1:15 [--len 10]  spot inserts snapped to sentence starts/ends
   python scripts/broll.py check      videos/<folder> [--no-layout]     validate broll.json (blocking issues + warn:)
                                                                        editorial: also a layout lint of each scene's 75% frame
+                                                                       refluke: types, sources and the placement-variety rule
   python scripts/broll.py still      videos/<folder> [t1 t2 ...]       PNG frames into stills/ (default: each scene's middle)
   python scripts/broll.py sheet      videos/<folder>                   editorial: one 0.25-scale still per scene -> stills/sheet.png
   python scripts/broll.py render     videos/<folder> [--draft]         final.mp4 (draft = half size, faster)
@@ -14,6 +15,7 @@
 The job folder holds the cut (cut.mp4, or the only .mp4/.mov/.mkv there), transcript.json, broll.json,
 any screenshots a scene uses, and the outputs. All times are seconds in the cut.
 """
+from __future__ import annotations  # PEP 604 annotations (str | None) on Python 3.9
 import argparse, json, os, re, shutil, subprocess, sys, time
 from pathlib import Path
 
@@ -58,6 +60,12 @@ def fmt(t: float) -> str:
     return f"{int(t // 60)}:{t % 60:05.2f}"
 
 
+def node() -> str:
+    """Node, the same way ffmpeg() is found: PATH, else a local build in tools/node/."""
+    local = sorted(ROOT.glob("tools/node*/bin/node")) + sorted(ROOT.glob("tools/node*/node.exe"))
+    nd = os.environ.get("NODE") or shutil.which("node") or (str(local[0]) if local else None)
+    if not nd: sys.exit("node not found: install Node, unpack one into tools/node/, or set NODE=/path/to/node")
+    return nd
 def playable(p: Path) -> bool:
     """A file ffprobe can read a duration out of — a killed ffmpeg leaves one it can't (no moov atom)."""
     probe = str(Path(ffmpeg()).with_name("ffprobe" + Path(ffmpeg()).suffix))
@@ -128,7 +136,7 @@ def load(folder: Path):
 
 
 def icon_names() -> set[str]:
-    r = subprocess.run(["node", "-e", "console.log(Object.keys(require('lucide-react').icons).join(' '))"],
+    r = subprocess.run([node(), "-e", "console.log(Object.keys(require('lucide-react').icons).join(' '))"],
                        cwd=APP, capture_output=True, text=True)
     kebab = lambda s: re.sub(r"(?<!^)(?=[A-Z])|(?<=[a-z])(?=\d)", "-", s).lower()
     return {kebab(n) for n in r.stdout.split()} | {n.lower() for n in r.stdout.split()}
@@ -139,9 +147,61 @@ ETYPES = {"browser": ["at"], "statement": ["headline"], "flow": ["tiles"], "file
           # the scene-canvas types (2026-10-22)
           "line": ["headline"], "chips": ["groups"], "rows": ["items"], "stats": ["cards"]}
 
+# refluke style (broll/src/refluke/scenes.tsx + scenes2.tsx -> RSCENES): Ajay's own videos.
+# Keep in step with RSCENES and with assets/refluke-broll/library.md §4.
+RTYPES = {
+    # statement
+    "statement": ["head"], "number": ["value"], "quotelines": ["lines"], "outlinepill": ["text"],
+    "strike": ["wrong", "right"], "authority": ["quotes"],
+    # the spine
+    "spine": ["title", "items"],
+    # data
+    "bars": ["title", "items"], "trend": ["title"], "stepchart": ["title", "value"], "chartrow": [],
+    # diagram
+    "flow": ["nodes"], "loop": ["a", "b"], "branch": ["good", "bad"], "costcompare": ["price", "theirs"],
+    # captured
+    "cited": ["clause"], "pullquote": ["clause"], "uiframe": ["text"], "playerbar": ["time"],
+    "docs-page": ["name", "specs"], "gallery-chips": ["chips"], "terminal": ["cmd"],
+    "search-bar": ["query"], "screen": [],
+    # objects & sequences
+    "icon-card": ["label"], "before-after": ["before", "after"], "company-icons": ["title"],
+    "assistant-listening": ["lines"], "ea-concept": ["a", "b"], "logo-tiles": ["title", "names"],
+    "transcript-card": ["lines"], "token-chips": ["words", "punch"], "laptop-tiles": ["tiles"],
+    "screen-share": [], "chatpills": ["msgs"], "todo-avatars": ["rows"], "todos": ["rows"],
+    # metaphors
+    "bottleneck": ["causes"], "funnel": [], "seesaw": ["up", "down"], "isometric-room": ["chips"],
+    "ceo-row": ["principle"],
+    # critique & close
+    "honest-feedback": ["title", "items"], "youtube-card": ["title"], "outro-cta": ["headline"],
+}
+# every outside claim is sourced — library.md §4, the highest-value rule in the style
+SOURCED = ("cited", "pullquote", "docs-page", "gallery-chips")
+PLACEMENTS = ("tab-right", "half-left", "half-right", "corner", "side-points", "band", "full", "pip")
+CORNERS = ("bl", "br", "tl", "tr")
+
+STYLES = {"editorial": "EditorialMain", "refluke": "ReflukeMain"}
+
+
+def style(plan: dict) -> str:
+    return plan.get("style") or "excalidraw"
+
+
+def comp_for(plan: dict) -> str:
+    """Which Remotion composition renders this plan (broll/src/Root.tsx)."""
+    return STYLES.get(style(plan), "Main")
+
+
+def broll_only(plan: dict) -> bool:
+    """Styles that render b-roll alone, for Ajay to lay over his own cut in Vids."""
+    return style(plan) in STYLES
+
 
 def editorial(plan: dict) -> bool:
-    return plan.get("style") == "editorial"
+    return style(plan) == "editorial"
+
+
+def refluke(plan: dict) -> bool:
+    return style(plan) == "refluke"
 
 
 def coverage(plan: dict) -> str:
@@ -255,6 +315,94 @@ def check_editorial(folder: Path, tr: dict, plan: dict, layout: bool = True) -> 
     return not issues and not slots
 
 
+def check_refluke(folder: Path, tr: dict, plan: dict, layout: bool = True) -> bool:
+    """Validate a refluke plan. Enforces the rules in assets/refluke-broll/library.md that a
+    machine can see: known types, required fields, timings inside the beat, a source on every
+    captured type, and the placement-variety rule (§3 — no two consecutive beats share one)."""
+    dur = float(plan.get("duration") or tr["media"]["duration"])
+    issues, warns, slots = [], [], []
+    scenes = sorted(plan.get("scenes", []), key=lambda s: s.get("start", 0))
+    if not scenes:
+        issues.append("broll.json has no scenes")
+    prev, used = None, {}
+    for i, s in enumerate(scenes, 1):
+        t = s.get("type")
+        w = f"beat {i} ({t} @ {fmt(s.get('start', 0))})"
+        if t not in RTYPES:
+            issues.append(f"{w}: unknown type. Add it to RSCENES first, then RTYPES here")
+            continue
+        for k in RTYPES[t]:
+            if not s.get(k):
+                issues.append(f"{w}: needs '{k}'")
+        a, b = s.get("start"), s.get("end")
+        if a is None or b is None or b <= a:
+            issues.append(f"{w}: needs start < end")
+            continue
+        if b > dur + 0.01:
+            issues.append(f"{w}: ends at {b}, the cut is {dur:.2f}s")
+        if b - a < MIN_SCENE:
+            issues.append(f"{w}: {b - a:.1f}s is too short to read (min {MIN_SCENE}s)")
+        if prev and a < prev["end"] - 0.01:
+            issues.append(f"{w}: overlaps the previous beat (ends {prev['end']})")
+        if not isinstance(s.get("source"), str):
+            warns.append(f"{w}: no 'source' (what's said here) for the review sheet")
+
+        # placement: valid, and it has to change beat to beat
+        p = s.get("placement", "tab-right")
+        if p not in PLACEMENTS:
+            issues.append(f"{w}: placement '{p}': use one of {', '.join(PLACEMENTS)}")
+        else:
+            used[p] = used.get(p, 0) + 1
+            if prev and prev.get("placement", "tab-right") == p:
+                issues.append(f"{w}: same placement '{p}' as the beat before it — vary it (library.md §3)")
+        if t == "screen" and p != "pip":
+            issues.append(f"{w}: a screen recording needs placement 'pip' (the face moves, not the content)")
+        if p == "pip":
+            if t != "screen":
+                warns.append(f"{w}: placement 'pip' outside a screen recording")
+            if s.get("pip", "br") not in CORNERS:
+                issues.append(f"{w}: pip '{s.get('pip')}': use one of {', '.join(CORNERS)}")
+
+        # a captured beat without a source is a claim with nothing behind it
+        if t in SOURCED and not s.get("source_url") and not str(s.get("source", "")).strip():
+            issues.append(f"{w}: '{t}' shows someone else's page — it needs a 'source' line")
+
+        # the beat's own anchor. Its range is checked below with every other timing — all_times()
+        # already yields 'at', so don't range-check it here or it reports twice.
+        if s.get("at") is None:
+            issues.append(f"{w}: needs 'at' (when the beat's first element lands)")
+        for k, v in all_times(s):
+            if not (a - 0.01 <= v <= b - 0.25):
+                issues.append(f"{w}: {k} {v} is outside the beat ({a}–{b})")
+
+        for _, v in list(all_strings(s, "logo")) + list(all_strings(s, "src")):
+            if not (folder / v).exists():
+                slots.append(f"missing-asset: {w} needs {v} in the folder")
+        prev = s
+
+    covered = sum(s["end"] - s["start"] for s in scenes if "start" in s and "end" in s)
+    pct = 100 * covered / max(dur, 1)
+    if pct > 92:
+        warns.append(f"b-roll covers {pct:.0f}% of the cut — leave ~10% for full-frame face "
+                     "(library.md §6: drop the visual when the point is about you)")
+    if scenes and max(used.values(), default=0) > 0.55 * len(scenes):
+        top = max(used, key=lambda k: used[k])
+        warns.append(f"placement '{top}' is {used[top]} of {len(scenes)} beats — rotate more (library.md §3)")
+
+    # the rendered lint: each beat's 75% frame with every entrance at its end state, measured in
+    # the page. Only worth running once the plan itself is sound.
+    if layout and not issues:
+        issues += layout_check(folder, plan, scenes)
+
+    for m in issues: print("BLOCK:", m)
+    for m in slots: print("slot:", m)
+    for m in warns: print("warn:", m)
+    mix = "  ".join(f"{k} {v}" for k, v in sorted(used.items(), key=lambda kv: -kv[1]))
+    print(f"refluke: {len(scenes)} beats, b-roll {covered:.0f}s of {dur:.0f}s ({pct:.0f}%).")
+    print(f"placements: {mix or '—'}")
+    return not issues and not slots
+
+
 def all_strings(node, want: str):
     if isinstance(node, dict):
         for k, v in node.items():
@@ -279,6 +427,9 @@ def copy_logos(folder: Path, plan: dict):
 
 def cmd_check(folder: Path, layout: bool = True) -> bool:
     tr, plan = load(folder)
+    if refluke(plan):
+        copy_logos(folder, plan)
+        return check_refluke(folder, tr, plan, layout)
     if editorial(plan):
         copy_logos(folder, plan)
         return check_editorial(folder, tr, plan, layout)
@@ -372,7 +523,7 @@ def write_props(folder: Path, preview: bool = False) -> Path:
 
 def remotion(args: list[str]):
     if not CLI.exists(): sys.exit("Remotion isn't installed: run `npm install` in broll/")
-    r = subprocess.run(["node", str(CLI), *args], cwd=APP)
+    r = subprocess.run([node(), str(CLI), *args], cwd=APP)
     if r.returncode: sys.exit(f"remotion {args[0]} failed (exit {r.returncode})")
 
 
@@ -380,9 +531,10 @@ def shoot(folder: Path, props: dict, stills=(), clips=()) -> list[str]:
     """One Remotion bundle for many stills / clip ranges (broll/shoot.mjs). Returns its result lines."""
     if not CLI.exists(): sys.exit("Remotion isn't installed: run `npm install` in broll/")
     job = folder / ".shoot.json"
-    job.write_text(json.dumps({"comp": "EditorialMain", "props": props, "publicDir": str(folder),
+    # props carries the plan, so the composition follows the plan's style
+    job.write_text(json.dumps({"comp": comp_for(props), "props": props, "publicDir": str(folder),
                                "stills": list(stills), "clips": list(clips)}, ensure_ascii=False), encoding="utf-8")
-    r = subprocess.run(["node", "shoot.mjs", str(job)], cwd=APP, capture_output=True, text=True, encoding="utf-8")
+    r = subprocess.run([node(), "shoot.mjs", str(job)], cwd=APP, capture_output=True, text=True, encoding="utf-8")
     job.unlink(missing_ok=True)
     if r.returncode: sys.exit(f"remotion failed:\n{(r.stderr or r.stdout)[-1500:]}")
     return r.stdout.splitlines()
@@ -416,7 +568,7 @@ def layout_check(folder: Path, plan: dict, scenes: list[dict]) -> list[str]:
 def cmd_sheet(folder: Path):
     """One still per scene (75% in) at 0.25 scale, labelled with its time, in one image: stills/sheet.png."""
     tr, plan = load(folder)
-    if not editorial(plan): sys.exit("sheet is for editorial plans; use `still` for the Excalidraw style")
+    if not broll_only(plan): sys.exit("sheet is for editorial / refluke plans; use `still` for the Excalidraw style")
     props = make_props(folder, preview=True)
     fps, dur = props["media"]["fps"], props["media"]["duration"]
     scenes = sorted(plan["scenes"], key=lambda s: s["start"])
@@ -515,7 +667,7 @@ def cmd_still(folder: Path, ts: list[float]):
     if not ts:  # middle of each scene, after its items have come in
         ts = [round(s["start"] + 0.75 * (s["end"] - s["start"]), 2) for s in plan["scenes"]]
     props = write_props(folder, preview=True)
-    comp = "EditorialMain" if editorial(plan) else "Main"
+    comp = comp_for(plan)
     dur = float(plan.get("duration") or tr["media"]["duration"])
     out = folder / "stills"
     out.mkdir(exist_ok=True)
@@ -530,14 +682,14 @@ def cmd_still(folder: Path, ts: list[float]):
 def cmd_render(folder: Path, draft: bool, preview: bool = False, clips: bool = False):
     if not cmd_check(folder): sys.exit("fix the blocking issues / slots above, then render")
     _, plan = load(folder)
-    ed = editorial(plan)
+    bo = broll_only(plan)
     if clips:
-        if not ed: sys.exit("--clips is for editorial plans")
+        if not bo: sys.exit("--clips is for editorial / refluke plans")
         return cmd_clips(folder)
     props = write_props(folder, preview=preview)
-    # editorial: broll.mp4 = silent b-roll for Google Vids; preview.mp4 = with his audio + face-box outline, to review
-    name = ("preview.mp4" if preview else "broll.mp4") if ed else ("final-draft.mp4" if draft else "final.mp4")
-    comp = "EditorialMain" if ed else "Main"
+    # b-roll styles: broll.mp4 = silent b-roll for Google Vids; preview.mp4 = his audio + the face outline, to review
+    name = ("preview.mp4" if preview else "broll.mp4") if bo else ("final-draft.mp4" if draft else "final.mp4")
+    comp = comp_for(plan)
     args = ["render", "src/index.ts", comp, str(folder / name), f"--props={props}", f"--public-dir={folder}",
             "--codec=h264", "--crf=18", "--audio-codec=aac", "--audio-bitrate=192k",
             "--color-space=bt709",  # keeps skin tones the same as the camera file

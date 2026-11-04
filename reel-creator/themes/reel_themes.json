@@ -1,0 +1,31 @@
+{
+  "_about": "Reel colour tokens, CALM version (Ajay, 2026-10-30: the first reel's saturated red, near-black heavy type and dark layout read as loud and congested). Warm off-white + stone backgrounds, warm charcoal text, a muted accent used sparingly. `brand` keeps the original brand colour for reference only; don't use it on screen.",
+  "ajay": {
+    "brand": "#4E6636",
+    "accent": "#5E7548",
+    "accentOnDark": "#C4D3AE",
+    "glow": "#D9E4C6",
+    "accentSoft": "#EEF1E8",
+    "accentTint": "#DCE4CF",
+    "canvasLight": "#F7F7F3",
+    "canvasSoft": "#E9EBE3",
+    "ink": "#4E5047",
+    "body": "#55574E",
+    "muted": "#8A8B82",
+    "border": "#E3E5DC"
+  },
+  "tmv": {
+    "brand": "#B80000",
+    "accent": "#B0564C",
+    "accentOnDark": "#F3C2BA",
+    "glow": "#F5D3CC",
+    "accentSoft": "#F7EEEB",
+    "accentTint": "#F1DCD6",
+    "canvasLight": "#F8F5F2",
+    "canvasSoft": "#ECE5DF",
+    "ink": "#544D4A",
+    "body": "#5E5754",
+    "muted": "#9A928E",
+    "border": "#E8E1DC"
+  }
+}

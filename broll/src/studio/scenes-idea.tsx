@@ -860,8 +860,8 @@ const Search: View = ({ s, box }) => {
 // viewBox scaled to the layout's box, so the same scene fits a tile board (~1500), a split (~990) and a reel (960).
 
 /** An SVG stage `vw`×`vh`, as wide as the box allows, centred on the board. */
-const Stage: React.FC<{ box: Box; vw: number; vh: number; enter: number; children: React.ReactNode }> = ({ box, vw, vh, enter, children }) => {
-  const w = Math.min(box.w - 100, vw);
+export const Stage: React.FC<{ box: Box; vw: number; vh: number; enter: number; children: React.ReactNode }> = ({ box, vw, vh, enter, children }) => {
+  const w = Math.min(box.w - 100, box.h ? vw * 1.3 : vw, (((box.h ?? 1080) - 60) * vw) / vh);
   return (
     <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
       <svg width={w} height={(w * vh) / vw} viewBox={`0 0 ${vw} ${vh}`} style={{ overflow: "visible", opacity: enter }}>{children}</svg>
@@ -870,7 +870,7 @@ const Stage: React.FC<{ box: Box; vw: number; vh: number; enter: number; childre
 };
 
 /** A word or two in a rounded chip, centred on (x, y). Width from the text, near enough for Inter. */
-const Chip: React.FC<{ x: number; y: number; text: string; p: number; tone?: "accent" | "muted" | "card"; size?: number }> =
+export const Chip: React.FC<{ x: number; y: number; text: string; p: number; tone?: "accent" | "muted" | "card"; size?: number }> =
 ({ x, y, text, p, tone = "card", size = 40 }) => {
   const C = useC();
   const w = text.length * size * 0.54 + size * 1.4, h = size * 1.7;
@@ -885,7 +885,7 @@ const Chip: React.FC<{ x: number; y: number; text: string; p: number; tone?: "ac
 };
 
 /** A display-serif label in the SVG; `italic` = the accent voice. */
-const Label: React.FC<{ x: number; y: number; text: string; p: number; size?: number; anchor?: "start" | "middle" | "end"; italic?: boolean; color?: string }> =
+export const Label: React.FC<{ x: number; y: number; text: string; p: number; size?: number; anchor?: "start" | "middle" | "end"; italic?: boolean; color?: string }> =
 ({ x, y, text, p, size = 64, anchor = "middle", italic, color }) => {
   const C = useC();
   return <text x={x} y={y + (1 - p) * 12} textAnchor={anchor} opacity={p} style={{ fontFamily: C.fonts.display, fontStyle: italic ? "italic" : undefined,

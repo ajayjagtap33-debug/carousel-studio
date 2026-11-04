@@ -22,10 +22,15 @@
  {
   "slide": 5,
   "name": "05 library",
+  "issues": []
+ },
+ {
+  "slide": 6,
+  "name": "06 library",
   "issues": [
    {
     "issue": "warn: empty space at bottom",
-    "px": 415
+    "px": 358
    }
   ]
  }

@@ -1,0 +1,99 @@
+{
+  "format": "broll",
+  "title": "AEO + GEO checklist (test B-roll)",
+  "slides": [
+    {
+      "role": "hook",
+      "line": "We built a 250-point AEO and GEO checklist.",
+      "headline": "AEO + GEO checklist",
+      "visual": {
+        "type": "stat",
+        "value": "250+",
+        "label": "checks"
+      },
+      "source": "script ¶2"
+    },
+    {
+      "role": "problem",
+      "line": "The problem? It was scattered everywhere.",
+      "headline": [
+        {
+          "t": "scattered",
+          "c": "accent"
+        },
+        "everywhere"
+      ],
+      "source": "script ¶3"
+    },
+    {
+      "role": "problem",
+      "line": "Blog posts, threads, videos, guides…",
+      "headline": "…so where do you even start?",
+      "visual": {
+        "type": "art",
+        "id": "person.shrug",
+        "size": 620
+      },
+      "source": "script ¶3 (line: added)"
+    },
+    {
+      "role": "outcomes",
+      "line": "It helps us show up, get mentioned and get cited.",
+      "visual": {
+        "type": "fan",
+        "items": [
+          "Show up",
+          "Get mentioned",
+          "Get cited"
+        ],
+        "w": 820
+      },
+      "source": "script ¶2"
+    },
+    {
+      "role": "proof",
+      "line": "Then we check if AI actually mentions us.",
+      "headline": "Does AI mention you?",
+      "visual": {
+        "type": "screenshot",
+        "src": "prompt-log.png",
+        "h": 640,
+        "prompt": "prompt testing log tab, a few rows filled in",
+        "marks": [
+          {
+            "type": "circle",
+            "x": 0.55,
+            "y": 0.35,
+            "w": 0.35,
+            "h": 0.12
+          },
+          {
+            "type": "arrow",
+            "from": [
+              0.25,
+              0.85
+            ],
+            "to": [
+              0.52,
+              0.5
+            ],
+            "label": "mentioned ✓"
+          }
+        ]
+      },
+      "source": "script ¶6"
+    },
+    {
+      "role": "cta",
+      "line": "Comment checklist and I'll DM it to you.",
+      "headline": [
+        "comment",
+        {
+          "t": "\"checklist\"",
+          "c": "accent"
+        }
+      ],
+      "source": "script ¶9"
+    }
+  ]
+}

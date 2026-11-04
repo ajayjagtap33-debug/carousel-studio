@@ -6,8 +6,10 @@ import { Img, interpolateColors, staticFile } from "remotion";
 import { Accent, Card, Chip, Display, Enter, Icon, Label, SAUCE, SHADOW, clamp01, ramp, useC, useIn, useNow, useSauce } from "./kit";
 import { IDEA_OVER, IDEA_SCENES } from "./scenes-idea";
 import { EXPLAIN_SCENES } from "./scenes-explain";
+import { SWIPE_SCENES } from "./scenes-swipe";
+import { UI_SCENES } from "./scenes-ui";
 
-export type Box = { x: number; w: number };
+export type Box = { x: number; w: number; h?: number }; // h: a shorter board than the video's 1080 (a carousel slide's visual area)
 export type Face = { x: number; y: number };
 export type SScene = { type: string; start: number; end: number; slug?: string; source?: string; [k: string]: any };
 type View = React.FC<{ s: SScene; box: Box; face: Face }>;
@@ -651,7 +653,7 @@ const Loop: View = ({ s, box }) => {
 export const SCENES: Record<string, View> = {
   words: Words, type: TypeCard, trio: Trio, gallery: Gallery, marks: Marks, compare: Compare, loop: Loop,
   count: Count, list: List, spine: Spine, shot: Shot, points: Points, places: Places, chat: Chat,
-  ...IDEA_SCENES, ...EXPLAIN_SCENES,
+  ...IDEA_SCENES, ...EXPLAIN_SCENES, ...SWIPE_SCENES, ...UI_SCENES,
 };
 /** Scenes that draw over his footage rather than on the board behind him. */
 export const OVER = new Set(["words", "type", ...IDEA_OVER]);

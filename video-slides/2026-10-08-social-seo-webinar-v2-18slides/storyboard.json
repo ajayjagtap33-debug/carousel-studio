@@ -1,0 +1,464 @@
+{
+  "format": "slides",
+  "title": "Social SEO: using social media to show up in AI search (webinar)",
+  "slides": [
+    {
+      "role": "Title",
+      "layout": "split",
+      "headline": [
+        {
+          "t": "Social SEO",
+          "c": "accent",
+          "size": 120
+        }
+      ],
+      "qualifier": "using social media to show up in AI search",
+      "footer": "Ajay Jagtap · Oct 8, 2026",
+      "visual": {
+        "type": "scene",
+        "items": [
+          {
+            "id": "person.wave",
+            "x": 0.05,
+            "y": 0.3,
+            "size": 280
+          },
+          {
+            "id": "bot.wave",
+            "x": 0.55,
+            "y": 0.35,
+            "size": 250
+          },
+          {
+            "logo": "youtube",
+            "x": 0.1,
+            "y": 0.0,
+            "size": 110
+          },
+          {
+            "logo": "reddit",
+            "x": 0.42,
+            "y": 0.05,
+            "size": 100
+          },
+          {
+            "logo": "linkedin",
+            "x": 0.75,
+            "y": 0.0,
+            "size": 100
+          }
+        ],
+        "h": 560
+      },
+      "source": "title"
+    },
+    {
+      "role": "1 Open → LIVE",
+      "headline": "Let's ask Google a question from your category",
+      "qualifier": "(watch the sources)",
+      "visual": {
+        "type": "art",
+        "id": "person.read",
+        "size": 420
+      },
+      "source": "seg 1 Show"
+    },
+    {
+      "role": "1 Open",
+      "layout": "split",
+      "headline": "Look at what Google trusts here",
+      "body": "That's the whole talk in one screen.",
+      "visual": {
+        "type": "fan",
+        "from": {
+          "logo": "google"
+        },
+        "items": [
+          "Videos",
+          "Reddit threads",
+          {
+            "t": "maybe one blog",
+            "c": "blue"
+          }
+        ]
+      },
+      "source": "seg 1 Say"
+    },
+    {
+      "role": "Proof → LIVE",
+      "headline": "Proof: my videos in AI Overviews",
+      "qualifier": "(\"bizplanr review\" · \"track my visibility review\" · a category search)",
+      "visual": {
+        "type": "art",
+        "id": "person.cheer",
+        "size": 420
+      },
+      "source": "seg 5 ¶1"
+    },
+    {
+      "role": "Proof",
+      "headline": "Two kinds of videos that got cited",
+      "visual": {
+        "type": "cards",
+        "cols": 2,
+        "w": 1100,
+        "items": [
+          {
+            "title": "An honest review of your product",
+            "sub": "shows up when people search your name"
+          },
+          {
+            "title": "A better version of what's there",
+            "sub": "shows up for category searches"
+          }
+        ]
+      },
+      "art": [
+        {
+          "id": "person.talk",
+          "x": 1290,
+          "y": 560,
+          "size": 260
+        }
+      ],
+      "source": "seg 5 ¶1–3"
+    },
+    {
+      "role": "5 Proof → LIVE",
+      "headline": "Short-form counts too",
+      "body": "Even a short with few views is a signal you're an authority.",
+      "visual": {
+        "type": "logos",
+        "logos": [
+          {
+            "logo": "instagram",
+            "name": "Reels"
+          },
+          {
+            "logo": "facebook",
+            "name": "Facebook videos"
+          },
+          {
+            "logo": "youtube",
+            "name": "YouTube Shorts"
+          }
+        ],
+        "w": 1000
+      },
+      "source": "seg 5 ¶4–5"
+    },
+    {
+      "role": "2 Fragmented",
+      "headline": "People now ask four places",
+      "visual": {
+        "type": "cards",
+        "items": [
+          {
+            "title": "Google",
+            "sub": "used to get every question",
+            "logo": "google"
+          },
+          {
+            "title": "ChatGPT",
+            "sub": "a recommendation",
+            "logo": "chatgpt"
+          },
+          {
+            "title": "Gemini",
+            "sub": "a comparison",
+            "logo": "gemini"
+          },
+          {
+            "title": "Perplexity",
+            "sub": "research",
+            "logo": "perplexity"
+          }
+        ],
+        "cols": 4
+      },
+      "source": "seg 2",
+      "body": "Today: Google AI Overviews. It answers before anyone clicks."
+    },
+    {
+      "role": "Brand → LIVE",
+      "layout": "split",
+      "headline": "Your brand name isn't yours anymore",
+      "footer": "Ahrefs (Ryan Law), Oct 2026",
+      "visual": {
+        "type": "stat",
+        "value": "83%",
+        "label": "of US branded searches show an AI Overview"
+      },
+      "source": "seg 3",
+      "qualifier": "(let's search Jira and ClickUp)"
+    },
+    {
+      "role": "4 Social",
+      "headline": [
+        "AI Overviews cite social",
+        {
+          "t": "7.5× more than Gemini",
+          "c": "accent"
+        }
+      ],
+      "footer": "share of citations · Track My Visibility study, 383,188 citations",
+      "visual": {
+        "type": "bars",
+        "series": [
+          "AI Overviews",
+          "Gemini"
+        ],
+        "items": [
+          {
+            "logo": "youtube",
+            "label": "YouTube",
+            "v": [
+              8.9,
+              0.81
+            ]
+          },
+          {
+            "logo": "reddit",
+            "label": "Reddit",
+            "v": [
+              4.51,
+              1.78
+            ]
+          },
+          {
+            "logo": "instagram",
+            "label": "Instagram",
+            "v": [
+              2.62,
+              0
+            ]
+          },
+          {
+            "logo": "tiktok",
+            "label": "TikTok",
+            "v": [
+              1.33,
+              0.04
+            ]
+          }
+        ],
+        "unit": "%",
+        "w": 1200
+      },
+      "source": "TMV study + seg 4"
+    },
+    {
+      "role": "4 Social",
+      "layout": "split",
+      "headline": "AI can now read your videos",
+      "body": "What you say out loud becomes text it can cite.",
+      "visual": {
+        "type": "fan",
+        "from": {
+          "logo": "youtube"
+        },
+        "items": [
+          "Description",
+          "Auto transcript"
+        ],
+        "below": "→ text AI can cite"
+      },
+      "source": "seg 4 ¶4"
+    },
+    {
+      "role": "3 Brand",
+      "layout": "split",
+      "headline": [
+        "You don't control what AI says about you.",
+        {
+          "t": "You control what evidence exists.",
+          "c": "accent"
+        }
+      ],
+      "visual": {
+        "type": "art",
+        "id": "person.point",
+        "size": 440
+      },
+      "source": "seg 3 point + core idea"
+    },
+    {
+      "role": "6 Find → LIVE",
+      "logo": "trackmyvisibility",
+      "headline": "How to find what to make",
+      "visual": {
+        "type": "cards",
+        "items": [
+          {
+            "title": "Your tracked prompts"
+          },
+          {
+            "title": "Sources tab"
+          },
+          {
+            "title": "Filter by YouTube"
+          }
+        ],
+        "cols": 3
+      },
+      "source": "seg 6 ¶1"
+    },
+    {
+      "role": "6 Find",
+      "headline": "The free version",
+      "visual": {
+        "type": "cards",
+        "items": [
+          {
+            "title": "Write down your keywords + questions"
+          },
+          {
+            "title": "Search each one"
+          },
+          {
+            "title": "Look at the videos the Overview cites"
+          },
+          {
+            "title": "Can you make a better one?"
+          }
+        ],
+        "cols": 4
+      },
+      "source": "seg 6 ¶3–4",
+      "body": "Try more than one angle: tools, use cases, comparisons, clips."
+    },
+    {
+      "role": "Basics",
+      "headline": "The basics still work",
+      "visual": {
+        "type": "cards",
+        "cols": 4,
+        "items": [
+          {
+            "title": "The exact question",
+            "sub": "in the title + description"
+          },
+          {
+            "title": "Keywords in captions",
+            "sub": "not hashtags"
+          },
+          {
+            "title": "Say it out loud",
+            "sub": "then check the transcript"
+          },
+          {
+            "title": "A/B test titles",
+            "sub": "on YouTube"
+          }
+        ]
+      },
+      "source": "seg 7 ¶1–6"
+    },
+    {
+      "role": "7 Basics",
+      "headline": "Search Console now takes your social accounts",
+      "body": "Since July 2026. Google is telling you social is part of search.",
+      "visual": {
+        "type": "logos",
+        "logos": [
+          {
+            "logo": "youtube",
+            "name": "YouTube"
+          },
+          {
+            "logo": "instagram",
+            "name": "Instagram"
+          },
+          {
+            "logo": "tiktok",
+            "name": "TikTok"
+          },
+          {
+            "logo": "x",
+            "name": "X"
+          }
+        ],
+        "w": 1100
+      },
+      "source": "seg 7 ¶7"
+    },
+    {
+      "role": "8 Playbook",
+      "headline": "The 90-day playbook",
+      "visual": {
+        "type": "cards",
+        "items": [
+          {
+            "title": "Days 1–30",
+            "sub": "find which channel gets cited in your niche"
+          },
+          {
+            "title": "Days 31–60",
+            "sub": "make the better version + clips"
+          },
+          {
+            "title": "Days 61–90",
+            "sub": "re-check citations, double down"
+          }
+        ],
+        "cols": 3
+      },
+      "source": "playbook (condensed)",
+      "footer": "the metric to watch: citations, not views"
+    },
+    {
+      "role": "9 Close",
+      "headline": "One thing to do this week",
+      "visual": {
+        "type": "cards",
+        "items": [
+          {
+            "title": "Pick 10 questions",
+            "sub": "your customers ask"
+          },
+          {
+            "title": "Search them"
+          },
+          {
+            "title": "See who's getting cited"
+          },
+          {
+            "title": "Make something better"
+          }
+        ],
+        "cols": 4
+      },
+      "source": "closing ¶3"
+    },
+    {
+      "role": "9 Close",
+      "headline": [
+        "Do that for 90 days.",
+        {
+          "t": "AI will know who you are.",
+          "c": "accent"
+        }
+      ],
+      "body": "Thank you.",
+      "visual": {
+        "type": "scene",
+        "items": [
+          {
+            "id": "person.wave",
+            "x": 0.22,
+            "y": 0.05,
+            "size": 380
+          },
+          {
+            "id": "bot.wave",
+            "x": 0.55,
+            "y": 0.12,
+            "size": 330
+          }
+        ],
+        "h": 420
+      },
+      "source": "closing ¶4 (wording: added)"
+    }
+  ]
+}

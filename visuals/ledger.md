@@ -10,7 +10,11 @@ The meanings and the build backlog are in `catalog.md`.
 | 2026-10-27-chatgpt-ads-study | video | 10 | 8 | 60% | `words`×3 `count`×1 `list`×1 |
 | 2026-10-29-studio-edit | video | 30 | 9 | 50% | `words`×7 `shot`×6 `trio`×4 |
 | 2026-10-30-aeo-geo-checklist | reel | 15 | 10 | 0% | `sheet`×4 `score`×2 `row`×2 |
+| 2026-10-30-demo-checklist-reel | reel | 13 | 4 | 0% | `sheet`×10 `counter`×1 `answer`×1 |
 | 2026-10-30-nested-sequence-02 | video | 31 | 17 | 19% | `words`×4 `flap`×4 `phone`×4 |
+| 2026-11-01-axxh3309 | video | 39 | 19 | 36% | `words`×8 `type`×4 `shot`×4 |
+| 2026-11-04-anthropic-reel | reel | 12 | 8 | 0% | `terminal`×2 `tabcard`×2 `webcard`×2 |
+| 2026-11-04-orkas-reel | reel | 12 | 8 | 0% | `appwindow`×3 `phone3d`×2 `webcard`×2 |
 
 ## Scenes
 
@@ -18,83 +22,123 @@ Every scene on the menu and anything a plan used that isn't on it. `last` = newe
 
 | scene | meaning | uses | plans | last |
 |---|---|---|---|---|
-| `words` | the key line | 14 | 3 | 2026-10-30-nested-sequence-02 |
-| `shot` | proof of real work | 9 | 3 | 2026-10-30-nested-sequence-02 |
-| `type` | section title, the key line | 5 | 2 | 2026-10-30-nested-sequence-02 |
-| `flap` | section title | 4 | 1 | 2026-10-30-nested-sequence-02 |
+| `words` | the key line | 22 | 4 | 2026-11-01-axxh3309 |
+| `sheet` | proof of real work | 14 | 2 | 2026-10-30-demo-checklist-reel |
+| `shot` | proof of real work | 13 | 4 | 2026-11-01-axxh3309 |
+| `type` | section title, the key line | 9 | 3 | 2026-11-01-axxh3309 |
+| `trio` | options / a set of three | 6 | 2 | 2026-11-01-axxh3309 |
+| `compare` | before → after, don't do X, do Y | 5 | 2 | 2026-11-01-axxh3309 |
+| `flap` | section title | 5 | 2 | 2026-11-01-axxh3309 |
+| `gallery` | proof of real work | 5 | 2 | 2026-11-01-axxh3309 |
+| `journal` | time passing / consistency | 4 | 2 | 2026-11-01-axxh3309 |
 | `phone` | the app it happens in, reach / being found | 4 | 1 | 2026-10-30-nested-sequence-02 |
-| `sheet` | proof of real work | 4 | 1 | 2026-10-30-aeo-geo-checklist |
-| `trio` | options / a set of three | 4 | 1 | 2026-10-29-studio-edit |
-| `gallery` | proof of real work | 3 | 1 | 2026-10-29-studio-edit |
+| `webcard` | proof of real work | 4 | 2 | 2026-11-04-orkas-reel |
+| `appwindow` | the app it happens in, AI does the work | 3 | 1 | 2026-11-04-orkas-reel |
+| `counter` (old reel engine) | — | 3 | 3 | 2026-11-04-orkas-reel |
 | `loop` | a process / steps | 3 | 1 | 2026-10-29-studio-edit |
 | `calendar` | time passing / consistency | 2 | 1 | 2026-10-30-nested-sequence-02 |
-| `compare` | before → after, don't do X, do Y | 2 | 1 | 2026-10-29-studio-edit |
 | `count` | a number, money / cost | 2 | 2 | 2026-10-29-studio-edit |
-| `journal` | time passing / consistency | 2 | 1 | 2026-10-30-nested-sequence-02 |
+| `curve` | a trend over time | 2 | 1 | 2026-11-01-axxh3309 |
+| `equation` | arithmetic, ≠ / not the same thing, money / cost | 2 | 1 | 2026-11-01-axxh3309 |
+| `marks` | what it's made of, a plan / outline | 2 | 2 | 2026-11-01-axxh3309 |
+| `phone3d` | the app it happens in | 2 | 1 | 2026-11-04-orkas-reel |
+| `radar` | before → after, what it's made of | 2 | 2 | 2026-10-30-nested-sequence-02 |
 | `row` (old reel engine) | — | 2 | 1 | 2026-10-30-aeo-geo-checklist |
 | `score` (old reel engine) | — | 2 | 1 | 2026-10-30-aeo-geo-checklist |
 | `shelf` | time passing / consistency | 2 | 1 | 2026-10-30-nested-sequence-02 |
+| `stack` | levels / hierarchy | 2 | 2 | 2026-11-01-axxh3309 |
+| `tabcard` (not on menu) | — | 2 | 1 | 2026-11-04-anthropic-reel |
+| `terminal` (not on menu) | — | 2 | 1 | 2026-11-04-anthropic-reel |
+| `xpost` (not on menu) | — | 2 | 1 | 2026-11-04-anthropic-reel |
 | `ad` | the app it happens in | 1 | 1 | 2026-10-30-nested-sequence-02 |
+| `answer` | the app it happens in, AI does the work | 1 | 1 | 2026-10-30-demo-checklist-reel |
+| `ask` | — | 1 | 1 | 2026-11-01-axxh3309 |
 | `callouts` | people / voices | 1 | 1 | 2026-10-30-nested-sequence-02 |
 | `chat` | the app it happens in, AI does the work | 1 | 1 | 2026-10-27-chatgpt-ads-study |
-| `counter` (old reel engine) | — | 1 | 1 | 2026-10-30-aeo-geo-checklist |
+| `diff` (not on menu) | — | 1 | 1 | 2026-11-04-anthropic-reel |
+| `dm` | the app it happens in | 1 | 1 | 2026-11-04-orkas-reel |
+| `filetree` (not on menu) | — | 1 | 1 | 2026-11-04-anthropic-reel |
+| `fork` | options / a set of three, a choice / fork | 1 | 1 | 2026-11-01-axxh3309 |
+| `funnel` | a bottleneck / filter, focus / cut the noise | 1 | 1 | 2026-11-01-axxh3309 |
+| `gate3d` (not on menu) | — | 1 | 1 | 2026-11-04-anthropic-reel |
 | `header` (old reel engine) | — | 1 | 1 | 2026-10-30-aeo-geo-checklist |
+| `iconreveal` | section title | 1 | 1 | 2026-11-04-orkas-reel |
 | `lengths` | sizes compared, a trend over time | 1 | 1 | 2026-10-30-nested-sequence-02 |
 | `list` | — | 1 | 1 | 2026-10-27-chatgpt-ads-study |
 | `logos` (old reel engine) | — | 1 | 1 | 2026-10-30-aeo-geo-checklist |
-| `marks` | what it's made of, a plan / outline | 1 | 1 | 2026-10-29-studio-edit |
 | `morph` | before → after | 1 | 1 | 2026-10-30-nested-sequence-02 |
 | `name` (old reel engine) | — | 1 | 1 | 2026-10-30-aeo-geo-checklist |
+| `newscard` (not on menu) | — | 1 | 1 | 2026-11-04-anthropic-reel |
 | `odometer` | a number, time passing / consistency | 1 | 1 | 2026-10-30-nested-sequence-02 |
+| `orbit3d` | a number, AI does the work | 1 | 1 | 2026-11-04-orkas-reel |
 | `places` | a number, a share / proportion, reach / being found | 1 | 1 | 2026-10-27-chatgpt-ads-study |
 | `points` | — | 1 | 1 | 2026-10-27-chatgpt-ads-study |
 | `promptLog` (old reel engine) | — | 1 | 1 | 2026-10-30-aeo-geo-checklist |
-| `radar` | before → after, what it's made of | 1 | 1 | 2026-10-30-nested-sequence-02 |
+| `promptcard` | AI does the work | 1 | 1 | 2026-11-04-orkas-reel |
 | `receipt` | money / cost | 1 | 1 | 2026-10-30-nested-sequence-02 |
 | `resume` | who you are / credentials | 1 | 1 | 2026-10-30-nested-sequence-02 |
+| `scale` | before → after, a trade-off / balance | 1 | 1 | 2026-11-01-axxh3309 |
 | `search` | the app it happens in, reach / being found | 1 | 1 | 2026-10-30-nested-sequence-02 |
+| `sources` | many sources into one | 1 | 1 | 2026-11-01-axxh3309 |
 | `spine` | section title, a plan / outline | 1 | 1 | 2026-10-27-chatgpt-ads-study |
-| `stack` (old reel engine) | — | 1 | 1 | 2026-10-30-aeo-geo-checklist |
+| `sprout` | start small | 1 | 1 | 2026-11-01-axxh3309 |
+| `swap` | don't do X, do Y | 1 | 1 | 2026-11-01-axxh3309 |
 | `tabsMenu` (old reel engine) | — | 1 | 1 | 2026-10-30-aeo-geo-checklist |
 | `acronym` | a definition | 0 | 0 | never |
-| `answer` | the app it happens in, AI does the work | 0 | 0 | never |
 | `article` | proof of real work | 0 | 0 | never |
 | `bridge` | from here to there | 0 | 0 | never |
-| `fork` | options / a set of three, a choice / fork | 0 | 0 | never |
-| `funnel` | a bottleneck / filter, focus / cut the noise | 0 | 0 | never |
+| `bubbles` | what's said vs what's thought | 0 | 0 | never |
+| `bucket` | before → after, wasted effort | 0 | 0 | never |
+| `event` | what happened vs the story we tell | 0 | 0 | never |
 | `iceberg` | hidden work | 0 | 0 | never |
+| `inbox` | — | 0 | 0 | never |
+| `keylock` | old rules stop working | 0 | 0 | never |
+| `link` | — | 0 | 0 | never |
+| `mirror` | it comes back to you | 0 | 0 | never |
+| `path` | what's in the way | 0 | 0 | never |
+| `pick` | options / a set of three, people / voices | 0 | 0 | never |
 | `pipeline` | a process / steps, AI does the work | 0 | 0 | never |
+| `ramp` | from here to there | 0 | 0 | never |
 | `recency` | fresh beats old | 0 | 0 | never |
-| `scale` | before → after, a trade-off / balance | 0 | 0 | never |
-| `sources` | many sources into one | 0 | 0 | never |
+| `recorder` | — | 0 | 0 | never |
+| `scores` | — | 0 | 0 | never |
+| `spotlight` | reach / being found, people / voices | 0 | 0 | never |
 | `stairs` | a process / steps, levels / hierarchy | 0 | 0 | never |
+| `steps` | a process / steps | 0 | 0 | never |
+| `stopwatch` | a number | 0 | 0 | never |
+| `table` | a strong position | 0 | 0 | never |
+| `thread` | — | 0 | 0 | never |
+| `tightrope` | from here to there | 0 | 0 | never |
+| `trap` | a trap | 0 | 0 | never |
+| `tree` | before → after, focus / cut the noise | 0 | 0 | never |
+| `waffle` | — | 0 | 0 | never |
 
 ## Never used
 
-`acronym` `answer` `article` `bridge` `fork` `funnel` `iceberg` `pipeline` `recency` `scale` `sources` `stairs`
+`acronym` `article` `bridge` `bubbles` `bucket` `event` `iceberg` `inbox` `keylock` `link` `mirror` `path` `pick` `pipeline` `ramp` `recency` `recorder` `scores` `spotlight` `stairs` `steps` `stopwatch` `table` `thread` `tightrope` `trap` `tree` `waffle`
 
 ## Meanings with nothing built
 
-arithmetic, scores / ranking, ≠ / not the same thing, a limit / it fills up, a strong position, what's in the way, wasted effort, start small, it comes back to you, a trap, old rules stop working, which goes where, many → one, it runs on its own
+scores / ranking, a limit / it fills up, which goes where, many → one, it runs on its own
 
 ## Stock-card beats in the last plans
 
 Beats that got a stock card. Any that wanted a real picture go into `catalog.md` → Backlog.
 
-**2026-10-29-studio-edit**
-- `type`: and it was Excalidraw
-- `count`: It's been a couple of months since then and I've been using this tool for a lot of things
-- `trio`: So three things primarily: I use it to think, I use it to present and I use it to create content
-- `trio`: now when I have to present something I use the same thing
-- `type`: the best part is it's completely free
-- `trio`: to be fair it's not a design tool but there are multiple things that you can do using Excalidraw
-- `trio`: it doesn't matter who you are, whether a marketer or developer, anyone can use this tool
-- `type`: and one last thing, this is my new YouTube channel, Refluke Finds
-
-**2026-10-30-nested-sequence-02**
-- `type`: You just get a little less bad every video
-- `type`: better late than never
+**2026-11-01-axxh3309**
+- `type`: It's generic and honestly it is AI slop
+- `type`: Now the only rule that you have to follow is you don't have to judge your idea
+- `trio`: It doesn't have to be about your work. If you're watching anime, a philosophical movie or a self-help book or 
+- `trio`: an idea you had noted when you went to an amusement park... amusement parks are fun and lots of kids are there
+- `type`: this is the magic... we're bringing two irrelevant ideas in one place. And that is what idea stacking is all a
+- `type`: beauty exists because things end
 
 ## Catalog health
 
-- OK
+- `ask` is on the menu but in no meaning in the catalog
+- `inbox` is on the menu but in no meaning in the catalog
+- `link` is on the menu but in no meaning in the catalog
+- `recorder` is on the menu but in no meaning in the catalog
+- `scores` is on the menu but in no meaning in the catalog
+- `thread` is on the menu but in no meaning in the catalog
+- `waffle` is on the menu but in no meaning in the catalog
