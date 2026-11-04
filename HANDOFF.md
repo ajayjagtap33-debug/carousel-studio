@@ -13,10 +13,11 @@ This one was built with APFS clones, so it cost almost no disk space (the volume
 
 ## State of this folder
 
-- It is the company's `.git` (branch `broll-treatment-rules`, HEAD `911bc3a`, 14 ahead of `origin/broll-treatment-rules`;
-  `origin/main` is `5057d24`, the merge of PR #1, which does **not** contain those 14 commits).
-- The merge is **uncommitted**: `git status` shows 57 changed tracked files (all real content changes — the CRLF and file-mode
-  noise was cleaned up) and the rest untracked. Nothing was committed, pushed or pulled.
+- It is the company's `.git` (branch `broll-treatment-rules`, 15 ahead of `origin/broll-treatment-rules`; `origin/main` is
+  `5057d24`, the merge of PR #1, which does **not** contain the company's 14 commits).
+- The merge is **committed locally** as `6415f9c` (592 files, 72 MB), together with the company's own uncommitted work, which
+  couldn't be separated from the merge in the shared files. Nothing was pushed or pulled. Four large folders were left out and are
+  still untracked (see open question 2). The CRLF and file-mode noise was cleaned up before committing.
 - Line endings are LF (the company copy was CRLF; its committed blobs are LF, so `git diff` is clean of that noise).
   `sync.ps1` keeps CRLF on purpose (`.gitattributes`).
 - The repo's own config had Windows settings (`filemode=false`, `ignorecase=true`); they are now `true` / `false`.
@@ -98,9 +99,9 @@ against the newer base a naive merge would have silently deleted the company's l
 
 ## Open questions for Ajay
 
-1. **Commit and push?** The merge is uncommitted on a branch that is 14 commits ahead of origin and not merged to `main`.
-   Suggested order: (a) decide the big untracked folders below, (b) commit the company's 14-ahead work and the merge as separate
-   commits, (c) push the branch and open a PR to `main`. Don't run `./sync.sh` before (a): it `git add -A`s everything.
+1. **Push?** The merge is committed locally (`6415f9c`) on a branch 15 commits ahead of origin and not merged to `main`.
+   Suggested order: (a) decide the big untracked folders below, (b) push the branch and open a PR to `main`. Don't run
+   `./sync.sh` before (a): it `git add -A`s everything.
 2. **Untracked and not ignored (≈ 840 MB)**: `reel-creator/reference/` (480 MB, includes 49 other creators' reels — the repo's own
    rule keeps other creators' frames local), `reel-creator/reels/` (126 MB renders), `carousels/2026-11-04-reddit-ai-mode-styles/`
    (112 MB), `carousels/2026-10-31-stay-human-mix/` (35 MB). Ignore, commit, or leave.

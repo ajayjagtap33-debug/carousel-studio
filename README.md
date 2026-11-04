@@ -74,8 +74,8 @@ of it, kept level by `./sync.sh` (Mac) or `.\sync.ps1` (Windows) — one command
 when nothing changed, and if the same file changed on both machines it stops before committing anything and prints the
 exact commands to sort it out. Pass your own message if you want one: `./sync.sh "aeo checklist v2"`.
 
-**Don't run it yet** — the merge is uncommitted and the branch is 14 commits ahead of origin. `HANDOFF.md` → "Next steps"
-says what to commit first.
+**Don't run it yet** — four large folders are still untracked (`git add -A` would commit them) and the branch is 15 commits
+ahead of origin, unpushed. `HANDOFF.md` → "Open questions" says what to decide first.
 
 Left out of the repo on purpose (large or machine-specific): `broll/node_modules/` (`cd broll && npm install`),
 `tools/ffmpeg/`, `tools/node/`, `tools/bin/` (install ffmpeg and Node yourself on a new machine: `brew install ffmpeg
