@@ -1,0 +1,15 @@
+You don't need to pay for a booking tool anymore.
+I just built my very own on Replet,
+and it even takes payments.
+All I did was describe what I wanted,
+and it built the entire thing,
+from calendar structure, availability rules,
+and even confirmation emails.
+Then I asked it to add a way to receive payment.
+And since Stripe was already built in,
+it was complete one-shot prompt from a single message.
+Plus, you can also add it live on your own domain,
+like I did.
+So if you wanna try it for yourselves,
+just comment book down below,
+and I'll send you guys the link directly.

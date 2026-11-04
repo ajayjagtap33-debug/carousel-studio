@@ -1,0 +1,87 @@
+1
+00:00:00,000 --> 00:00:01,580
+Anthropic just launched Claude Academy,
+
+2
+00:00:01,760 --> 00:00:03,100
+their new free learning platform
+
+3
+00:00:03,100 --> 00:00:05,160
+to help you master Claude completely free.
+
+4
+00:00:05,299 --> 00:00:07,700
+Inside, you'll get access to full courses on Claude code,
+
+5
+00:00:07,879 --> 00:00:09,660
+co-work, projects, the Claude API,
+
+6
+00:00:09,900 --> 00:00:11,800
+and also how to use it to build anything you want.
+
+7
+00:00:11,880 --> 00:00:12,679
+So if you're a total beginner,
+
+8
+00:00:12,820 --> 00:00:14,300
+this is the best place to start.
+
+9
+00:00:14,380 --> 00:00:15,480
+If you already know some of the basics,
+
+10
+00:00:15,679 --> 00:00:18,320
+then they also have a full nine hour developer program
+
+11
+00:00:18,320 --> 00:00:21,100
+on MCPs, agents, tool use, and much more.
+
+12
+00:00:21,199 --> 00:00:22,120
+And it's not just videos.
+
+13
+00:00:22,339 --> 00:00:24,660
+Every course comes with quizzes, lectures, notes,
+
+14
+00:00:24,800 --> 00:00:27,079
+and real examples of how to actually use this stuff
+
+15
+00:00:27,079 --> 00:00:27,980
+in working environments.
+
+16
+00:00:28,260 --> 00:00:29,359
+Plus, once you finish a course,
+
+17
+00:00:29,359 --> 00:00:31,019
+you also get an official completion badge
+
+18
+00:00:31,019 --> 00:00:32,399
+you guys can put straight on your LinkedIn
+
+19
+00:00:32,399 --> 00:00:33,380
+or even your resume.
+
+20
+00:00:33,579 --> 00:00:34,640
+So if you wanna try it yourselves,
+
+21
+00:00:34,759 --> 00:00:36,020
+just comment Claude down below
+
+22
+00:00:36,020 --> 00:00:37,159
+and I'll send you the links directly.

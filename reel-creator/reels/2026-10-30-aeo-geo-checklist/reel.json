@@ -1,0 +1,1321 @@
+{
+ "video": "cut.mp4",
+ "duration": 40.4,
+ "theme": "tmv",
+ "face": {
+  "x": 0.5,
+  "y": 0.35
+ },
+ "hook": {
+  "lines": [
+   "1,200 SEOs use",
+   "this one sheet"
+  ],
+  "end": 2.92
+ },
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 2.92,
+   "layout": "split",
+   "scene": {
+    "type": "counter",
+    "at": 0.54,
+    "to": 1200,
+    "label": "SEOs and marketers",
+    "size": 190
+   }
+  },
+  {
+   "start": 2.92,
+   "end": 4.36,
+   "layout": "soft",
+   "scene": {
+    "type": "header",
+    "src": "shots/sheets-header.png",
+    "ringAt": 3.12
+   }
+  },
+  {
+   "start": 4.36,
+   "end": 6.32,
+   "layout": "split",
+   "scene": {
+    "type": "logos",
+    "items": [
+     {
+      "src": "logos/chatgpt.png",
+      "name": "ChatGPT",
+      "at": 4.7
+     },
+     {
+      "src": "logos/perplexity.svg",
+      "name": "Perplexity",
+      "at": 5.52
+     }
+    ]
+   }
+  },
+  {
+   "start": 6.32,
+   "end": 8.26,
+   "layout": "soft",
+   "scene": {
+    "type": "score",
+    "ringAt": 6.95,
+    "counter": {
+     "at": 6.64,
+     "to": 250,
+     "label": "point checklist"
+    },
+    "chips": [
+     {
+      "text": "AEO",
+      "at": 7.28
+     },
+     {
+      "text": "GEO",
+      "at": 7.68
+     }
+    ]
+   }
+  },
+  {
+   "start": 8.26,
+   "end": 10.28,
+   "layout": "split",
+   "scene": {
+    "type": "name",
+    "logo": "logos/tmv-red.png",
+    "logoAt": 8.4,
+    "nameAt": 8.85,
+    "name": [
+     "Track My",
+     "Visibility"
+    ]
+   }
+  },
+  {
+   "start": 10.28,
+   "end": 11.86,
+   "layout": "full",
+   "scene": {
+    "type": "tabsMenu",
+    "steps": [
+     {
+      "at": 10.28,
+      "i": 0
+     },
+     {
+      "at": 11.26,
+      "i": 1
+     },
+     {
+      "at": 11.6,
+      "i": 2
+     }
+    ]
+   }
+  },
+  {
+   "start": 11.86,
+   "end": 14.42,
+   "layout": "soft",
+   "scene": {
+    "type": "sheet",
+    "tabs": [
+     {
+      "at": 11.86,
+      "tab": "SEO Foundation"
+     },
+     {
+      "at": 13.3,
+      "tab": "AEO Readiness"
+     },
+     {
+      "at": 13.98,
+      "tab": "GEO Readiness"
+     }
+    ]
+   }
+  },
+  {
+   "start": 14.42,
+   "end": 16.26,
+   "layout": "full",
+   "enter": "slide",
+   "scene": {
+    "type": "sheet",
+    "tabs": [
+     {
+      "at": 14.42,
+      "tab": "Local SEO Readiness"
+     },
+     {
+      "at": 15.44,
+      "tab": "Monitoring & Optimization"
+     }
+    ]
+   }
+  },
+  {
+   "start": 16.26,
+   "end": 18.1,
+   "layout": "soft",
+   "scene": {
+    "type": "row",
+    "category": "Answer-First Format",
+    "priority": "High",
+    "item": "Key facts appear in first 2-3 sentences of sections",
+    "note": "Lead with the answer, details follow",
+    "itemAt": 17.5
+   }
+  },
+  {
+   "start": 18.1,
+   "end": 20.2,
+   "layout": "split",
+   "scene": {
+    "type": "row",
+    "category": "Answer-First Format",
+    "priority": "High",
+    "item": "Key facts appear in first 2-3 sentences of sections",
+    "note": "Lead with the answer, details follow",
+    "itemAt": 0,
+    "noteAt": 18.78
+   }
+  },
+  {
+   "start": 20.2,
+   "end": 22.2,
+   "layout": "soft",
+   "scene": {
+    "type": "sheet",
+    "tab": "Quick Wins",
+    "chipGlow": {
+     "at": 20.46,
+     "step": 0.15
+    }
+   }
+  },
+  {
+   "start": 22.2,
+   "end": 24.58,
+   "layout": "fth"
+  },
+  {
+   "start": 24.58,
+   "end": 26.32,
+   "layout": "split",
+   "scene": {
+    "type": "sheet",
+    "tab": "Quick Wins",
+    "fs": 21,
+    "ticks": [
+     {
+      "at": 25.08,
+      "row": 1
+     },
+     {
+      "at": 25.22,
+      "row": 3
+     },
+     {
+      "at": 25.46,
+      "row": 5
+     }
+    ],
+    "cursor": [
+     {
+      "at": 25.08,
+      "row": 1
+     },
+     {
+      "at": 25.22,
+      "row": 3
+     },
+     {
+      "at": 25.46,
+      "row": 5
+     }
+    ]
+   }
+  },
+  {
+   "start": 26.32,
+   "end": 29.4,
+   "layout": "soft",
+   "scene": {
+    "type": "score",
+    "rowsAt": 27.42,
+    "rowStep": 0.1,
+    "countAt": 27.9
+   }
+  },
+  {
+   "start": 29.4,
+   "end": 33.84,
+   "layout": "split",
+   "enter": "slide",
+   "scene": {
+    "type": "promptLog",
+    "title": "AI Prompt Testing Log",
+    "engines": [
+     {
+      "src": "logos/chatgpt.png",
+      "name": "ChatGPT",
+      "at": 31.76
+     },
+     {
+      "src": "logos/perplexity.svg",
+      "name": "Perplexity",
+      "at": 32.4
+     },
+     {
+      "src": "logos/gemini.png",
+      "name": "Gemini",
+      "at": 33.04
+     }
+    ],
+    "rows": [
+     {
+      "prompt": "best AEO checklist for agencies",
+      "hits": [
+       true,
+       false,
+       true
+      ]
+     },
+     {
+      "prompt": "how do I get cited by ChatGPT",
+      "hits": [
+       false,
+       true,
+       true
+      ]
+     },
+     {
+      "prompt": "AI visibility audit template",
+      "hits": [
+       true,
+       true,
+       false
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "start": 33.84,
+   "end": 36.92,
+   "layout": "soft",
+   "scene": {
+    "type": "stack",
+    "fanAt": 35.38,
+    "label": "Unlimited websites",
+    "sites": [
+     "client-three.com",
+     "client-two.com",
+     "client-one.com",
+     "yourbrand.com"
+    ]
+   }
+  },
+  {
+   "start": 36.92,
+   "end": 40.4,
+   "layout": "cta"
+  }
+ ],
+ "captions": [
+  {
+   "start": 0.0,
+   "end": 0.96,
+   "words": [
+    {
+     "w": "More",
+     "s": 0.0
+    },
+    {
+     "w": "than",
+     "s": 0.34
+    },
+    {
+     "w": "1,200",
+     "s": 0.54,
+     "accent": true
+    }
+   ]
+  },
+  {
+   "start": 0.96,
+   "end": 1.84,
+   "words": [
+    {
+     "w": "SEOs",
+     "s": 0.96
+    },
+    {
+     "w": "and",
+     "s": 1.48
+    },
+    {
+     "w": "marketers",
+     "s": 1.58
+    }
+   ]
+  },
+  {
+   "start": 1.84,
+   "end": 2.54,
+   "words": [
+    {
+     "w": "are",
+     "s": 1.84
+    },
+    {
+     "w": "using",
+     "s": 2.1
+    },
+    {
+     "w": "this",
+     "s": 2.32
+    }
+   ]
+  },
+  {
+   "start": 2.54,
+   "end": 2.94,
+   "words": [
+    {
+     "w": "one",
+     "s": 2.54
+    }
+   ]
+  },
+  {
+   "start": 2.94,
+   "end": 3.52,
+   "words": [
+    {
+     "w": "Google",
+     "s": 2.94
+    },
+    {
+     "w": "Sheet",
+     "s": 3.12,
+     "accent": true
+    },
+    {
+     "w": "to",
+     "s": 3.38
+    }
+   ]
+  },
+  {
+   "start": 3.52,
+   "end": 4.0,
+   "words": [
+    {
+     "w": "get",
+     "s": 3.52
+    },
+    {
+     "w": "their",
+     "s": 3.64
+    },
+    {
+     "w": "site",
+     "s": 3.8
+    }
+   ]
+  },
+  {
+   "start": 4.0,
+   "end": 4.38,
+   "words": [
+    {
+     "w": "mentioned",
+     "s": 4.0
+    }
+   ]
+  },
+  {
+   "start": 4.38,
+   "end": 5.52,
+   "words": [
+    {
+     "w": "in",
+     "s": 4.38
+    },
+    {
+     "w": "ChatGPT",
+     "s": 4.7,
+     "accent": true
+    },
+    {
+     "w": "and",
+     "s": 5.2
+    }
+   ]
+  },
+  {
+   "start": 5.52,
+   "end": 6.34,
+   "words": [
+    {
+     "w": "Perplexity",
+     "s": 5.52,
+     "accent": true
+    }
+   ]
+  },
+  {
+   "start": 6.34,
+   "end": 7.28,
+   "words": [
+    {
+     "w": "It's",
+     "s": 6.34
+    },
+    {
+     "w": "a",
+     "s": 6.52
+    },
+    {
+     "w": "250-point",
+     "s": 6.64,
+     "accent": true
+    }
+   ]
+  },
+  {
+   "start": 7.28,
+   "end": 8.28,
+   "words": [
+    {
+     "w": "AEO-GEO",
+     "s": 7.28
+    },
+    {
+     "w": "checklist",
+     "s": 8.04
+    }
+   ]
+  },
+  {
+   "start": 8.28,
+   "end": 8.94,
+   "words": [
+    {
+     "w": "that",
+     "s": 8.28
+    },
+    {
+     "w": "we",
+     "s": 8.6
+    },
+    {
+     "w": "built",
+     "s": 8.72
+    }
+   ]
+  },
+  {
+   "start": 8.94,
+   "end": 9.84,
+   "words": [
+    {
+     "w": "originally",
+     "s": 8.94
+    },
+    {
+     "w": "for",
+     "s": 9.38
+    },
+    {
+     "w": "our",
+     "s": 9.68
+    }
+   ]
+  },
+  {
+   "start": 9.84,
+   "end": 10.36,
+   "words": [
+    {
+     "w": "team",
+     "s": 9.84,
+     "accent": true
+    }
+   ]
+  },
+  {
+   "start": 10.36,
+   "end": 10.84,
+   "words": [
+    {
+     "w": "You",
+     "s": 10.36
+    },
+    {
+     "w": "just",
+     "s": 10.46
+    },
+    {
+     "w": "go",
+     "s": 10.64
+    }
+   ]
+  },
+  {
+   "start": 10.84,
+   "end": 11.4,
+   "words": [
+    {
+     "w": "through",
+     "s": 10.84
+    },
+    {
+     "w": "it",
+     "s": 11.02
+    },
+    {
+     "w": "tab",
+     "s": 11.26
+    }
+   ]
+  },
+  {
+   "start": 11.4,
+   "end": 11.88,
+   "words": [
+    {
+     "w": "by",
+     "s": 11.4
+    },
+    {
+     "w": "tab",
+     "s": 11.6,
+     "accent": true
+    }
+   ]
+  },
+  {
+   "start": 11.88,
+   "end": 13.02,
+   "words": [
+    {
+     "w": "from",
+     "s": 11.88
+    },
+    {
+     "w": "SEO",
+     "s": 12.38
+    },
+    {
+     "w": "Foundation",
+     "s": 12.68,
+     "accent": true
+    }
+   ]
+  },
+  {
+   "start": 13.02,
+   "end": 13.98,
+   "words": [
+    {
+     "w": "to",
+     "s": 13.02
+    },
+    {
+     "w": "AEO",
+     "s": 13.3
+    }
+   ]
+  },
+  {
+   "start": 13.98,
+   "end": 14.46,
+   "words": [
+    {
+     "w": "GEO",
+     "s": 13.98,
+     "accent": true
+    }
+   ]
+  },
+  {
+   "start": 14.46,
+   "end": 15.44,
+   "words": [
+    {
+     "w": "Local",
+     "s": 14.46
+    },
+    {
+     "w": "visibility",
+     "s": 14.64
+    },
+    {
+     "w": "and",
+     "s": 14.94
+    }
+   ]
+  },
+  {
+   "start": 15.44,
+   "end": 16.28,
+   "words": [
+    {
+     "w": "tracking",
+     "s": 15.44,
+     "accent": true
+    },
+    {
+     "w": "and",
+     "s": 15.7
+    }
+   ]
+  },
+  {
+   "start": 16.28,
+   "end": 17.24,
+   "words": [
+    {
+     "w": "every",
+     "s": 16.28
+    },
+    {
+     "w": "check",
+     "s": 16.76
+    },
+    {
+     "w": "tells",
+     "s": 17.0
+    }
+   ]
+  },
+  {
+   "start": 17.24,
+   "end": 17.84,
+   "words": [
+    {
+     "w": "you",
+     "s": 17.24
+    },
+    {
+     "w": "why",
+     "s": 17.5,
+     "accent": true
+    },
+    {
+     "w": "it",
+     "s": 17.7
+    }
+   ]
+  },
+  {
+   "start": 17.84,
+   "end": 18.12,
+   "words": [
+    {
+     "w": "matters",
+     "s": 17.84
+    }
+   ]
+  },
+  {
+   "start": 18.12,
+   "end": 18.78,
+   "words": [
+    {
+     "w": "and",
+     "s": 18.12
+    },
+    {
+     "w": "how",
+     "s": 18.38
+    },
+    {
+     "w": "to",
+     "s": 18.62
+    }
+   ]
+  },
+  {
+   "start": 18.78,
+   "end": 19.3,
+   "words": [
+    {
+     "w": "fix",
+     "s": 18.78
+    },
+    {
+     "w": "it",
+     "s": 18.96
+    },
+    {
+     "w": "in",
+     "s": 19.12
+    }
+   ]
+  },
+  {
+   "start": 19.3,
+   "end": 20.22,
+   "words": [
+    {
+     "w": "plain",
+     "s": 19.3
+    },
+    {
+     "w": "English",
+     "s": 19.5,
+     "accent": true
+    }
+   ]
+  },
+  {
+   "start": 20.22,
+   "end": 20.7,
+   "words": [
+    {
+     "w": "It",
+     "s": 20.22
+    },
+    {
+     "w": "even",
+     "s": 20.32
+    },
+    {
+     "w": "marks",
+     "s": 20.46
+    }
+   ]
+  },
+  {
+   "start": 20.7,
+   "end": 21.5,
+   "words": [
+    {
+     "w": "the",
+     "s": 20.7
+    },
+    {
+     "w": "efforts",
+     "s": 20.88,
+     "accent": true
+    },
+    {
+     "w": "required",
+     "s": 21.1
+    }
+   ]
+  },
+  {
+   "start": 21.5,
+   "end": 22.22,
+   "words": [
+    {
+     "w": "for",
+     "s": 21.5
+    },
+    {
+     "w": "each",
+     "s": 21.74
+    },
+    {
+     "w": "step",
+     "s": 22.0
+    }
+   ]
+  },
+  {
+   "start": 22.22,
+   "end": 22.78,
+   "words": [
+    {
+     "w": "so",
+     "s": 22.22
+    },
+    {
+     "w": "you",
+     "s": 22.38
+    },
+    {
+     "w": "know",
+     "s": 22.54
+    }
+   ]
+  },
+  {
+   "start": 22.78,
+   "end": 23.58,
+   "words": [
+    {
+     "w": "which",
+     "s": 22.78
+    },
+    {
+     "w": "quick",
+     "s": 23.08,
+     "accent": true
+    },
+    {
+     "w": "wins",
+     "s": 23.36,
+     "accent": true
+    }
+   ]
+  },
+  {
+   "start": 23.58,
+   "end": 24.62,
+   "words": [
+    {
+     "w": "to",
+     "s": 23.58
+    },
+    {
+     "w": "do",
+     "s": 23.82
+    },
+    {
+     "w": "first",
+     "s": 24.0
+    }
+   ]
+  },
+  {
+   "start": 24.62,
+   "end": 25.08,
+   "words": [
+    {
+     "w": "Then",
+     "s": 24.62
+    },
+    {
+     "w": "as",
+     "s": 24.72
+    },
+    {
+     "w": "you",
+     "s": 24.94
+    }
+   ]
+  },
+  {
+   "start": 25.08,
+   "end": 25.84,
+   "words": [
+    {
+     "w": "tick",
+     "s": 25.08
+    },
+    {
+     "w": "things",
+     "s": 25.22
+    },
+    {
+     "w": "off",
+     "s": 25.46
+    }
+   ]
+  },
+  {
+   "start": 25.84,
+   "end": 26.34,
+   "words": [
+    {
+     "w": "it",
+     "s": 25.84
+    },
+    {
+     "w": "updates",
+     "s": 25.94
+    }
+   ]
+  },
+  {
+   "start": 26.34,
+   "end": 27.42,
+   "words": [
+    {
+     "w": "your",
+     "s": 26.34
+    },
+    {
+     "w": "score",
+     "s": 26.58,
+     "accent": true
+    },
+    {
+     "w": "across",
+     "s": 26.9
+    }
+   ]
+  },
+  {
+   "start": 27.42,
+   "end": 28.7,
+   "words": [
+    {
+     "w": "six",
+     "s": 27.42,
+     "accent": true
+    },
+    {
+     "w": "areas",
+     "s": 27.76
+    },
+    {
+     "w": "all",
+     "s": 28.2
+    }
+   ]
+  },
+  {
+   "start": 28.7,
+   "end": 29.42,
+   "words": [
+    {
+     "w": "on",
+     "s": 28.7
+    },
+    {
+     "w": "its",
+     "s": 28.98
+    },
+    {
+     "w": "own",
+     "s": 29.14,
+     "accent": true
+    }
+   ]
+  },
+  {
+   "start": 29.42,
+   "end": 29.92,
+   "words": [
+    {
+     "w": "Plus",
+     "s": 29.42
+    }
+   ]
+  },
+  {
+   "start": 29.92,
+   "end": 30.2,
+   "words": [
+    {
+     "w": "there",
+     "s": 29.92
+    },
+    {
+     "w": "is",
+     "s": 30.0
+    },
+    {
+     "w": "a",
+     "s": 30.08
+    }
+   ]
+  },
+  {
+   "start": 30.2,
+   "end": 30.84,
+   "words": [
+    {
+     "w": "prompt",
+     "s": 30.2,
+     "accent": true
+    },
+    {
+     "w": "log",
+     "s": 30.4,
+     "accent": true
+    },
+    {
+     "w": "to",
+     "s": 30.62
+    }
+   ]
+  },
+  {
+   "start": 30.84,
+   "end": 31.52,
+   "words": [
+    {
+     "w": "track",
+     "s": 30.84
+    },
+    {
+     "w": "your",
+     "s": 31.08
+    },
+    {
+     "w": "brand",
+     "s": 31.28
+    }
+   ]
+  },
+  {
+   "start": 31.52,
+   "end": 32.4,
+   "words": [
+    {
+     "w": "in",
+     "s": 31.52
+    },
+    {
+     "w": "ChatGPT",
+     "s": 31.76
+    }
+   ]
+  },
+  {
+   "start": 32.4,
+   "end": 33.88,
+   "words": [
+    {
+     "w": "Perplexity",
+     "s": 32.4
+    },
+    {
+     "w": "and",
+     "s": 32.82
+    },
+    {
+     "w": "Gemini",
+     "s": 33.04,
+     "accent": true
+    }
+   ]
+  },
+  {
+   "start": 33.88,
+   "end": 34.2,
+   "words": [
+    {
+     "w": "And",
+     "s": 33.88
+    },
+    {
+     "w": "you",
+     "s": 33.96
+    },
+    {
+     "w": "can",
+     "s": 34.08
+    }
+   ]
+  },
+  {
+   "start": 34.2,
+   "end": 34.84,
+   "words": [
+    {
+     "w": "use",
+     "s": 34.2
+    },
+    {
+     "w": "the",
+     "s": 34.38
+    },
+    {
+     "w": "same",
+     "s": 34.52
+    }
+   ]
+  },
+  {
+   "start": 34.84,
+   "end": 35.88,
+   "words": [
+    {
+     "w": "sheet",
+     "s": 34.84
+    },
+    {
+     "w": "for",
+     "s": 35.08
+    },
+    {
+     "w": "unlimited",
+     "s": 35.38,
+     "accent": true
+    }
+   ]
+  },
+  {
+   "start": 35.88,
+   "end": 36.94,
+   "words": [
+    {
+     "w": "websites",
+     "s": 35.88
+    }
+   ]
+  },
+  {
+   "start": 36.94,
+   "end": 37.14,
+   "words": [
+    {
+     "w": "So",
+     "s": 36.94
+    },
+    {
+     "w": "if",
+     "s": 36.96
+    },
+    {
+     "w": "you",
+     "s": 37.06
+    }
+   ]
+  },
+  {
+   "start": 37.14,
+   "end": 37.58,
+   "words": [
+    {
+     "w": "want",
+     "s": 37.14
+    },
+    {
+     "w": "the",
+     "s": 37.28
+    },
+    {
+     "w": "sheet",
+     "s": 37.4
+    }
+   ]
+  },
+  {
+   "start": 37.58,
+   "end": 38.26,
+   "words": [
+    {
+     "w": "for",
+     "s": 37.58
+    },
+    {
+     "w": "yourself",
+     "s": 37.72,
+     "accent": true
+    }
+   ]
+  },
+  {
+   "start": 38.26,
+   "end": 38.96,
+   "words": [
+    {
+     "w": "just",
+     "s": 38.26
+    },
+    {
+     "w": "comment",
+     "s": 38.3
+    },
+    {
+     "w": "AUDIT",
+     "s": 38.58
+    }
+   ]
+  },
+  {
+   "start": 38.96,
+   "end": 39.66,
+   "words": [
+    {
+     "w": "below",
+     "s": 38.96
+    },
+    {
+     "w": "and",
+     "s": 39.24
+    },
+    {
+     "w": "I'll",
+     "s": 39.5
+    }
+   ]
+  },
+  {
+   "start": 39.66,
+   "end": 40.04,
+   "words": [
+    {
+     "w": "DM",
+     "s": 39.66
+    },
+    {
+     "w": "you",
+     "s": 39.8
+    },
+    {
+     "w": "the",
+     "s": 39.94
+    }
+   ]
+  },
+  {
+   "start": 40.04,
+   "end": 40.56,
+   "words": [
+    {
+     "w": "link",
+     "s": 40.04
+    }
+   ]
+  }
+ ],
+ "cta": {
+  "keyword": "AUDIT",
+  "at": 38.3
+ },
+ "sound": {
+  "music": "../../reference/05_audio/stems/20_music.mp3",
+  "sfx": [
+   {
+    "at": 1.05,
+    "file": "hit.wav",
+    "db": -16
+   },
+   {
+    "at": 6.3,
+    "file": "whoosh-up.wav",
+    "db": -18
+   },
+   {
+    "at": 8.4,
+    "file": "thump.wav",
+    "db": -14
+   },
+   {
+    "at": 10.24,
+    "file": "whoosh-down.wav",
+    "db": -18
+   },
+   {
+    "at": 25.08,
+    "file": "pop.wav",
+    "db": -18
+   },
+   {
+    "at": 29.36,
+    "file": "whoosh-up.wav",
+    "db": -16
+   },
+   {
+    "at": 38.3,
+    "file": "hit.wav",
+    "db": -13
+   }
+  ]
+ }
+}

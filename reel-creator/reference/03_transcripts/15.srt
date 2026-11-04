@@ -1,0 +1,39 @@
+1
+00:00:00,000 --> 00:00:03,000
+You can now build a voice agent that answers in under a tenth of a second.
+
+2
+00:00:03,180 --> 00:00:07,320
+It's called FISH Audio, and it starts responding in about 90 milliseconds, which is quick enough
+
+3
+00:00:07,320 --> 00:00:11,400
+that the whole thing feels like a totally real conversation instead of a usual laggy
+
+4
+00:00:11,400 --> 00:00:11,539
+one.
+
+5
+00:00:11,619 --> 00:00:14,859
+It can also clone your voice from just a 10 second recording, and that clone can speak
+
+6
+00:00:14,859 --> 00:00:16,140
+up to 83 languages.
+
+7
+00:00:16,379 --> 00:00:19,320
+Plus, there's an MCP, so you can wire it straight in your codecs or your preferred
+
+8
+00:00:19,320 --> 00:00:19,600
+platform.
+
+9
+00:00:19,859 --> 00:00:20,699
+Wanna try this for yourselves?
+
+10
+00:00:20,960 --> 00:00:23,399
+Just comment voice down below, and I'll send you the link directly.

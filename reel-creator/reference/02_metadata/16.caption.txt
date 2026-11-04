@@ -1,0 +1,41 @@
+Comment "CODING" to start Reverse Engineering things with Claude Code. 
+
+Your Claude Code can now reverse engineer any app on your computer.
+
+Down to its every feature, for completely free.
+
+It's called Reverse Engineer Anything.
+
+It's a free and open source tool that's just crossed 37,000 stars on GitHub.
+
+You just install it and point it at any desktop app, mobile app, or website.
+
+And it decompiles the whole thing.
+
+It pulls out its full code.
+
+And then traces back how each feature works.
+
+All the way from your click to the final output.
+
+And it explains it to you step by step.
+
+Plus it also helps you rebuild that same feature for your own product.
+
+Based on your coding stack.
+
+Think of it like getting the blueprints to a finished building instead of just walking through the front door.
+
+You see exactly how every part was put together.
+
+Nothing stays hidden.
+
+No more guessing how your favorite app pulls off that one feature.
+
+Instead of starting from a blank page, you start from something that already works.
+
+That saves you hours of trial and error on every new feature.
+
+It works on desktop apps, mobile apps, and websites alike.
+
+#claudecode #githubrepo #rea #reverseengineeranything #opensourceai

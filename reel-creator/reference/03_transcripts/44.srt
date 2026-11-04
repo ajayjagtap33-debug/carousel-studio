@@ -1,0 +1,47 @@
+1
+00:00:00,000 --> 00:00:04,259
+Google just dropped over a hundred AI skills that make your cloud code an expert on Google's
+
+2
+00:00:04,259 --> 00:00:05,000
+entire stack.
+
+3
+00:00:05,240 --> 00:00:08,679
+It's called Google's Agent Skills, and it's a free open source library that's already
+
+4
+00:00:08,679 --> 00:00:10,240
+crossed 18,000 stars on GitHub.
+
+5
+00:00:10,500 --> 00:00:13,820
+So instead of guessing, your coding agent now follows Google's own official playbooks
+
+6
+00:00:13,820 --> 00:00:18,000
+for handling Google Analytics, Google Gemini, Ads, Cloud, and even Firebase.
+
+7
+00:00:18,199 --> 00:00:22,079
+And with it, you can build your own AI Google ecosystem inside your terminal, where one
+
+8
+00:00:22,079 --> 00:00:25,899
+skill can pull your analytics data, the next one can find exactly what's underperforming,
+
+9
+00:00:26,079 --> 00:00:29,620
+and maybe another can go and fix your ad campaigns based off its copy and creative
+
+10
+00:00:29,620 --> 00:00:30,059
+suggestions.
+
+11
+00:00:30,339 --> 00:00:32,640
+And this entire setup takes just one command to install.
+
+12
+00:00:32,799 --> 00:00:35,719
+So if you want to try it for yourselves, just comment Google and I'll DM it to you directly.

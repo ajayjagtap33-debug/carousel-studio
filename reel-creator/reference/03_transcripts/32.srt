@@ -1,0 +1,79 @@
+1
+00:00:00,000 --> 00:00:01,459
+Your AI can edit videos now,
+
+2
+00:00:01,560 --> 00:00:03,459
+and not just simple things like captions and cuts,
+
+3
+00:00:03,640 --> 00:00:05,099
+but full production grade edits.
+
+4
+00:00:05,320 --> 00:00:07,219
+DaVinci Resolve, which is a free video editor
+
+5
+00:00:07,219 --> 00:00:08,519
+that's on par with Premiere Pro,
+
+6
+00:00:08,660 --> 00:00:10,539
+just dropped an official MCP server.
+
+7
+00:00:10,679 --> 00:00:13,119
+So you can now connect it directly to Claude Code or Codex
+
+8
+00:00:13,119 --> 00:00:14,640
+and control your entire timeline,
+
+9
+00:00:14,939 --> 00:00:16,359
+literally just by having a conversation.
+
+10
+00:00:16,760 --> 00:00:17,980
+So with this, you can now automatically
+
+11
+00:00:17,980 --> 00:00:20,120
+color grade your footage, build motion graphics,
+
+12
+00:00:20,399 --> 00:00:22,500
+create multicam cuts, add sound effects,
+
+13
+00:00:22,620 --> 00:00:23,899
+and even adjust your own music
+
+14
+00:00:23,899 --> 00:00:25,440
+so it fits the edits perfectly.
+
+15
+00:00:25,699 --> 00:00:27,440
+Plus, if you need a B-roll clip in between,
+
+16
+00:00:27,579 --> 00:00:28,679
+you can have Claude generate it
+
+17
+00:00:28,679 --> 00:00:30,219
+and then just drop it straight into the timeline.
+
+18
+00:00:30,500 --> 00:00:31,620
+Want the whole setup for yourselves?
+
+19
+00:00:31,899 --> 00:00:33,039
+Just comment video down below
+
+20
+00:00:33,039 --> 00:00:34,079
+and I'll send you the link directly.

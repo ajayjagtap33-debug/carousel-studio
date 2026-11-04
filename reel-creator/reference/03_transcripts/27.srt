@@ -1,0 +1,79 @@
+1
+00:00:00,000 --> 00:00:03,500
+If you're new to Claude Code, then you need to install these five free plugins to instantly
+
+2
+00:00:03,500 --> 00:00:04,299
+10 extra setup.
+
+3
+00:00:04,419 --> 00:00:08,080
+The first is Claude Mem, which gives Claude memory across every session, so it'll remember
+
+4
+00:00:08,080 --> 00:00:11,039
+your projects and your files without you ever having to re-explain a thing.
+
+5
+00:00:11,140 --> 00:00:12,460
+The second's called Find Skills.
+
+6
+00:00:12,800 --> 00:00:16,440
+Just tell it what you're building and it'll search its entire library of over 100,000
+
+7
+00:00:16,440 --> 00:00:19,399
+skills to find the best ones and even install them for you.
+
+8
+00:00:19,519 --> 00:00:24,079
+The third is Anydoc, which turns your PowerPoint, Excel and Word sheets into totally
+
+9
+00:00:24,079 --> 00:00:28,059
+clean and markdown files, allowing your AI to instantly read them while consuming significantly
+
+10
+00:00:28,059 --> 00:00:28,719
+fewer tokens.
+
+11
+00:00:28,719 --> 00:00:32,600
+The fourth is Claude Code Setup, which is an official anthropic plugin that scans your entire
+
+12
+00:00:32,600 --> 00:00:37,340
+code base and recommends the best hooks, skills and subagents, not to mention MCP servers, that
+
+13
+00:00:37,340 --> 00:00:37,960
+fit your project.
+
+14
+00:00:38,219 --> 00:00:40,520
+And it'll do this while removing all unnecessary fluff.
+
+15
+00:00:40,740 --> 00:00:44,399
+And finally, there's Agent Skills, which is a pack of 24 skills to let you vibe code
+
+16
+00:00:44,399 --> 00:00:47,740
+like a real senior engineer built by the former AI engineer and director at Google,
+
+17
+00:00:47,899 --> 00:00:51,159
+which covers your entire dev cycle from start to finish and helps you activate the right
+
+18
+00:00:51,159 --> 00:00:53,619
+skill at each specific stage of coding, all on its own.
+
+19
+00:00:53,820 --> 00:00:56,619
+So if you want to try this yourselves, just comment Claude down below and I'll send
+
+20
+00:00:56,619 --> 00:00:57,219
+you the link directly.

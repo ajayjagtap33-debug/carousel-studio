@@ -1,0 +1,83 @@
+1
+00:00:00,000 --> 00:00:01,480
+If you wanna get better front-end designs,
+
+2
+00:00:01,720 --> 00:00:03,020
+then instead of prompting from scratch,
+
+3
+00:00:03,279 --> 00:00:05,599
+you can just use the design language of all the top brands,
+
+4
+00:00:05,820 --> 00:00:08,279
+like Tesla, Apple, Ferrari, and even Anthropic,
+
+5
+00:00:08,480 --> 00:00:09,859
+and put them directly in your work.
+
+6
+00:00:10,060 --> 00:00:12,320
+Somebody just reverse-engineered over 2,000 websites
+
+7
+00:00:12,320 --> 00:00:13,500
+from the world's top brands
+
+8
+00:00:13,500 --> 00:00:15,039
+and put them all in design files
+
+9
+00:00:15,039 --> 00:00:17,260
+that your cloud code can read and use directly.
+
+10
+00:00:17,399 --> 00:00:19,760
+And every file contains their entire visual system,
+
+11
+00:00:19,920 --> 00:00:22,120
+the exact colors, fonts, spacing, and layouts
+
+12
+00:00:22,120 --> 00:00:24,859
+that they use, plus clear rules on what to do
+
+13
+00:00:24,859 --> 00:00:25,960
+and what not to do.
+
+14
+00:00:26,059 --> 00:00:27,679
+So just pick the one that fits your project,
+
+15
+00:00:27,879 --> 00:00:29,339
+drop it right in your coding agent,
+
+16
+00:00:29,339 --> 00:00:31,219
+and it'll literally build your entire UI
+
+17
+00:00:31,219 --> 00:00:33,159
+in that exact style in minutes.
+
+18
+00:00:33,500 --> 00:00:35,500
+Plus, the whole library's completely free right now,
+
+19
+00:00:35,600 --> 00:00:36,679
+so if you wanna try it for yourselves,
+
+20
+00:00:36,899 --> 00:00:38,200
+just comment design down below
+
+21
+00:00:38,200 --> 00:00:39,399
+and it'll DM you the link directly.

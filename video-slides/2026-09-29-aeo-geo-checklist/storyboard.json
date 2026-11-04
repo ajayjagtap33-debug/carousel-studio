@@ -1,0 +1,134 @@
+{
+  "format": "slides",
+  "title": "AEO + GEO checklist (test video slides)",
+  "slides": [
+    {
+      "role": "The checklist",
+      "layout": "split",
+      "headline": [
+        {
+          "t": "250+",
+          "c": "accent",
+          "size": 200
+        },
+        "point AEO + GEO",
+        "checklist"
+      ],
+      "qualifier": "(we use it on our own site)",
+      "visual": {
+        "type": "fan",
+        "above": "…and it helps us",
+        "items": [
+          "Show up",
+          "Get mentioned",
+          "Get cited"
+        ],
+        "below": "across AI search"
+      },
+      "source": "script ¶2"
+    },
+    {
+      "role": "The problem",
+      "headline": "The problem? It was scattered everywhere.",
+      "visual": {
+        "type": "scatter",
+        "items": [
+          "AEO",
+          "GEO",
+          "SEO",
+          "Local SEO"
+        ],
+        "target": "ONE place\nto work\nthrough it",
+        "w": 1100
+      },
+      "source": "script ¶3"
+    },
+    {
+      "role": "Two weeks",
+      "headline": "So we spent 2 weeks building it",
+      "footer": "built for our own team first",
+      "visual": {
+        "type": "calendar",
+        "days": 14,
+        "result": "internal checklist",
+        "w": 1000
+      },
+      "source": "script ¶4"
+    },
+    {
+      "role": "All signals",
+      "headline": "Every signal in one place",
+      "visual": {
+        "type": "layers",
+        "layers": [
+          "Local SEO foundation",
+          "SEO",
+          "AEO signals",
+          "GEO signals"
+        ],
+        "top": "how AI understands\n& talks about you",
+        "w": 1000
+      },
+      "source": "script ¶5"
+    },
+    {
+      "role": "What's inside",
+      "headline": "What you get for every check",
+      "visual": {
+        "type": "cards",
+        "cols": 4,
+        "items": [
+          {
+            "title": "Clear explanation",
+            "sub": "what it is & why it matters"
+          },
+          {
+            "title": "Effort vs impact",
+            "sub": "fix what matters first"
+          },
+          {
+            "title": "Tools & resources",
+            "sub": "for each area"
+          },
+          {
+            "title": "Prompt testing log",
+            "sub": "is your brand showing up in AI?"
+          }
+        ]
+      },
+      "source": "script ¶6 (card subtitles 1-2: added)"
+    },
+    {
+      "role": "Proof",
+      "layout": "split",
+      "headline": "We use it to find gaps in our own AI visibility",
+      "visual": {
+        "type": "stat",
+        "value": "100+",
+        "label": "marketers already use it",
+        "people": true
+      },
+      "source": "script ¶7"
+    },
+    {
+      "role": "CTA",
+      "layout": "split",
+      "headline": "Working on AEO or GEO?",
+      "visual": {
+        "type": "comment_dm",
+        "keyword": "checklist",
+        "dm": "here's the link ✓",
+        "w": 560
+      },
+      "source": "script ¶9",
+      "art": [
+        {
+          "id": "bot.wave",
+          "x": 210,
+          "y": 560,
+          "size": 240
+        }
+      ]
+    }
+  ]
+}

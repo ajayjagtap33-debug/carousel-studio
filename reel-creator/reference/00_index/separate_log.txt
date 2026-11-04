@@ -1,0 +1,77 @@
+﻿python : C:\Users\Ajay Jagtap\AppData\Roaming\Python\Python313\site-packages\huggingface_hub\file_download.py:149: 
+UserWarning: `huggingface_hub` cache-system uses symlinks by default to efficiently store duplicated files but your 
+machine does not support them in C:\Users\Ajay Jagtap\.cache\huggingface\hub\models--adefossez--HTDemucs. Caching 
+files will still work but in a degraded version that might require more space on your disk. This warning can be 
+disabled by setting the `HF_HUB_DISABLE_SYMLINKS_WARNING` environment variable. For more details, see 
+https://huggingface.co/docs/huggingface_hub/how-to-cache#limitations.
+At line:1 char:342
++ ...  Jagtap\reel-creator"; python tools\03_separate_music.py 2>&1 | Out-F ...
++                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (C:\Users\Ajay J...he#limitations.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+To support symlinks on Windows, you either need to activate Developer Mode or to run Python as an administrator. In 
+order to activate developer mode, see this article: 
+https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
+  warnings.warn(message)
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits 
+and faster downloads.
+C:\Users\Ajay Jagtap\AppData\Roaming\Python\Python313\site-packages\huggingface_hub\file_download.py:149: UserWarning: 
+`huggingface_hub` cache-system uses symlinks by default to efficiently store duplicated files but your machine does 
+not support them in C:\Users\Ajay Jagtap\.cache\huggingface\hub. Caching files will still work but in a degraded 
+version that might require more space on your disk. This warning can be disabled by setting the 
+`HF_HUB_DISABLE_SYMLINKS_WARNING` environment variable. For more details, see 
+https://huggingface.co/docs/huggingface_hub/how-to-cache#limitations.
+To support symlinks on Windows, you either need to activate Developer Mode or to run Python as an administrator. In 
+order to activate developer mode, see this article: 
+https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
+  warnings.warn(message)
+01 separated
+02 separated
+03 separated
+04 separated
+05 separated
+06 separated
+07 separated
+08 separated
+09 separated
+10 separated
+11 separated
+12 separated
+13 separated
+14 separated
+15 separated
+16 separated
+17 separated
+18 separated
+19 separated
+20 separated
+21 separated
+22 separated
+23 separated
+24 separated
+25 separated
+26 separated
+27 separated
+28 separated
+29 separated
+30 separated
+31 separated
+32 separated
+33 separated
+34 separated
+35 separated
+36 separated
+37 separated
+38 separated
+39 separated
+40 separated
+41 separated
+42 separated
+43 separated
+44 separated
+45 separated
+46 separated
+47 separated
+48 separated
+49 separated

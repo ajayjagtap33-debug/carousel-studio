@@ -1,0 +1,75 @@
+1
+00:00:00,000 --> 00:00:02,020
+This free AI tool lets you turn any website
+
+2
+00:00:02,020 --> 00:00:04,040
+into its own API, even if it doesn't have one.
+
+3
+00:00:04,160 --> 00:00:06,120
+So you no longer need to pay for scraping tools
+
+4
+00:00:06,120 --> 00:00:08,259
+or expensive APIs, even for gated websites
+
+5
+00:00:08,259 --> 00:00:09,679
+like LinkedIn, Instagram, or Reddit.
+
+6
+00:00:09,839 --> 00:00:11,460
+It's called Reverse API Engineer,
+
+7
+00:00:11,720 --> 00:00:13,080
+and it's a free and open source tool
+
+8
+00:00:13,080 --> 00:00:14,699
+that plugs straight into your cloud code.
+
+9
+00:00:14,839 --> 00:00:16,699
+Just give it a website and tell it what data you want,
+
+10
+00:00:16,800 --> 00:00:18,500
+and an AI agent will browse that site,
+
+11
+00:00:18,600 --> 00:00:20,539
+read every request happening behind the scenes,
+
+12
+00:00:20,739 --> 00:00:22,679
+and from that, build a clean API client
+
+13
+00:00:22,679 --> 00:00:24,719
+that you can use to pull that data any time you want.
+
+14
+00:00:24,839 --> 00:00:26,120
+Plus, since it uses the same API
+
+15
+00:00:26,120 --> 00:00:27,539
+that the site itself runs on,
+
+16
+00:00:27,579 --> 00:00:29,000
+it doesn't break even when the website
+
+17
+00:00:29,000 --> 00:00:30,059
+changes its whole design.
+
+18
+00:00:30,280 --> 00:00:31,160
+So if you want to try it yourselves,
+
+19
+00:00:31,339 --> 00:00:33,320
+just come in API, and I'll DM me the link directly.

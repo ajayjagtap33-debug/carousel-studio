@@ -1,0 +1,25 @@
+Comment "CLAUDE" to get this Free Tool to run Claude Code with almost unlimited usage.
+
+You can now run Claude Code for completely free, with almost unlimited usage.
+
+Someone on GitHub just built an AI tool that gives you over 7 billion free AI tokens every single month.
+
+And that includes models from ChatGPT, Gemini, GLM, Kimi, Grok, Mistral, Qwen, and much more.
+It's called FreeLLMAPI.
+
+It links your Claude Code to over 600 free AI models, all through one single setup.
+
+So the moment your Claude limit runs out, it automatically switches you to the next best model.
+
+Your session just keeps going without any interruption.
+
+Plus it leaves behind a note as it switches.
+
+So the new model already has your whole context, and you don't have to re-explain anything.
+
+Think of it like handing off a project to a coworker with a full briefing already attached.
+
+Most tools that switch models lose your context the moment they swap.
+This one hands it off cleanly instead.
+
+#claudecode #freellmapi #omniroute #githubrepo #claudeai

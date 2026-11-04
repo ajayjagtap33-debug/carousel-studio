@@ -1,11 +1,19 @@
 ---
 name: broll-video
-description: Make the b-roll for Ajay's talking-head videos (Remotion, editorial style "Warm paper × TMV"), timed to his words. Use whenever Ajay shares a video or audio file or path and wants b-roll, motion graphics, visuals over his talking head, inserts at timestamps, a "Nick Saraev style" edit, or says "add b-roll", "make the visuals for this video", "here's my cut". Covers transcribing, the beat sheet (stops for his approval), the layout check, the contact sheet and rendering silent clips he lays over his cut in Google Vids.
+description: Edit Ajay's talking-head videos into the finished MP4 (studio mode, the default) or make b-roll clips only (editorial mode), timed to his words with Remotion. Use whenever Ajay shares a video or audio file or path and wants an edit, b-roll, motion graphics, visuals over his talking head, music or sound design, inserts at timestamps, a "Nick Saraev style" edit, or says "add b-roll", "edit this video", "make the visuals for this video", "here's my cut". Covers transcribing, the beat sheet (stops for his approval), layouts, two themes (TMV / Ajay), the sound layer, and rendering.
 ---
 
-# B-roll video (editorial)
+# Talking-head video: studio mode (default) and b-roll clips
 
-Ajay records and edits in Google Vids (50 clips per project, no timeline import). You make **only the b-roll**:
+**Default since 2026-10-28: studio mode** — he hands over the MP4, you return the finished MP4 in two themes
+(`tmv` and `ajay`) with music and sound. **Read `studio.md` here first** (layouts, scenes, themes, render, his
+notes), and `sound.md` for the sound layer. Steps 1–3 below (job folder, transcript, beat sheet + approval gate,
+content rules) apply to studio mode too: the beat sheet becomes `studio/studio.json` + `studio/plan.md`, with a
+layout per beat. Sections 2 and 4–5 (coverage, clips, cut sheet) are for b-roll-only jobs.
+
+## B-roll clips only (editorial mode)
+
+When he asks for b-roll only: Ajay edits in Google Vids (50 clips per project, no timeline import). You make **only the b-roll**:
 silent 1920×1080 clips he drops on his timeline. Dense editorial look modelled on Nick Saraev's b-roll
 (teardown: `videos/reference/2026-10-15-nick-saraev-survive-ai/teardown.md`): something new on screen every 1–3s,
 each element landing on the word that introduces it.
@@ -16,6 +24,8 @@ the approval gate); the look is the canvas it links to. Read it before writing a
 `python scripts/broll.py`. Example jobs: `videos/2026-10-19-tmv-knowledge-base-test/` (full),
 `videos/2026-10-19-tmv-knowledge-base-spot-test/` (spot).
 Old hand-drawn look (his face boxed inside our render, `broll.json` without `"style"`): see `excalidraw.md` here.
+Product videos (Ajay's screen recordings paced to the spoken words, the clip library): `screen-recordings.md` here —
+agreed design, **not built yet**; until it is, use `browser` with screenshots.
 
 ## 1. Job folder + transcript
 

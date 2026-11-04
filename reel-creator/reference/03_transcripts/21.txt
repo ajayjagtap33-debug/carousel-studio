@@ -1,0 +1,23 @@
+Cloudflare just opensource an AI skill
+that finds security holes in your vibe-coded app
+and it's completely free.
+They originally built it for themselves
+when it found over 7,000 security issues
+in their own code base
+and has already crossed 20,000 stars on GitHub.
+Just install it into your cloud code
+and it'll map out your entire app.
+Then it'll send a team of AI agents to hunt through it
+from your logins, database, and APIs,
+even prompt injection if your app uses AI under the hood.
+And then every bug they find
+is handed over to a separate agent
+whose only job is to disprove that bug exists.
+So only the real issues will make it
+all the way to the finish line.
+And finally, it'll give you a detailed report
+with every verified issue,
+along with exactly how to fix it.
+So if you want this for yourselves,
+just comment audit down below
+and it'll DM you the link directly.

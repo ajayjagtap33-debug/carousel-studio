@@ -1,35 +1,46 @@
-"""Check + export a rendered carousel with headless Chrome.
+"""Check + export a rendered carousel / video slides / overlay stickers with headless Chrome.
 
-  python scripts/build.py carousels/<folder>          # check only
-  python scripts/build.py carousels/<folder> --export # check, then slides/NN.png + carousel.pdf
+  python3 scripts/build.py <folder>          # check only
+  python3 scripts/build.py <folder> --export # check, then slides/NN.png (+ <format>.pdf)
+
+The format comes from <folder>/storyboard.json ("carousel" when absent); so does the theme.
+  carousel  slides/NN.png 1080x1350 (or the theme's landscape/square/portrait size) + carousel.pdf
+  slides    slides/NN.png 1920x1080 + slides.pdf
+  broll     slides/NN.png transparent stickers, each cropped to its content, no PDF
 
 The check renders every frame with the real Excalidraw renderer and measures real text
 boxes (not estimates): overflow past the safe margin, text under the minimum size,
-content spilling outside the 4:5 frame, and unfilled image/logo slots.
+content spilling outside the frame, and unfilled image/logo slots.
 """
 import json, subprocess, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(Path(__file__).parent))
-from render import load_theme  # noqa: E402
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from render import load_theme, out_format  # noqa: E402
 T = load_theme()
+
+
 def find_chrome():
     """Chrome/Edge/Chromium on Windows, macOS or Linux. Override with CHROME=/path/to/browser."""
     import os, shutil
-    cands = [os.environ.get("CHROME", ""),
-             r"C:\Program Files\Google\Chrome\Application\chrome.exe",
-             r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
-             "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    if os.environ.get("CHROME"): return os.environ["CHROME"]
+    cands = ["/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
              "/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge",
-             "/Applications/Chromium.app/Contents/MacOS/Chromium"]
-    cands += [shutil.which(n) or "" for n in ("google-chrome", "chromium", "chromium-browser", "microsoft-edge")]
-    for p in cands:
-        if p and Path(p).exists(): return p
-    sys.exit("No Chrome/Edge/Chromium found. Install Chrome or set CHROME=/path/to/browser.")
+             "/Applications/Chromium.app/Contents/MacOS/Chromium",
+             r"C:\Program Files\Google\Chrome\Application\chrome.exe",
+             r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe",
+             r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"]
+    for c in cands:
+        if Path(c).exists(): return c
+    for n in ("google-chrome", "chromium", "chromium-browser", "msedge", "chrome"):
+        p = shutil.which(n)
+        if p: return p
+    sys.exit("Chrome not found. Install Google Chrome, or set CHROME=/path/to/browser")
 
 
 CHROME = find_chrome()
+FMT = "carousel"
 W, H, M = T["size"]["w"], T["size"]["h"], T["size"]["margin"]
 
 PAGE = """<!doctype html><html><head><meta charset="utf-8">
@@ -37,13 +48,14 @@ PAGE = """<!doctype html><html><head><meta charset="utf-8">
 <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
 <script>window.EXCALIDRAW_ASSET_PATH="https://unpkg.com/@excalidraw/excalidraw@0.17.6/dist/";</script>
 <script src="https://unpkg.com/@excalidraw/excalidraw@0.17.6/dist/excalidraw.production.min.js"></script>
-__FONTLINK__<style>__FONTCSS__@page{size:__W__px __H__px;margin:0}html,body{margin:0;background:#fff}
+__FONTLINK__<style>__FONTCSS__@page{size:__W__px __H__px;margin:0}html,body{margin:0;background:__BG__}
 .pg{width:__W__px;height:__H__px;overflow:hidden;page-break-after:always;break-after:page}
 .pg svg{display:block;width:__W__px;height:__H__px}</style></head><body>
 <script id="doc" type="application/json">__DOC__</script><pre id="result">pending</pre>
 <script>
 (async () => {
   const MODE = "__MODE__", ONLY = __ONLY__, M = __M__, W = __W__, H = __H__, MIN = __MIN__, LABEL_MIN = __LMIN__;
+  const FMT = "__FMT__";
   const d = JSON.parse(document.getElementById("doc").textContent);
   const frames = d.elements.filter(e => e.type === "frame");
   const out = [];
@@ -80,38 +92,41 @@ __FONTLINK__<style>__FONTCSS__@page{size:__W__px __H__px;margin:0}html,body{marg
   });
   for (let i = 0; i < frames.length; i++) {
     if (ONLY >= 0 && i !== ONLY) continue;
-    const fr = frames[i];
+    const fr = frames[i], W = fr.width, H = fr.height;  // sticker frames each have their own size
     const els = d.elements.filter(e => e.id === fr.id || e.frameId === fr.id);
     const svg = await ExcalidrawLib.exportToSvg({ elements: els, files: d.files,
-      exportPadding: 0, appState: { ...d.appState, exportBackground: true,
+      exportPadding: 0, appState: { ...d.appState, exportBackground: !(fr.customData && fr.customData.overlay),
         frameRendering: { enabled: true, name: false, outline: false, clip: MODE !== "check" } } });
     weigh(svg);
     const pg = document.createElement("div"); pg.className = "pg"; pg.appendChild(svg);
     document.body.appendChild(pg);
     if (MODE !== "check") continue;
-    // measure: svg drawn unclipped at natural size; origin = min element x/y
+    // measure: svg drawn unclipped at its natural size (the .pg CSS would squeeze it to the frame,
+    // which is wrong for sticker frames, where the content box and the frame are different sizes)
     svg.style.width = svg.getAttribute("width") + "px"; svg.style.height = svg.getAttribute("height") + "px";
     await document.fonts.ready; await new Promise(r => setTimeout(r, 300));
-    const vb = svg.viewBox.baseVal, sr = svg.getBoundingClientRect(), k = sr.width / vb.width;
+    const vb = svg.viewBox.baseVal, sr = svg.getBoundingClientRect();
+    const k = sr.width / vb.width;
+    // frame origin inside the svg viewBox (exportToSvg crops to content, which can start before the frame)
     const minX = Math.min(...els.map(e => e.x)), minY = Math.min(...els.map(e => e.y));
     const ox = fr.x - minX, oy = fr.y - minY;
     const issues = [];
     if (Math.round(vb.width) > W + 2 || Math.round(vb.height) > H + 2)
-      issues.push({ issue: "content outside 4:5 frame", size: [Math.round(vb.width), Math.round(vb.height)] });
+      issues.push({ issue: "content outside the frame", size: [Math.round(vb.width), Math.round(vb.height)] });
     svg.querySelectorAll("text").forEach(t => {
       const b = t.getBoundingClientRect(); if (!b.width) return;
       const x0 = (b.left - sr.left) / k - ox, y0 = (b.top - sr.top) / k - oy, x1 = x0 + b.width / k, y1 = y0 + b.height / k;
       const txt = t.textContent.trim(); if (!txt) return;
       const fs = parseFloat(t.getAttribute("font-size"));
-      const chrome = y0 > H - M - 20;
+      const chrome = FMT === "carousel" ? y0 > H - M - 20 : FMT === "slides" ? (y1 < M + 30 && x1 < M + 80) : false;
       // tolerance absorbs glyph side bearings (Virgil's "T" overhangs its origin by ~5px at 84px)
       if (!chrome && (x0 < M - 8 || x1 > W - M + 8))
         issues.push({ issue: "text past side margin", text: txt.slice(0, 40), x: [Math.round(x0), Math.round(x1)] });
       if (y1 > H - 20 || y0 < 0) issues.push({ issue: "text off slide", text: txt.slice(0, 40) });
-      const words = txt.split(" ").length;
-      if (!chrome && fs < (words <= 3 ? LABEL_MIN : MIN)) issues.push({ issue: "text below min size", text: txt.slice(0, 40), size: fs });
+      const words = txt.split(/\s+/).length;
+      if (!chrome && fs < (words <= 3 ? LABEL_MIN : MIN)) issues.push({ issue: "text too small", text: txt.slice(0, 40), size: fs });
     });
-    // text spilling out of the box it sits in (smallest rectangle containing its top-left)
+    // text spilling out of the box it sits in (cards, notes, chips)
     const boxes = els.filter(e => e.type === "rectangle").map(e => ({ x0: e.x - fr.x, y0: e.y - fr.y, x1: e.x - fr.x + e.width, y1: e.y - fr.y + e.height }));
     svg.querySelectorAll("text").forEach(t => {
       const b = t.getBoundingClientRect(); if (!b.width || !t.textContent.trim()) return;
@@ -123,13 +138,13 @@ __FONTLINK__<style>__FONTCSS__@page{size:__W__px __H__px;margin:0}html,body{marg
       const cx = x0 + 4, cy = y0 + 4;
       const box = boxes.filter(q => cx >= q.x0 && cx <= q.x1 && cy >= q.y0 && cy <= q.y1)
                        .sort((a, c) => (a.x1 - a.x0) * (a.y1 - a.y0) - (c.x1 - c.x0) * (c.y1 - c.y0))[0];
-      if (box && (x1 > box.x1 - 6 || y1 > box.y1 - 6))
-        issues.push({ issue: "text spills out of its box", text: t.textContent.trim().slice(0, 40) });
+      if (box && (x1 > box.x1 + 6 || y1 > box.y1 + 6))
+        issues.push({ issue: "text outside its box", text: t.textContent.trim().slice(0, 40) });
     });
     // big empty band above the footer = visual not filling the slide
     const bottoms = els.filter(e => e.type !== "frame" && e.y - fr.y < H - M - 20).map(e => e.y - fr.y + e.height);
     const gap = (H - M - 20) - Math.max(...bottoms);
-    if (gap > 260) issues.push({ issue: "warn: empty space at bottom", px: Math.round(gap) });
+    if (FMT === "carousel" && gap > 260) issues.push({ issue: "warn: empty space at bottom", px: Math.round(gap) });
     els.filter(e => e.customData && e.customData.flag).forEach(e => issues.push({ issue: e.customData.flag, src: e.customData.src }));
     out.push({ slide: i + 1, name: fr.name, issues });
     pg.remove();
@@ -162,7 +177,8 @@ def font_faces(alias, family, key, weights, local=True):
     return css
 
 
-def page(d, doc, mode, only=-1):
+def page(d, doc, mode, only=-1, W=None, H=None):
+    W, H = W or globals()["W"], H or globals()["H"]
     wf = T.get("webFont")
     fb = wf and wf["fallback"]
     faces = wf and (font_faces("Theme Primary", wf["family"], wf["family"].lower().replace(" ", ""), wf["weights"].values())
@@ -176,36 +192,42 @@ def page(d, doc, mode, only=-1):
             .replace("__FONT__", font)
             .replace("__DOC__", json.dumps(doc, ensure_ascii=False).replace("</", "<\\/"))
             .replace("__MODE__", mode).replace("__ONLY__", str(only)).replace("__M__", str(M))
-            .replace("__W__", str(W)).replace("__H__", str(H)).replace("__MIN__", str(T["type"]["min"])).replace("__LMIN__", str(T["type"]["labelMin"])))
+            .replace("__W__", str(W)).replace("__H__", str(H))
+            .replace("__MIN__", str(T["type"]["min"])).replace("__LMIN__", str(T["type"]["labelMin"]))
+            .replace("__FMT__", FMT)
+            .replace("__BG__", "transparent" if mode == "slide" else "#fff"))
     p = d / f"_build_{mode}{'' if only < 0 else only}.html"
     p.write_text(html, encoding="utf-8")
     return p
 
 
-def chrome(args):
-    return subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--hide-scrollbars",
-                           "--virtual-time-budget=25000", *args], capture_output=True, text=True,
-                          encoding="utf-8", errors="ignore", timeout=180)
+def chrome(extra):
+    return subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--no-sandbox",
+                           "--allow-file-access-from-files", "--virtual-time-budget=25000"] + extra,
+                          capture_output=True, text=True)
 
 
-def retry(run, out, min_bytes, tries=3):
-    """CDN scripts occasionally fail to load; a failed render is a near-empty file."""
-    for _ in range(tries):
+def retry(fn, out, min_size, n=3):
+    """Chrome sometimes finishes before the renderer paints: retry while the file is tiny/missing."""
+    for _ in range(n):
         if out.exists(): out.unlink()
-        run()
-        if out.exists() and out.stat().st_size >= min_bytes: return True
+        fn()
+        if out.exists() and out.stat().st_size > min_size: return True
     return False
 
 
 def main(folder, export):
-    global T, W, H, M
+    global T, FMT, W, H, M
     d = (ROOT / folder).resolve()
-    sb = d / "storyboard.json"
-    if sb.exists():
-        sbj = json.loads(sb.read_text(encoding="utf-8"))
+    sbp = d / "storyboard.json"
+    if sbp.exists():
+        sbj = json.loads(sbp.read_text(encoding="utf-8"))
+        FMT = out_format(sbj.get("format"))
         T = load_theme(sbj.get("theme"), sbj.get("format"))
-    W, H, M = T["size"]["w"], T["size"]["h"], T["size"]["margin"]
-    doc = json.loads((d / "carousel.excalidraw").read_text(encoding="utf-8"))
+    W, H = T["size"]["w"], T["size"]["h"]
+    M = T["size"].get("edge", T["size"]["margin"]) if FMT == "broll" else T["size"]["margin"]
+    scale = T["size"].get("exportScale", 1)
+    doc = json.loads((d / f"{FMT}.excalidraw").read_text(encoding="utf-8"))
     r = chrome(["--dump-dom", page(d, doc, "check").as_uri()])
     s = r.stdout
     if "RESULT" not in s:
@@ -225,26 +247,33 @@ def main(folder, export):
     (d / "check_report.json").write_text(json.dumps(res, indent=1, ensure_ascii=False), encoding="utf-8")
     blocking = 0
     for sl in res:
-        mark = "OK " if not sl["issues"] else "!! "
-        print(f"{mark}slide {sl['slide']:>2} {sl['name']}")
         for it in sl["issues"]:
-            soft = it["issue"].startswith(("missing-", "warn:"))
-            blocking += 0 if soft else 1
-            print(f"     {'(non-blocking) ' if soft else ''}{it}")
-    print(f"\n{blocking} blocking issue(s); slots are listed but don't block export.")
+            hard = not str(it["issue"]).startswith(("warn", "missing"))
+            blocking += hard
+            print(f"{'BLOCK' if hard else ' note'} slide {sl['slide']:>2} {sl['name']}: {it}")
+    print(f"{len(res)} slides, {sum(len(s['issues']) for s in res)} issues, {blocking} blocking")
+
     if export:
         if blocking: print("not exporting: fix blocking issues first"); sys.exit(1)
         (d / "slides").mkdir(exist_ok=True)
+        for p in (d / "slides").glob("*.png"): p.unlink()  # no stale frames from an older, longer storyboard
+        frames = [e for e in doc["elements"] if e["type"] == "frame"]
         for i in range(len(res)):
             out = d / "slides" / f"{i+1:02d}.png"
-            ok = retry(lambda: chrome([f"--screenshot={out}", f"--window-size={W},{H}", page(d, doc, "slide", i).as_uri()]), out, 20000)
+            fw, fh = (frames[i]["width"], frames[i]["height"]) if FMT == "broll" else (W, H)
+            ok = retry(lambda: chrome([f"--screenshot={out}", f"--window-size={fw},{fh}", f"--force-device-scale-factor={scale}",
+                                       "--default-background-color=00000000", page(d, doc, "slide", i, fw, fh).as_uri()]), out, 3000)
             print("png", out.name, "ok" if ok else "FAILED (renderer did not load)")
-        pdf = d / "carousel.pdf"
+        if FMT == "broll":  # stills go straight into the video editor; no PDF
+            return
+        pdf = d / f"{FMT}.pdf"
         ok = retry(lambda: chrome([f"--print-to-pdf={pdf}", "--no-pdf-header-footer", page(d, doc, "pdf").as_uri()]),
-                   pdf, 8000 * len(res))
+                   pdf, 15000 * len(res))
         print("pdf", "ok" if ok else "FAILED (renderer did not load)", pdf)
-    for p in d.glob("_build_*.html"): p.unlink()
 
 
 if __name__ == "__main__":
-    main(sys.argv[1], "--export" in sys.argv)
+    try:
+        main(sys.argv[1], "--export" in sys.argv)
+    finally:  # temp pages, even when the check stops the export
+        for p in (ROOT / sys.argv[1]).resolve().glob("_build_*.html"): p.unlink()

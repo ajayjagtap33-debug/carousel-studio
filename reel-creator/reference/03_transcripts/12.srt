@@ -1,0 +1,39 @@
+1
+00:00:00,000 --> 00:00:04,160
+Clodco can now create these clean line animations that react to your cursor just from a single
+
+2
+00:00:04,160 --> 00:00:04,500
+prompt.
+
+3
+00:00:04,780 --> 00:00:08,960
+It's a free skill called Hairline that teaches your Clod the exact 10 design rules behind
+
+4
+00:00:08,960 --> 00:00:10,019
+how to make this style happen.
+
+5
+00:00:10,140 --> 00:00:13,699
+Just describe your idea to Clod like a hero or pricing section for your website and it'll
+
+6
+00:00:13,699 --> 00:00:14,699
+give you a bunch of concepts.
+
+7
+00:00:15,019 --> 00:00:17,980
+Then just pick the one that you like the most and it'll build an animated component
+
+8
+00:00:17,980 --> 00:00:21,640
+that you can drop straight into your websites, decks, mobile apps, or wherever you want.
+
+9
+00:00:21,760 --> 00:00:24,780
+So if you want this skill for yourselves, just comment design down below and I'll send
+
+10
+00:00:24,780 --> 00:00:25,420
+you the link directly.

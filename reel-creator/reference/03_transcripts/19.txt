@@ -1,0 +1,25 @@
+Don't use Claude code until you've installed
+these five plugins.
+First is Free LLM API, which gives your Claude code
+over seven billion free AI tokens from over 600 AI models.
+So it automatically switches you to the next best model
+anytime your usage limit runs out,
+letting your sessions last significantly longer.
+The second is Strix, which attacks your vibe-coded app
+just like a real hacker to find and then fix
+any security vulnerabilities you left behind.
+Third is Claude Mem, which gives your Claude memory
+across literally every session
+so it can remember your projects and your files
+without you ever having to re-explain a single thing.
+And the fourth is Agent Reach,
+which lets you scrape anything off the internet,
+even gated platforms like LinkedIn, Instagram X, and Reddit,
+all without paying an additional cent.
+And finally, there's Claude Code Setup.
+It's an official anthropic plugin that scans your code base
+and recommends the best skills, hooks, sub-agents,
+and MCP servers for your project.
+So if you want them all for yourselves,
+just comment Claude down below
+and I'll send you the link directly.

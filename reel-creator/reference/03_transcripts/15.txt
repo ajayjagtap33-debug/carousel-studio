@@ -1,0 +1,10 @@
+You can now build a voice agent that answers in under a tenth of a second.
+It's called FISH Audio, and it starts responding in about 90 milliseconds, which is quick enough
+that the whole thing feels like a totally real conversation instead of a usual laggy
+one.
+It can also clone your voice from just a 10 second recording, and that clone can speak
+up to 83 languages.
+Plus, there's an MCP, so you can wire it straight in your codecs or your preferred
+platform.
+Wanna try this for yourselves?
+Just comment voice down below, and I'll send you the link directly.

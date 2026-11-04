@@ -1,0 +1,21 @@
+If you wanna get better front-end designs,
+then instead of prompting from scratch,
+you can just use the design language of all the top brands,
+like Tesla, Apple, Ferrari, and even Anthropic,
+and put them directly in your work.
+Somebody just reverse-engineered over 2,000 websites
+from the world's top brands
+and put them all in design files
+that your cloud code can read and use directly.
+And every file contains their entire visual system,
+the exact colors, fonts, spacing, and layouts
+that they use, plus clear rules on what to do
+and what not to do.
+So just pick the one that fits your project,
+drop it right in your coding agent,
+and it'll literally build your entire UI
+in that exact style in minutes.
+Plus, the whole library's completely free right now,
+so if you wanna try it for yourselves,
+just comment design down below
+and it'll DM you the link directly.

@@ -1,0 +1,27 @@
+Comment "LTX" to get this Free AI Video Generator.
+
+You don't need to pay for Veo or Kling to make AI videos anymore.
+
+Just use this open source world model instead.
+
+It's called LTX-2.5.
+
+Their previous version pulled in over 18 million downloads.
+
+You just download the weights and run it on whatever machine you've already got.
+
+Even a Mac.
+
+And it stays completely free the whole time.
+
+Plus it does native multishot now.
+
+One generation gives you a handful of connected shots that maintain the same character and lighting throughout.
+
+Think of it like directing one continuous scene instead of stitching together separate clips that never quite match.
+
+Most AI video tools reset everything between generations.
+
+This one holds the thread across the whole sequence.
+
+#ltx2 #videogenerator #aivideos #opensourceai #LTXAI

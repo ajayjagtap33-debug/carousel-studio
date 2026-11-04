@@ -1,0 +1,345 @@
+{
+  "format": "broll",
+  "title": "Recordly review",
+  "slides": [
+    {
+      "role": "hook",
+      "at": "0:00",
+      "line": "I paid for Screen Studio for around two years. $29 every month.",
+      "headline": "Screen Studio, ~2 years",
+      "visual": {
+        "type": "stat",
+        "value": "$29",
+        "label": "every month"
+      },
+      "source": "script 0:00 (ledger #1)",
+      "logo": "screen-studio"
+    },
+    {
+      "role": "hook",
+      "at": "0:08",
+      "line": "It's free, it's open source, and it does almost the same thing.",
+      "headline": [
+        {
+          "t": "$29/mo → $0",
+          "c": "accent"
+        }
+      ],
+      "source": "script 0:00 on-screen text",
+      "logo": [
+        "screen-studio",
+        "recordly"
+      ],
+      "logoSize": 170,
+      "headlineSize": 84
+    },
+    {
+      "role": "hook",
+      "at": "0:14",
+      "line": "So is it actually as good, or is it just free?",
+      "headline": [
+        "As good…",
+        {
+          "t": "or just free?",
+          "c": "accent"
+        }
+      ],
+      "visual": {
+        "type": "art",
+        "id": "person.think",
+        "size": 600
+      },
+      "source": "script 0:00"
+    },
+    {
+      "role": "switch",
+      "at": "[RECORD]",
+      "line": "[RECORD: your exact line about going through your expenses]",
+      "headline": "I went through every subscription",
+      "visual": {
+        "type": "art",
+        "id": "person.read",
+        "size": 560
+      },
+      "source": "added: you mentioned it, not in the script"
+    },
+    {
+      "role": "switch",
+      "at": "[RECORD]",
+      "line": "[RECORD: your exact line about cancelling and going open source]",
+      "headline": [
+        "paid → ",
+        {
+          "t": "open source",
+          "c": "accent"
+        }
+      ],
+      "source": "added: you mentioned it, not in the script"
+    },
+    {
+      "role": "what it is",
+      "at": "0:32",
+      "line": "Screen Studio made this popular, but only on Mac. Recordly runs on Mac, Windows and Linux.",
+      "visual": {
+        "type": "cards",
+        "items": [
+          {
+            "title": "Screen Studio",
+            "sub": "Mac only",
+            "logo": "screen-studio"
+          },
+          {
+            "title": "Recordly",
+            "sub": "Mac · Windows · Linux",
+            "logo": "recordly"
+          }
+        ],
+        "cols": 1,
+        "w": 900,
+        "size": 64
+      },
+      "source": "script 0:20 (ledger #3, #4)"
+    },
+    {
+      "role": "disclosure",
+      "at": "0:40",
+      "line": "And no, nobody is paying me for this. There is nobody to pay me.",
+      "headline": "Not sponsored.",
+      "body": "(there's nobody to pay)",
+      "visual": {
+        "type": "art",
+        "id": "person.shrug",
+        "size": 560
+      },
+      "source": "script 0:20 [CONFIRM: nobody paid you]"
+    },
+    {
+      "role": "screen studio: good",
+      "at": "[RECORD]",
+      "line": "[where you say what Screen Studio does well]",
+      "headline": "What Screen Studio gets right",
+      "visual": {
+        "type": "fan",
+        "items": [
+          "Auto zooms",
+          "Smooth cursor",
+          "Share links"
+        ],
+        "size": 50,
+        "w": 780
+      },
+      "source": "script 4:00 (zooms, cursor) + ledger #20 (share links)",
+      "logo": "screen-studio"
+    },
+    {
+      "role": "screen studio: not",
+      "at": "[RECORD]",
+      "line": "[where you say what Screen Studio doesn't do well]",
+      "headline": "Where it falls short",
+      "visual": {
+        "type": "fan",
+        "items": [
+          {
+            "t": "Mac only",
+            "c": "red"
+          },
+          {
+            "t": "$108/yr minimum",
+            "c": "orange"
+          },
+          {
+            "t": "No camera upload*",
+            "c": "violet"
+          }
+        ],
+        "below": "*as far as I know",
+        "size": 50,
+        "w": 780
+      },
+      "source": "script 0:20, 1:40, 3:20 (ledger #4, #10, #19)",
+      "logo": "screen-studio"
+    },
+    {
+      "role": "camera upload",
+      "at": "1:40",
+      "line": "Now the feature I like the most.",
+      "headline": [
+        "Upload your own",
+        {
+          "t": "camera video",
+          "c": "accent"
+        }
+      ],
+      "source": "script 1:40 on-screen text"
+    },
+    {
+      "role": "camera upload",
+      "at": "2:15",
+      "line": "As far as I know, Screen Studio doesn't let you do this. If I'm wrong, tell me in the comments.",
+      "headline": [
+        "wrong?",
+        {
+          "t": "tell me below",
+          "c": "accent"
+        }
+      ],
+      "source": "script 1:40 [CONFIRM: you looked for it]"
+    },
+    {
+      "role": "iphone",
+      "at": "2:25",
+      "line": "That's Apple's Continuity Camera feature, so don't count it as a Recordly win.",
+      "headline": [
+        "Apple's feature,",
+        {
+          "t": "not Recordly's",
+          "c": "accent"
+        }
+      ],
+      "visual": {
+        "type": "art",
+        "id": "phone",
+        "size": 460
+      },
+      "source": "script 2:20 (ledger #11) [CONFIRM: you used it]"
+    },
+    {
+      "role": "bugs",
+      "at": "2:55",
+      "line": "The same problems come up again and again.",
+      "headline": "What keeps coming up",
+      "visual": {
+        "type": "scatter",
+        "items": [
+          "Audio",
+          "Camera",
+          "Exports"
+        ],
+        "target": "same bugs,\nagain &\nagain"
+      },
+      "source": "script 2:45 (ledger #14)"
+    },
+    {
+      "role": "bugs",
+      "at": "3:05",
+      "line": "On Windows, the installer says \"Unknown Publisher\", because it's not signed yet.",
+      "visual": {
+        "type": "note",
+        "label": "Windows installer:",
+        "text": "\"Unknown Publisher\" (not signed yet)"
+      },
+      "source": "script 2:45 (ledger #15)",
+      "backdrop": false
+    },
+    {
+      "role": "bugs",
+      "at": "3:12",
+      "line": "One competitor's page says the developer has disappeared. GitHub says he pushed updates.",
+      "headline": "Check the source",
+      "visual": {
+        "type": "cards",
+        "items": [
+          {
+            "title": "Competitor page",
+            "sub": "\"the developer disappeared\""
+          },
+          {
+            "title": "GitHub",
+            "sub": "still pushing updates"
+          }
+        ],
+        "cols": 1,
+        "w": 900,
+        "size": 56
+      },
+      "source": "script 2:45 (ledger #16)"
+    },
+    {
+      "role": "pricing",
+      "at": "3:25",
+      "line": "Some posts say MIT. It's not, it's AGPL.",
+      "headline": [
+        "not MIT.",
+        {
+          "t": "AGPL.",
+          "c": "accent"
+        }
+      ],
+      "source": "script 3:20 (ledger #17)"
+    },
+    {
+      "role": "pricing",
+      "at": "3:45",
+      "line": "So the cheapest option is still $108 every year.",
+      "headline": "Cheapest Screen Studio plan",
+      "visual": {
+        "type": "stat",
+        "value": "$108",
+        "label": "every year"
+      },
+      "source": "script 3:20 (ledger #19)",
+      "logo": "screen-studio"
+    },
+    {
+      "role": "pricing",
+      "at": "3:55",
+      "line": "And yes, I know. I should have been on the yearly plan.",
+      "headline": "should've gone yearly",
+      "visual": {
+        "type": "art",
+        "id": "person.shrug",
+        "face": "oops",
+        "size": 560
+      },
+      "source": "script 3:20 [CONFIRM: monthly the whole time]"
+    },
+    {
+      "role": "who: use",
+      "at": "4:05",
+      "line": "If you're on Windows or Linux… or you pay for Screen Studio mainly for zooms, cursor and backgrounds, try Recordly for one week.",
+      "headline": "Try Recordly if…",
+      "visual": {
+        "type": "fan",
+        "items": [
+          "Windows / Linux",
+          "Zooms + cursor"
+        ],
+        "below": "1 week, before you renew",
+        "size": 50,
+        "w": 780
+      },
+      "source": "script 4:00",
+      "logo": "recordly"
+    },
+    {
+      "role": "who: skip",
+      "at": "4:20",
+      "line": "If you don't want to deal with bugs, or you need share links today, stay on Screen Studio for now.",
+      "headline": "Stay on Screen Studio if…",
+      "visual": {
+        "type": "fan",
+        "items": [
+          "Bugs bother you",
+          "Need share links"
+        ],
+        "size": 50,
+        "w": 780
+      },
+      "source": "script 4:00",
+      "logo": "screen-studio"
+    },
+    {
+      "role": "cta",
+      "at": "4:45",
+      "line": "If you try it, tell me in the comments what broke for you.",
+      "headline": [
+        "what broke",
+        {
+          "t": "for you?",
+          "c": "accent"
+        }
+      ],
+      "source": "script 4:35"
+    }
+  ]
+}

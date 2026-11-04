@@ -1,0 +1,19 @@
+This free AI tool lets you turn any website
+into its own API, even if it doesn't have one.
+So you no longer need to pay for scraping tools
+or expensive APIs, even for gated websites
+like LinkedIn, Instagram, or Reddit.
+It's called Reverse API Engineer,
+and it's a free and open source tool
+that plugs straight into your cloud code.
+Just give it a website and tell it what data you want,
+and an AI agent will browse that site,
+read every request happening behind the scenes,
+and from that, build a clean API client
+that you can use to pull that data any time you want.
+Plus, since it uses the same API
+that the site itself runs on,
+it doesn't break even when the website
+changes its whole design.
+So if you want to try it yourselves,
+just come in API, and I'll DM me the link directly.

@@ -1,0 +1,43 @@
+Comment "AUDIT" to get this Free AI skill to fix security holes in your vibe coded apps.
+
+Cloudflare just open sourced an AI skill that finds the security holes in your vibe coded apps.
+
+And it's completely free.
+
+They originally built it for themselves.
+
+It found over 7,000 security issues in their own codebase.
+
+And it has already crossed 22k stars on GitHub.
+
+You just install it into your Claude Code.
+
+And it first maps out your entire app.
+
+Then it sends a team of AI agents to hunt through it.
+
+From your logins, database, and APIs.
+
+To even prompt injection if your app uses AI.
+
+Every bug they find is handed over to a separate agent.
+
+Whose only job is to disprove it.
+
+So only the real issues make it through.
+
+And finally, it gives you a detailed report.
+
+With every verified issue, along with exactly how to fix it.
+
+Think of it like hiring a security team that checks its own work.
+
+Most scanners hand you a long list of maybe problems.
+
+This one only shows you the ones it can actually prove.
+
+Vibe coded apps ship fast, but security often gets skipped.
+
+Run it before you launch so you catch the holes first.
+
+#vibecoding #aicoding #claudecode #cloudfare #aisecurity

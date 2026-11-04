@@ -1,0 +1,20 @@
+Your AI can edit videos now,
+and not just simple things like captions and cuts,
+but full production grade edits.
+DaVinci Resolve, which is a free video editor
+that's on par with Premiere Pro,
+just dropped an official MCP server.
+So you can now connect it directly to Claude Code or Codex
+and control your entire timeline,
+literally just by having a conversation.
+So with this, you can now automatically
+color grade your footage, build motion graphics,
+create multicam cuts, add sound effects,
+and even adjust your own music
+so it fits the edits perfectly.
+Plus, if you need a B-roll clip in between,
+you can have Claude generate it
+and then just drop it straight into the timeline.
+Want the whole setup for yourselves?
+Just comment video down below
+and I'll send you the link directly.

@@ -1,0 +1,10 @@
+Clodco can now create these clean line animations that react to your cursor just from a single
+prompt.
+It's a free skill called Hairline that teaches your Clod the exact 10 design rules behind
+how to make this style happen.
+Just describe your idea to Clod like a hero or pricing section for your website and it'll
+give you a bunch of concepts.
+Then just pick the one that you like the most and it'll build an animated component
+that you can drop straight into your websites, decks, mobile apps, or wherever you want.
+So if you want this skill for yourselves, just comment design down below and I'll send
+you the link directly.

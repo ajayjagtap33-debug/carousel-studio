@@ -1,0 +1,18 @@
+Higgsfield put all the best video and image models
+in one place, including Genjutsu, Seed Dance,
+Cling, Soul, Seed Dream, and more,
+all behind a single API.
+Here's why that's a big deal.
+You can now hook it straight into automations or AI agents,
+meaning your AI agent can write the script,
+pick the model, and generate the entire video itself
+with camera controls and character consistency
+built right in.
+That's lethal if you run a content pipeline.
+It also limits comping prompts between tabs
+and having to switch between any tools at all.
+AI can basically do it all completely self-supervised.
+So if you guys want to try this for yourselves,
+just comment access down below,
+and I'll send you the cheapest API provider
+on the market right now.

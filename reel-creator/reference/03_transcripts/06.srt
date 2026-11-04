@@ -1,0 +1,35 @@
+1
+00:00:00,000 --> 00:00:05,000
+People are now hacking their TVs with Claude Code to remove all the bloatware and the ads and it's blowing up on the internet right now.
+
+2
+00:00:05,080 --> 00:00:07,740
+It started when someone on Twitter gave Claude Code their TV's model number.
+
+3
+00:00:07,900 --> 00:00:12,740
+It found the TV on Wi-Fi, removed all 25 of the bloatware apps and sponsored ads and all the tracking codes,
+
+4
+00:00:12,919 --> 00:00:15,179
+and even built a new home screen entirely from scratch.
+
+5
+00:00:15,380 --> 00:00:19,800
+And it turned into a free GitHub repo that now lets anyone do the same with over 16,000 stars.
+
+6
+00:00:20,019 --> 00:00:24,100
+Just paste one prompt into Claude Code with your TV model and it'll remove everything you don't want,
+
+7
+00:00:24,199 --> 00:00:28,160
+then install a clean home screen that looks just like Apple TV, or you can even code your own.
+
+8
+00:00:28,160 --> 00:00:33,179
+It already works with over 170 TV models and if you don't like it, you can restore everything back with just one command.
+
+9
+00:00:33,340 --> 00:00:36,740
+So if you want to try it for yourself, just comment TV down below and it'll DM you the link directly.

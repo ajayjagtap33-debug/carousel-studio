@@ -1,0 +1,251 @@
+{
+  "format": "carousel",
+  "title": "Tools I stopped paying for",
+  "handle": "@refluke.guy",
+  "hook": "A",
+  "slides": [
+    {
+      "role": "hook",
+      "headline": [
+        {
+          "t": "6 tools",
+          "c": "accent",
+          "size": 170
+        },
+        "I stopped paying for"
+      ],
+      "headlineSize": 96,
+      "qualifier": "(in 2026, and what I use instead)",
+      "art": [
+        {
+          "id": "person.point",
+          "x": 149,
+          "y": 858,
+          "size": 340
+        },
+        {
+          "id": "bot.stand",
+          "x": 770,
+          "y": 885,
+          "size": 300
+        },
+        {
+          "id": "toolbox",
+          "x": 690,
+          "y": 1015,
+          "size": 170
+        }
+      ],
+      "source": "brief (hook A; year: Ajay; qualifier wording: added)",
+      "visual": {
+        "type": "cut",
+        "logos": [
+          "screen-studio",
+          "wispr-flow",
+          "miro",
+          "google-photos",
+          "granola",
+          "semrush"
+        ],
+        "knot": [
+          0.5,
+          300
+        ]
+      }
+    },
+    {
+      "role": "value",
+      "number": 1,
+      "headline": "Screen recordings",
+      "visual": {
+        "type": "swap",
+        "from": {
+          "logo": "screen-studio",
+          "name": "Screen Studio",
+          "tag": "$29"
+        },
+        "to": {
+          "logo": "recordly",
+          "name": "Recordly",
+          "tag": "open source"
+        },
+        "art": {
+          "id": "person.point"
+        }
+      },
+      "source": "brief"
+    },
+    {
+      "role": "value",
+      "number": 2,
+      "headline": "Voice to text",
+      "body": "Talk, and it types for you.",
+      "visual": {
+        "type": "swap",
+        "from": {
+          "logo": "wispr-flow",
+          "name": "Wispr Flow"
+        },
+        "to": {
+          "logo": "handy",
+          "name": "Handy",
+          "tag": "open source"
+        },
+        "art": {
+          "id": "person.talk"
+        }
+      },
+      "source": "brief (headline + body: added)"
+    },
+    {
+      "role": "value",
+      "number": 3,
+      "headline": "Whiteboards",
+      "body": "This carousel is drawn in it.",
+      "visual": {
+        "type": "swap",
+        "from": {
+          "logo": "miro",
+          "name": "Miro"
+        },
+        "to": {
+          "logo": "excalidraw",
+          "name": "Excalidraw",
+          "tag": "open source"
+        },
+        "art": {
+          "id": "person.write"
+        }
+      },
+      "source": "brief (headline + body: added)"
+    },
+    {
+      "role": "value",
+      "number": 4,
+      "headline": "Photo backup",
+      "body": "Your photos, on your own server.",
+      "visual": {
+        "type": "swap",
+        "from": {
+          "logo": "google-photos",
+          "name": "Google Photos"
+        },
+        "to": {
+          "logo": "immich",
+          "name": "Immich",
+          "tag": "open source"
+        },
+        "art": {
+          "id": "person.cheer"
+        }
+      },
+      "source": "brief (headline + body: added)"
+    },
+    {
+      "role": "value",
+      "number": 5,
+      "headline": "Meeting notes",
+      "visual": {
+        "type": "swap",
+        "from": {
+          "logo": "granola",
+          "name": "Granola"
+        },
+        "to": {
+          "logo": "hyprnote",
+          "name": "Hyprnote",
+          "tag": "open source"
+        },
+        "art": {
+          "id": "person.listen"
+        }
+      },
+      "source": "brief (headline: added)"
+    },
+    {
+      "role": "value",
+      "number": 6,
+      "headline": "SEO research",
+      "body": "Keywords, rankings and backlinks.",
+      "visual": {
+        "type": "swap",
+        "from": {
+          "logo": "semrush",
+          "name": "Semrush"
+        },
+        "to": {
+          "logo": "openseo",
+          "name": "OpenSEO",
+          "tag": "open source"
+        },
+        "art": {
+          "id": "person.think"
+        }
+      },
+      "source": "brief (headline + body: added)"
+    },
+    {
+      "role": "recap",
+      "headline": "My open-source stack",
+      "visual": {
+        "type": "logos",
+        "logos": [
+          {
+            "logo": "recordly",
+            "name": "Recordly"
+          },
+          {
+            "logo": "handy",
+            "name": "Handy"
+          },
+          {
+            "logo": "excalidraw",
+            "name": "Excalidraw"
+          },
+          {
+            "logo": "immich",
+            "name": "Immich"
+          },
+          {
+            "logo": "hyprnote",
+            "name": "Hyprnote"
+          },
+          {
+            "logo": "openseo",
+            "name": "OpenSEO"
+          }
+        ],
+        "cols": 3
+      },
+      "art": [
+        {
+          "id": "bot.wave",
+          "x": 435,
+          "y": 990,
+          "size": 210
+        }
+      ],
+      "source": "brief (headline: added)"
+    },
+    {
+      "role": "cta",
+      "headline": "Which one are you still paying for?",
+      "qualifier": "(tell me in the comments)",
+      "art": [
+        {
+          "id": "person.shrug",
+          "x": 130,
+          "y": 560,
+          "size": 540
+        },
+        {
+          "id": "bubble",
+          "x": 620,
+          "y": 560,
+          "size": 320
+        }
+      ],
+      "source": "added"
+    }
+  ]
+}

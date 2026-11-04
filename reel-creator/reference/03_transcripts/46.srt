@@ -1,0 +1,39 @@
+1
+00:00:00,000 --> 00:00:04,000
+These three Clod plugins let you scrape anything off the internet without paying for anything.
+
+2
+00:00:04,160 --> 00:00:08,160
+The first is Scrape Graph AI, that lets you scrape any website with a simple text prompt.
+
+3
+00:00:08,279 --> 00:00:11,419
+You just tell it what you want, and it'll come back with clean, structured data instantly.
+
+4
+00:00:11,740 --> 00:00:14,900
+Then there's Agent Reach, which takes it a step further, and lets you guys scrape
+
+5
+00:00:14,900 --> 00:00:19,780
+even gated platforms like LinkedIn, Instagram, X, and Reddit, all with no API key required.
+
+6
+00:00:19,980 --> 00:00:23,839
+And finally there's Scrapling MCP, which has already crossed over 70,000 stars on
+
+7
+00:00:23,839 --> 00:00:24,000
+GitHub.
+
+8
+00:00:24,219 --> 00:00:27,920
+This automatically adapts whenever a site changes its layout, so your scraping setup
+
+9
+00:00:27,920 --> 00:00:30,519
+can keep working instead of breaking every few weeks, like usual.
+
+10
+00:00:30,739 --> 00:00:34,240
+So if you want to try them all yourselves, just comment plugin down below and I'll send them to you directly.

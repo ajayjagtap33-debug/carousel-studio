@@ -38,7 +38,11 @@ export const EditorialMain: React.FC<EditorialProps> = (p) => {
         const sSide = faceSide(s, p.coverage);
         const w = sSide === "none" ? FULL_W : CONTENT_W;
         return (
-          <SceneWindow key={i} from={s.start} to={s.end} w={w} faceSide={sSide} first={i === 0} last={i === scenes.length - 1}>
+          // first/last skip the slide, but only when the scene really abuts the start or end of the cut:
+          // with a gap there (Ajay alone on camera) the scene has to transition in and out like any other
+          <SceneWindow key={i} from={s.start} to={s.end} w={w} faceSide={sSide}
+            first={i === 0 && s.start < 0.05}
+            last={i === scenes.length - 1 && s.end >= (p.media?.duration ?? Infinity) - 0.05}>
             {View ? <View s={s} /> : <div style={{ color: "red", fontSize: 40 }}>unknown scene type: {s.type}</div>}
             {((s.pills ?? []) as EPill[]).map((pl, j) => (
               <div key={j} style={{ position: "absolute", left: 0, top: pl.pos === "bottom" ? 880 : 150 }}>

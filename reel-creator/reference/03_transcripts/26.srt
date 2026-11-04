@@ -1,0 +1,55 @@
+1
+00:00:00,000 --> 00:00:02,459
+This is now one of the cheapest ways to generate AI video.
+
+2
+00:00:02,720 --> 00:00:04,480
+Higgsfield just opened access to all of their models
+
+3
+00:00:04,480 --> 00:00:07,639
+through one API, including Seeddance, Cling, Nano Banana,
+
+4
+00:00:07,900 --> 00:00:10,539
+and more with one API key for absolutely everything.
+
+5
+00:00:10,800 --> 00:00:11,900
+So instead of paying for a subscription,
+
+6
+00:00:12,240 --> 00:00:14,099
+you just top up a wallet and pay per generation.
+
+7
+00:00:14,359 --> 00:00:16,239
+There's no monthly plan, no expiring credits,
+
+8
+00:00:16,359 --> 00:00:18,559
+and even a failed generation will cost you nothing.
+
+9
+00:00:18,760 --> 00:00:20,500
+And the best part, you'll see the exact price
+
+10
+00:00:20,500 --> 00:00:22,199
+of every request before you guys run it
+
+11
+00:00:22,199 --> 00:00:23,579
+so you always know what you're spending.
+
+12
+00:00:23,800 --> 00:00:24,519
+Wanna try it yourselves?
+
+13
+00:00:24,820 --> 00:00:26,339
+Just comment key down below
+
+14
+00:00:26,339 --> 00:00:27,440
+and I'll send you the link directly.

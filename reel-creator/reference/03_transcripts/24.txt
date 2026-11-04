@@ -1,0 +1,11 @@
+You can have Vibe Code with GPD 6, GLM 5.3, and DeepSeek V4.1 completely free.
+It's called Free Buff, and it's a free, open-source coding agent just like Cloud Code.
+But instead of paying $20 or $100 for a subscription,
+you pay by watching a small ad in your terminal while it generates the answer for you.
+And every single day, you get around 5 hours of GPD 6 Luna,
+or up to 20 hours of GLM 5.3 with 8 other models to choose from.
+While these aren't the best models for coding,
+they're still great for automating those long, repetitive tasks
+that burn through tokens every single day.
+So if you want to try this for yourselves, just comment coding down below,
+and I'll send you the link directly.

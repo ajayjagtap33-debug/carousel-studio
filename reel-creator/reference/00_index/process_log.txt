@@ -1,0 +1,99 @@
+﻿
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+02 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+03 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+04 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+05 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+06 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+07 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+08 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+09 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+10 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+11 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+12 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+13 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+14 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+15 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+16 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+17 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+18 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+19 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+20 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+21 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+22 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+23 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+24 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+25 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+26 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+27 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+28 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+29 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+30 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+31 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+32 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+33 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+34 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+35 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+36 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+37 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+38 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+39 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+40 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+41 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+42 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+43 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+44 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+45 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+46 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+47 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+48 ok
+  return [(a.get_seconds(), b.get_seconds()) for a, b in scenes]
+49 ok
+
+

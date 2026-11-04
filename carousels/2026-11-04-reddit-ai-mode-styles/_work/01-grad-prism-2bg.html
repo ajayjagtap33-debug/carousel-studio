@@ -1,0 +1,833 @@
+<!doctype html><html><head><meta charset="utf-8"><style>/* vietnamese */
+@font-face {
+  font-family: 'Anton';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f0.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Anton';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f1.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Anton';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f2.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f4.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f3.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f5.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: 100%;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f4.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: 100%;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f3.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: 100%;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f5.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f9.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f6.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f8.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f7.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f9.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f6.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f8.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f7.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'DM Serif Display';
+  font-style: italic;
+  font-weight: 400;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f11.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'DM Serif Display';
+  font-style: italic;
+  font-weight: 400;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f10.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'DM Serif Display';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f12.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'DM Serif Display';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f13.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Fraunces';
+  font-style: italic;
+  font-weight: 500;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f15.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Fraunces';
+  font-style: italic;
+  font-weight: 500;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f16.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Fraunces';
+  font-style: italic;
+  font-weight: 500;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f14.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 600;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f17.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 600;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f18.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 600;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f19.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: italic;
+  font-weight: 400;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f22.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: italic;
+  font-weight: 400;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f23.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f21.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f20.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f28.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f24.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f29.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f26.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f30.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f27.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f25.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f28.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f24.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f29.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f26.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f30.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f27.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f25.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f28.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f24.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f29.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f26.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f30.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f27.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f25.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f28.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f24.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f29.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f26.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f30.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f27.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f25.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f31.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f35.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f34.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f36.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f32.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f33.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f31.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f35.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f34.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f36.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f32.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f33.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Newsreader';
+  font-style: italic;
+  font-weight: 500;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f39.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Newsreader';
+  font-style: italic;
+  font-weight: 500;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f38.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Newsreader';
+  font-style: italic;
+  font-weight: 500;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f37.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin */
+@font-face {
+  font-family: 'Permanent Marker';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f40.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: italic;
+  font-weight: 500;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f43.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: italic;
+  font-weight: 500;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f41.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: italic;
+  font-weight: 500;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f44.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: italic;
+  font-weight: 500;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f42.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f47.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f46.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url(file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/_work/fonts/f45.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>
+.mid{position:absolute;top:130px;bottom:170px;left:90px;right:90px;display:flex;flex-direction:column;justify-content:center} .mid>:first-child{margin-top:0!important}
+.mid>*{flex:none}
+.ticker .tk-top{display:flex;gap:16px;align-items:center} .ticker .tk-top img{width:58px}
+.ticker .tk-top b{font-size:30px;display:block} .ticker .tk-top span{font-size:22px;color:#888}
+.ticker .tk-price{font-size:104px;font-weight:700;letter-spacing:-.03em;margin-top:22px;line-height:1}
+.ticker .tk-chg{font-size:34px;font-weight:700;color:#B80000;margin-top:10px} .ticker .tk-chg span{font-size:22px;color:#888;font-weight:500;margin-left:10px}
+.ticker .tk-bars{display:flex;gap:40px;align-items:flex-end;height:220px;margin-top:30px;border-bottom:2px solid #ddd}
+.ticker .tk-bars div{position:relative;width:120px;height:100%;display:flex;align-items:flex-end}
+.ticker .tk-bars i{display:block;width:100%;background:#CFCAC0} .ticker .b1 i{height:100%} .ticker .b2 i{height:70.8%;background:#B80000}
+.ticker .tk-bars em{position:absolute;bottom:-38px;left:0;right:0;text-align:center;font-style:normal;font-size:20px;color:#888}
+.ticker .tk-note{font-size:16px;color:#aaa;margin-top:52px}
+.ticker.flat{background:none;padding:0;width:auto;text-align:left;color:#161616}
+.aim{background:#fff;color:#1f1f1f;border-radius:22px;padding:30px 34px;text-align:left;font-family:Inter}
+.aim.flat{padding:0;background:none}
+.aim-bar{display:flex;gap:16px;align-items:center;border:1px solid #ddd;border-radius:40px;padding:14px 22px} .aim-bar img{width:34px} .aim-bar .q{font-size:26px;color:#333}
+.aim-tabs{display:flex;gap:26px;font-size:22px;color:#777;margin:22px 4px 0;border-bottom:1px solid #eee;padding-bottom:12px} .aim-tabs b{color:#1f1f1f;border-bottom:3px solid #1f1f1f;padding-bottom:10px}
+.aim-ans{margin-top:26px} .aim-ans i{display:block;height:18px;border-radius:9px;background:#E7E5E1;margin-bottom:16px}
+.aim-src{display:flex;gap:14px;margin-top:18px} .chip{display:flex;gap:14px;align-items:center;border:1px solid #e3e3e3;border-radius:16px;padding:14px 18px;background:#FAFAF8}
+.chip img{width:44px} .chip b{font-size:22px;display:block} .chip span{font-size:18px;color:#888} .chip.ghost{color:#999}
+.check{background:#FBF8F7;color:#161616;border-radius:6px;padding:36px 44px;text-align:left}
+.check.flat{background:none;padding:0}
+.ck-h{font-size:26px;color:#888;margin-bottom:18px} .ck-r{font-size:36px;padding:20px 0;border-top:1px solid rgba(0,0,0,.1);display:flex;gap:22px;align-items:center}
+.ck-r span{width:46px;height:46px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:28px;color:#fff;flex:none}
+.ck-r .y{background:#4E8C5A} .ck-r .n{background:#B80000} .ck-r em{color:#999;font-style:normal;font-size:28px}
+.cmt{display:flex;gap:22px;align-items:center;background:#fff;color:#111;border-radius:22px;padding:26px 30px;text-align:left;width:620px;box-shadow:0 16px 40px rgba(0,0,0,.25)}
+.cmt.flat{box-shadow:none;width:auto;padding:0}
+.cmt .av{width:70px;height:70px;border-radius:50%;background:linear-gradient(135deg,#F86659,#7B3AEC);flex:none}
+.cmt b{font-size:24px;color:#555} .cmt p{margin:4px 0 0;font-size:44px;font-weight:700} .cmt .heart{margin-left:auto;font-size:36px;color:#999}
+@font-face{font-family:'Heros';src:url('file:///C:/Users/Ajay%20Jagtap/carousel-studio/assets/fonts/TeXGyreHeros-Regular.otf');font-weight:400;font-style:normal}@font-face{font-family:'Heros';src:url('file:///C:/Users/Ajay%20Jagtap/carousel-studio/assets/fonts/TeXGyreHeros-Italic.otf');font-weight:400;font-style:italic}@font-face{font-family:'Heros';src:url('file:///C:/Users/Ajay%20Jagtap/carousel-studio/assets/fonts/TeXGyreHeros-Bold.otf');font-weight:700;font-style:normal}@font-face{font-family:'Heros';src:url('file:///C:/Users/Ajay%20Jagtap/carousel-studio/assets/fonts/TeXGyreHeros-BoldItalic.otf');font-weight:700;font-style:italic}@font-face{font-family:'HerosCn';src:url('file:///C:/Users/Ajay%20Jagtap/carousel-studio/assets/fonts/TeXGyreHerosCondensed-Bold.otf');font-weight:700;font-style:normal}
+:root{--hero:linear-gradient(100deg,#A6231A 0%,#952561 40%,#7D1E8D 65%,#24096A 100%);--heroL:linear-gradient(160deg,#D73E2E 0%,#8C275E 40%,#942A9A 65%,#310C87 100%)}
+body{margin:0} .s{width:1080px;height:1350px;position:relative;overflow:hidden;font-family:Inter;box-sizing:border-box;padding:90px}
+.paper{background:#F4EFED;color:#000000} .ink{background:#000000;color:#FFFFFF} .red{background:var(--heroL);color:#FFFFFF}
+.top{position:absolute;top:60px;left:90px;right:90px;display:flex;justify-content:space-between;align-items:center;font-size:24px;letter-spacing:.06em;opacity:.75}
+.top img{height:30px}
+.swipe{position:absolute;bottom:62px;right:90px;font-size:44px;line-height:1;opacity:.85}
+.bar i{position:absolute;left:0;top:-1px;height:4px;background:#B80000}
+h1{font-family:Anton;font-weight:400;line-height:1.02;margin:0;letter-spacing:.005em}
+.k{font-family:'Instrument Serif';font-style:italic;color:#B80000;font-size:56px;margin:0 0 6px}
+.ink .k,.ink .acc{color:#000000} .acc{color:#B80000}
+.body{font-size:36px;line-height:1.4;margin-top:34px;max-width:860px} .body b{color:#B80000;font-weight:600} .ink .body b{color:#000000}
+.src{position:absolute;bottom:64px;left:90px;right:170px;font-size:20px;line-height:1.4;opacity:.55}
+.sub{font-family:var(--sub);font-style:var(--subst,italic);font-weight:var(--subw,400);font-size:var(--subs,58px);line-height:1.12;color:#B80000;margin:0}
+.tag{position:absolute;left:-30px;bottom:34px;display:flex;align-items:center;gap:12px;background:#000000;color:#FFFFFF;font-size:28px;font-weight:600;padding:12px 20px 12px 12px;border-radius:40px}
+.tag img{width:44px}
+.aipill{position:absolute;left:90px;top:960px;display:flex;align-items:center;gap:16px;background:#fff;border:1px solid #e2ddd9;border-radius:50px;padding:20px 30px 20px 22px;font-size:36px;box-shadow:0 12px 30px rgba(0,0,0,.12);transform:rotate(-2deg)}
+.aipill img{width:46px} .aipill b{font-weight:600;color:#1f1f1f}
+.box{background:var(--hero);color:#F4EFED;padding:0 14px;display:inline-block;line-height:1.08}
+.ticker{background:#FFFFFF;color:#000000;border-radius:4px;padding:36px 46px;width:620px} .ticker .tk-bars{height:150px} .ticker .b2 i{background:linear-gradient(180deg,#A6231A,#7D1E8D)} .ticker .tk-price{font-size:88px}
+
+@font-face{font-family:HN;src:url('file:///C:/Users/Ajay%20Jagtap/carousel-studio/assets/fonts/HelveticaNeueRoman.woff2');font-weight:400}@font-face{font-family:HN;src:url('file:///C:/Users/Ajay%20Jagtap/carousel-studio/assets/fonts/HelveticaNeue-Medium.woff2');font-weight:500}@font-face{font-family:HN;src:url('file:///C:/Users/Ajay%20Jagtap/carousel-studio/assets/fonts/HelveticaNeue-Bold.woff2');font-weight:700}
+.s,.s *,.aim,.ticker,.cmt,.check,.tag,.aipill{font-family:HN,Helvetica,Arial,sans-serif!important}
+h1{font-weight:700;letter-spacing:-.045em;line-height:.98;text-transform:none!important}
+.n1 h1{font-size:126px!important} .n2 h1{font-size:92px!important} .n3 h1{font-size:104px!important}
+.n4 h1{font-size:108px!important} .n5 h1{font-size:84px!important} .n6 h1{font-size:104px!important} .n7 h1{font-size:134px!important}
+.box{padding:0 .1em .04em!important;margin:.03em 0;line-height:1.02!important}
+.k{font-style:normal;font-weight:500;font-size:36px!important;letter-spacing:-.01em;margin-bottom:18px!important}
+.sub{font-style:normal;font-weight:500;font-size:46px!important;line-height:1.14;letter-spacing:-.025em}
+.body{font-weight:400;font-size:36px;line-height:1.35;letter-spacing:-.01em} .body b{font-weight:500}
+.src{letter-spacing:0} .tag,.aipill b{font-weight:500;letter-spacing:-.01em}
+.ticker .tk-price{letter-spacing:-.05em} .ticker .tk-chg,.cmt p{font-weight:700;letter-spacing:-.02em}
+/* TMV DESIGN.md (designmd.me/s/trackmyvisibility-drk69): ink #000 headings, charcoal #1E1E1E body, #666 captions,
+   white cards 18px radius + #ECECF2 border + rgba(80,60,200,.08) shadow, hairline #E5E5E5, shadows <= .2, media stays sharp */
+.paper .body{color:#1E1E1E} .paper .src{color:#666;opacity:1} .ink .src,.red .src{opacity:.6}
+.ticker,.check,.aim,.cmt{border-radius:18px!important;border:1px solid #ECECF2;box-shadow:0 12px 32px rgba(80,60,200,.08)!important}
+.ink .ticker,.ink .check,.ink .aim{border-color:transparent;box-shadow:none!important}
+.red .cmt{border-color:transparent;box-shadow:0 12px 32px rgba(0,0,0,.18)!important}
+.aipill{border-color:#E5E5E5!important;box-shadow:0 12px 32px rgba(80,60,200,.10)!important}
+.ck-r,.aim-tabs{border-color:#E5E5E5!important} .aim-bar{border-color:#E5E5E5!important}
+.red .body b{background:#F1C557;color:#222!important;font-weight:700;padding:.02em .4em .06em;border-radius:9999px;text-shadow:none}
+.n2 .mid>div[style*="rotate"]{box-shadow:0 20px 40px rgba(0,0,0,.2)!important}
+.paper{background:#FBFAFB;color:#000} .ink{background:url('file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/assets/bg-prism.jpg') center/cover;color:#fff} .red{background:url('file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/assets/bg-prism.jpg') center/cover;color:#fff}
+.k,.acc,.body b{color:#B80000} .ink .k,.ink .acc,.ink .body b{color:#000000}
+.paper .k,.paper .acc,.paper .body b,.paper .sub{color:#B80000}
+.box{background:linear-gradient(100deg,#3570EE 0%,#8B6CF2 100%);color:#FFFFFF;padding:0 16px}
+.ticker .b2 i{background:linear-gradient(180deg,#8B6CF2,#3570EE)} .ticker .tk-chg{color:#B80000}
+.check{background:#fff} .ck-r .n{background:#B80000}
+.cmt .av{background:url('file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/assets/tmv-site-bg.png') center/cover}
+.tag{background:#000}
+.ink,.red{color:#111!important} .ink .k,.red .k{color:#111!important;opacity:1!important} .ink .body b{color:#111!important;text-decoration-color:#111} .ink .src,.red .src,.ink .swipe,.red .swipe{color:#fff!important;opacity:1!important;text-shadow:0 1px 6px rgba(20,20,90,.45)} .ink .ticker,.ink .check,.ink .aim{box-shadow:0 12px 32px rgba(30,40,120,.14)!important}
+
+.ink .acc,.red .acc{background:#000000;color:#FFFFFF;padding:0 12px;-webkit-box-decoration-break:clone;box-decoration-break:clone}.ink .k,.red .k{color:#fff;opacity:.9} .ink .body b{color:#fff;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:7px}.ink h1{line-height:1.13!important}.red h1 .box{background:#000000!important;color:#FFFFFF!important} .red .body b{background:#000000!important;color:#FFFFFF!important}</style></head><body><div class="s n1 paper" style="--sub:Fraunces;--subw:500;--subs:56px"><div class="top"><img src="file:///C:/Users/Ajay%20Jagtap/carousel-studio/assets/logos/tmv-red.png"></div><div style="margin-top:80px;position:relative;z-index:2"><h1 style="font-size:128px;text-transform:uppercase">Reddit lost<br><span class="box">1M+ search</span><br>visits a week.</h1>
+          <p class="sub" style="margin-top:34px;max-width:520px">And its CEO is pointing at Google's AI Mode.</p></div>
+          <div style="position:absolute;right:20px;bottom:196px;width:520px"><img src="file:///C:/Users/Ajay%20Jagtap/carousel-studio/carousels/2026-11-04-reddit-ai-mode-styles/assets/huffman-bw.png" style="width:520px;display:block">
+            <div class="tag"><img src="file:///C:/Users/Ajay%20Jagtap/carousel-studio/assets/logos/reddit.png">Steve Huffman, CEO</div></div>
+          <div class="aipill"><img src="file:///C:/Users/Ajay%20Jagtap/carousel-studio/assets/logos/google.png"><b>AI Mode</b></div>
+          <svg style="position:absolute;left:380px;top:905px" width="260" height="120" viewBox="0 0 260 120" fill="none" stroke="#B80000" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M250 70 C 190 110, 110 100, 30 52"/><path d="M58 30 L 28 52 L 62 70"/></svg><div class="src">Sources: Reddit Q3 2026 letter to shareholders (SEC Exhibit 99.2), p. 4 · Search Engine Journal, Oct 30, 2026 (Q3 earnings call)<br>Photo: Steve Jurvetson, CC BY 2.0, cut out, black and white</div><div class="swipe">→</div></div></body></html>

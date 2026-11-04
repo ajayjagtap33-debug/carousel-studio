@@ -47,6 +47,16 @@ Ref key: first 6 characters of the filename (`0_xh8Z` = `0_xh8Z6ujMEeaXJfXu.webp
 | V16 | **Trap** | The figure chases a lure (a dollar on a stick) towards a hole it can't see | 0_qwWa | Library art only; no new VIS type needed |
 | V17 | **Key and lock** | The old key is shown next to a new key that fits the new lock ("tomorrow") | 1_Gvvf | Library art only (key/lock doodles) |
 | V18 | **Event vs reaction** | The fact on one side of a dashed divider and the escalating reaction on the other, with "you control this" pointing at the gap | 1_Y9hW | ≈ V1 |
+| V19 | **Mirror** | A figure hangs a mirror labelled with the effort; the reflection is labelled with the reward (HARD WORK → SELF-RESPECT) | 0_LL5Y | **gap** (`mirror`) |
+| V20 | **Who would you pick?** | Two characters side by side, one obviously the wrong pick (dollar eyes + logo sign) vs the honest one, a small hand-written "I'm with this guy" | 1_MTPG | ≈ V13 with people; **gap** (`pick`) |
+| V21 | **Carry it up the slope** | A flat line that turns up into an arrow (NEW DIRECTION); the figure carries a box labelled with what transfers, the things left behind trail off as speed lines | 1_caIj | **gap** (`ramp`) |
+| V22 | **Spike vs slope** | Two small charts: a spike that drops back to nothing (VIRAL) and a steady climb made of hops (AUDIENCE), "one reader at a time" under it | 1_xudy | **gap** (`curve` pair) |
+| V23 | **Weak vs strong position** | A figure balanced on a one-legged stool vs standing on a four-legged table, arrows of options fanning out from the strong one | 1_lyO0 | **gap** (`table`) |
+| V24 | **Friction on the path** | The same start and flag twice: once with a phone, a scribble and a box blocking the line, once with a clear path and a figure already running | 1_Lft- | **gap** (`path`) |
+| V25 | **Leaking vs directed** | A bucket leaking from holes (time) vs a pipe aiming all of it one way, "same hours, different output" | 0_Zw4e | **gap** (`bucket`) |
+| V26 | **Pruned tree** | The same tree overgrown (noise) and pruned (wisdom), small icon lists beside each | 0_xh8Z | **gap** (`tree`) |
+| V27 | **Start quietly** | A launch megaphone crossed out → someone working at a desk at night → a sprout | 1_sgvp | **gap** (`sprout`) |
+| V28 | **Mountain, sell in stages** | A rough peak with markers on the way down ("sell in stages") and a dotted line falling off after | 1_WFdg | **gap** (`curve` mountain) |
 
 ## For carousels (4:5) vs video/presentation (4:3, 16:9)
 

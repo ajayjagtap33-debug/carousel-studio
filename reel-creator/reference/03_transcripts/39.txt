@@ -1,0 +1,18 @@
+This free AI tool lets you clone any website
+with just a single screenshot.
+It's called Screenshot to Code,
+and it's a fully open source project
+with over 72,000 stars on GitHub.
+You just drop in a screenshot and it'll read the layout,
+the spacing, the fonts, the colors,
+and even build the entire website for you live.
+And it works on more than just screenshots.
+You can give it a Figma design, reference images,
+or even a screen recording of a site,
+and it'll turn that thing
+into a fully working prototype in minutes.
+Plus, you'll also get a live canvas,
+so you can tweak anything however you want.
+Wanna try this for yourselves?
+Just comment a website down below,
+and I'll send you guys the links directly.

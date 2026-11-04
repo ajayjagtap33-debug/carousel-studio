@@ -4,8 +4,19 @@ node_modules/
 # Bundled ffmpeg build (~314 MB) — install ffmpeg locally instead
 tools/ffmpeg/
 
-# Raw screen recordings and renders — local only
-videos/
+# Person-matting model for reels (~15 MB): rvm_mobilenetv3_fp32.onnx from github.com/PeterL1n/RobustVideoMatting v1.0.0
+tools/rvm/
+
+# Raw screen recordings and renders — local only. The reference teardowns are the exception: the skill and
+# CLAUDE.md point to them, so the .md travels with the repo while the frames and clips stay local.
+videos/*
+!videos/reference/
+videos/reference/**
+!videos/reference/*/
+!videos/reference/*/teardown.md
+
+# Raw camera files (a single DJI clip is 1.6 GB) — local only
+raw/
 
 # Python
 __pycache__/
@@ -18,3 +29,32 @@ desktop.ini
 
 # Local virtualenv
 .venv/
+
+# Local Node toolchain (~90 MB) — install Node yourself instead
+tools/node/
+tools/bin/
+# The old reel engine's Windows ffmpeg.exe (84 MB)
+reel-creator/tools/bin/
+
+# Old zip snapshots of the project
+*.zip
+
+# Remotion local cache
+.remotion/
+
+# Reels: the design reference's docs, builder and sheet travel; its frames, footage, mattes and renders stay local
+reel-creator/design/frames/
+reel-creator/design/public/
+reel-creator/design/*.mp4
+reel-creator/design/book.json
+reel-creator/design/job.json
+reel-creator/design/stills.log
+
+# Other creators' frames, gathered for reference: local only, like videos/reference/*/frames
+visuals/references/local/
+
+# prompt-motion.com archive: creators' videos and prompts stay local; the index is tracked
+visuals/motion/local/
+
+# Helvetica Neue is licensed (TMV site web fonts): local renders only, never committed
+assets/fonts/HelveticaNeue*

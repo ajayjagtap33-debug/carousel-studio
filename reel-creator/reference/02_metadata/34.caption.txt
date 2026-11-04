@@ -1,0 +1,29 @@
+Comment "FABLE" to get the leaked Claude Fable 5.1 system prompt.
+
+Someone just leaked the full system prompt of Claude Fable 5.1.
+
+And this isn't some basic prompt.
+
+It's over 275,000 characters long, around 8,000 lines.
+
+It covers the exact instructions Anthropic uses to control how one of the world's most powerful AI models thinks, plans, and gets work done.
+
+The leak includes the entire prompt with its tools, instructions, and behavior rules.
+
+And it's all sitting in public on GitHub right now.
+
+So you can use it to improve your own prompting skills.
+
+By studying exactly how Anthropic defines its tools.
+
+How they set their restrictions.
+
+And how they tell the model what to use, when, and how.
+
+Think of it like getting the actual internal manual instead of just guessing how the system behaves from the outside.
+
+Most people prompt by trial and error, testing what works and hoping it holds up.
+
+This lets you study the real structure behind one of the most capable models out there.
+
+#claudefable5 #systemprompt #aiprompting #githubrepo #claudeai

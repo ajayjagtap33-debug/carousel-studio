@@ -1,0 +1,8 @@
+Forget 11Labs. Instead, use this free and open source alternative that lets you clone your voice
+with just three seconds of audio. The tool is called Voice Studio, and you just give it a few
+seconds of your voice, and it'll copy it perfectly with the exact tone, rhythm, and natural emotions.
+Then you can use it to generate speech, stories, even full audiobooks, and in that exact voice,
+across over 600 languages. Plus, you also get controls to fine tune the gender, age, accent,
+pitch, and even emotions. It also has a built-in MCP server, so your quad code can use it
+directly. Want to try this for yourselves? Just comment Voice down below, and I'll send you the
+link directly.

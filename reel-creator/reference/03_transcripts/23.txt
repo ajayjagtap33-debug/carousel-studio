@@ -1,0 +1,10 @@
+This free AI tool turns your cloud code into literally a full production studio,
+and it's completely free. It's called Open Montage, and it's a fully open-source project
+with over 60,000 stars on GitHub. It basically works just like a real production team, with
+a researcher, a scriptwriter, a voice artist, and even an editor, all run by AI. So you just
+give it a prompt, and a team of AI agents will search the entire internet, write the script,
+generate the visuals, even pull B-roll, music, voiceovers, and sound effects,
+and then put everything together into a finished video all on its own.
+And it works for pretty much any format, from animated explainers, all the way up to product
+ads and UGCs, to even cinematic trailers. So if you want to try this for yourselves,
+just comment video down below, and I'll DM you the link directly.

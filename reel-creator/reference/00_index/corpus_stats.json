@@ -1,0 +1,120 @@
+{
+ "duration_s": {
+  "mean": 35.72,
+  "median": 34.97,
+  "min": 21.4,
+  "max": 57.5
+ },
+ "shots": {
+  "mean": 13.73,
+  "median": 13.0,
+  "min": 6.0,
+  "max": 28.0
+ },
+ "avg_shot_s": {
+  "mean": 2.79,
+  "median": 2.53,
+  "min": 1.67,
+  "max": 4.66
+ },
+ "cuts_per_10s": {
+  "mean": 3.84,
+  "median": 3.95,
+  "min": 2.14,
+  "max": 5.97
+ },
+ "words": {
+  "mean": 147.63,
+  "median": 146.0,
+  "min": 95.0,
+  "max": 235.0
+ },
+ "wpm": {
+  "mean": 251.18,
+  "median": 245.7,
+  "min": 205.5,
+  "max": 290.0
+ },
+ "music_gap_db": {
+  "mean": 8.61,
+  "median": 8.2,
+  "min": 3.8,
+  "max": 16.4
+ },
+ "tempo_bpm": {
+  "mean": 123.41,
+  "median": 117.0,
+  "min": 89.0,
+  "max": 156.0
+ },
+ "cuts_with_sfx_hit": {
+  "mean": 5.73,
+  "median": 6.0,
+  "min": 1.0,
+  "max": 12.0
+ },
+ "likes": {
+  "mean": 6078.43,
+  "median": 2865.0,
+  "min": 518.0,
+  "max": 116571.0
+ },
+ "comments": {
+  "mean": 5521.98,
+  "median": 3790.0,
+  "min": 444.0,
+  "max": 35772.0
+ },
+ "top_by_likes": [
+  [
+   "06",
+   "TV debloat (3.67M views)",
+   "116571"
+  ],
+  [
+   "29",
+   "FreeLLMAPI",
+   "24171"
+  ],
+  [
+   "41",
+   "4 vibe-coding plugins",
+   "18376"
+  ],
+  [
+   "37",
+   "prompts.chat",
+   "6993"
+  ],
+  [
+   "21",
+   "Cloudflare security skill",
+   "6821"
+  ],
+  [
+   "49",
+   "DeepSeek Harness",
+   "6282"
+  ],
+  [
+   "32",
+   "DaVinci Resolve MCP",
+   "5983"
+  ],
+  [
+   "42",
+   "ScrapeGraphAI",
+   "5776"
+  ],
+  [
+   "05",
+   "3 sound-effect tools",
+   "5488"
+  ],
+  [
+   "19",
+   "5 Claude Code plugins",
+   "4858"
+  ]
+ ]
+}

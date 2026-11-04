@@ -1,0 +1,24 @@
+You can now clone any app with Cloud Code,
+so you never have to pay for a subscription again.
+It's called Replica,
+and it's not just another reverse engineering repo,
+but a collection of 11 skills that help you build
+a better version of any app you're paying for,
+completely free.
+You just install it in your Cloud Code
+and point it at any app,
+and first it'll map out every screen and feature,
+then it'll read through the reviews on the App Store,
+G2, and even Reddit to find out what users hate
+so it knows what to fix.
+Then it'll start rebuilding it one screen at a time,
+solving those problems along as it goes.
+Plus it adds the backend and tests every flow
+and screen for bucks.
+Finally, it'll even give it its own branding
+and package it up for you,
+so you end up with a better app
+that looks completely yours.
+So if you wanna try it,
+just comment clone down below
+and I'll send you the link directly.

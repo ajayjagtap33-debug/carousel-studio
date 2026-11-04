@@ -1,0 +1,87 @@
+{
+ "reel": "06",
+ "duration_s": 37.0,
+ "num_shots": 10,
+ "avg_shot_s": 3.7,
+ "median_shot_s": 3.87,
+ "cuts_per_10s": 2.7,
+ "scenes": [
+  [
+   0.0,
+   2.0
+  ],
+  [
+   2.0,
+   5.03
+  ],
+  [
+   5.03,
+   7.83
+  ],
+  [
+   7.83,
+   13.2
+  ],
+  [
+   13.2,
+   15.33
+  ],
+  [
+   15.33,
+   20.0
+  ],
+  [
+   20.0,
+   24.17
+  ],
+  [
+   24.17,
+   28.2
+  ],
+  [
+   28.2,
+   33.3
+  ],
+  [
+   33.3,
+   37.0
+  ]
+ ],
+ "palette": [
+  {
+   "hex": "#0b0c16",
+   "share": 0.346
+  },
+  {
+   "hex": "#e9ebee",
+   "share": 0.248
+  },
+  {
+   "hex": "#333239",
+   "share": 0.203
+  },
+  {
+   "hex": "#817176",
+   "share": 0.095
+  },
+  {
+   "hex": "#bda7ab",
+   "share": 0.088
+  },
+  {
+   "hex": "#2b71c3",
+   "share": 0.019
+  }
+ ],
+ "audio": {
+  "music_bed_db_between_words": -29.911882400512695,
+  "speech_db": -17.73947525024414,
+  "music_vs_speech_gap_db": 12.172407150268555,
+  "est_tempo_bpm": 133.92857142857142,
+  "strong_transients": 35,
+  "cuts_with_transient_hit": 6,
+  "words": 172,
+  "wpm": 280.9,
+  "first_word_at_s": 0.0
+ }
+}

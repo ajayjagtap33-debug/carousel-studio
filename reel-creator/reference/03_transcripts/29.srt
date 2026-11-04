@@ -1,0 +1,71 @@
+1
+00:00:00,000 --> 00:00:02,040
+You can now run Cloud Code completely free
+
+2
+00:00:02,040 --> 00:00:03,379
+with almost unlimited usage.
+
+3
+00:00:03,640 --> 00:00:05,480
+So somebody on GitHub just built an AI tool
+
+4
+00:00:05,480 --> 00:00:08,119
+that gives you over seven billion free AI tokens
+
+5
+00:00:08,119 --> 00:00:08,980
+every single month.
+
+6
+00:00:09,160 --> 00:00:11,380
+And that includes models from ChachiBT, Gemini,
+
+7
+00:00:11,720 --> 00:00:15,019
+GLM, Kimi, Grok, Mistral, Quinn, and even more.
+
+8
+00:00:15,199 --> 00:00:16,679
+It's called Free LLM API,
+
+9
+00:00:17,059 --> 00:00:19,980
+and it links your Cloud Code to over 600 free AI models
+
+10
+00:00:19,980 --> 00:00:21,640
+all through one really easy setup.
+
+11
+00:00:21,780 --> 00:00:23,320
+So the moment your Cloud Limit runs out,
+
+12
+00:00:23,399 --> 00:00:25,820
+it'll automatically switch you over to the next best model
+
+13
+00:00:25,820 --> 00:00:27,019
+to keep your session going.
+
+14
+00:00:27,120 --> 00:00:29,280
+Plus it'll leave a note behind as it switches,
+
+15
+00:00:29,280 --> 00:00:31,519
+so the new model will already have all your contacts.
+
+16
+00:00:31,859 --> 00:00:32,679
+Wanna try it for yourselves?
+
+17
+00:00:33,020 --> 00:00:34,140
+Just comment Claude down below
+
+18
+00:00:34,140 --> 00:00:35,219
+and I'll send you the link directly.

@@ -1,0 +1,87 @@
+1
+00:00:00,000 --> 00:00:01,700
+Claude has now become insanely good
+
+2
+00:00:01,700 --> 00:00:03,220
+at motion graphics and video editing,
+
+3
+00:00:03,339 --> 00:00:04,919
+but the sound effects that ads still suck.
+
+4
+00:00:05,080 --> 00:00:07,080
+To fix that, use these three free tools
+
+5
+00:00:07,080 --> 00:00:08,880
+that add professional sounds to your timeline
+
+6
+00:00:08,880 --> 00:00:10,560
+at the right place and the right level,
+
+7
+00:00:10,699 --> 00:00:11,740
+just like a pro editor would.
+
+8
+00:00:11,820 --> 00:00:13,400
+The first is OpenVerse API,
+
+9
+00:00:13,619 --> 00:00:14,820
+which gives your AI agent access
+
+10
+00:00:14,820 --> 00:00:16,839
+to over five million high quality sound effects
+
+11
+00:00:16,839 --> 00:00:18,320
+that it can search and download on its own.
+
+12
+00:00:18,420 --> 00:00:19,839
+The second is Real SFX,
+
+13
+00:00:19,920 --> 00:00:21,059
+which studies your timeline,
+
+14
+00:00:21,260 --> 00:00:22,839
+finds each moment that needs a sound
+
+15
+00:00:22,839 --> 00:00:24,460
+and adds one at the exact frame.
+
+16
+00:00:24,600 --> 00:00:25,820
+And finally, if it still can't find
+
+17
+00:00:25,820 --> 00:00:26,600
+the right sound effect,
+
+18
+00:00:26,760 --> 00:00:29,460
+use Earshot to generate a brand new one in code,
+
+19
+00:00:29,460 --> 00:00:31,379
+or even a whole sound kit that fits your project.
+
+20
+00:00:31,579 --> 00:00:32,500
+So if you want all three of these,
+
+21
+00:00:32,600 --> 00:00:33,780
+just comment sound down below
+
+22
+00:00:33,780 --> 00:00:34,899
+and I'll send you the links directly.

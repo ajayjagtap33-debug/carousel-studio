@@ -1,0 +1,95 @@
+1
+00:00:00,000 --> 00:00:01,840
+You can now clone any app with Cloud Code,
+
+2
+00:00:01,980 --> 00:00:03,660
+so you never have to pay for a subscription again.
+
+3
+00:00:03,799 --> 00:00:04,480
+It's called Replica,
+
+4
+00:00:04,679 --> 00:00:06,459
+and it's not just another reverse engineering repo,
+
+5
+00:00:06,580 --> 00:00:08,640
+but a collection of 11 skills that help you build
+
+6
+00:00:08,640 --> 00:00:10,640
+a better version of any app you're paying for,
+
+7
+00:00:10,939 --> 00:00:11,439
+completely free.
+
+8
+00:00:11,560 --> 00:00:13,000
+You just install it in your Cloud Code
+
+9
+00:00:13,000 --> 00:00:14,119
+and point it at any app,
+
+10
+00:00:14,199 --> 00:00:16,280
+and first it'll map out every screen and feature,
+
+11
+00:00:16,460 --> 00:00:18,460
+then it'll read through the reviews on the App Store,
+
+12
+00:00:18,800 --> 00:00:21,300
+G2, and even Reddit to find out what users hate
+
+13
+00:00:21,300 --> 00:00:22,260
+so it knows what to fix.
+
+14
+00:00:22,500 --> 00:00:24,679
+Then it'll start rebuilding it one screen at a time,
+
+15
+00:00:24,839 --> 00:00:26,500
+solving those problems along as it goes.
+
+16
+00:00:26,660 --> 00:00:28,399
+Plus it adds the backend and tests every flow
+
+17
+00:00:28,399 --> 00:00:29,320
+and screen for bucks.
+
+18
+00:00:29,320 --> 00:00:31,100
+Finally, it'll even give it its own branding
+
+19
+00:00:31,100 --> 00:00:32,299
+and package it up for you,
+
+20
+00:00:32,320 --> 00:00:33,579
+so you end up with a better app
+
+21
+00:00:33,579 --> 00:00:34,759
+that looks completely yours.
+
+22
+00:00:35,039 --> 00:00:35,740
+So if you wanna try it,
+
+23
+00:00:35,799 --> 00:00:37,039
+just comment clone down below
+
+24
+00:00:37,039 --> 00:00:38,119
+and I'll send you the link directly.

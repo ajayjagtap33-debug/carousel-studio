@@ -1,0 +1,71 @@
+1
+00:00:00,000 --> 00:00:02,500
+This free AI tool lets you scrape anything off the internet
+
+2
+00:00:02,500 --> 00:00:03,640
+without paying for anything.
+
+3
+00:00:03,839 --> 00:00:05,099
+It's called Scrape Graph AI,
+
+4
+00:00:05,320 --> 00:00:06,799
+and it's an open source Python library
+
+5
+00:00:06,799 --> 00:00:08,699
+with over 30,000 stars on GitHub.
+
+6
+00:00:08,900 --> 00:00:09,900
+You just give it a website link
+
+7
+00:00:09,900 --> 00:00:11,500
+and describe what you want in plain English,
+
+8
+00:00:11,640 --> 00:00:13,679
+and then a minute later, it'll come back with a clean list
+
+9
+00:00:13,679 --> 00:00:15,140
+of everything that you asked for.
+
+10
+00:00:15,240 --> 00:00:16,820
+So with this, you can find leads from LinkedIn,
+
+11
+00:00:17,120 --> 00:00:18,640
+track your competitors or their ads,
+
+12
+00:00:18,820 --> 00:00:19,859
+or do simple research.
+
+13
+00:00:20,079 --> 00:00:21,280
+Plus it's free, open source,
+
+14
+00:00:21,379 --> 00:00:22,320
+and works with Claude Code
+
+15
+00:00:22,320 --> 00:00:24,160
+and all the other leading AI coding agents.
+
+16
+00:00:24,399 --> 00:00:25,699
+So if you guys wanna try this for yourselves,
+
+17
+00:00:25,820 --> 00:00:27,039
+just comment Claude down below
+
+18
+00:00:27,039 --> 00:00:28,280
+and it'll DM you the link directly.

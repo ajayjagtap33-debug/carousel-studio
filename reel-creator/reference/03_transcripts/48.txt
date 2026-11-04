@@ -1,0 +1,19 @@
+You can now create Apple level websites with Claude
+using this one skill.
+So somebody on GitHub just compressed years
+of Apple's design thinking into a single skill
+with the exact colors, fonts, motion,
+and rules that they use across every product.
+With it, you guys can create premium animated websites
+like this or use it to fix
+and upgrade your existing projects.
+To install it, just copy these commands
+into your Claude code terminal
+and ask it to review your site.
+And in a couple of minutes,
+it'll come back with every minor thing
+that's off based on Apple's guidelines
+plus all of the exact fixes you need for each one.
+So if you want the skill for yourselves,
+just comment Apple down below,
+it'll damn it to you directly.

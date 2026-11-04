@@ -26,19 +26,22 @@
     "paper": "#ffffff",
     "red": "#e03131",
     "blue": "#1971c2",
-    "green": "#2f9e44",
+    "green": "#2C6650",
+    "sage": "#7FBDA8",
+    "d_green": "#224F3D",
     "violet": "#6741d9",
     "orange": "#f08c00",
     "l_red": "#ffc9c9",
     "l_blue": "#a5d8ff",
-    "l_green": "#b2f2bb",
+    "l_green": "#CCE5DC",
     "l_violet": "#d0bfff",
     "l_yellow": "#ffec99",
     "l_orange": "#ffd8a8",
     "l_grey": "#e9ecef",
     "body": "#495057"
   },
-  "accentDefault": "violet",
+  "accentDefault": "green",
+  "_colorRule": "One colour on a slide = brand green (ajayjagtap.site #2C6650) and its shades. Other colours only alongside it, in multi-colour visuals. The tmv / tmv-study themes override this; they are the Track My Visibility brand.",
   "spacing": {
     "headlineLH": 1.15,
     "bodyGap": 44,
@@ -52,6 +55,19 @@
     "minVisualHeight": 520
   },
   "formats": {
+    "_note": "carousel = the top-level values above. Each format below overrides only what it lists. slides and broll also switch the output format (see render.py FORMATS); landscape and square are carousel output at another size.",
+    "slides": {
+      "size": { "w": 1600, "h": 900, "margin": 80, "gap": 200, "exportScale": 1.2 },
+      "type": { "headline": 60, "subhead": 44, "body": 34, "qualifier": 34, "small": 26, "min": 26, "labelMin": 22 },
+      "spacing": { "bodyGap": 28, "visualGap": 50 },
+      "density": { "maxHeadlineLinesWithBody": 2, "maxBodyLines": 2, "maxTextLines": 6, "minVisualHeight": 380 }
+    },
+    "broll": {
+      "size": { "w": 1400, "h": 1800, "margin": 200, "gap": 200, "stickerPad": 60, "edge": 24, "exportScale": 1.5 },
+      "type": { "headline": 96, "body": 48, "qualifier": 44 },
+      "spacing": { "bodyGap": 36, "visualGap": 70 },
+      "density": { "maxHeadlineLinesWithBody": 2, "maxHeadlineLines": 3, "maxBodyLines": 1, "maxTextLines": 3, "minVisualHeight": 400 }
+    },
     "landscape": {
       "size": {
         "w": 1920,

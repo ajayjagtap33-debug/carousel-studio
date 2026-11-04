@@ -1,0 +1,35 @@
+Comment "STARTUP" to get Mirofish and test your Business Idea. 
+
+You can now test your startup idea before you build a single thing.
+
+It's called MiroFish, an open source simulation engine.
+
+It has already crossed 80K stars on GitHub.
+
+First, you upload your product idea, pitch or a rough MVP.
+
+Then it builds an entire digital world full of simulated AI people.
+
+Each one has its own personality, background and opinions.
+
+Next, it drops them onto a social media platform.
+
+They react, argue and talk it out with each other.
+
+It's like a focus group that runs on its own.
+
+When it's done, it writes you a full report.
+
+It tells you why they loved it.
+
+It also tells you why they hated it.
+
+And it shows what they'd want changed.
+
+Plus you can chat with any one of them individually.
+
+So you can ask exactly why they felt that way.
+
+It's like getting customer feedback before you spend a dollar.
+
+#mirofish #businessidea #startup #githubrepo #aiagents

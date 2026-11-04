@@ -1,0 +1,71 @@
+1
+00:00:00,000 --> 00:00:02,040
+Higgsfield put all the best video and image models
+
+2
+00:00:02,040 --> 00:00:04,540
+in one place, including Genjutsu, Seed Dance,
+
+3
+00:00:04,839 --> 00:00:06,960
+Cling, Soul, Seed Dream, and more,
+
+4
+00:00:07,120 --> 00:00:08,179
+all behind a single API.
+
+5
+00:00:08,419 --> 00:00:09,400
+Here's why that's a big deal.
+
+6
+00:00:09,519 --> 00:00:12,119
+You can now hook it straight into automations or AI agents,
+
+7
+00:00:12,380 --> 00:00:14,220
+meaning your AI agent can write the script,
+
+8
+00:00:14,439 --> 00:00:16,760
+pick the model, and generate the entire video itself
+
+9
+00:00:16,760 --> 00:00:18,940
+with camera controls and character consistency
+
+10
+00:00:18,940 --> 00:00:19,699
+built right in.
+
+11
+00:00:19,780 --> 00:00:21,699
+That's lethal if you run a content pipeline.
+
+12
+00:00:21,879 --> 00:00:23,879
+It also limits comping prompts between tabs
+
+13
+00:00:23,879 --> 00:00:25,660
+and having to switch between any tools at all.
+
+14
+00:00:25,859 --> 00:00:28,320
+AI can basically do it all completely self-supervised.
+
+15
+00:00:28,320 --> 00:00:30,000
+So if you guys want to try this for yourselves,
+
+16
+00:00:30,260 --> 00:00:31,500
+just comment access down below,
+
+17
+00:00:31,600 --> 00:00:33,079
+and I'll send you the cheapest API provider
+
+18
+00:00:33,079 --> 00:00:33,960
+on the market right now.

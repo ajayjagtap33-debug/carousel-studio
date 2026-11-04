@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:04,620
+This free AI tool lets you connect your cloud code to any app or any tool that you use,
+
+2
+00:00:04,759 --> 00:00:08,060
+even ones that don't have an official MCP or connector, and it's completely free.
+
+3
+00:00:08,199 --> 00:00:12,720
+It's called CLI Anything, and it lets your cloud code build a CLI or command line interface
+
+4
+00:00:12,720 --> 00:00:16,640
+for basically any software that you use, including the local tools that are sitting on your
+
+5
+00:00:16,640 --> 00:00:17,420
+computer right now.
+
+6
+00:00:17,500 --> 00:00:21,179
+All you do is point it at an app or a repo, and then it'll read the code, write its
+
+7
+00:00:21,179 --> 00:00:23,739
+own commands, and even install everything for you completely automatically.
+
+8
+00:00:24,039 --> 00:00:27,920
+With this, your agent can actually control things like Blender, Premiere Pro, Zoom,
+
+9
+00:00:27,920 --> 00:00:30,579
+and even Notebook LM, all directly from your terminal.
+
+10
+00:00:30,839 --> 00:00:34,140
+Plus, since these are all CLI, your agent now uses way fewer tokens than a stack of
+
+11
+00:00:34,140 --> 00:00:35,240
+MCPs usually do.
+
+12
+00:00:35,359 --> 00:00:38,640
+If you guys want the full setup for yourselves, just comment CLI below, and I'll send
+
+13
+00:00:38,640 --> 00:00:39,320
+you the link directly.
