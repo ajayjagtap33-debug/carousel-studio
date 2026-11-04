@@ -25,7 +25,7 @@ building from it (`composite-video-module.md` is superseded).
 
 > **Read `HANDOFF.md` first.** This folder was merged on 2026-11-04 from two diverged copies (the personal Mac copy and
 > the company laptop's repo checkout). It is a git checkout of `ajayjagtap33-debug/carousel-studio` on branch
-> `broll-treatment-rules`, **18 commits ahead of origin (the merge is `6415f9c`), not pushed yet**. `HANDOFF.md` says what came
+> `broll-treatment-rules`, **ahead of origin (the merge is `6415f9c`), not pushed yet**. `HANDOFF.md` says what came
 > from where, what is verified, and what is still open.
 
 ## This machine

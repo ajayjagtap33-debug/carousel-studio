@@ -13,7 +13,7 @@ This one was built with APFS clones, so it cost almost no disk space (the volume
 
 ## State of this folder
 
-- It is the company's `.git` (branch `broll-treatment-rules`, 18 ahead of `origin/broll-treatment-rules`; `origin/main` is
+- It is the company's `.git` (branch `broll-treatment-rules`, ahead of `origin/broll-treatment-rules`; `origin/main` is
   `5057d24`, the merge of PR #1, which does **not** contain the company's 14 commits).
 - Everything is **committed locally, nothing pushed**: `6415f9c` is the merge (592 files; it also carries the company's own
   uncommitted work, which couldn't be separated), then a docs fix, then `d42ad60` adds the remaining folders (`reel-creator/reference`
