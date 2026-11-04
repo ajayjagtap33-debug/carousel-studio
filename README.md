@@ -74,8 +74,8 @@ of it, kept level by `./sync.sh` (Mac) or `.\sync.ps1` (Windows) — one command
 when nothing changed, and if the same file changed on both machines it stops before committing anything and prints the
 exact commands to sort it out. Pass your own message if you want one: `./sync.sh "aeo checklist v2"`.
 
-The branch is ahead of origin and **not pushed yet** (this Mac wasn't signed in to GitHub): run `gh auth login`, then
-`git push -u origin broll-treatment-rules`. After that `./sync.sh` is safe to use.
+The branch `broll-treatment-rules` is pushed (2026-11-04) but not merged to `main`. `gh` lives in `~/.local/bin` (not on the
+terminal PATH) and is logged in. `./sync.sh` is safe to use now.
 
 Left out of the repo on purpose (large or machine-specific): `broll/node_modules/` (`cd broll && npm install`),
 `tools/ffmpeg/`, `tools/node/`, `tools/bin/` (install ffmpeg and Node yourself on a new machine: `brew install ffmpeg

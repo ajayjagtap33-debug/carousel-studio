@@ -15,10 +15,10 @@ This one was built with APFS clones, so it cost almost no disk space (the volume
 
 - It is the company's `.git` (branch `broll-treatment-rules`, ahead of `origin/broll-treatment-rules`; `origin/main` is
   `5057d24`, the merge of PR #1, which does **not** contain the company's 14 commits).
-- Everything is **committed locally, nothing pushed**: `6415f9c` is the merge (592 files; it also carries the company's own
-  uncommitted work, which couldn't be separated), then a docs fix, then `d42ad60` adds the remaining folders (`reel-creator/reference`
-  incl. other creators' reels, `reel-creator/reels`, two 2026-10/11 carousels; ~840 MB). `git status` is clean.
-- **Push is pending**: this Mac has no GitHub login. Run `gh auth login`, then `git push -u origin broll-treatment-rules`.
+- Everything is **committed and pushed** to `origin/broll-treatment-rules` (2026-11-04), not yet merged to `main`. `6415f9c` is the
+  merge (592 files; it also carries the company's own uncommitted work, which couldn't be separated), `d42ad60` adds the remaining
+  folders (`reel-creator/reference` incl. other creators' reels, `reel-creator/reels`, two carousels; ~840 MB), the rest are doc fixes.
+  `git status` is clean. `gh` is at `~/.local/bin/gh` (not on the terminal PATH) and is logged in as `ajayjagtap33-debug`.
 - Line endings are LF (the company copy was CRLF; its committed blobs are LF, so `git diff` is clean of that noise).
   `sync.ps1` keeps CRLF on purpose (`.gitattributes`).
 - The repo's own config had Windows settings (`filemode=false`, `ignorecase=true`); they are now `true` / `false`.
@@ -100,8 +100,8 @@ against the newer base a naive merge would have silently deleted the company's l
 
 ## Open questions for Ajay
 
-1. **Push** the branch (see State) and open a PR to `main`. The ~840 MB of reference/reel files is in the push (your call); to keep other
-   creators' reels out of GitHub, remove `reel-creator/reference/01_videos` from the commit before pushing.
+1. **Open a PR to `main`** from `broll-treatment-rules` (not opened yet). The push includes ~840 MB of reference/reel files, including
+   other creators' reels in `reel-creator/reference/01_videos`.
 2. ~~Untracked folders~~: committed.
 3. **Name and index**: the folder is `~/Claude/creator-studio`. `~/Claude/CLAUDE.md` still lists `carousel-studio/` as the project;
    I didn't edit it. Point it here once you're happy, or rename this folder back to `carousel-studio` after archiving the old one.
