@@ -10,6 +10,8 @@ import { AbsoluteFill, Audio, Img, OffthreadVideo, Sequence, continueRender, del
 import { Enter, SHADOW, THEMES, ThemeCtx, clamp01, ramp, useC, useIn, useNow } from "../studio/kit";
 import { SCENES, type SScene } from "../studio/scenes";
 import { REEL_SCENES } from "./scenes-reel";
+import { REEL_UI_SCENES } from "./scenes-reel-ui";
+import { REEL_3D_SCENES } from "./scenes-reel-3d";
 import sauce from "../fonts/OpenSauceSans-Medium.ttf";
 
 export const W = 1080, H = 1920;
@@ -27,7 +29,8 @@ type Caption = { text: string; at: number; gap?: number; times?: number[]; end?:
 export type ReelFrame = {
   name: string; dur: number; still: number;
   start?: number;                         // in a real reel: the beat's start in cut time (the frame runs on cut time)
-  layout: "split" | "full" | "board" | "type" | "card";
+  layout: "split" | "full" | "board" | "type" | "card" | "dark";
+  bgCopy?: boolean;                       // dark: the scene, blown up and blurred, as its own background (Nick's DARK)
   him?: Him;
   scene?: SScene; from?: number;          // a studio scene, played from scene time `from` (default start − 0.3)
   stage?: { y?: number; scale?: number }; // stage centre and scale (defaults per layout)
@@ -97,7 +100,7 @@ const HimFull: React.FC<{ h: Him; from: number }> = ({ h, from }) => {
 
 /** A studio scene, drawn in a 960×1080 box and scaled into the reel. */
 const Stage: React.FC<{ s: SScene; cy: number; scale: number }> = ({ s, cy, scale }) => {
-  const View = REEL_SCENES[s.type] ?? SCENES[s.type];
+  const View = REEL_UI_SCENES[s.type] ?? REEL_3D_SCENES[s.type] ?? REEL_SCENES[s.type] ?? SCENES[s.type];
   return (
     <div style={{ position: "absolute", left: 60, width: 960, top: cy - 540, height: 1080, transform: `scale(${scale})` }}>
       {View ? <View s={s} box={{ x: 60, w: 960 }} face={{ x: 0.5, y: 0.35 }} /> : <div style={{ color: "red", fontSize: 40 }}>unknown scene: {s.type}</div>}
@@ -297,8 +300,8 @@ const Guides: React.FC = () => (
   </>
 );
 
-const CAPTION_Y = { split: 990, full: 1300, board: 1440, type: 1440, card: 1440 } as const;
-const STAGE = { split: { y: 600, scale: 0.9 }, board: { y: 830, scale: 1.05 }, card: { y: 1080, scale: 1 }, full: { y: 800, scale: 1 }, type: { y: 800, scale: 1 } };
+const CAPTION_Y = { split: 990, full: 1300, board: 1440, type: 1440, card: 1440, dark: 1430 } as const;
+const STAGE = { split: { y: 600, scale: 0.9 }, board: { y: 830, scale: 1.05 }, card: { y: 1080, scale: 1 }, dark: { y: 800, scale: 1 }, full: { y: 800, scale: 1 }, type: { y: 800, scale: 1 } };
 
 const Frame: React.FC<{ f: ReelFrame }> = ({ f }) => {
   const C = useC();
@@ -306,8 +309,18 @@ const Frame: React.FC<{ f: ReelFrame }> = ({ f }) => {
   const stage = { ...STAGE[f.layout], ...(f.title ? { y: 700, scale: 0.72 } : {}), ...f.stage };
   const from = f.scene ? (f.from ?? f.scene.start - 0.3) : 0;
   return (
-    <AbsoluteFill style={{ background: C.border }}>
-      <div style={{ position: "absolute", inset: 14, borderRadius: 20, background: C.page }} />
+    <AbsoluteFill style={{ background: f.layout === "dark" ? C.dark : C.border }}>
+      {f.layout === "dark" ? (
+        // DARK: no person; the card over a blurred, darkened, blown-up copy of itself (Nick's dark layout)
+        f.scene && f.bgCopy !== false ? (
+          <Sequence from={-Math.round(from * fps)} layout="none">
+            <div style={{ position: "absolute", inset: 0, filter: "blur(44px) brightness(0.38) saturate(1.25)", transform: "scale(1.9)", transformOrigin: `50% ${stage.y}px` }}>
+              <Stage s={f.scene} cy={stage.y} scale={stage.scale} />
+            </div>
+            <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 50% 42%, rgba(0,0,0,0) 30%, rgba(0,0,0,0.55) 100%)" }} />
+          </Sequence>
+        ) : <div style={{ position: "absolute", inset: 0, background: `radial-gradient(ellipse at 50% 40%, #23262E 0%, ${C.dark} 70%)` }} />
+      ) : <div style={{ position: "absolute", inset: 14, borderRadius: 20, background: C.page }} />}
       {f.scene && (
         <Sequence from={-Math.round(from * fps)} layout="none">
           <Stage s={f.scene} cy={stage.y} scale={stage.scale} />

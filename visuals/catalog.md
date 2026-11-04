@@ -5,7 +5,9 @@ Plan a beat by its meaning first, then pick from **built**; if nothing built fit
 back to `trio` / `words` / `type`.
 
 - **built** = scene types in the renderer: `SCENES` (`broll/src/studio/scenes.tsx`), `IDEA_SCENES`
-  (`scenes-idea.tsx`), `REEL_SCENES` (`broll/src/reel/scenes-reel.tsx`). Reels draw every studio scene too.
+  (`scenes-idea.tsx`), `REEL_SCENES` (`broll/src/reel/scenes-reel.tsx`), `REEL_UI_SCENES` (`scenes-reel-ui.tsx`: real
+  pages and rebuilt app UI) and `REEL_3D_SCENES` (`scenes-reel-3d.tsx`, three.js). Reels draw every studio scene too,
+  but reel b-roll is real UI / screenshots / 3D, not the box scenes (Ajay, 2026-11-04).
 - **not built yet** = seen in a reference, with where, and the name it gets when built (bold). Build from this column.
 - `visuals/preview/<scene>.png` shows the end state of the scenes built since 2026-10-31.
 - `python scripts/scenes.py ledger` checks this table against the renderer and against what past videos used
@@ -22,10 +24,10 @@ Build order, test scenarios and the sketch (Excalidraw) mode: `visuals/plan.md`.
 
 | meaning | the sentence sounds like | built | not built yet: **proposed name** (source) |
 |---|---|---|---|
-| section title | "step two", "the first thing", "so here's the plan" | `flap` `type` `spine` | **sectionmap** 3 cards, the active one outlined, returning at each section (NS 5) · white "Number one" card (RL 01) · word smear in with motion blur (NC) |
+| section title | "step two", "the first thing", "so here's the plan" | `flap` `type` `spine` `iconreveal` | **sectionmap** 3 cards, the active one outlined, returning at each section (NS 5) · white "Number one" card (RL 01) · word smear in with motion blur (NC) |
 | the key line | the sentence the video exists for | `type` `words` | `type` variant **crop**: one word oversized and cropped by the frame edge (AY) · small line over a big accent word (RL 18–33) |
-| proof of real work | "here's what I made", "this is the actual sheet" | `shot` `gallery` `sheet` `article` | source card that zooms into its page (NS 7) · README with the line highlighted (RL 01) |
-| a number | "1,200 people", "in 2027", "three times" | `count` `odometer` `places` | **stopwatch** the number inside an object, then branching (VM V14) · **icons** a row of N icons, "35 books' worth" (SB 3:00) · **repo** a repo card with a rolling star count (RL 19–33) |
+| proof of real work | "here's what I made", "this is the actual sheet" | `shot` `gallery` `sheet` `article` `webcard` | source card that zooms into its page (NS 7) · README with the line highlighted (RL 01) |
+| a number | "1,200 people", "in 2027", "three times" | `count` `odometer` `places` `orbit3d` | **stopwatch** the number inside an object, then branching (VM V14) · **icons** a row of N icons, "35 books' worth" (SB 3:00) · **repo** a repo card with a rolling star count (RL 19–33) |
 | arithmetic | "2 hours × 4 videos is a whole day" | — | **equation** tiles joined by × and =, or A ≠ B with an icon under each (NS 11, VM V9) |
 | a share / proportion | "17%", "most of them", "one in five" | `places` | **waffle** 100 squares, N fill on the word (NR) · **squares** two squares sized to the split, 85/15 (NR) · **donut** (NR) |
 | sizes compared | "ten times longer", "it never stops growing" | `lengths` | — |
@@ -60,8 +62,8 @@ Build order, test scenarios and the sketch (Excalidraw) mode: `visuals/plan.md`.
 | it runs on its own | "it runs every morning", "while you sleep" | — | **schedule** a clock, run icons ticking in a row (SB 5:40) |
 | what it's made of | "it comes down to four things", "skills" | `radar` `marks` | **conceptmap** a person or brand in the middle, parts branching out (NS 20) · room that furnishes itself (NC, 3D, later) · layers with cubes passing through (NR, 3D, later) |
 | a plan / outline | "here's the list", "we've done two of five" | `spine` `marks` | **sectionmap** (NS 5) |
-| the app it happens in | "you get a call", "you search for…" | `phone` `chat` `search` `ad` `answer` | `phone` modes **thread** (iMessage), **notify** (a feed of notifications), **bank** (a balance) (NR) · **inbox** an email list, one opens (NR) · **dashboard** KPI tiles and a line updating (NR) · **terminal** a command typing, a table printing (RL 01, NC, SB 0:45) · **map** pins dropping with a counter (RL 01) |
-| AI does the work | "it runs while you sleep", "the agent writes…" | `chat` `answer` `pipeline` | **todo** a meeting grid turning into a to-do list (NC) · **terminal** · **schedule** |
+| the app it happens in | "you get a call", "you search for…" | `phone` `chat` `search` `ad` `answer` `appwindow` `dm` `phone3d` | `phone` modes **thread** (iMessage), **notify** (a feed of notifications), **bank** (a balance) (NR) · **inbox** an email list, one opens (NR) · **dashboard** KPI tiles and a line updating (NR) · **terminal** a command typing, a table printing (RL 01, NC, SB 0:45) · **map** pins dropping with a counter (RL 01) |
+| AI does the work | "it runs while you sleep", "the agent writes…" | `chat` `answer` `pipeline` `appwindow` `promptcard` `orbit3d` | **todo** a meeting grid turning into a to-do list (NC) · **terminal** · **schedule** |
 | money / cost | "it cost me…", "$12k a month" | `receipt` `count` | `phone` **bank** (NR) · `count` + logos landing (NC) · **equation** |
 | who you are / credentials | "on your CV", "what people know you for" | `resume` | **dictionary** (NR) |
 | reach / being found | "it turns up everywhere", "people find you" | `search` `places` `phone` | **map** (RL 01) · **spotlight** (VM V15) |

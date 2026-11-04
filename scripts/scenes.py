@@ -20,6 +20,8 @@ REGISTRIES = [  # (file, exported Record) that make up the menu
     (ROOT / "broll/src/studio/scenes-idea.tsx", "IDEA_SCENES"),
     (ROOT / "broll/src/studio/scenes-explain.tsx", "EXPLAIN_SCENES"),
     (ROOT / "broll/src/reel/scenes-reel.tsx", "REEL_SCENES"),
+    (ROOT / "broll/src/reel/scenes-reel-ui.tsx", "REEL_UI_SCENES"),
+    (ROOT / "broll/src/reel/scenes-reel-3d.tsx", "REEL_3D_SCENES"),
 ]
 LEGACY = (ROOT / "reel-creator/engine/src/scenes.tsx", "SCENES")  # the archived reel engine: known, not on the menu
 STUDIO_GLOB = "videos/*/studio"
